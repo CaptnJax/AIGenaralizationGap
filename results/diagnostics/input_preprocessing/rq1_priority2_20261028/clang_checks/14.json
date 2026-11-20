@@ -1,0 +1,6 @@
+{
+  "sample_id": "primevul:233837",
+  "dataset": "primevul_test",
+  "source_language": null,
+  "code": "void fmtutil_read_iff_format(deark *c, struct de_iffctx *ictx,\n\ti64 pos, i64 len)\n{\n\tif(!ictx->f || !ictx->handle_chunk_fn) return; // Internal error\n\n\tictx->level = 0;\n\tfourcc_clear(&ictx->main_fmt4cc);\n\tfourcc_clear(&ictx->main_contentstype4cc);\n\tfourcc_clear(&ictx->curr_container_fmt4cc);\n\tfourcc_clear(&ictx->curr_container_contentstype4cc);\n\tif(ictx->alignment==0) {\n\t\tictx->alignment = 2;\n\t}\n\tif(ictx->sizeof_len==0) {\n\t\tictx->sizeof_len = 4;\n\t}\n\n\tif(ictx->input_encoding==DE_ENCODING_UNKNOWN) {\n\t\tictx->input_encoding = DE_ENCODING_ASCII;\n\t}\n\n\tdo_iff_chunk_sequence(c, ictx, pos, len, 0);\n}"
+}

@@ -1,0 +1,25 @@
+{
+  "documented_procedure": {
+    "linevul": "checkpoint-best-f1 saved when evaluation/validation F1 improves; published command supplies separate train/eval/test files",
+    "vulberta": "Devign train.txt for fitting; valid.txt for evaluation; load_best_model_at_end=True; separate evaluation notebook uses test.txt"
+  },
+  "qualification": "Documentation evidence, not actual checkpoint-run attestation. The author OneDrive data/model bundle was not byte-verified. The converted checkpoint names CodeXGLUE Devign; official CodeXGLUE data/splits were used. No control scores selected a checkpoint here.",
+  "notebooks": [
+    {
+      "file": "localScripts/results/rq1_priority1_20261028_verified/reference_sources/vulberta_finetuning.ipynb",
+      "sha256": "c8c057b360ba1c8602ba3782643f21ba92a1bbf7d4c7aa20418d892412dd47ce",
+      "relevant_cells": [
+        "if mydataset =='devign':\n    train_index=set()\n    valid_index=set()\n\n    with open('data/finetune/devign/train.txt') as f:\n        for line in f:\n            line=line.strip()\n            train_index.add(int(line))\n\n    with open('data/finetune/devign/valid.txt') as f:\n        for line in f:\n            line=line.strip()\n            valid_index.add(int(line))\n    mydata = pd.read_json('data/finetune/devign/Devign.json')\n    m1=mydata.iloc[list(train_index)]\n    m2=mydata.iloc[list(valid_index)]\n\n    mydata = None\n    del(mydata)\n    m1.func = m1.func.apply(cleaner)\n    m2.func = m2.func.apply(cleaner)\n    \n    train_encodings = my_tokenizer.encode_batch(m1.func)\n    train_encodings = process_encodings(train_encodings)\n    \n    val_encodings = my_tokenizer.encode_batch(m2.func)\n    val_encodings = process_encodings(val_encodings)\n    \nelse:\n    m1 = pd.read_pickle('data/finetune/%s/%s_train.pkl'%(mydataset,mydataset))\n    m2 = pd.read_pickle('data/finetune/%s/%s_val.pkl'%(mydataset,mydataset))\n    \n    try:\n        m1.functionSource = m1.functionSource.apply(cleaner)\n        m2.functionSource = m2.functionSource.apply(cleaner)\n        \n        if mydataset =='draper':\n            m1['target'] = m1['combine']*1\n            m2['target'] = m2['combine']*1\n        \n        train_encodings = my_tokenizer.encode_batch(m1.functionSource)\n        train_encodings = process_encodings(train_encodings)\n\n        val_encodings = my_tokenizer.encode_batch(m2.functionSource)\n        val_encodings = process_encodings(val_encodings)\n        \n    except:\n        m1.func = m1.func.apply(cleaner)\n        m2.func = m2.func.apply(cleaner)\n        \n        train_encodings = my_tokenizer.encode_batch(m1.func)\n        train_encodings = process_encodings(train_encodings)\n\n        val_encodings = my_tokenizer.encode_batch(m2.func)\n        val_encodings = process_encodings(val_encodings)\n",
+        "training_args = TrainingArguments(\n        output_dir=\"models/VB-MLP_%s\" % mydataset,\n        overwrite_output_dir=False,\n        per_device_train_batch_size=4,\n        num_train_epochs=10,\n        evaluation_strategy='epoch',\n        save_total_limit=20,\n        seed=seed,\n        learning_rate=3e-05,\n        fp16=True,\n        report_to=None,\n        load_best_model_at_end =True\n)",
+        "trainer = MyTrainer(\n        model=model,\n        args=training_args,\n        train_dataset=train_dataset,\n        eval_dataset=val_dataset \n)"
+      ]
+    },
+    {
+      "file": "localScripts/results/rq1_priority1_20261028_verified/reference_sources/vulberta_evaluation.ipynb",
+      "sha256": "d88d3e855d542eb59dfcffd72dff35462f93278acee3422915d8346986372408",
+      "relevant_cells": [
+        "if mydataset=='devign':\n    test_index=set()\n\n    with open('data/finetune/devign/test.txt') as f:\n        for line in f:\n            line=line.strip()\n            test_index.add(int(line))\n    mydata = pd.read_json('data/finetune/devign/Devign.json')\n    m3=mydata.iloc[list(test_index)]\n\n    mydata = None\n    del(mydata)\n    m3.func = m3.func.apply(cleaner)\n\n    test_encodings = my_tokenizer.encode_batch(m3.func)\n    test_encodings = process_encodings(test_encodings)\n    test_dataset = MyCustomDataset(test_encodings, m3.target.tolist())\nelse:\n    m3 = pd.read_pickle('data/finetune/%s/%s_test.pkl'%(mydataset,mydataset))\n    \n    \n    try:\n        m3.functionSource = m3.functionSource.apply(cleaner)\n        test_encodings = my_tokenizer.encode_batch(m3.functionSource)\n        test_encodings = process_encodings(test_encodings)\n        \n        if  mydataset =='draper':\n            test_dataset = MyCustomDataset(test_encodings, (m3['combine']*1).tolist())\n        else:\n            test_dataset = MyCustomDataset(test_encodings, m3.label.tolist())\n    except:\n        m3.func = m3.func.apply(cleaner)\n        test_encodings = my_tokenizer.encode_batch(m3.func)\n        test_encodings = process_encodings(test_encodings)\n        test_dataset = MyCustomDataset(test_encodings, m3.label.tolist())"
+      ]
+    }
+  ]
+}

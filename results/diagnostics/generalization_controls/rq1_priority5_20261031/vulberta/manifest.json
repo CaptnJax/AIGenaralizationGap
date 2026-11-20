@@ -1,0 +1,36 @@
+{
+  "status": "pass",
+  "dataset": "devign_test",
+  "rows": 2732,
+  "signature": {
+    "script": "9ce4b2a85015c06c4180c4fb795fd91ee4353affa8c395c274d3833cb62756f7",
+    "checkpoint": "cb46ffad38b612d03741ecd4a5359c6fa7d560ebaa81baf982d17f5344f97913",
+    "input_manifest": "850ff91693360c6844d1b833e32d757b7e76c94ab88a19af94e42a8e4d3da9de",
+    "model": "vulberta",
+    "seed": 42,
+    "batch_size": 16,
+    "device": "cuda",
+    "versions": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.57.1",
+      "tokenizers": "0.22.1",
+      "libclang": "18.1.1"
+    }
+  },
+  "predictions_sha256": "8705079e733f3f72f74011c0e1b76c2def2fcd3e01034205cb066f9e76b7d71e",
+  "parity_rows": 64,
+  "max_parity_delta": 0.0,
+  "measured": {
+    "confusion_matrix": {
+      "tn": 1131,
+      "fp": 346,
+      "fn": 617,
+      "tp": 638
+    },
+    "test_accuracy": 0.6475109809663251,
+    "test_precision": 0.6483739837398373,
+    "test_recall": 0.5083665338645418,
+    "test_f1": 0.5698972755694507,
+    "precision_defined": true
+  }
+}

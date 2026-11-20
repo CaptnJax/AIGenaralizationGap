@@ -1,0 +1,6 @@
+{
+  "sample_id": "bigvul-source:14790",
+  "dataset": "bigvul_test_sample_2000",
+  "source_language": "C",
+  "code": "  void ApplyEdits(BookmarkEditorView::EditorNode* node) {\n    editor_->ApplyEdits(node);\n  }\n"
+}

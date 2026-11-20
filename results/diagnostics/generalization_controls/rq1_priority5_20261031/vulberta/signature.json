@@ -1,0 +1,15 @@
+{
+  "script": "9ce4b2a85015c06c4180c4fb795fd91ee4353affa8c395c274d3833cb62756f7",
+  "checkpoint": "cb46ffad38b612d03741ecd4a5359c6fa7d560ebaa81baf982d17f5344f97913",
+  "input_manifest": "850ff91693360c6844d1b833e32d757b7e76c94ab88a19af94e42a8e4d3da9de",
+  "model": "vulberta",
+  "seed": 42,
+  "batch_size": 16,
+  "device": "cuda",
+  "versions": {
+    "torch": "2.7.1+cu128",
+    "transformers": "4.57.1",
+    "tokenizers": "0.22.1",
+    "libclang": "18.1.1"
+  }
+}

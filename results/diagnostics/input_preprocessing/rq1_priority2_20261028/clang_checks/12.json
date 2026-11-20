@@ -1,0 +1,6 @@
+{
+  "sample_id": "primevul:238378",
+  "dataset": "primevul_test",
+  "source_language": null,
+  "code": "njs_function_frame_alloc(njs_vm_t *vm, size_t size)\n{\n    size_t              spare_size, chunk_size;\n    njs_native_frame_t  *frame;\n\n    spare_size = vm->top_frame ? vm->top_frame->free_size : 0;\n\n    if (njs_fast_path(size <= spare_size)) {\n        frame = (njs_native_frame_t *) vm->top_frame->free;\n        chunk_size = 0;\n\n    } else {\n        spare_size = size + NJS_FRAME_SPARE_SIZE;\n        spare_size = njs_align_size(spare_size, NJS_FRAME_SPARE_SIZE);\n\n        if (vm->stack_size + spare_size > NJS_MAX_STACK_SIZE) {\n            njs_range_error(vm, \"Maximum call stack size exceeded\");\n            return NULL;\n        }\n\n        frame = njs_mp_align(vm->mem_pool, sizeof(njs_value_t), spare_size);\n        if (njs_slow_path(frame == NULL)) {\n            njs_memory_error(vm);\n            return NULL;\n        }\n\n        chunk_size = spare_size;\n        vm->stack_size += spare_size;\n    }\n\n    njs_memzero(frame, sizeof(njs_native_frame_t));\n\n    frame->size = chunk_size;\n    frame->free_size = spare_size - size;\n    frame->free = (u_char *) frame + size;\n\n    frame->previous = vm->top_frame;\n    vm->top_frame = frame;\n\n    return frame;\n}"
+}

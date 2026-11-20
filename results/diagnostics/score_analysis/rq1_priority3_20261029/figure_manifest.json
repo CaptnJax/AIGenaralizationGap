@@ -1,0 +1,45 @@
+{
+  "script_sha256": "a307151612346b4b4709dc87d2ea1c02f73334c4f27cfab4f9cc17c931077d24",
+  "artifacts": [
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/ranking.png",
+      "sha256": "b5fe2bd05a67ace8c9aabaf1e6926815f6570c40c38991530dd2da38fa29e5e7"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/ranking.pdf",
+      "sha256": "459c5f580b58717ff1ee506decc832861c3c00de6e094f9fcae88b52cea01e0d"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/score_distributions.png",
+      "sha256": "0901d93457d92fe3024cdbf8443b25bdd5da304be5de973abe980c93eb5ebe57"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/score_distributions.pdf",
+      "sha256": "3d6cbb03f5311d46a831371a844eb1cd697b6b536f38ef3b9db03724278d00af"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/threshold_prevalence.png",
+      "sha256": "3c8d72bacef3a4bbfe776311b987ddc332982cf6d7741f683d8fdb5159d9681f"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/threshold_prevalence.pdf",
+      "sha256": "57d4355c8621326f963d8effc69c4d3bdb6d7fcdf90a5717214c837e71ed2887"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/reliability.png",
+      "sha256": "58023ee13722a81ec094a221b1740798743a8dd1e540242b335a84829ce66923"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/reliability.pdf",
+      "sha256": "f6d2de5c4988bfd82e042d052ee1c6637c10f3e395445d4bcfcbeb62564b84c1"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/cweval_pairs.png",
+      "sha256": "c5b7752ed56c029ed9f10fbf221751d3c7260fee5163192a17acdfc0b63c4f52"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_figures/cweval_pairs.pdf",
+      "sha256": "a7414bdd526c6fe6fd9ad74daf9d64446b03318c2f49a6c494645fe3ef22c6b0"
+    }
+  ]
+}

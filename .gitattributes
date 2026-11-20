@@ -1,2 +1,12 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+datasets/raw/BigVul/bigvul_train.csv.gz filter=lfs diff=lfs merge=lfs -text
+datasets/raw/BigVul/bigvul_valid.csv filter=lfs diff=lfs merge=lfs -text
+datasets/raw/DevGPT/snapshot_20240514/20240513_160734_pr_sharings.json filter=lfs diff=lfs merge=lfs -text
+datasets/raw/DevGPT/snapshot_20240514/20240513_202333_issue_sharings.json filter=lfs diff=lfs merge=lfs -text
+datasets/raw/DevGPT/snapshot_20240514/20240513_213050_commit_sharings.json filter=lfs diff=lfs merge=lfs -text
+datasets/raw/DevGPT/snapshot_20240514/20240515_002357_hn_sharings.json filter=lfs diff=lfs merge=lfs -text
+results/diagnostics/generalization_controls/rq1_priority5_20261031/joined_evaluation.jsonl filter=lfs diff=lfs merge=lfs -text
+datasets/raw/BigVul/bigvul_test.csv filter=lfs diff=lfs merge=lfs -text
+datasets/raw/DevGPT/snapshot_20240514/20240513_230924_file_sharings.json filter=lfs diff=lfs merge=lfs -text
+results/diagnostics/generalization_controls/rq1_priority5_20261031/profiles/bigvul_train.jsonl filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,6 @@
+{
+  "sample_id": "llmvul:ID_5EDBA527E1A6AABA",
+  "dataset": "llmvul_test",
+  "source_language": "cpp",
+  "code": "size_t MysqlRequest::ByteSizeLong() const {\n    int total_size = _buf.size();\n    _cached_size_ = total_size;\n    return total_size;\n}"
+}

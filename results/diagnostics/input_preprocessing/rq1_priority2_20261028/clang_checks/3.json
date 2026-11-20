@@ -1,0 +1,4 @@
+{
+  "sample_id": "fixture:macro",
+  "code": "#define VALUE 2\nint f(){ return VALUE; }"
+}

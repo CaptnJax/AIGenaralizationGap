@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-29",
+  "review_type": "Illustrative static input-context review by the diagnostic assistant; not independent label adjudication or security-test execution",
+  "selection_file": "context_review_selection.json",
+  "limitations": "Nine error-enriched examples cannot estimate dataset label-error or missing-context rates. External call/type references identify information absent from the supplied text, not proof that the model error was caused by that absence.",
+  "cases": [
+    {
+      "sample_id": "primevul:197305",
+      "finding": "The complete retained RPSI parser contains length/padding arithmetic and buffer reads. PJ_ASSERT_RETURN, pj_strset, protocol structures, and caller guarantees are not defined in the supplied function. The source CVE description refers to direct use of this parser. The relevant arithmetic is visible; exact protocol and memory-safety reasoning needs those contracts.",
+      "label_judgment": "not adjudicated"
+    },
+    {
+      "sample_id": "primevul:195399",
+      "finding": "graph.GetNode returns input_node, immediately dereferenced in IsSwitch(*input_node), with no local null check. The retained source CVE description specifically says missing GraphDef nodes can make this pointer null. The suspicious operation survives preprocessing; GetNode's return contract and graph construction are absent. This example is not explained by truncation or confirmed cleaning damage.",
+      "label_judgment": "source description corroborates a visible risk; patch/test not independently checked"
+    },
+    {
+      "sample_id": "primevul:204138",
+      "finding": "The retained QEMU write_response function accesses ESPState, FIFO helpers, callbacks, and interrupt helpers. State initialization, callback implementations, and the exploit-triggering sequence are absent. The CVE description identifies a SCSI null dereference but does not localize it to a supplied line, so no exact vulnerability span is asserted.",
+      "label_judgment": "insufficient local evidence for exact flaw localization"
+    },
+    {
+      "sample_id": "llmvul:ID_46D8AE673E2768F6",
+      "finding": "coff_fail_const calls bounded vsnprintf. The definition of coff_object_t is absent, so whether error is an array or pointer and its capacity cannot be established. Caller control of format and mutability of the object are also unknown. An API occurrence alone does not validate the automated CWE-676 label.",
+      "label_judgment": "not adjudicated"
+    },
+    {
+      "sample_id": "llmvul:ID_89BF7580AD6ED9B7",
+      "finding": "mbedtls_x25519_make_public visibly checks blen against a macro-derived required size before writing buf and invoking the scalar-multiplication helper. The macro value, helper's write contract, and caller-provided buffer/olen validity are absent. The automated CWE-787 label cannot be validated solely from this supplied function.",
+      "label_judgment": "not adjudicated"
+    },
+    {
+      "sample_id": "llmvul:ID_176FE7F8EEAE498A",
+      "finding": "mf_plus_str_to_bytes checks len through furi_check and copies len bytes to out. furi_check semantics, MF_PLUS_SIGNATURE_SIZE, the caller's output capacity, and guarantees about len being nonzero are absent. The copy and length checks are fully retained; missing contracts remain a plausible obstacle to interpreting the CWE-120 label.",
+      "label_judgment": "not adjudicated"
+    },
+    {
+      "sample_id": "cweval:cwe_327_0_c:y_negative",
+      "finding": "The retained hash_certificate function explicitly calls MD5. Its use of that hash is visible, while the application's cryptographic security requirements reside in the benchmark task context. No project-local helper dependency was flagged by the prior static dependency audit.",
+      "label_judgment": "benchmark label retained; tests not executed"
+    },
+    {
+      "sample_id": "cweval:cwe_078_0_cpp:y_negative",
+      "finding": "The full function concatenates dir_path into a shell command passed to popen without local escaping or validation. This is a visible input-to-shell path that both models miss at the fixed threshold; neither truncation nor confirmed cleaning damage removes it. Whether dir_path is attacker-controlled is a caller/task assumption.",
+      "label_judgment": "visible risk consistent with specified CWE; tests not executed"
+    },
+    {
+      "sample_id": "cweval:cwe_918_1_c:y_negative",
+      "finding": "The full function constructs an API URL without restricting api_url. It does not itself make a network request, so the SSRF interpretation depends on how the caller uses the returned URL and the benchmark task contract. The complete construction survives both input pipelines.",
+      "label_judgment": "benchmark label retained; surrounding task/caller behavior needed"
+    }
+  ]
+}

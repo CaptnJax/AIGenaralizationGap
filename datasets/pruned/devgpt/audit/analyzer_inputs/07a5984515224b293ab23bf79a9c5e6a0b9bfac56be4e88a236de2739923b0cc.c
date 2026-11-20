@@ -1,0 +1,44 @@
+int main(int argc, char *argv[]) {
+    if (argc < 3) {
+        printf("Uso: %s <N> <imprimir>\n", argv[0]);
+        printf("Donde: <N> es el tamaño de la matriz y <imprimir> es 1 para imprimir la matriz resultante, 0 para no hacerlo.\n");
+        return 1;
+    }
+    int N = atoi(argv[1]);
+    int imprimir = atoi(argv[2]);
+    int **A = (int **)malloc(N * sizeof(int *));
+    int **B = (int **)malloc(N * sizeof(int *));
+    int **C = (int **)malloc(N * sizeof(int *));
+    for (int i = 0; i < N; i++) {
+        A[i] = (int *)malloc(N * sizeof(int));
+        B[i] = (int *)malloc(N * sizeof(int));
+        C[i] = (int *)calloc(N, sizeof(int));
+    }
+    srand(time(NULL));
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            A[i][j] = rand() % 100;
+            B[i][j] = rand() % 100;
+        }
+    }
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            for (int k = 0; k < N; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+    if (imprimir) {
+        printf("Matriz resultante C (A*B):\n");
+        printMatrix(C, N);
+    }
+    for (int i = 0; i < N; i++) {
+        free(A[i]);
+        free(B[i]);
+        free(C[i]);
+    }
+    free(A);
+    free(B);
+    free(C);
+    return 0;
+}

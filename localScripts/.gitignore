@@ -1,0 +1,6 @@
+.venv/
+.venv-rq2/
+.cache/
+results/
+training_results/
+__pycache__/

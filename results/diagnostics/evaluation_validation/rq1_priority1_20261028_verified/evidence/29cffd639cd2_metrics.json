@@ -1,0 +1,14 @@
+{
+  "rows": 24788,
+  "test_threshold": 0.5,
+  "test_accuracy": 0.9165321929966113,
+  "test_precision": 0.0676905574516496,
+  "test_recall": 0.2167577413479053,
+  "test_f1": 0.10316428261811877,
+  "confusion_matrix": {
+    "tn": 22600,
+    "fp": 1639,
+    "fn": 430,
+    "tp": 119
+  }
+}

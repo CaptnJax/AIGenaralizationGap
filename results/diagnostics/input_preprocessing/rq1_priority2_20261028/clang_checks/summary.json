@@ -1,0 +1,694 @@
+{
+  "rows": 36,
+  "timeouts": 0,
+  "errors": 0,
+  "discrepancies": 0,
+  "results": [
+    {
+      "input": "0.json",
+      "status": "complete",
+      "sample_id": "fixture:body",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true,
+        "body_retained": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 14,
+        "('raw', 'c', False)": 14,
+        "('raw', 'cpp', True)": 14,
+        "('cleaned', 'c', True)": 14,
+        "('cleaned', 'c', False)": 14,
+        "('cleaned', 'cpp', True)": 14
+      }
+    },
+    {
+      "input": "1.json",
+      "status": "complete",
+      "sample_id": "fixture:cpp",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 24,
+        "('raw', 'c', False)": 24,
+        "('raw', 'cpp', True)": 24,
+        "('cleaned', 'c', True)": 24,
+        "('cleaned', 'c', False)": 24,
+        "('cleaned', 'cpp', True)": 24
+      }
+    },
+    {
+      "input": "2.json",
+      "status": "complete",
+      "sample_id": "fixture:literal",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 11,
+        "('raw', 'c', False)": 11,
+        "('raw', 'cpp', True)": 11,
+        "('cleaned', 'c', True)": 9,
+        "('cleaned', 'c', False)": 9,
+        "('cleaned', 'cpp', True)": 9
+      }
+    },
+    {
+      "input": "3.json",
+      "status": "complete",
+      "sample_id": "fixture:macro",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 13,
+        "('raw', 'c', False)": 13,
+        "('raw', 'cpp', True)": 13,
+        "('cleaned', 'c', True)": 12,
+        "('cleaned', 'c', False)": 12,
+        "('cleaned', 'cpp', True)": 12
+      }
+    },
+    {
+      "input": "4.json",
+      "status": "complete",
+      "sample_id": "bigvul-source:12798",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 23,
+        "('raw', 'c', False)": 23,
+        "('raw', 'cpp', True)": 23,
+        "('cleaned', 'c', True)": 23,
+        "('cleaned', 'c', False)": 23,
+        "('cleaned', 'cpp', True)": 23
+      }
+    },
+    {
+      "input": "5.json",
+      "status": "complete",
+      "sample_id": "bigvul-source:2461",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 14,
+        "('raw', 'c', False)": 14,
+        "('raw', 'cpp', True)": 14,
+        "('cleaned', 'c', True)": 14,
+        "('cleaned', 'c', False)": 14,
+        "('cleaned', 'cpp', True)": 14
+      }
+    },
+    {
+      "input": "6.json",
+      "status": "complete",
+      "sample_id": "bigvul-source:485",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 295,
+        "('raw', 'c', False)": 295,
+        "('raw', 'cpp', True)": 295,
+        "('cleaned', 'c', True)": 295,
+        "('cleaned', 'c', False)": 295,
+        "('cleaned', 'cpp', True)": 295
+      }
+    },
+    {
+      "input": "7.json",
+      "status": "complete",
+      "sample_id": "bigvul-source:14790",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 18,
+        "('raw', 'c', False)": 18,
+        "('raw', 'cpp', True)": 18,
+        "('cleaned', 'c', True)": 18,
+        "('cleaned', 'c', False)": 18,
+        "('cleaned', 'cpp', True)": 18
+      }
+    },
+    {
+      "input": "8.json",
+      "status": "complete",
+      "sample_id": "bigvul-source:5833",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 326,
+        "('raw', 'c', False)": 326,
+        "('raw', 'cpp', True)": 326,
+        "('cleaned', 'c', True)": 326,
+        "('cleaned', 'c', False)": 326,
+        "('cleaned', 'cpp', True)": 326
+      }
+    },
+    {
+      "input": "9.json",
+      "status": "complete",
+      "sample_id": "bigvul-source:5541",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 25,
+        "('raw', 'c', False)": 25,
+        "('raw', 'cpp', True)": 25,
+        "('cleaned', 'c', True)": 25,
+        "('cleaned', 'c', False)": 25,
+        "('cleaned', 'cpp', True)": 25
+      }
+    },
+    {
+      "input": "10.json",
+      "status": "complete",
+      "sample_id": "bigvul-source:3268",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 19,
+        "('raw', 'c', False)": 19,
+        "('raw', 'cpp', True)": 19,
+        "('cleaned', 'c', True)": 19,
+        "('cleaned', 'c', False)": 19,
+        "('cleaned', 'cpp', True)": 19
+      }
+    },
+    {
+      "input": "11.json",
+      "status": "complete",
+      "sample_id": "bigvul-source:17661",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 11,
+        "('raw', 'c', False)": 11,
+        "('raw', 'cpp', True)": 11,
+        "('cleaned', 'c', True)": 11,
+        "('cleaned', 'c', False)": 11,
+        "('cleaned', 'cpp', True)": 11
+      }
+    },
+    {
+      "input": "12.json",
+      "status": "complete",
+      "sample_id": "primevul:238378",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 199,
+        "('raw', 'c', False)": 199,
+        "('raw', 'cpp', True)": 199,
+        "('cleaned', 'c', True)": 199,
+        "('cleaned', 'c', False)": 199,
+        "('cleaned', 'cpp', True)": 199
+      }
+    },
+    {
+      "input": "13.json",
+      "status": "complete",
+      "sample_id": "primevul:482491",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 669,
+        "('raw', 'c', False)": 669,
+        "('raw', 'cpp', True)": 669,
+        "('cleaned', 'c', True)": 669,
+        "('cleaned', 'c', False)": 669,
+        "('cleaned', 'cpp', True)": 669
+      }
+    },
+    {
+      "input": "14.json",
+      "status": "complete",
+      "sample_id": "primevul:233837",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 133,
+        "('raw', 'c', False)": 133,
+        "('raw', 'cpp', True)": 133,
+        "('cleaned', 'c', True)": 133,
+        "('cleaned', 'c', False)": 133,
+        "('cleaned', 'cpp', True)": 133
+      }
+    },
+    {
+      "input": "15.json",
+      "status": "complete",
+      "sample_id": "primevul:512872",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 32,
+        "('raw', 'c', False)": 32,
+        "('raw', 'cpp', True)": 32,
+        "('cleaned', 'c', True)": 32,
+        "('cleaned', 'c', False)": 32,
+        "('cleaned', 'cpp', True)": 32
+      }
+    },
+    {
+      "input": "16.json",
+      "status": "complete",
+      "sample_id": "primevul:252380",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 752,
+        "('raw', 'c', False)": 752,
+        "('raw', 'cpp', True)": 752,
+        "('cleaned', 'c', True)": 752,
+        "('cleaned', 'c', False)": 752,
+        "('cleaned', 'cpp', True)": 752
+      }
+    },
+    {
+      "input": "17.json",
+      "status": "complete",
+      "sample_id": "primevul:90845",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 26,
+        "('raw', 'c', False)": 26,
+        "('raw', 'cpp', True)": 26,
+        "('cleaned', 'c', True)": 26,
+        "('cleaned', 'c', False)": 26,
+        "('cleaned', 'cpp', True)": 26
+      }
+    },
+    {
+      "input": "18.json",
+      "status": "complete",
+      "sample_id": "primevul:90821",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 12,
+        "('raw', 'c', False)": 12,
+        "('raw', 'cpp', True)": 12,
+        "('cleaned', 'c', True)": 12,
+        "('cleaned', 'c', False)": 12,
+        "('cleaned', 'cpp', True)": 12
+      }
+    },
+    {
+      "input": "19.json",
+      "status": "complete",
+      "sample_id": "primevul:197110",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 657,
+        "('raw', 'c', False)": 657,
+        "('raw', 'cpp', True)": 657,
+        "('cleaned', 'c', True)": 657,
+        "('cleaned', 'c', False)": 657,
+        "('cleaned', 'cpp', True)": 657
+      }
+    },
+    {
+      "input": "20.json",
+      "status": "complete",
+      "sample_id": "llmvul:ID_19932D3F2CDFD43E",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 20,
+        "('raw', 'c', False)": 20,
+        "('raw', 'cpp', True)": 20,
+        "('cleaned', 'c', True)": 20,
+        "('cleaned', 'c', False)": 20,
+        "('cleaned', 'cpp', True)": 20
+      }
+    },
+    {
+      "input": "21.json",
+      "status": "complete",
+      "sample_id": "llmvul:ID_0A6FD3C6A2E8AC78",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 58,
+        "('raw', 'c', False)": 58,
+        "('raw', 'cpp', True)": 58,
+        "('cleaned', 'c', True)": 58,
+        "('cleaned', 'c', False)": 58,
+        "('cleaned', 'cpp', True)": 58
+      }
+    },
+    {
+      "input": "22.json",
+      "status": "complete",
+      "sample_id": "llmvul:ID_E0C81AD05A882E47",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 55,
+        "('raw', 'c', False)": 55,
+        "('raw', 'cpp', True)": 55,
+        "('cleaned', 'c', True)": 54,
+        "('cleaned', 'c', False)": 54,
+        "('cleaned', 'cpp', True)": 54
+      }
+    },
+    {
+      "input": "23.json",
+      "status": "complete",
+      "sample_id": "llmvul:ID_12EE9E53034AE2F9",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 101,
+        "('raw', 'c', False)": 101,
+        "('raw', 'cpp', True)": 101,
+        "('cleaned', 'c', True)": 101,
+        "('cleaned', 'c', False)": 101,
+        "('cleaned', 'cpp', True)": 101
+      }
+    },
+    {
+      "input": "24.json",
+      "status": "complete",
+      "sample_id": "llmvul:ID_1996EEAF510FEA39",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 363,
+        "('raw', 'c', False)": 363,
+        "('raw', 'cpp', True)": 363,
+        "('cleaned', 'c', True)": 363,
+        "('cleaned', 'c', False)": 363,
+        "('cleaned', 'cpp', True)": 363
+      }
+    },
+    {
+      "input": "25.json",
+      "status": "complete",
+      "sample_id": "llmvul:ID_5EDBA527E1A6AABA",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 25,
+        "('raw', 'c', False)": 25,
+        "('raw', 'cpp', True)": 25,
+        "('cleaned', 'c', True)": 25,
+        "('cleaned', 'c', False)": 25,
+        "('cleaned', 'cpp', True)": 25
+      }
+    },
+    {
+      "input": "26.json",
+      "status": "complete",
+      "sample_id": "llmvul:ID_9B887A6FFB2992FC",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 125,
+        "('raw', 'c', False)": 125,
+        "('raw', 'cpp', True)": 125,
+        "('cleaned', 'c', True)": 125,
+        "('cleaned', 'c', False)": 125,
+        "('cleaned', 'cpp', True)": 125
+      }
+    },
+    {
+      "input": "27.json",
+      "status": "complete",
+      "sample_id": "llmvul:ID_92475FAC8A1C287E",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 36,
+        "('raw', 'c', False)": 36,
+        "('raw', 'cpp', True)": 36,
+        "('cleaned', 'c', True)": 36,
+        "('cleaned', 'c', False)": 36,
+        "('cleaned', 'cpp', True)": 36
+      }
+    },
+    {
+      "input": "28.json",
+      "status": "complete",
+      "sample_id": "cweval:cwe_918_1_c:completion",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 120,
+        "('raw', 'c', False)": 120,
+        "('raw', 'cpp', True)": 120,
+        "('cleaned', 'c', True)": 120,
+        "('cleaned', 'c', False)": 120,
+        "('cleaned', 'cpp', True)": 120
+      }
+    },
+    {
+      "input": "29.json",
+      "status": "complete",
+      "sample_id": "cweval:cwe_476_0_c:completion",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 58,
+        "('raw', 'c', False)": 58,
+        "('raw', 'cpp', True)": 58,
+        "('cleaned', 'c', True)": 58,
+        "('cleaned', 'c', False)": 58,
+        "('cleaned', 'cpp', True)": 58
+      }
+    },
+    {
+      "input": "30.json",
+      "status": "complete",
+      "sample_id": "cweval:cwe_190_0_c:completion",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 77,
+        "('raw', 'c', False)": 77,
+        "('raw', 'cpp', True)": 77,
+        "('cleaned', 'c', True)": 77,
+        "('cleaned', 'c', False)": 77,
+        "('cleaned', 'cpp', True)": 77
+      }
+    },
+    {
+      "input": "31.json",
+      "status": "complete",
+      "sample_id": "cweval:cwe_676_0_c:completion",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 34,
+        "('raw', 'c', False)": 34,
+        "('raw', 'cpp', True)": 34,
+        "('cleaned', 'c', True)": 34,
+        "('cleaned', 'c', False)": 34,
+        "('cleaned', 'cpp', True)": 34
+      }
+    },
+    {
+      "input": "32.json",
+      "status": "complete",
+      "sample_id": "cweval:cwe_943_0_cpp:completion",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 137,
+        "('raw', 'c', False)": 137,
+        "('raw', 'cpp', True)": 137,
+        "('cleaned', 'c', True)": 137,
+        "('cleaned', 'c', False)": 137,
+        "('cleaned', 'cpp', True)": 137
+      }
+    },
+    {
+      "input": "33.json",
+      "status": "complete",
+      "sample_id": "cweval:cwe_326_0_cpp:completion",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 131,
+        "('raw', 'c', False)": 131,
+        "('raw', 'cpp', True)": 131,
+        "('cleaned', 'c', True)": 131,
+        "('cleaned', 'c', False)": 131,
+        "('cleaned', 'cpp', True)": 131
+      }
+    },
+    {
+      "input": "34.json",
+      "status": "complete",
+      "sample_id": "cweval:cwe_022_0_cpp:completion",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 158,
+        "('raw', 'c', False)": 158,
+        "('raw', 'cpp', True)": 158,
+        "('cleaned', 'c', True)": 158,
+        "('cleaned', 'c', False)": 158,
+        "('cleaned', 'cpp', True)": 158
+      }
+    },
+    {
+      "input": "35.json",
+      "status": "complete",
+      "sample_id": "cweval:cwe_117_0_cpp:y_negative",
+      "checks": {
+        "raw_skip_matches_full": true,
+        "cleaned_skip_matches_full": true,
+        "raw_c_matches_cpp": true,
+        "cleaned_c_matches_cpp": true
+      },
+      "token_counts": {
+        "('raw', 'c', True)": 82,
+        "('raw', 'c', False)": 82,
+        "('raw', 'cpp', True)": 82,
+        "('cleaned', 'c', True)": 82,
+        "('cleaned', 'c', False)": 82,
+        "('cleaned', 'cpp', True)": 82
+      }
+    }
+  ],
+  "script_sha256": "e45bad267ff2d15853c927bc791a1b1974aa47d934fa1a8c19b682775bc0f575"
+}

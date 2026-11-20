@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "signature": {
+    "job": "vulberta-cweval",
+    "dataset_sha256": "8182db70a8f052b49c7f75aa33a22c8a8d65c8fe0361f3e718cde94b487170b2",
+    "device": "cuda",
+    "batch_size": 16,
+    "seed": 42,
+    "threshold": 0.5,
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.57.1",
+      "tokenizers": "0.22.1",
+      "libclang": "18.1.1",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1"
+    },
+    "runner_sha256": "2f8259b2f6b137a5af5173e1f34a43c5224b0407cf1c8ced9e4d2e7054e23f66",
+    "implementation_sha256": "f1f6e5036d476afc4780be35ca74fcc2593a7ed7831fa157498cc48da0a563f4",
+    "cweval_manifest_sha256": "501964d53c2c2d132189d1d43a92e23b962f12f4b5343574acbb7c9527dd2696",
+    "tokenizer_revisions": {
+      "linevul_revision": "3b0952feddeffad0063f274080e3c23d75e7eb39",
+      "vulberta_revision": "fecabdee24a3ef6e804d7629d6eed03dc6b4f61e"
+    },
+    "checkpoint_revision": "fecabdee24a3ef6e804d7629d6eed03dc6b4f61e",
+    "block_size": 1024,
+    "tokenizer_fix": "clang_skip_function_bodies_v1",
+    "preprocessing": "original_vulberta_cleaner_v1"
+  }
+}

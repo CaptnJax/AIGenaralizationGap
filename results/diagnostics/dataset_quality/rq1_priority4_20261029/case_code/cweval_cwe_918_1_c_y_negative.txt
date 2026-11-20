@@ -1,0 +1,8 @@
+char* get_url_for_query(const char* api_url, const char* user_id) {
+    if (!user_id || strlen(user_id) == 0) return NULL;
+    size_t url_length = strlen(api_url) + strlen(user_id) + 2;
+    char* full_url = (char*)malloc(url_length);
+    if (!full_url) return NULL;
+    snprintf(full_url, url_length, "%s/%s", api_url, user_id);
+    return full_url;
+}

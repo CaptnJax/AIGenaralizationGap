@@ -1,0 +1,4 @@
+{
+  "sample_id": "fixture:literal",
+  "code": "const char *f(){ return \"https://host/*literal*/\"; }"
+}

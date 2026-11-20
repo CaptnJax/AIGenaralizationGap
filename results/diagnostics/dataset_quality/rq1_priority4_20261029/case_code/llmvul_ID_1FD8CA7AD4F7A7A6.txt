@@ -1,0 +1,39 @@
+atic int cmd_plan(int argc, char **argv)
+{
+    if (argc < 3) { fprintf(stderr, "usage: waste plan MODEL [--budget N] [--ctx N]\n"); return 2; }
+    opts o; opts_init(&o);
+    if (parse_opts(argc, argv, 3, &o)) return 2;
+
+    waste_memplan p;
+    const waste_status st = waste_plan_memory(argv[2], o.ctx, &p);
+    if (st != WASTE_OK) return fail("plan", st);
+
+    char b[5][32];
+    human(p.trunk_bytes, b[0], 32); human(p.state_bytes, b[1], 32);
+    human(p.scratch_bytes, b[2], 32); human(p.min_expert_cache, b[3], 32);
+    human(p.floor_bytes, b[4], 32);
+    printf("memory plan for %s (ctx %u)\n\n", argv[2], o.ctx);
+    printf("  resident trunk        %12s\n", b[0]);
+    printf("  KDA state + KV cache  %12s\n", b[1]);
+    printf("  scratch               %12s\n", b[2]);
+    printf("  minimum expert cache  %12s\n", b[3]);
+    printf("  ---------------------------------\n");
+    printf("  FLOOR                 %12s\n", b[4]);
+    human(p.recommended_bytes, b[0], 32);
+    printf("  recommended           %12s   (floor + 3x a token's working set;\n"
+           "                                      below that the cache keeps\n"
+           "                                      nothing alive between tokens)\n", b[0]);
+    if (o.budget) {
+        char bb[32];
+        human(o.budget, bb, 32);
+        if (o.budget < p.floor_bytes) printf("\n  budget %s is BELOW the floor — open would fail\n", bb);
+        else {
+            char cb[32];
+            human(o.budget - p.floor_bytes + p.min_expert_cache, cb, 32);
+            printf("\n  budget %s -> expert cache %s\n", bb, cb);
+        }
+    }
+    return 0;
+}
+
+st

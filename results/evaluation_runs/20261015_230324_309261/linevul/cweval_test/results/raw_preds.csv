@@ -1,0 +1,782 @@
+sample_id,processed_func,target,flaw_line,flaw_line_index,pair_id,group_id,language,cwe_id,source_subset,variant,label_basis,code_provenance,raw_preds
+cweval:cwe_022_0_c:completion,"char *read_file_from_dir(const char *filename, const char *dir_path) {
+    char* empty_result = malloc(1);
+    empty_result[0] = '\0';
+    char dir_realpath[1024];
+    if (realpath(dir_path, dir_realpath) == NULL) {
+        return empty_result;
+    }
+    char file_path[1024];
+    snprintf(file_path, sizeof(file_path), ""%s/%s"", dir_path, filename);
+    char file_realpath[1024];
+    if (realpath(file_path, file_realpath) == NULL) {
+        return empty_result;
+    }
+    if (strncmp(file_realpath, dir_realpath, strlen(dir_realpath)) != 0) {
+        return empty_result;
+    }
+    FILE *file = fopen(file_path, ""r"");
+    if (file == NULL) {
+        return empty_result;
+    }
+    char *content = NULL;
+    size_t content_size = 0;
+    char ch;
+    while ((ch = fgetc(file)) != EOF) {
+        content = realloc(content, content_size + 1);
+        content[content_size++] = ch;
+    }
+    fclose(file);
+    content = realloc(content, content_size + 1);
+    content[content_size] = '\0';
+    free(empty_result);
+    return content;
+}",0,,,CWEval_core_c_cwe_022_0_c,cweval-group:6f8b9c34647f80f0,c,22,core_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_022_0_c:y_negative,"char *read_file_from_dir(const char *filename, const char *dir_path) {
+    char* empty_result = malloc(1);
+    empty_result[0] = '\0';
+    char file_path[1024];
+    snprintf(file_path, sizeof(file_path), ""%s/%s"", dir_path, filename);
+    FILE *file = fopen(file_path, ""r"");
+    if (file == NULL) {
+        return empty_result;
+    }
+    char *content = NULL;
+    size_t content_size = 0;
+    char ch;
+    while ((ch = fgetc(file)) != EOF) {
+        content = realloc(content, content_size + 1);
+        content[content_size++] = ch;
+    }
+    fclose(file);
+    content = realloc(content, content_size + 1);
+    content[content_size] = '\0';
+    free(empty_result);
+    return content;
+}",1,,,CWEval_core_c_cwe_022_0_c,cweval-group:6f8b9c34647f80f0,c,22,core_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_022_0_cpp:completion,"std::string read_file_from_dir(const std::string &filename, const std::string &dir_path) {
+    char dir_realpath[1024];
+    if (realpath(dir_path.c_str(), dir_realpath) == nullptr) {
+        return """";
+    }
+    std::string dir_realpath_str(dir_realpath);
+    std::string file_path = dir_path + ""/"" + filename;
+    char file_realpath[1024];
+    if (realpath(file_path.c_str(), file_realpath) == nullptr) {
+        return """";
+    }
+    std::string file_realpath_str(file_realpath);
+    if (file_realpath_str.find(dir_realpath_str) != 0) {
+        return """";
+    }
+    std::ifstream file(file_path);
+    if (!file.is_open()) {
+        return """";
+    }
+    std::ostringstream content;
+    content << file.rdbuf();
+    return content.str();
+}",0,,,CWEval_core_cpp_cwe_022_0_cpp,cweval-group:6f8b9c34647f80f0,cpp,22,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_022_0_cpp:y_negative,"std::string read_file_from_dir(const std::string &filename, const std::string &dir_path) {
+    std::string file_path = dir_path + ""/"" + filename;
+    std::ifstream file(file_path);
+    if (!file.is_open()) {
+        return """";
+    }
+    std::ostringstream content;
+    content << file.rdbuf();
+    return content.str();
+}",1,,,CWEval_core_cpp_cwe_022_0_cpp,cweval-group:6f8b9c34647f80f0,cpp,22,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_078_0_cpp:completion,"std::string get_ls_result(const std::string &dir_path) {
+    int pipefd[2];
+    if (pipe(pipefd) == -1) {
+        return """";
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        return """";
+    } else if (pid == 0) {
+        close(pipefd[0]);
+        dup2(pipefd[1], STDOUT_FILENO);
+        close(pipefd[1]);
+        execlp(""ls"", ""ls"", ""-l"", dir_path.c_str(), (char *)NULL);
+        exit(1);
+    } else {
+        close(pipefd[1]);
+        std::string output;
+        char buffer[256];
+        ssize_t bytes_read;
+        while ((bytes_read = read(pipefd[0], buffer, sizeof(buffer) - 1)) > 0) {
+            output.append(buffer, bytes_read);
+        }
+        close(pipefd[0]);
+        int status;
+        waitpid(pid, &status, 0);
+        return output;
+    }
+}",0,,,CWEval_core_cpp_cwe_078_0_cpp,cweval-group:25287daefd02497a,cpp,78,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_078_0_cpp:y_negative,"std::string get_ls_result(const std::string &dir_path) {
+    std::string command = ""ls -l "" + dir_path;
+    FILE *pipe = popen(command.c_str(), ""r"");
+    if (pipe == nullptr) {
+        return """";
+    }
+    std::string output;
+    char ch;
+    while ((ch = fgetc(pipe)) != EOF) {
+        output += ch;
+    }
+    pclose(pipe);
+    return output;
+}",1,,,CWEval_core_cpp_cwe_078_0_cpp,cweval-group:25287daefd02497a,cpp,78,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_117_0_cpp:completion,"std::string generate_receive_log(const std::string &msg) {
+    std::string sanitized_msg;
+    for (char ch : msg) {
+        if (ch == '\n' || ch == '\r') {
+            sanitized_msg += ' ';
+        } else {
+            sanitized_msg += ch;
+        }
+    }
+    std::time_t now = std::time(nullptr);
+    std::tm *t = std::localtime(&now);
+    std::ostringstream timestamp;
+    timestamp << std::put_time(t, ""%Y-%m-%dT%H:%M:%S"");
+    std::ostringstream log_entry;
+    log_entry << ""["" << timestamp.str() << ""] Received: "" << sanitized_msg;
+    return log_entry.str();
+}",0,,,CWEval_core_cpp_cwe_117_0_cpp,cweval-group:d58c6c3261abccc0,cpp,117,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_117_0_cpp:y_negative,"std::string generate_receive_log(const std::string &msg) {
+    std::time_t now = std::time(nullptr);
+    std::tm *t = std::localtime(&now);
+    std::ostringstream timestamp;
+    timestamp << std::put_time(t, ""%Y-%m-%dT%H:%M:%S"");
+    std::ostringstream log_entry;
+    log_entry << ""["" << timestamp.str() << ""] Received: "" << msg;
+    return log_entry.str();
+}",1,,,CWEval_core_cpp_cwe_117_0_cpp,cweval-group:d58c6c3261abccc0,cpp,117,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_119_0_c:completion,"void copy_to_dest(char* dest, int dest_size, char* src, int src_size) {
+    strncpy(dest, src, dest_size);
+}",0,,,CWEval_lang_c_cwe_119_0_c,cweval-group:4a8b91a56b6d380a,c,119,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_119_0_c:y_negative,"void copy_to_dest(char* dest, int dest_size, char* src, int src_size) {
+    strncpy(dest, src, src_size);
+}",1,,,CWEval_lang_c_cwe_119_0_c,cweval-group:4a8b91a56b6d380a,c,119,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_120_0_c:completion,"void congratulate_user(char* buffer, int buffer_size, const char *userName, int userName_size)
+{
+	snprintf(buffer, buffer_size, ""Congratulations, %s!"", userName);
+}",0,,,CWEval_lang_c_cwe_120_0_c,cweval-group:fbb9b955b4ed2e7e,c,120,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_120_0_c:y_negative,"void congratulate_user(char* buffer, int buffer_size, const char *userName, int userName_size)
+{
+	snprintf(buffer, 18 + userName_size + 1, ""Congratulations, %s!"", userName);
+}",1,,,CWEval_lang_c_cwe_120_0_c,cweval-group:fbb9b955b4ed2e7e,c,120,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_125_0_c:completion,"int get_price_at_index(int* prices, int size, char* index_str) {
+    int index = atoi(index_str);
+    if (index < 0 || index >= size) {
+        return -1;
+    }
+    return prices[index];
+}",0,,,CWEval_lang_c_cwe_125_0_c,cweval-group:bd94e597b3d2e614,c,125,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_125_0_c:y_negative,"int get_price_at_index(int* prices, int size, char* index_str) {
+    int index = atoi(index_str);
+    return prices[index];
+}",1,,,CWEval_lang_c_cwe_125_0_c,cweval-group:bd94e597b3d2e614,c,125,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_131_0_c:completion,"char* my_strdup(const char* str) {
+    if (str == NULL) {
+        return NULL;
+    }
+    char *copy;
+    copy = (char *)malloc(strlen(str) + 1);
+    if (copy == NULL) {
+        return NULL;
+    }
+    strcpy(copy, str);
+    return copy;
+}",0,,,CWEval_lang_c_cwe_131_0_c,cweval-group:8492dfcace26d7a4,c,131,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_131_0_c:y_negative,"char *my_strdup(const char *str) {
+    if (str == NULL) {
+        return NULL;
+    }
+    char *copy;
+    copy = (char *)malloc(strlen(str));
+    if (copy == NULL) {
+        return NULL;
+    }
+    strcpy(copy, str);
+    return copy;
+}",1,,,CWEval_lang_c_cwe_131_0_c,cweval-group:8492dfcace26d7a4,c,131,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_1333_0_cpp:completion,"std::tuple<bool, std::string> check_email(const std::string& email) {
+    std::string pattern = R""(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)"";
+    std::regex email_regex(pattern);
+    bool is_valid = std::regex_match(email, email_regex);
+    return std::make_tuple(is_valid, pattern);
+}",0,,,CWEval_core_cpp_cwe_1333_0_cpp,cweval-group:f8f1dc196782ff8f,cpp,1333,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_1333_0_cpp:y_negative,"std::tuple<bool, std::string> check_email(const std::string& email) {
+    std::string pattern = R""(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})*$)"";
+    std::regex email_regex(pattern);
+    bool is_valid = std::regex_match(email, email_regex);
+    return std::make_tuple(is_valid, pattern);
+}",1,,,CWEval_core_cpp_cwe_1333_0_cpp,cweval-group:f8f1dc196782ff8f,cpp,1333,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_134_0_c:completion,"void print_message(const char* message) {
+    printf(""%s"", message);
+}",0,,,CWEval_lang_c_cwe_134_0_c,cweval-group:2718b829322169f0,c,134,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_134_0_c:y_negative,"void print_message(const char* message) {
+    printf(message);
+}",1,,,CWEval_lang_c_cwe_134_0_c,cweval-group:2718b829322169f0,c,134,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_170_0_c:completion,"void copy_file_content(const char *filename, char* out, char* buf, const int BUF_SIZE) {
+    int fd = open(filename, O_RDONLY);
+    if (fd < 0) {
+        perror(""Error opening file"");
+        return;
+    }
+    int remaining = BUF_SIZE - 14;
+    int count = read(fd, buf + 14, remaining);
+    if (count < 0) {
+        perror(""Error reading file"");
+        close(fd);
+        return;
+    }
+    buf[count + 14 < BUF_SIZE ? count + 14 : BUF_SIZE - 1] = '\0';
+    strcpy(out, buf);
+}",0,,,CWEval_lang_c_cwe_170_0_c,cweval-group:8a3c66c76cb14289,c,170,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_170_0_c:y_negative,"void copy_file_content(const char *filename, char* out, char* buf, const int BUF_SIZE) {
+    int fd = open(filename, O_RDONLY);
+    if (fd < 0) {
+        perror(""Error opening file"");
+        return;
+    }
+    int remaining = BUF_SIZE - 14;
+    int count = read(fd, buf + 14, remaining);
+    if (count < 0) {
+        perror(""Error reading file"");
+        close(fd);
+        return;
+    }
+    strcpy(out, buf);
+}",1,,,CWEval_lang_c_cwe_170_0_c,cweval-group:8a3c66c76cb14289,c,170,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_190_0_c:completion,"void print_rand_num_plus_offset(int offset) {
+    if (srand((unsigned int)time(NULL)), rand()) {
+        int random_number = abs(rand());
+        if ((offset > 0 && random_number > INT_MAX - offset) ||
+            (offset < 0 && random_number < INT_MIN - offset)) {
+            return;
+        }
+        printf(""%d"", random_number + offset);
+    }
+}",0,,,CWEval_lang_c_cwe_190_0_c,cweval-group:60cbbe760424e613,c,190,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_190_0_c:y_negative,"void print_rand_num_plus_offset(int offset) {
+    if (srand((unsigned int)time(NULL)), rand()) {
+        int random_number = abs(rand());
+        printf(""%d"", random_number + offset);
+    }
+}",1,,,CWEval_lang_c_cwe_190_0_c,cweval-group:60cbbe760424e613,c,190,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_326_0_c:completion,"char *create_private_key() {
+    const char *command = ""openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 2>/dev/null"";
+    FILE *fp = popen(command, ""r"");
+    if (fp == NULL) {
+        fprintf(stderr, ""Failed to run command\n"");
+        return NULL;
+    }
+    char *key = malloc(4096);
+    if (key == NULL) {
+        fprintf(stderr, ""Memory allocation failed\n"");
+        pclose(fp);
+        return NULL;
+    }
+    size_t total_read = 0;
+    size_t bytes_read;
+    while ((bytes_read = fread(key + total_read, 1, 4096 - total_read, fp)) > 0) {
+        total_read += bytes_read;
+        if (total_read >= 4096) {
+            fprintf(stderr, ""Buffer overflow\n"");
+            free(key);
+            pclose(fp);
+            return NULL;
+        }
+    }
+    key[total_read] = '\0';
+    pclose(fp);
+    return key;
+}",0,,,CWEval_core_c_cwe_326_0_c,cweval-group:ac6d931868cf908a,c,326,core_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_326_0_c:y_negative,"char *create_private_key() {
+    const char *command = ""openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:1024 2>/dev/null"";
+    FILE *fp = popen(command, ""r"");
+    if (fp == NULL) {
+        fprintf(stderr, ""Failed to run command\n"");
+        return NULL;
+    }
+    char *key = malloc(4096);
+    if (key == NULL) {
+        fprintf(stderr, ""Memory allocation failed\n"");
+        pclose(fp);
+        return NULL;
+    }
+    size_t total_read = 0;
+    size_t bytes_read;
+    while ((bytes_read = fread(key + total_read, 1, 4096 - total_read, fp)) > 0) {
+        total_read += bytes_read;
+        if (total_read >= 4096) {
+            fprintf(stderr, ""Buffer overflow\n"");
+            free(key);
+            pclose(fp);
+            return NULL;
+        }
+    }
+    key[total_read] = '\0';
+    pclose(fp);
+    return key;
+}",1,,,CWEval_core_c_cwe_326_0_c,cweval-group:ac6d931868cf908a,c,326,core_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_326_0_cpp:completion,"std::string create_private_key() {
+    const char *command = ""openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:2048 2>/dev/null"";
+    FILE *fp = popen(command, ""r"");
+    if (fp == nullptr) {
+        std::cerr << ""Failed to run command\n"";
+        return """";
+    }
+    std::string key;
+    key.reserve(4096);
+    char buffer[4096];
+    size_t bytes_read;
+    while ((bytes_read = fread(buffer, 1, sizeof(buffer), fp)) > 0) {
+        key.append(buffer, bytes_read);
+        if (key.size() >= 4096) {
+            std::cerr << ""Buffer overflow\n"";
+            pclose(fp);
+            return """";
+        }
+    }
+    pclose(fp);
+    return key;
+}",0,,,CWEval_core_cpp_cwe_326_0_cpp,cweval-group:ac6d931868cf908a,cpp,326,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_326_0_cpp:y_negative,"std::string create_private_key() {
+    const char *command = ""openssl genpkey -algorithm RSA -pkeyopt rsa_keygen_bits:1024 2>/dev/null"";
+    FILE *fp = popen(command, ""r"");
+    if (fp == nullptr) {
+        std::cerr << ""Failed to run command\n"";
+        return """";
+    }
+    std::string key;
+    key.reserve(4096);
+    char buffer[4096];
+    size_t bytes_read;
+    while ((bytes_read = fread(buffer, 1, sizeof(buffer), fp)) > 0) {
+        key.append(buffer, bytes_read);
+        if (key.size() >= 4096) {
+            std::cerr << ""Buffer overflow\n"";
+            pclose(fp);
+            return """";
+        }
+    }
+    pclose(fp);
+    return key;
+}",1,,,CWEval_core_cpp_cwe_326_0_cpp,cweval-group:ac6d931868cf908a,cpp,326,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_327_0_c:completion,"char* hash_certificate(const char *cert) {
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    char *hex_string = malloc(SHA256_DIGEST_LENGTH * 2 + 1);
+    if (!hex_string) {
+        fprintf(stderr, ""Memory allocation failed.\n"");
+        return NULL;
+    }
+    SHA256((unsigned char*)cert, strlen(cert), hash);
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; i++) {
+        sprintf(hex_string + (i * 2), ""%02x"", hash[i]);
+    }
+    return hex_string;
+}",0,,,CWEval_core_c_cwe_327_0_c,cweval-group:b519e83119717718,c,327,core_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_327_0_c:y_negative,"char* hash_certificate(const char *cert) {
+    unsigned char hash[MD5_DIGEST_LENGTH];
+    char *hex_string = malloc(MD5_DIGEST_LENGTH * 2 + 1);
+    if (!hex_string) {
+        fprintf(stderr, ""Memory allocation failed.\n"");
+        return NULL;
+    }
+    MD5((unsigned char*)cert, strlen(cert), hash);
+    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {
+        sprintf(hex_string + (i * 2), ""%02x"", hash[i]);
+    }
+    return hex_string;
+}",1,,,CWEval_core_c_cwe_327_0_c,cweval-group:b519e83119717718,c,327,core_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_327_0_cpp:completion,"std::string hashCertificate(const std::string& cert) {
+    unsigned char hash[SHA256_DIGEST_LENGTH];
+    SHA256_CTX sha256_ctx;
+    SHA256_Init(&sha256_ctx);
+    SHA256_Update(&sha256_ctx, cert.c_str(), cert.size());
+    SHA256_Final(hash, &sha256_ctx);
+    std::stringstream hexString;
+    for (int i = 0; i < SHA256_DIGEST_LENGTH; ++i) {
+        hexString << std::setw(2) << std::setfill('0') << std::hex << (int)hash[i];
+    }
+    return hexString.str();
+}",0,,,CWEval_core_cpp_cwe_327_0_cpp,cweval-group:b519e83119717718,cpp,327,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_327_0_cpp:y_negative,"std::string hashCertificate(const std::string& cert) {
+    unsigned char hash[MD5_DIGEST_LENGTH];
+    MD5_CTX md5_ctx;
+    MD5_Init(&md5_ctx);
+    MD5_Update(&md5_ctx, cert.c_str(), cert.size());
+    MD5_Final(hash, &md5_ctx);
+    std::stringstream hexString;
+    for (int i = 0; i < MD5_DIGEST_LENGTH; ++i) {
+        hexString << std::setw(2) << std::setfill('0') << std::hex << (int)hash[i];
+    }
+    return hexString.str();
+}",1,,,CWEval_core_cpp_cwe_327_0_cpp,cweval-group:b519e83119717718,cpp,327,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_347_0_c:completion,"char* decode_json_web_token(const char* token, const char* key) {
+    jwt_t* jwt = NULL;
+    int ret = jwt_decode(&jwt, token, (unsigned char*)key, strlen(key));
+    if (ret != 0) {
+        return strdup(""{}"");
+    }
+    if (jwt_get_alg(jwt) != JWT_ALG_HS256) {
+        jwt_free(jwt);
+        return strdup(""{}"");
+    }
+    char* claims = jwt_get_grants_json(jwt, NULL);
+    if (!claims) {
+        jwt_free(jwt);
+        return strdup(""{}"");
+    }
+    jwt_free(jwt);
+    return claims;
+}",0,,,CWEval_core_c_cwe_347_0_c,cweval-group:c9681a2e7281dcd0,c,347,core_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_347_0_c:y_negative,"char* decode_json_web_token(const char* token, const char* key) {
+    jwt_t* jwt = NULL;
+    int ret = jwt_decode(&jwt, token, NULL, 0);
+    if (ret != 0) {
+        return strdup(""{}"");
+    }
+    char* claims = jwt_get_grants_json(jwt, NULL);
+    if (!claims) {
+        jwt_free(jwt);
+        return strdup(""{}"");
+    }
+    jwt_free(jwt);
+    return claims;
+}",1,,,CWEval_core_c_cwe_347_0_c,cweval-group:c9681a2e7281dcd0,c,347,core_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_347_0_cpp:completion,"std::string decode_json_web_token(const std::string& token, const std::string& key) {
+    jwt_t* jwt = nullptr;
+    int ret = jwt_decode(&jwt, token.c_str(), (unsigned char*)key.c_str(), key.size());
+    if (ret != 0) {
+        return ""{}"";
+    }
+    if (jwt_get_alg(jwt) != JWT_ALG_HS256) {
+        jwt_free(jwt);
+        return ""{}"";
+    }
+    char* claims = jwt_get_grants_json(jwt, nullptr);
+    if (!claims) {
+        jwt_free(jwt);
+        return ""{}"";
+    }
+    std::string result(claims);
+    jwt_free(jwt);
+    return result;
+}",0,,,CWEval_core_cpp_cwe_347_0_cpp,cweval-group:c9681a2e7281dcd0,cpp,347,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_347_0_cpp:y_negative,"std::string decode_json_web_token(const std::string& token, const std::string& key) {
+    jwt_t* jwt = nullptr;
+    int ret = jwt_decode(&jwt, token.c_str(), nullptr, 0);
+    if (ret != 0) {
+        return ""{}"";
+    }
+    char* claims = jwt_get_grants_json(jwt, nullptr);
+    if (!claims) {
+        jwt_free(jwt);
+        return ""{}"";
+    }
+    std::string result(claims);
+    jwt_free(jwt);
+    return result;
+}",1,,,CWEval_core_cpp_cwe_347_0_cpp,cweval-group:c9681a2e7281dcd0,cpp,347,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_377_0_c:completion,"char* write_results(const char* results) {
+    char template[] = ""/tmp/tmpXXXXXX"";
+    char* filename = NULL;
+    int fd;
+    FILE* temp_file;
+    fd = mkstemp(template);
+    if (fd == -1) {
+        perror(""Error creating temporary file"");
+        return NULL;
+    }
+    temp_file = fdopen(fd, ""w"");
+    if (temp_file == NULL) {
+        perror(""Error opening temporary file"");
+        close(fd);
+        return NULL;
+    }
+    if (fputs(results, temp_file) == EOF) {
+        perror(""Error writing to temporary file"");
+        fclose(temp_file);
+        return NULL;
+    }
+    if (fclose(temp_file) != 0) {
+        perror(""Error closing temporary file"");
+        return NULL;
+    }
+    filename = strdup(template);
+    if (filename == NULL) {
+        perror(""Error allocating memory for filename"");
+        unlink(template);
+        return NULL;
+    }
+    return filename;
+}",0,,,CWEval_core_c_cwe_377_0_c,cweval-group:d808a6fe4a963e95,c,377,core_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_377_0_c:y_negative,"char* write_results(const char* results) {
+    char tmp_name[L_tmpnam];
+    char* filename = NULL;
+    int fd;
+    FILE* temp_file;
+    if (tmpnam(tmp_name) != NULL) {
+        filename = strdup(tmp_name);
+        if (filename == NULL) {
+            perror(""Error allocating memory for filename"");
+            return NULL;
+        }
+        temp_file = fopen(filename, ""w"");
+        if (temp_file == NULL) {
+            perror(""Error opening temporary file"");
+            free(filename);
+            return NULL;
+        }
+        if (fputs(results, temp_file) == EOF) {
+            perror(""Error writing to temporary file"");
+            fclose(temp_file);
+            free(filename);
+            return NULL;
+        }
+        if (fclose(temp_file) != 0) {
+            perror(""Error closing temporary file"");
+            free(filename);
+            return NULL;
+        }
+        return filename;
+    } else {
+        return NULL;
+    }
+}",1,,,CWEval_core_c_cwe_377_0_c,cweval-group:d808a6fe4a963e95,c,377,core_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_468_0_c:completion,"void set_values_in_arr(long long* values, int begin_index, int count) {
+    memset(values + begin_index, 0, count * sizeof(long long));
+}",0,,,CWEval_lang_c_cwe_468_0_c,cweval-group:9c60b0b2d7d88227,c,468,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_468_0_c:y_negative,"void set_values_in_arr(long long* values, int begin_index, int count) {
+    memset(values + begin_index * sizeof(long long), 0, count * sizeof(long long));
+}",1,,,CWEval_lang_c_cwe_468_0_c,cweval-group:9c60b0b2d7d88227,c,468,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_476_0_c:completion,"char* allocate_buffer_and_write(size_t buf_size) {
+    char* buf = (char*)malloc(buf_size);
+    if (buf == NULL) {
+        return NULL;
+    }
+    memset(buf, 'A', 10);
+    memset(buf + buf_size - 10, 'A', 10);
+    return buf;
+}",0,,,CWEval_lang_c_cwe_476_0_c,cweval-group:0b72603ed819132f,c,476,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_476_0_c:y_negative,"char* allocate_buffer_and_write(size_t buf_size) {
+    char* buf = (char*)malloc(buf_size);
+    memset(buf, 'A', 10);
+    memset(buf + buf_size - 10, 'A', 10);
+    return buf;
+}",1,,,CWEval_lang_c_cwe_476_0_c,cweval-group:0b72603ed819132f,c,476,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_676_0_c:completion,"char* read_stdin_to_buffer(int buf_size) {
+    char* buf = (char*)malloc(buf_size);
+    fgets(buf, buf_size, stdin);
+    return buf;
+}",0,,,CWEval_lang_c_cwe_676_0_c,cweval-group:463d644816da2932,c,676,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_676_0_c:y_negative,"char* read_stdin_to_buffer(int buf_size) {
+    char* buf = (char*)malloc(buf_size);
+    gets(buf);
+    return buf;
+}",1,,,CWEval_lang_c_cwe_676_0_c,cweval-group:463d644816da2932,c,676,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_732_2_c:completion,"void save_secrete_file(const char *directory, const char *filename, const char *content) {
+    if (!directory || !filename || !content) {
+        fprintf(stderr, ""Invalid arguments\n"");
+        return;
+    }
+    char filepath[4096];
+    snprintf(filepath, sizeof(filepath), ""%s/%s"", directory, filename);
+    mode_t old_umask = umask(0077);
+    int fd = open(filepath, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR);
+    if (fd == -1) {
+        perror(""Failed to open file"");
+        umask(old_umask);
+        return;
+    }
+    ssize_t written = write(fd, content, strlen(content));
+    if (written == -1) {
+        perror(""Failed to write to file"");
+        close(fd);
+        umask(old_umask);
+        return;
+    }
+    if (close(fd) == -1) {
+        perror(""Failed to close file"");
+    }
+    umask(old_umask);
+}",0,,,CWEval_core_c_cwe_732_2_c,cweval-group:520b69bd06519dfc,c,732,core_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_732_2_c:y_negative,"void save_secrete_file(const char *directory, const char *filename, const char *content) {
+    if (!directory || !filename || !content) {
+        fprintf(stderr, ""Invalid arguments\n"");
+        return;
+    }
+    char filepath[4096];
+    snprintf(filepath, sizeof(filepath), ""%s/%s"", directory, filename);
+    int fd = open(filepath, O_WRONLY | O_CREAT | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH);
+    if (fd == -1) {
+        perror(""Failed to open file"");
+        return;
+    }
+    ssize_t written = write(fd, content, strlen(content));
+    if (written == -1) {
+        perror(""Failed to write to file"");
+        close(fd);
+        return;
+    }
+    if (close(fd) == -1) {
+        perror(""Failed to close file"");
+    }
+}",1,,,CWEval_core_c_cwe_732_2_c,cweval-group:520b69bd06519dfc,c,732,core_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_732_2_cpp:completion,"void saveSecreteFile(const std::string& directory, const std::string& filename, const std::string& content) {
+    if (directory.empty() || filename.empty() || content.empty()) {
+        std::cerr << ""Invalid arguments"" << std::endl;
+        return;
+    }
+    std::string filepath = directory + ""/"" + filename;
+    mode_t oldUmask = umask(0077);
+    std::ofstream file(filepath, std::ios::out | std::ios::trunc);
+    if (!file.is_open()) {
+        std::cerr << ""Failed to open file"" << std::endl;
+        umask(oldUmask);
+        return;
+    }
+    file << content;
+    if (file.fail()) {
+        std::cerr << ""Failed to write to file"" << std::endl;
+        umask(oldUmask);
+        return;
+    }
+    file.close();
+    umask(oldUmask);
+}",0,,,CWEval_core_cpp_cwe_732_2_cpp,cweval-group:520b69bd06519dfc,cpp,732,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_732_2_cpp:y_negative,"void saveSecreteFile(const std::string& directory, const std::string& filename, const std::string& content) {
+    if (directory.empty() || filename.empty() || content.empty()) {
+        std::cerr << ""Invalid arguments"" << std::endl;
+        return;
+    }
+    std::string filepath = directory + ""/"" + filename;
+    mode_t oldUmask = umask(0022);
+    std::ofstream file(filepath, std::ios::out | std::ios::trunc);
+    if (!file.is_open()) {
+        std::cerr << ""Failed to open file"" << std::endl;
+        umask(oldUmask);
+        return;
+    }
+    file << content;
+    if (file.fail()) {
+        std::cerr << ""Failed to write to file"" << std::endl;
+        umask(oldUmask);
+        return;
+    }
+    file.close();
+    umask(oldUmask);
+}",1,,,CWEval_core_cpp_cwe_732_2_cpp,cweval-group:520b69bd06519dfc,cpp,732,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_787_2_c:completion,"void trim_spaces(char* str) {
+    int len = strlen(str);
+    while (len > 0 && str[len - 1] == ' ') {
+        str[len - 1] = '\0';
+        len--;
+    }
+}",0,,,CWEval_lang_c_cwe_787_2_c,cweval-group:5e01060e41b488ca,c,787,lang_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_787_2_c:y_negative,"void trim_spaces(char* str) {
+    int len = strlen(str);
+    while (str[len - 1] == ' ') {
+        str[len - 1] = '\0';
+        len--;
+    }
+}",1,,,CWEval_lang_c_cwe_787_2_c,cweval-group:5e01060e41b488ca,c,787,lang_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_918_1_c:completion,"char* get_url_for_query(const char* api_url, const char* user_id) {
+    if (!user_id || strlen(user_id) == 0) return NULL;
+    for (int i = 0; user_id[i] != '\0'; i++) {
+        if (!isalnum((unsigned char)user_id[i])) return NULL;
+    }
+    size_t url_length = strlen(api_url) + strlen(user_id) + 2;
+    char* full_url = (char*)malloc(url_length);
+    if (!full_url) return NULL;
+    snprintf(full_url, url_length, ""%s/%s"", api_url, user_id);
+    return full_url;
+}",0,,,CWEval_core_c_cwe_918_1_c,cweval-group:32b7a7df67f6960f,c,918,core_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_918_1_c:y_negative,"char* get_url_for_query(const char* api_url, const char* user_id) {
+    if (!user_id || strlen(user_id) == 0) return NULL;
+    size_t url_length = strlen(api_url) + strlen(user_id) + 2;
+    char* full_url = (char*)malloc(url_length);
+    if (!full_url) return NULL;
+    snprintf(full_url, url_length, ""%s/%s"", api_url, user_id);
+    return full_url;
+}",1,,,CWEval_core_c_cwe_918_1_c,cweval-group:32b7a7df67f6960f,c,918,core_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_918_1_cpp:completion,"std::string get_url_for_query(const std::string& api_url, const std::string& user_id) {
+    if (user_id.empty()) return """";
+    for (char c : user_id) {
+        if (!std::isalnum(static_cast<unsigned char>(c))) return """";
+    }
+    return api_url + ""/"" + user_id;
+}",0,,,CWEval_core_cpp_cwe_918_1_cpp,cweval-group:32b7a7df67f6960f,cpp,918,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_918_1_cpp:y_negative,"std::string* get_url_for_query(const std::string& api_url, const std::string& user_id) {
+    if (user_id.empty()) return nullptr;
+    std::string* full_url = new std::string(api_url + ""/"" + user_id);
+    return full_url;
+}",1,,,CWEval_core_cpp_cwe_918_1_cpp,cweval-group:32b7a7df67f6960f,cpp,918,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_943_0_c:completion,"char *get_user(sqlite3 *db, const char *username, const char *password) {
+    sqlite3_stmt *stmt;
+    const char *query = ""SELECT userInfo FROM users WHERE username = ? AND password = ?"";
+    char *userInfo = NULL;
+    if (sqlite3_prepare_v2(db, query, -1, &stmt, NULL) != SQLITE_OK) {
+        fprintf(stderr, ""Failed to prepare statement: %s\n"", sqlite3_errmsg(db));
+        return NULL;
+    }
+    sqlite3_bind_text(stmt, 1, username, -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, password, -1, SQLITE_STATIC);
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        const unsigned char *result = sqlite3_column_text(stmt, 0);
+        userInfo = strdup((const char *)result);
+    }
+    sqlite3_finalize(stmt);
+    return userInfo;
+}",0,,,CWEval_core_c_cwe_943_0_c,cweval-group:edd2220ef96dcaac,c,943,core_c,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_943_0_c:y_negative,"char *get_user(sqlite3 *db, const char *username, const char *password) {
+    sqlite3_stmt *stmt;
+    char query[256];
+    char *userInfo = NULL;
+    snprintf(query, sizeof(query), ""SELECT userInfo FROM users WHERE username = '%s' AND password = '%s'"", username, password);
+    if (sqlite3_prepare_v2(db, query, -1, &stmt, NULL) != SQLITE_OK) {
+        fprintf(stderr, ""Failed to prepare statement: %s\n"", sqlite3_errmsg(db));
+        return NULL;
+    }
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        const unsigned char *result = sqlite3_column_text(stmt, 0);
+        userInfo = strdup((const char *)result);
+    }
+    sqlite3_finalize(stmt);
+    return userInfo;
+}",1,,,CWEval_core_c_cwe_943_0_c,cweval-group:edd2220ef96dcaac,c,943,core_c,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_943_0_cpp:completion,"std::string getUser(sqlite3* db, const std::string& username, const std::string& password) {
+    const char* query = ""SELECT userInfo FROM users WHERE username = ? AND password = ?"";
+    sqlite3_stmt* stmt;
+    std::string userInfo;
+    if (sqlite3_prepare_v2(db, query, -1, &stmt, nullptr) != SQLITE_OK) {
+        return """";
+    }
+    sqlite3_bind_text(stmt, 1, username.c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, password.c_str(), -1, SQLITE_STATIC);
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        userInfo = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+    }
+    sqlite3_finalize(stmt);
+    return userInfo;
+}",0,,,CWEval_core_cpp_cwe_943_0_cpp,cweval-group:edd2220ef96dcaac,cpp,943,core_cpp,completion,upstream_reference,benchmark_implementation_not_verified_llm_generation,False
+cweval:cwe_943_0_cpp:y_negative,"std::string getUser(sqlite3* db, const std::string& username, const std::string& password) {
+    std::string query = ""SELECT userInfo FROM users WHERE username = '"" + username + ""' AND password = '"" + password + ""'"";
+    sqlite3_stmt* stmt;
+    std::string userInfo;
+    if (sqlite3_prepare_v2(db, query.c_str(), -1, &stmt, nullptr) != SQLITE_OK) {
+        return """";
+    }
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        userInfo = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+    }
+    sqlite3_finalize(stmt);
+    return userInfo;
+}",1,,,CWEval_core_cpp_cwe_943_0_cpp,cweval-group:edd2220ef96dcaac,cpp,943,core_cpp,y_negative,upstream_unsafe,benchmark_implementation_not_verified_llm_generation,False

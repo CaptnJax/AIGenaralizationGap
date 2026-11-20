@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-29",
+  "scope": "Priority 4: source labels, provenance, construction, review sampling, duplicate and cohort sensitivities; no model inference or benchmark relabeling",
+  "seed": 20261029,
+  "random_review_per_job": {"fn": 20, "fp": 20, "tp": 10, "tn": 10},
+  "sampling": "Independent simple random samples without replacement within each of seven model/dataset/error cells; merge selected sample IDs for review, retain per-cell inclusion probabilities. Principal four combinations have 240 selections before merging. Do not infer a population error rate from the raw review fraction.",
+  "purposive_review": "Separately select minimum-score FN, maximum-score FP and highest parser-error function per job; exclude from population estimates.",
+  "grouping": "Exact source SHA256; comment/whitespace-free tree-sitter leaf-token SHA256 preserving literals; structural candidate SHA256 replacing identifier leaf types with placeholders. Structural groups are candidate near-duplicates, not semantic equivalence. No exhaustive fuzzy clone claim.",
+  "weighting": "Original rows and fractional weight 1/group_size within each dataset for each grouping. Keep conflicting labels and scores; never arbitrarily select a representative label. Strict score >0.5, existing checkpoints and probabilities.",
+  "cohorts": "Language, authorship strength/type, analyzer vote count/rule/CWE, source parse and function boundaries, project, exact overlap exclusion. Report support/prevalence; associations only.",
+  "uncertain_records": "Profile all 2679 excluded records, including language/project/length/analyzer/authorship and input structure; no invented binary labels or F1.",
+  "external_manual_review": "Verify identifiers and code against local LLMVul, report every published rater value, recompute nominal kappa and complete binary-case kappa separately. No interpretation or recoding of undocumented -1; no missing consensus invented. Evaluate only exactly matched agreed binary cases as a selected-subset sensitivity.",
+  "independent_review": "Create blinded code package and separate source-evidence stage, two blank reviewer forms, coordinator key and adjudication schema. This assistant is not two independent qualified reviewers. No agreement or error-rate estimate from uncompleted forms.",
+  "cweval": "Inspect pinned task/test provenance and map tests to extracted functions. Execute only if an isolated supported runtime is present. Record unavailable execution explicitly.",
+  "preservation": "Hash source data, historical predictions and priority 2 joined scores before and after; preserve historical RQ1 reports and datasets. All outputs use new priority 4 paths."
+}

@@ -1,0 +1,6 @@
+{
+  "sample_id": "bigvul-source:3268",
+  "dataset": "bigvul_test_sample_2000",
+  "source_language": "CPP",
+  "code": "static bool read_access(const char * filename ) {\n\treturn thisRemoteResource->allowRemoteReadFileAccess( filename );\n}\n"
+}

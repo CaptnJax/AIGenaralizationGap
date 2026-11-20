@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-31",
+  "seed": 20261031,
+  "bootstrap_repetitions": 2000,
+  "threshold": "class-1 probability > 0.5; frozen weights and preprocessing",
+  "controls": [
+    "LineVul full official BigVul test",
+    "VulBERTa CodeXGLUE Devign test indices"
+  ],
+  "overlap": "Compare evaluation to documented train and validation splits, separately: exact text, comment/whitespace-insensitive token identity, identifier-normalized structural candidates. These are bounded near-duplicate screens, not proof of absence of semantic clones.",
+  "matched": "Common-support cells of source language x source-line bins (1-10,11-25,26-50,51-100,101+) x binary label. Cell mass is minimum count across datasets; row weight = cell mass / dataset cell count. Compare full and model-specific intact cohorts; do not pool incompatible label evidence or invent missing CWE/context.",
+  "inference": "Batch 16; seed 42; eval/inference mode; LineVul 512 / VulBERTa 1024 tokens; safetensors for VulBERTa; verify historical parity before control inference.",
+  "uncertainty": "2000 connected-component cluster bootstrap draws; code/token duplicates, source commits, CVEs and supplied task families stay together. Project sensitivity; same row weights for paired model differences. Matching weights fixed from observed cohorts; intervals conditional on matching.",
+  "limitations": [
+    "Priority 4 independent adjudication pending",
+    "Pretraining exposure not exhaustively available",
+    "Published training procedure is not an attestation of the converted checkpoint history",
+    "Authorship is not randomized; no causal authorship conclusion"
+  ]
+}

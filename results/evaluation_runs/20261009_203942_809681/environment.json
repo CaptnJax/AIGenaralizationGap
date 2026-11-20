@@ -1,0 +1,14 @@
+{
+  "python": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]",
+  "device": "cuda",
+  "batch_size": 16,
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "packages": {
+    "torch": "2.7.1+cu128",
+    "transformers": "4.57.1",
+    "tokenizers": "0.22.1",
+    "libclang": "18.1.1",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1"
+  }
+}

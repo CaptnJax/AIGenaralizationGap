@@ -1,0 +1,66 @@
+{
+  "task": "Frozen-model function-level binary vulnerability evaluation",
+  "labels": {
+    "0": "non-vulnerable",
+    "1": "vulnerable"
+  },
+  "duplicate_policy": "Retain all labeled source records, including identical code, as requested",
+  "uncertain_policy": "Exclude only LLMVul uncertain records with blank vuln_label",
+  "code_policy": "Preserve exact decoded code text, comments, whitespace and newlines; no tokenization or truncation",
+  "source_sha256": {
+    "primevul_test.jsonl": "c9dcab5ee897da36eccf0dbb3b510de2dab66a7dec681af29a7a28c8a53331c4",
+    "primevul_valid.jsonl": "7f0b4d05b063c20d5cf57478128538b8c0c36354e8def7f2d4febe6773b9dc7c",
+    "LLMVul_v3-Updated.csv": "eb0efbf912fb22d51cddd33ffa11e6f3e4add56b52cc9e78dae96621c819c293"
+  },
+  "runtime": {
+    "python": "3.12.14",
+    "pandas": "3.0.1"
+  },
+  "datasets": {
+    "primevul_test": {
+      "source_records": 24788,
+      "exported_records": 24788,
+      "non_vulnerable": 24239,
+      "vulnerable": 549,
+      "excluded_uncertain": 0,
+      "duplicate_code_extra_rows_retained": 0,
+      "split": "test",
+      "split_note": "Original split preserved",
+      "verification": "All rows reloaded; IDs, exact code strings and integer labels match source selection"
+    },
+    "primevul_valid": {
+      "source_records": 23948,
+      "exported_records": 23948,
+      "non_vulnerable": 23355,
+      "vulnerable": 593,
+      "excluded_uncertain": 0,
+      "duplicate_code_extra_rows_retained": 0,
+      "split": "valid",
+      "split_note": "Original split preserved",
+      "verification": "All rows reloaded; IDs, exact code strings and integer labels match source selection"
+    },
+    "llmvul_test": {
+      "source_records": 21430,
+      "exported_records": 18751,
+      "non_vulnerable": 17211,
+      "vulnerable": 1540,
+      "excluded_uncertain": 2679,
+      "duplicate_code_extra_rows_retained": 877,
+      "split": "test",
+      "split_note": "All labeled rows used as external test set",
+      "verification": "All rows reloaded; IDs, exact code strings and integer labels match source selection"
+    }
+  },
+  "original_files_unchanged": true,
+  "output_sha256": {
+    "linevul/primevul_test.csv": "dbfb9264b0c06d3dc7d33c5fea62baba48889857b79f41ed80deba84c0a6e039",
+    "vulberta/primevul_test.csv": "1523c975662023d429808c28de326f1de70d5331dd3db861fdee8e4e17271b85",
+    "vulberta/primevul_test.pkl": "43ccbc4bd4686a3b2534045c39351ee5784e63ca8844070f5fdd15cdc44770d7",
+    "linevul/primevul_valid.csv": "cc6fba7636571ce3089744a951ab62bed02daaf3f5bc86214565f49473b4910e",
+    "vulberta/primevul_valid.csv": "a83b5752b38a00a449514f783a46cb636becdb9f53448c946cbabcec38aa37d7",
+    "vulberta/primevul_valid.pkl": "2dcd7c63effc85983f04d6ff6059322046bdd74201a8b43d9fdddaf4c3adb822",
+    "linevul/llmvul_test.csv": "68a68cf9a22f34601f3a48d9586c4317032365f04ad788883fa9c4596bb484a8",
+    "vulberta/llmvul_test.csv": "a9c2f766508bef728f27774883b77d2fbd703befd9d9de74cefd89cb7bf3c94e",
+    "vulberta/llmvul_test.pkl": "0ffd37e4e4042a53e4685ad98e31ad502238db2b62ec14a1f08935bd04f8ae9b"
+  }
+}

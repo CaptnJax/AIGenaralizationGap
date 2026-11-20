@@ -1,0 +1,15 @@
+{
+  "script": "9ce4b2a85015c06c4180c4fb795fd91ee4353affa8c395c274d3833cb62756f7",
+  "checkpoint": "1b18ff8e75af787520a00139bd86e70d02eb448c716290ee7b2cb20bda61a67b",
+  "input_manifest": "850ff91693360c6844d1b833e32d757b7e76c94ab88a19af94e42a8e4d3da9de",
+  "model": "linevul",
+  "seed": 42,
+  "batch_size": 16,
+  "device": "cuda",
+  "versions": {
+    "torch": "2.7.1+cu128",
+    "transformers": "4.57.1",
+    "tokenizers": "0.22.1",
+    "libclang": "18.1.1"
+  }
+}

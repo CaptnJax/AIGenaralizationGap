@@ -1,0 +1,2825 @@
+{
+  "status": "pass",
+  "checks": [
+    {
+      "check": "unchanged:LLMVul_v3-Updated.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:primevul_test.jsonl",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:primevul_valid.jsonl",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:prepared_datasets\\cweval\\catalog.jsonl",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:localScripts\\results\\rq1_priority2_20261028\\joined_inputs.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:localScripts\\results\\20261009_203652_921773\\linevul\\bigvul_test_sample_2000\\results\\raw_preds.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:localScripts\\results\\20261009_203942_809681\\linevul\\primevul_test\\results\\raw_preds.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:localScripts\\results\\20261009_203942_809681\\linevul\\llmvul_test\\results\\raw_preds.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:localScripts\\results\\20261009_211327_299195\\vulberta\\primevul_test\\predictions.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:localScripts\\results\\20261009_211327_299195\\vulberta\\llmvul_test\\predictions.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:localScripts\\results\\20261015_230324_309261\\linevul\\cweval_test\\results\\raw_preds.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged:localScripts\\results\\20261015_230324_309261\\vulberta\\cweval_test\\predictions.csv",
+      "status": "pass"
+    },
+    {
+      "check": "audit_script_identity",
+      "status": "pass"
+    },
+    {
+      "check": "plan_identity",
+      "status": "pass"
+    },
+    {
+      "check": "unique_source_ids",
+      "status": "pass"
+    },
+    {
+      "check": "scored_records",
+      "status": "pass"
+    },
+    {
+      "check": "prediction_rule",
+      "status": "pass"
+    },
+    {
+      "check": "label_hash_alignment",
+      "status": "pass"
+    },
+    {
+      "check": "historical_confusion:linevul/bigvul_test_sample_2000",
+      "status": "pass"
+    },
+    {
+      "check": "historical_confusion:linevul/primevul_test",
+      "status": "pass"
+    },
+    {
+      "check": "historical_confusion:linevul/llmvul_test",
+      "status": "pass"
+    },
+    {
+      "check": "historical_confusion:vulberta/primevul_test",
+      "status": "pass"
+    },
+    {
+      "check": "historical_confusion:vulberta/llmvul_test",
+      "status": "pass"
+    },
+    {
+      "check": "historical_confusion:linevul/cweval_test",
+      "status": "pass"
+    },
+    {
+      "check": "historical_confusion:vulberta/cweval_test",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_published_blob:1a2aa4ea9988fb4a233a6157841e00dcd8bea00f",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_published_blob:944dac0ffeab37739e4f9e16ec496fec4e27e460",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_published_blob:b9b26d438ca3e25cb325816f25d9644c3788434f",
+      "status": "pass"
+    },
+    {
+      "check": "bigvul_documentation_blob",
+      "status": "pass"
+    },
+    {
+      "check": "all_llm_vote_labels",
+      "status": "pass"
+    },
+    {
+      "check": "llm_raw_code_and_labels",
+      "status": "pass"
+    },
+    {
+      "check": "prime_raw_code_and_labels",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:code_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:code_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:code_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:code_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:code_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:code_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:code_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:code_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:token_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:token_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:token_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:token_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:token_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:token_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:token_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:token_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:structural_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:structural_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:structural_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:structural_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:structural_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:structural_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:structural_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:structural_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:exclude_cross_dataset_exact_matches:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:exclude_cross_dataset_exact_matches:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:exclude_cross_dataset_exact_matches:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:exclude_cross_dataset_exact_matches:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:exclude_cross_dataset_exact_matches:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:exclude_cross_dataset_exact_matches:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:exclude_cross_dataset_exact_matches:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:rows:exclude_cross_dataset_exact_matches:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:code_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:code_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:code_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:code_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:code_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:code_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:code_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:code_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:token_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:token_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:token_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:token_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:token_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:token_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:token_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:token_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:structural_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:structural_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:structural_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:structural_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:structural_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:structural_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:structural_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:structural_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:exclude_cross_dataset_exact_matches:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:exclude_cross_dataset_exact_matches:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:exclude_cross_dataset_exact_matches:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:exclude_cross_dataset_exact_matches:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:exclude_cross_dataset_exact_matches:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:exclude_cross_dataset_exact_matches:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:exclude_cross_dataset_exact_matches:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:rows:exclude_cross_dataset_exact_matches:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:code_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:code_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:code_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:code_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:code_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:code_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:code_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:code_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:token_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:token_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:token_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:token_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:token_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:token_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:token_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:token_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:structural_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:structural_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:structural_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:structural_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:structural_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:structural_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:structural_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:structural_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:exclude_cross_dataset_exact_matches:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:exclude_cross_dataset_exact_matches:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:exclude_cross_dataset_exact_matches:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:exclude_cross_dataset_exact_matches:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:exclude_cross_dataset_exact_matches:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:exclude_cross_dataset_exact_matches:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:exclude_cross_dataset_exact_matches:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:rows:exclude_cross_dataset_exact_matches:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:code_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:code_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:code_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:code_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:code_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:code_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:code_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:code_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:token_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:token_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:token_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:token_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:token_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:token_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:token_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:token_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:structural_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:structural_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:structural_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:structural_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:structural_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:structural_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:structural_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:structural_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:exclude_cross_dataset_exact_matches:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:exclude_cross_dataset_exact_matches:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:exclude_cross_dataset_exact_matches:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:exclude_cross_dataset_exact_matches:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:exclude_cross_dataset_exact_matches:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:exclude_cross_dataset_exact_matches:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:exclude_cross_dataset_exact_matches:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:rows:exclude_cross_dataset_exact_matches:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:code_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:code_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:code_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:code_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:code_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:code_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:code_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:code_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:token_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:token_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:token_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:token_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:token_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:token_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:token_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:token_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:structural_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:structural_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:structural_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:structural_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:structural_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:structural_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:structural_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:structural_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:exclude_cross_dataset_exact_matches:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:exclude_cross_dataset_exact_matches:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:exclude_cross_dataset_exact_matches:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:exclude_cross_dataset_exact_matches:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:exclude_cross_dataset_exact_matches:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:exclude_cross_dataset_exact_matches:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:exclude_cross_dataset_exact_matches:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:rows:exclude_cross_dataset_exact_matches:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:code_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:code_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:code_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:code_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:code_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:code_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:code_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:code_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:token_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:token_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:token_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:token_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:token_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:token_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:token_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:token_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:structural_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:structural_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:structural_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:structural_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:structural_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:structural_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:structural_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:structural_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:exclude_cross_dataset_exact_matches:tn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:exclude_cross_dataset_exact_matches:fp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:exclude_cross_dataset_exact_matches:fn",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:exclude_cross_dataset_exact_matches:tp",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:exclude_cross_dataset_exact_matches:f1",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:exclude_cross_dataset_exact_matches:ap",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:exclude_cross_dataset_exact_matches:auc",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:rows:exclude_cross_dataset_exact_matches:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:code_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:code_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:code_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:code_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:code_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:code_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:code_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:code_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:token_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:token_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:token_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:token_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:token_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:token_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:token_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:token_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:structural_sha256:all:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:structural_sha256:all:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:structural_sha256:all:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:structural_sha256:all:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:structural_sha256:all:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:structural_sha256:all:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:structural_sha256:all:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:structural_sha256:all:weight",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:exclude_cross_dataset_exact_matches:tn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:exclude_cross_dataset_exact_matches:fp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:exclude_cross_dataset_exact_matches:fn",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:exclude_cross_dataset_exact_matches:tp",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:exclude_cross_dataset_exact_matches:f1",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:exclude_cross_dataset_exact_matches:ap",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:exclude_cross_dataset_exact_matches:auc",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:rows:exclude_cross_dataset_exact_matches:weight",
+      "status": "pass"
+    },
+    {
+      "check": "bigvul_test_sample_2000:code_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "bigvul_test_sample_2000:token_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "bigvul_test_sample_2000:structural_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "primevul_test:code_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "primevul_test:token_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "primevul_test:structural_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_test:code_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_test:token_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_test:structural_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "cweval_test:code_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "cweval_test:token_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "cweval_test:structural_sha256:groups",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:fn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:fn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:fp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:fp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:tp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:tp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:tn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:tn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:fn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:fn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:fp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:fp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:tp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:tp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:tn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test:tn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:fn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:fn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:fp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:fp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:tp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:tp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:tn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:tn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:fn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:fn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:fp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:fp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:tp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:tp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:tn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test:tn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:fn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:fn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:fp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:fp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:tp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:tp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:tn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test:tn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:fn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:fn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:fp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:fp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:tp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:tp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:tn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:tn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:fn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:fn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:fp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:fp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:tp:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:tp:probability",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:tn:sample",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test:tn:probability",
+      "status": "pass"
+    },
+    {
+      "check": "blinded_packet_schema",
+      "status": "pass"
+    },
+    {
+      "check": "review_counts",
+      "status": "pass"
+    },
+    {
+      "check": "blinded_code_hashes",
+      "status": "pass"
+    },
+    {
+      "check": "union_inclusion_probabilities",
+      "status": "pass"
+    },
+    {
+      "check": "unfilled:reviewer_1.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unfilled:reviewer_2.csv",
+      "status": "pass"
+    },
+    {
+      "check": "unfilled:adjudication.csv",
+      "status": "pass"
+    },
+    {
+      "check": "review_kappa_complete",
+      "status": "pass"
+    },
+    {
+      "check": "review_kappa_all",
+      "status": "pass"
+    },
+    {
+      "check": "agreed_subset_support",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:published_agreed_labels",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test:limited_hybrid",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:published_agreed_labels",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test:limited_hybrid",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_020_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_020_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_020_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_020_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_020_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_020_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_020_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_020_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_022_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_022_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_022_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_022_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_022_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_022_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_022_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_022_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_022_2_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_022_2_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_022_2_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_022_2_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_022_2_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_022_2_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_022_2_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_022_2_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_078_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_078_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_078_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_078_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_078_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_078_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_078_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_078_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_079_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_079_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_079_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_079_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_079_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_079_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_079_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_079_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_113_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_113_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_113_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_113_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_113_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_113_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_113_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_113_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_117_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_117_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_117_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_117_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_117_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_117_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_117_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_117_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_119_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_119_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_119_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_119_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_120_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_120_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_120_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_120_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_125_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_125_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_125_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_125_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_131_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_131_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_131_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_131_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_1333_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_1333_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_1333_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_1333_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_134_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_134_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_134_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_134_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_170_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_170_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_170_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_170_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_190_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_190_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_190_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_190_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_326_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_326_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_326_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_326_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_326_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_326_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_326_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_326_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_326_1_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_326_1_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_326_1_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_326_1_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_326_1_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_326_1_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_326_1_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_326_1_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_327_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_327_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_327_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_327_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_327_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_327_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_327_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_327_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_327_2_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_327_2_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_327_2_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_327_2_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_327_2_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_327_2_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_327_2_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_327_2_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_329_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_329_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_329_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_329_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_329_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_329_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_329_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_329_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_347_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_347_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_347_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_347_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_347_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_347_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_347_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_347_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_377_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_377_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_377_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_377_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_400_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_400_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_400_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_400_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_468_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_468_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_468_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_468_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_476_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_476_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_476_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_476_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_643_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_643_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_643_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_643_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_643_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_643_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_643_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_643_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_676_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_676_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_676_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_676_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_732_2_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_732_2_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_732_2_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_732_2_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_732_2_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_732_2_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_732_2_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_732_2_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_760_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_760_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_760_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_760_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_760_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_760_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_760_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_760_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_787_2_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_787_2_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_787_2_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_787_2_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_918_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_918_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_918_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_918_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_918_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_918_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_918_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_918_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_918_1_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_918_1_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_918_1_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_918_1_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_918_1_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_918_1_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_918_1_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_918_1_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_943_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_943_0_c:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_943_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_943_0_c:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_943_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_943_0_cpp:completion",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_blob:cweval:cwe_943_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "cwe_target:cweval:cwe_943_0_cpp:y_negative",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\Dockerfile",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\README.md",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_020_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_022_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_022_2_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_078_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_079_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_113_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_117_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_326_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_326_1_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_327_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_327_2_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_329_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_347_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_377_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_643_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_732_2_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_760_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_918_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_918_1_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_943_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_020_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_022_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_022_2_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_078_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_079_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_113_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_117_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_1333_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_326_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_326_1_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_327_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_327_2_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_329_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_347_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_400_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_643_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_732_2_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_760_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_918_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_918_1_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_943_0_cpp_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_119_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_120_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_125_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_131_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_134_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_170_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_190_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_468_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_476_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_676_0_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_787_2_c_test.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\commons.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\run_tests.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\sandbox.py",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_289E72EB6D827C0D.c",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_9D80D1E3ECA38FE1.c",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_1FD8CA7AD4F7A7A6.c",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_9D4C3136460C9399.c",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_64E05D7C322FB0BB.c",
+      "status": "pass"
+    },
+    {
+      "check": "downloaded:D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_F486991D843C2E5D.c",
+      "status": "pass"
+    },
+    {
+      "check": "new_adjudication_not_claimed",
+      "status": "pass"
+    },
+    {
+      "check": "security_execution_not_claimed",
+      "status": "pass"
+    },
+    {
+      "check": "unit_tests",
+      "status": "pass"
+    }
+  ],
+  "passed": 668,
+  "unit_tests": 8,
+  "dependencies": {
+    "rq1_priority1_audit.py": "2457c48ffe9391eae6a00acce08cc71fda6f59ee060a3d7039572cbfae64bd2e",
+    "rq1_priority2_audit.py": "08c384e8f30130a59956225e187bc5bcbba4ad050e098a1d995b86a0bed9ba66",
+    "rq1_priority3_scores.py": "7803e3e1b114b8d4c3a3a78a1a0eea802ad3c2800845f4422fed25b0feb47390",
+    "rq1_priority4_audit.py": "f4b25e8266ec8e5be7c93b0c9f7184a5e32f6a59dc56eae3b2fec4e37715c277",
+    "rq1_priority4_evidence.py": "3b52f68f42e6cf1b28ac83bdf85eac01862a42b6d4e81696dda7305314e67f8b",
+    "test_rq1_priority4.py": "6b77ff2efe79c79c7ebebb7f92bdbb88f4dba11d54743fd1398dc35851565005"
+  },
+  "packages": {
+    "numpy": "2.5.3",
+    "scikit-learn": "1.9.1",
+    "tree-sitter": "0.26.0",
+    "tree-sitter-c": "0.24.2",
+    "tree-sitter-cpp": "0.23.4"
+  },
+  "artifacts": {
+    "analysis_plan.json": "3605543f84064c41179f8509553cca378fceecb0b1b82c8cd920d83c6146579b",
+    "audit.py": "f4b25e8266ec8e5be7c93b0c9f7184a5e32f6a59dc56eae3b2fec4e37715c277",
+    "case_code\\cweval_cwe_078_0_cpp_y_negative.txt": "27d62180e01449e93628881066b7996a423e4fc4a754de6ac219553e61e9f0dc",
+    "case_code\\cweval_cwe_918_1_c_y_negative.txt": "a1a09ebcaacf259a57b0fbf6c9a8203c46903d2a1d6980c158f11a1be5c47658",
+    "case_code\\llmvul_ID_1FD8CA7AD4F7A7A6.txt": "69f568108f8084511488be2cbd8eec39832dcaec9cd0c9a57c747f18404e4be3",
+    "case_code\\llmvul_ID_289E72EB6D827C0D.txt": "9ad2f55082b8b032c16824025f774b0adddf52c07b5dd57d5986e008f7b6a61b",
+    "case_code\\llmvul_ID_64E05D7C322FB0BB.txt": "5fa5872e62cdaea784640ca6b3c021a84b527c32b314dd9a81227c88026e3404",
+    "case_code\\llmvul_ID_9D4C3136460C9399.txt": "0e463b3ac636e446543bfc0e27771c5c67c74029ac5638dfb8c1404c4e062215",
+    "case_code\\llmvul_ID_9D80D1E3ECA38FE1.txt": "a0448916f21f159851aded550a8f22ab31a3823e7b6615438740ad7d21721ecd",
+    "case_code\\llmvul_ID_F486991D843C2E5D.txt": "9c4ef8e204fbf06edcbc17107231681f55df56b816b461293dfe2268da6ccb88",
+    "case_code\\primevul_195399.txt": "c1e18c075c4d45b513eb377aab4e36d1bd7d6b74d73cd1b1bce706867c897545",
+    "case_code\\primevul_197305.txt": "2523b9599908cdd19424fbb272017868d74afa6c19c677ccc05629ad29ecc9a8",
+    "case_code\\primevul_204138.txt": "2df56c3ffc81eda15740cef602cd0423322002ebe5852f6b781889336c5d1083",
+    "case_code\\primevul_210834.txt": "6b0f351d376c283a91c309d619d344b96e57c9ef12cf3d021eefe9c4427d6229",
+    "case_code\\primevul_210944.txt": "18a317467286b9f93d10b9988d0acdc52bed08cb73e09d6f6f7fb30f01e6baf1",
+    "case_code\\primevul_379328.txt": "459160522535e698834abba6d74bda57266586c4b7094c07def86c363da75e27",
+    "case_code\\primevul_440872.txt": "180d4bafeea432a1c44835557dcd5ff1daf4d1804a53093f8707ab5321d1a8f1",
+    "case_evidence_index.json": "db6de69297a144e2b13355d345b1be5262b482326affd82260cef274036885d0",
+    "case_review_notes.json": "a232df9353c54619ace6f61b822fcdb0322d0b84133c318fb6427edaa791accd",
+    "cohort_metrics.csv": "c9fb6cc11fa5922f74edfdaab2ab8bfd3a21e1d711e25e132a7b370010d37a42",
+    "construction_cohort_metrics.csv": "360126b6b8f3ee733082c43b372036780e0f4a88ca9d7b7282c8c244e0af78f8",
+    "cross_dataset_groups.jsonl": "a0b0963d32cd107e851ac1cfa68701efb5e7a7ced9478dfd5b0c86ffe21071be",
+    "cweval_test_map.csv": "d86012a07cd39e1667ddd54135a92d69a10872749d8396d38536935b77933579",
+    "duplicate_groups.csv": "c63260dc52cf9d696ba2c95b81d7bcc8630ee7da4baa80ee8df862ba617196db",
+    "environment_check.json": "e8439b10c231bc7464de0a88057cd5241701d062f3bd52cf1378e351f0a2327e",
+    "evidence_summary.json": "48b34fdabf3f6ace50d8b7e14df62dfcec790769f9c09639fc00acbaa9a84c36",
+    "external_review_join.csv": "c84477bf6914f0157e310a489653de7eed41b92e14716e42af7ba6584186716e",
+    "llmvul_all_exact_label_conflicts.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "llmvul_construction_flags.csv": "f36cb4b7c0fef8b588f7376a89575ff9f5b38d8dad40a4d3a3d8604459139254",
+    "primevul_token_label_conflicts.json": "aacfc89f981a250c0bc4c4f571946de6bb23d94b79364368af290b53df6731e1",
+    "review\\adjudication.csv": "e078d23a127cfb6e9caae7fb4a141c31c1b6ea56620c68637e0927688782a27b",
+    "review\\coordinator_key.csv": "a5c1691b90ba5eb240ec820d96ee2e81d1cce8411d4315ea24013a2f4490143f",
+    "review\\purposive_cases.jsonl": "0fe6430ae81e0e78191055948623239c0ec1b0efec04d15d7b037eb0ab716d5f",
+    "review\\purposive_selection.csv": "73de652c0a6d99fd7379c80e6b018660f60da562b4034a045ddb8a5fd7aa3652",
+    "review\\README.md": "a4783038b0e4c81f7ae1dfbff89b1852b86ae1d619f8bad19145f560f72becd2",
+    "review\\reviewer_1.csv": "00db34777a2d631d6b59b873a6d6f89ed40c9471670f3bca983558992d97fa67",
+    "review\\reviewer_2.csv": "00db34777a2d631d6b59b873a6d6f89ed40c9471670f3bca983558992d97fa67",
+    "review\\selection.csv": "d8427e7735e55242f5e706ec55eb30d0043b408552e0f5f6c073344c67965f31",
+    "review\\stage1_blinded_code.jsonl": "c1e6452d42cf793e1da79f5071c5f1a67bfe40c9e023805deeccfac61bbcdbfe",
+    "review\\stage2_source_evidence.jsonl": "d51c09ac3a7f1625db1e270d48a82a32794c408bdf83b17a3aeaa7f2bea178bd",
+    "review\\strata.csv": "f2c58eea971248a85eb377548d9f37d164885806f6a609ec91305e3ceea88262",
+    "row_structure.jsonl": "3a38660f1391cd72563dd1ceb802ab04e81ef63d703850b11135d0bd3ed4be7c",
+    "rq1_priority4_evidence.py": "3b52f68f42e6cf1b28ac83bdf85eac01862a42b6d4e81696dda7305314e67f8b",
+    "source_case_matches.json": "5fba8e82e5d796f7f05218fcdfb9d2e881452ea52c9a5c1047a80eee9a4e6147",
+    "sources\\additional_case_sources.json": "e9bc82c25d366e5f8b27f0b7129ab5a126626e208d05eca1c4e9ee5a5728c435",
+    "sources\\bigvul_source.json": "c514ce87be61b76da6c041c3a60776b05234f9fd9e9683359626e28d841c1933",
+    "sources\\case_files\\045deec1cbdebb27d817008ad5df94d96a08b1bf.patch": "763391c7a9e8be4a6df797a625cfb5f9a8d89ee2c87a85d44f2b600c4da114d6",
+    "sources\\case_files\\11559e49e65bdf00922ad5ae28913ec6a198d508.patch": "d8cdb59dbc02cc7c29ad7a0bc7f502022e20a1eedc9ba2ef43e279948cd960ea",
+    "sources\\case_files\\e392255766071c8cac480da3a9ae4f94e56d7cbc.patch": "9cb85fcb42e8a3b2bfa3b9a37b161ab21fa3930d758b7041f53b70ae6483f351",
+    "sources\\case_files\\ID_1FD8CA7AD4F7A7A6.c": "3d7fb2bcb962cb728e1b4ac8c86baa7452ffd45ee23b15c3664823235a09d708",
+    "sources\\case_files\\ID_289E72EB6D827C0D.c": "2d93eb0fceacaa6f79e09b7b527ece1959576df7f8e56816a1a36ea1b33f1668",
+    "sources\\case_files\\ID_64E05D7C322FB0BB.c": "6db06333d516c45e80ce0c99ec20de8fa25eba472934f7158be2f62f6c61ed38",
+    "sources\\case_files\\ID_9D4C3136460C9399.c": "e0bc3db29af0369e7778da292e535cf66d562bb0462429ef957494aa836292c8",
+    "sources\\case_files\\ID_9D80D1E3ECA38FE1.c": "36db3e42a3ca76ce803bb346761aaad85d829fc6077f75934f87b1ec435ff329",
+    "sources\\case_files\\ID_F486991D843C2E5D.c": "ac147d78a1826444c6127abd5b1ce8a2d4f30da7bf612a648bd668ed1fc8f0e5",
+    "sources\\case_sources.json": "1b92ed17f00f08b43609a86d92398a72436a2440afca95c105d5cf034e87ca56",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_020_0_c_test.py": "8779409922165789fa37a1fa5b34628c2f35389799ca9fe199b8585fe21816ac",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_022_0_c_test.py": "9fe435d55e11badf5552eb7a3448d7f739f5df1a0ca85aa6664d2ef22fe0c12e",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_022_2_c_test.py": "46fb92a386417cecd917d1f04068e67f6e1491aef80e46e8dd90fa00200ea928",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_078_0_c_test.py": "e80c1135af217537d34870585f8dca0edc677a48495bb15f563fe0228993a680",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_079_0_c_test.py": "ab75b15c49b57818f95d37da7ed1f9f5228dbb5b0d13e2a25a028bb006bc4ac9",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_113_0_c_test.py": "89291ec28fb14cee7abcc1a41f5f21edb170ab4c056acc6939af33fb3775d3d8",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_117_0_c_test.py": "b111d8c4dad235191740723ef243a181188806bbdde7947343f2616a33e4d6b0",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_326_0_c_test.py": "a19a29e8c69b50fa773da203a90005aab986967ad3e8e2da9e12911d58b976cd",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_326_1_c_test.py": "975932f367af6535c77d88ad449bfcb0819ad69b07a7396b4553b68906804967",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_327_0_c_test.py": "2da7689ddae87703b1a2723f7ea46407f4c8e694394b81e0a3a9d29b8a3f12cd",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_327_2_c_test.py": "597d900d3c362befcf5b39fbb9e69f08649c6f6330effc7fa65c853c0bb41a83",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_329_0_c_test.py": "dbab456bdf4c0f4564d732799ab021c5a52efce4435debfd47ed146e81416036",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_347_0_c_test.py": "66d75c34dc8320a38bfe069c51862848f0af3a0472691178593f838c32a53ebe",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_377_0_c_test.py": "c47433a790b99c5834104ec27f7091f0a7cb3c721f20f2d62737f15aae94ed05",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_643_0_c_test.py": "eeb3d5573931d6665547d01f7165d3c7f681fb76a1be91292f77e16a897b075b",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_732_2_c_test.py": "4c9c5ba7949fdee877d251719bd87e742d1e19e4714c38b0506e9a901545fc68",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_760_0_c_test.py": "71d35f26e669dd8ede089a6bf942aa44ca950d8fce0414a6aac6bc83cc115757",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_918_0_c_test.py": "8152cbdd8b26ac75473960488f71c33b39ee7c60ad56d31a6f8de26476cbf8b7",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_918_1_c_test.py": "f13d133d4990ab3c770d25843ce495005ed66f1e26243f4fba2199122d3a0da9",
+    "sources\\cweval\\benchmark\\core\\c\\cwe_943_0_c_test.py": "83d765e883aca6e30ed33528a76b24f6b7430136c2413bd695a3d02b99b39425",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_020_0_cpp_test.py": "8779409922165789fa37a1fa5b34628c2f35389799ca9fe199b8585fe21816ac",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_022_0_cpp_test.py": "9fe435d55e11badf5552eb7a3448d7f739f5df1a0ca85aa6664d2ef22fe0c12e",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_022_2_cpp_test.py": "46fb92a386417cecd917d1f04068e67f6e1491aef80e46e8dd90fa00200ea928",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_078_0_cpp_test.py": "e80c1135af217537d34870585f8dca0edc677a48495bb15f563fe0228993a680",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_079_0_cpp_test.py": "ab75b15c49b57818f95d37da7ed1f9f5228dbb5b0d13e2a25a028bb006bc4ac9",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_113_0_cpp_test.py": "89291ec28fb14cee7abcc1a41f5f21edb170ab4c056acc6939af33fb3775d3d8",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_117_0_cpp_test.py": "b111d8c4dad235191740723ef243a181188806bbdde7947343f2616a33e4d6b0",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_1333_0_cpp_test.py": "b7d5c429a5c58a288b6e412cad8421d066d714f58047fd10872770c6503fe0b7",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_326_0_cpp_test.py": "a19a29e8c69b50fa773da203a90005aab986967ad3e8e2da9e12911d58b976cd",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_326_1_cpp_test.py": "975932f367af6535c77d88ad449bfcb0819ad69b07a7396b4553b68906804967",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_327_0_cpp_test.py": "2da7689ddae87703b1a2723f7ea46407f4c8e694394b81e0a3a9d29b8a3f12cd",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_327_2_cpp_test.py": "597d900d3c362befcf5b39fbb9e69f08649c6f6330effc7fa65c853c0bb41a83",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_329_0_cpp_test.py": "dbab456bdf4c0f4564d732799ab021c5a52efce4435debfd47ed146e81416036",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_347_0_cpp_test.py": "66d75c34dc8320a38bfe069c51862848f0af3a0472691178593f838c32a53ebe",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_400_0_cpp_test.py": "6f412b3dc6b9cf1fad6635e1d43fe5e71c082c27bff1263c00befcece901a609",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_643_0_cpp_test.py": "eeb3d5573931d6665547d01f7165d3c7f681fb76a1be91292f77e16a897b075b",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_732_2_cpp_test.py": "4c9c5ba7949fdee877d251719bd87e742d1e19e4714c38b0506e9a901545fc68",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_760_0_cpp_test.py": "71d35f26e669dd8ede089a6bf942aa44ca950d8fce0414a6aac6bc83cc115757",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_918_0_cpp_test.py": "8152cbdd8b26ac75473960488f71c33b39ee7c60ad56d31a6f8de26476cbf8b7",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_918_1_cpp_test.py": "f13d133d4990ab3c770d25843ce495005ed66f1e26243f4fba2199122d3a0da9",
+    "sources\\cweval\\benchmark\\core\\cpp\\cwe_943_0_cpp_test.py": "83d765e883aca6e30ed33528a76b24f6b7430136c2413bd695a3d02b99b39425",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_119_0_c_test.py": "ea0bc458ff669cef18100d2524f22fe7201a1066d032574453eccca18da99c86",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_120_0_c_test.py": "d2a5fc9ac53bd8251c0aca4f0c7016c2c2c4a7b971df0bd3a10bfe4004ad60c2",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_125_0_c_test.py": "519b48e39e4b311feb39a17ce1dc98bd1f3b205366f975ddd843ed623eebbc92",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_131_0_c_test.py": "a0ea02c9816e23a3e45941c61cc52ec6e0718ce7903110151dd321fdf83d3811",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_134_0_c_test.py": "5ed44fb11062f748f833efbfae02d20cb933bd4a0075019cf423b00c287baf5e",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_170_0_c_test.py": "99f42a2f80423a6506c487beb5d5f0da8ef1670f4722d04e75b79e42e5841260",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_190_0_c_test.py": "402969efa90df4215577d9f043e0ae9fa403578c767cb1b585a53ca470f82eef",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_468_0_c_test.py": "4ca0a86f54104172205041f4dc95fdf8a5819ce82af442f2a44f2e4d8284c25d",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_476_0_c_test.py": "ff1d91d787250317fa0a14eb7aa1f17857d3cf95791ed1f0bbadf734d52a513e",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_676_0_c_test.py": "b418cfaf30130435861809e10a2e6f5fab69c5d17f0813bd9f72b97e0df39358",
+    "sources\\cweval\\benchmark\\lang\\c\\cwe_787_2_c_test.py": "9960e03e12aafe2dd092ec8d30598e8a908d22f310044c89b28df2340f1f1540",
+    "sources\\cweval\\cweval\\commons.py": "7dde102128db9a0642b31b05f2aaa1155ef0a65bdc80d46fcd0aab966a927adf",
+    "sources\\cweval\\cweval\\run_tests.py": "bb6f40c2fd38f7e39041a43de17c0fae5864aacadb5921096a22bfd018d5919b",
+    "sources\\cweval\\cweval\\sandbox.py": "bdf003195095927fd29e26cbd339015c19a4345c5c8637b73407a5cdcfda8f06",
+    "sources\\cweval\\Dockerfile": "491d08bed2214efaf073783c807b72d85a15344682f98a9465e893a03c8dd4d4",
+    "sources\\cweval\\README.md": "d8544a01588646151efa8531d8be580034b28f3afa9af4f74c0c7b10e9a83578",
+    "sources\\cweval_sources.json": "a63e65014a3f39003f4f457154a338c3e8c982d80b5b19e031bf0f37fc155c47",
+    "sources\\github_sources.json": "7021a36865001b13a99b700f72c7b0670d841141e406a1d7fa96be5e64dcb67d",
+    "sources\\llmvul_manual_review.csv": "a5b8d08a68107763642605db3df1b741e1db9a9e19a8a9b41360d639f8e5a1aa",
+    "sources\\llmvul_mine.py": "6cdfc75fe69bd8e002ef70c0dfe68b87de2d5632f3affbf0a62b3abdad71a70c",
+    "sources\\llmvul_README.md": "bcebc99d829bdf37dfdbc0b937277d6e8b8feadb4aec6e70e3ae683ebf084adb",
+    "summary.json": "4bfc56da9ec2449baadda050267d31c147b526bd01e50d7cd43131992ecde453",
+    "test_rq1_priority4.py": "6b77ff2efe79c79c7ebebb7f92bdbb88f4dba11d54743fd1398dc35851565005",
+    "uncertain_structure.csv": "99d6bc43430c196c54544db3123869cd4648750e3c6861f729e53f82d0a24119",
+    "unit_test_log.txt": "68eba41bfd6de128778376f75d97a4cf5ecc33573c58346089b13f778d3fac39",
+    "verify.py": "d7b8a68462d70179681120d06005e42de01c890ff0f0e5e11cde64bb5d7e94fd",
+    "weighting_sensitivity.csv": "0a82473c75fc0f3aca29f33e953411fd9460ac0cd693e6019947a1a2c022432a"
+  },
+  "delivered_files": {
+    "D:\\GitRepo\\PIVD\\Repo\\localScripts\\reports\\rq1_priority4_diagnostics.md": "4127b8bff9028257db5eca5d16256621d73946042715aaa2cee7195794de1dbd",
+    "D:\\GitRepo\\PIVD\\Repo\\localScripts\\reports\\rq1_priority4_summary.json": "eee4602ecd4f0e59531a17680d64c0e28ec1b197d516f057697e5210348415da",
+    "D:\\GitRepo\\PIVD\\Repo\\localScripts\\reports\\rq1_diagnostic_plan.md": "adc254690d704412139dcdc54e5471fe4279ff59c8fa49d5b81e6b93f26f3fe7"
+  }
+}

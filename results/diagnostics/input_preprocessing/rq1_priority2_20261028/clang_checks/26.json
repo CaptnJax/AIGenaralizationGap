@@ -1,0 +1,6 @@
+{
+  "sample_id": "llmvul:ID_9B887A6FFB2992FC",
+  "dataset": "llmvul_test",
+  "source_language": "cpp",
+  "code": "id TstRingWrap::findFirstOfPatternsMatchStraddlingTheWrapBoundary()\n{\n  IO::CircularBuffer<QByteArray, char> buffer(kScanCapacity);\n  primeAtOffset(buffer, 30, QByteArray(\"pqrstuvwxy\"));\n  QCOMPARE(buffer.size(), qsizetype(10));\n\n  const auto straddling = buffer.findFirstOfPatterns({QByteArray(\"qr\"), QByteArray(\"tu\")});\n  QCOMPARE(straddling.position, 1);\n  QCOMPARE(straddling.patternIndex, 0);\n\n  const auto reordered = buffer.findFirstOfPatterns({QByteArray(\"tu\"), QByteArray(\"qr\")});\n  QCOMPARE(reordered.position, 1);\n  QCOMPARE(reordered.patternIndex, 1);\n}"
+}

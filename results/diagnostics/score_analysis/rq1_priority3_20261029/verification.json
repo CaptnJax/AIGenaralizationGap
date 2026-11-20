@@ -1,0 +1,479 @@
+{
+  "status": "pass",
+  "date": "2026-10-29",
+  "checks_passed": 111,
+  "checks": [
+    {
+      "check": "completed_analysis",
+      "status": "pass"
+    },
+    {
+      "check": "input_verification.json",
+      "status": "pass"
+    },
+    {
+      "check": "input_joined_inputs.csv",
+      "status": "pass"
+    },
+    {
+      "check": "input_input_summary.json",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_analysis_plan.json",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_cweval_pairs.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_groups.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_bigvul_test_sample_2000_curve.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_bigvul_test_sample_2000_project_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_bigvul_test_sample_2000_related_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_cweval_test_curve.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_cweval_test_related_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_llmvul_test_curve.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_llmvul_test_project_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_llmvul_test_related_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_primevul_test_curve.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_primevul_test_project_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_linevul_primevul_test_related_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_prevalence_sensitivity.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_reliability.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_score_audit.py",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_threshold_grid.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_vulberta_cweval_test_curve.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_vulberta_cweval_test_related_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_vulberta_llmvul_test_curve.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_vulberta_llmvul_test_project_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_vulberta_llmvul_test_related_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_vulberta_primevul_test_curve.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_vulberta_primevul_test_project_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "artifact_vulberta_primevul_test_related_bootstrap.csv",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/ranking.png",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/ranking.pdf",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/score_distributions.png",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/score_distributions.pdf",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/threshold_prevalence.png",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/threshold_prevalence.pdf",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/reliability.png",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/reliability.pdf",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/cweval_pairs.png",
+      "status": "pass"
+    },
+    {
+      "check": "figure_localScripts/reports/rq1_priority3_figures/cweval_pairs.pdf",
+      "status": "pass"
+    },
+    {
+      "check": "frozen_analysis_script",
+      "status": "pass"
+    },
+    {
+      "check": "frozen_figure_script",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_global_maximum",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_threshold_grid",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_uniform_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_quantile_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_related_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_related_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_project_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_project_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_global_maximum",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_threshold_grid",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_uniform_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_quantile_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_related_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_related_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_project_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_project_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_global_maximum",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_threshold_grid",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_uniform_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_quantile_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_related_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_related_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_project_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_project_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_global_maximum",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_threshold_grid",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_uniform_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_quantile_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_related_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_related_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_project_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_project_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_global_maximum",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_threshold_grid",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_uniform_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_quantile_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_related_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_related_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_project_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_project_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_global_maximum",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_threshold_grid",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_uniform_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_quantile_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_related_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_related_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_project_reuses_families",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_project_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_project_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_global_maximum",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_threshold_grid",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_uniform_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_quantile_bin_counts",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_related_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_related_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_project_reuses_families",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_project_replicates",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_project_intervals",
+      "status": "pass"
+    },
+    {
+      "check": "primevul_test_related_paired_difference",
+      "status": "pass"
+    },
+    {
+      "check": "primevul_test_project_paired_difference",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_test_related_paired_difference",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_test_project_paired_difference",
+      "status": "pass"
+    },
+    {
+      "check": "cweval_test_related_paired_difference",
+      "status": "pass"
+    },
+    {
+      "check": "linevul_29_pairs",
+      "status": "pass"
+    },
+    {
+      "check": "linevul_pair_values",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta_29_pairs",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta_pair_values",
+      "status": "pass"
+    },
+    {
+      "check": "rq1_priority3_diagnostics.md_links",
+      "status": "pass"
+    },
+    {
+      "check": "rq1_diagnostic_plan.md_links",
+      "status": "pass"
+    }
+  ],
+  "prior_independent_metric_checks": 133,
+  "observed_unit_tests": {
+    "count": 8,
+    "result": "pass",
+    "script_sha256": "55bbc2ac6e8fd7878006b3ea0f277f1473c4cdbc0b5df18f685124da2496a588"
+  },
+  "artifacts": [
+    {
+      "path": "localScripts/results/rq1_priority3_20261029/summary.json",
+      "sha256": "fe23b42b1231a6e3ddc8adc1b1b264ba94ef9fa7606299634d0d609ac44db5fd"
+    },
+    {
+      "path": "localScripts/results/rq1_priority3_20261029/figure_manifest.json",
+      "sha256": "0023c107f46b5dbcb78bba9c2656ff3fa91b147f23ad96c192f7a654f8d61ada"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_diagnostics.md",
+      "sha256": "ed79dc1d6b9fcda12dcfe5cb7fb086f9a970985a87df26c033ffe9a71f3d9b1c"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority3_summary.json",
+      "sha256": "fe23b42b1231a6e3ddc8adc1b1b264ba94ef9fa7606299634d0d609ac44db5fd"
+    },
+    {
+      "path": "localScripts/results/rq1_priority3_20261029/verify.py",
+      "sha256": "192ffa78e258609f00950c6fcff0f1b38701585c714a8a5775242ffc37beeb44"
+    }
+  ]
+}

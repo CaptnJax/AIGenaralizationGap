@@ -1,0 +1,215 @@
+{
+  "seed": 42,
+  "policy": "Up to three per dataset: both-model FN, parse-clean, LineVul untruncated, unchanged lexical tree, 200-1800 characters. Illustrative only.",
+  "cases": [
+    {
+      "dataset": "primevul_test",
+      "row": 649,
+      "sample_id": "primevul:197305",
+      "label": 1,
+      "project": "pjproject",
+      "cwe": [
+        "CWE-200"
+      ],
+      "cve_desc": "PJSIP is a free and open source multimedia communication library written in C. PJSIP versions 2.12 and prior do not parse incoming RTCP feedback RPSI (Reference Picture Selection Indication) packet, but any app that directly uses pjmedia_rtcp_fb_parse_rpsi() will be affected. A patch is available in the `master` branch of the `pjsip/pjproject` GitHub repository. There are currently no known workarounds.",
+      "call_expressions": [
+        "PJ_ASSERT_RETURN",
+        "pj_ntohs",
+        "pj_strset"
+      ],
+      "source_type_references": [
+        "pj_size_t",
+        "pj_status_t",
+        "pj_uint16_t",
+        "pj_uint8_t",
+        "pjmedia_rtcp_common",
+        "pjmedia_rtcp_fb_rpsi"
+      ],
+      "local_context_dependencies": null,
+      "context_assessment": "function_only_context_not_verified",
+      "code": "PJ_DEF(pj_status_t) pjmedia_rtcp_fb_parse_rpsi(\n\t\t\t\t\tconst void *buf,\n\t\t\t\t\tpj_size_t length,\n\t\t\t\t\tpjmedia_rtcp_fb_rpsi *rpsi)\n{\n    pjmedia_rtcp_common *hdr = (pjmedia_rtcp_common*) buf;\n    pj_uint8_t *p;\n    pj_uint8_t padlen;\n    pj_size_t rpsi_len;\n\n    PJ_ASSERT_RETURN(buf && rpsi, PJ_EINVAL);\n    PJ_ASSERT_RETURN(length >= sizeof(pjmedia_rtcp_common), PJ_ETOOSMALL);\n\n    /* RPSI uses pt==RTCP_PSFB and FMT==3 */\n    if (hdr->pt != RTCP_PSFB || hdr->count != 3)\n\treturn PJ_ENOTFOUND;\n\n    rpsi_len = (pj_ntohs((pj_uint16_t)hdr->length)-2) * 4;\n    if (length < rpsi_len + 12)\n\treturn PJ_ETOOSMALL;\n\n    p = (pj_uint8_t*)hdr + sizeof(*hdr);\n    padlen = *p++;\n    rpsi->pt = (*p++ & 0x7F);\n    rpsi->rpsi_bit_len = rpsi_len*8 - 16 - padlen;\n    pj_strset(&rpsi->rpsi, (char*)p, (rpsi->rpsi_bit_len + 7)/8);\n\n    return PJ_SUCCESS;\n}"
+    },
+    {
+      "dataset": "primevul_test",
+      "row": 575,
+      "sample_id": "primevul:195399",
+      "label": 1,
+      "project": "tensorflow",
+      "cwe": [
+        "CWE-476"
+      ],
+      "cve_desc": "Tensorflow is an Open Source Machine Learning Framework. Under certain scenarios, Grappler component of TensorFlow can trigger a null pointer dereference. There are 2 places where this can occur, for the same malicious alteration of a `SavedModel` file (fixing the first one would trigger the same dereference in the second place). First, during constant folding, the `GraphDef` might not have the required nodes for the binary operation. If a node is missing, the correposning `mul_*child` would be null, and the dereference in the subsequent line would be incorrect. We have a similar issue during `IsIdentityConsumingSwitch`. The fix will be included in TensorFlow 2.8.0. We will also cherrypick this commit on TensorFlow 2.7.1, TensorFlow 2.6.3, and TensorFlow 2.5.3, as these are also affected and still in supported range.",
+      "call_expressions": [
+        "IsIdentity",
+        "IsIdentityNSingleInput",
+        "IsSwitch",
+        "IsTensorIdControlling",
+        "ParseTensorName",
+        "graph.GetNode",
+        "node.input",
+        "node.input_size",
+        "tensor_id.node"
+      ],
+      "source_type_references": [
+        "MutableGraphView",
+        "NodeDef",
+        "TensorId"
+      ],
+      "local_context_dependencies": null,
+      "context_assessment": "function_only_context_not_verified",
+      "code": "bool IsIdentityConsumingSwitch(const MutableGraphView& graph,\n                               const NodeDef& node) {\n  if ((IsIdentity(node) || IsIdentityNSingleInput(node)) &&\n      node.input_size() > 0) {\n    TensorId tensor_id = ParseTensorName(node.input(0));\n    if (IsTensorIdControlling(tensor_id)) {\n      return false;\n    }\n\n    NodeDef* input_node = graph.GetNode(tensor_id.node());\n    return IsSwitch(*input_node);\n  }\n  return false;\n}"
+    },
+    {
+      "dataset": "primevul_test",
+      "row": 788,
+      "sample_id": "primevul:204138",
+      "label": 1,
+      "project": "qemu",
+      "cwe": [
+        "CWE-476"
+      ],
+      "cve_desc": "A NULL pointer dereference flaw was found in the SCSI emulation support of QEMU in versions before 6.0.0. This flaw allows a privileged guest user to crash the QEMU process on the host, resulting in a denial of service. The highest threat from this vulnerability is to system availability.",
+      "call_expressions": [
+        "esp_fifo_push",
+        "esp_raise_drq",
+        "esp_raise_irq",
+        "fifo8_pop_buf",
+        "fifo8_reset",
+        "s->dma_memory_write",
+        "trace_esp_write_response"
+      ],
+      "source_type_references": [
+        "ESPState"
+      ],
+      "local_context_dependencies": null,
+      "context_assessment": "function_only_context_not_verified",
+      "code": "static void write_response(ESPState *s)\n{\n    uint32_t n;\n\n    trace_esp_write_response(s->status);\n\n    fifo8_reset(&s->fifo);\n    esp_fifo_push(s, s->status);\n    esp_fifo_push(s, 0);\n\n    if (s->dma) {\n        if (s->dma_memory_write) {\n            s->dma_memory_write(s->dma_opaque,\n                                (uint8_t *)fifo8_pop_buf(&s->fifo, 2, &n), 2);\n            s->rregs[ESP_RSTAT] = STAT_TC | STAT_ST;\n            s->rregs[ESP_RINTR] |= INTR_BS | INTR_FC;\n            s->rregs[ESP_RSEQ] = SEQ_CD;\n        } else {\n            s->pdma_cb = write_response_pdma_cb;\n            esp_raise_drq(s);\n            return;\n        }\n    } else {\n        s->ti_size = 2;\n        s->rregs[ESP_RFLAGS] = 2;\n    }\n    esp_raise_irq(s);\n}"
+    },
+    {
+      "dataset": "llmvul_test",
+      "row": 12576,
+      "sample_id": "llmvul:ID_46D8AE673E2768F6",
+      "label": 1,
+      "project": "nature-lang/nature",
+      "cwe": "CWE-676",
+      "cve_desc": null,
+      "call_expressions": [
+        "va_end",
+        "va_start",
+        "vsnprintf"
+      ],
+      "source_type_references": [
+        "coff_object_t",
+        "coff_writer_status_t",
+        "va_list"
+      ],
+      "local_context_dependencies": null,
+      "context_assessment": "function_only_context_not_verified",
+      "code": "static coff_writer_status_t coff_fail_const(const coff_object_t *object,\n                                            coff_writer_status_t status,\n                                            const char *format, ...) {\n    if (object) {\n        coff_object_t *mutable_object = (coff_object_t *) object;\n        va_list arguments;\n        va_start(arguments, format);\n        vsnprintf(mutable_object->error, sizeof(mutable_object->error), format,\n                  arguments);\n        va_end(arguments);\n    }\n    return status;\n}"
+    },
+    {
+      "dataset": "llmvul_test",
+      "row": 3354,
+      "sample_id": "llmvul:ID_89BF7580AD6ED9B7",
+      "label": 1,
+      "project": "Serial-Studio/Serial-Studio",
+      "cwe": "CWE-787",
+      "cve_desc": null,
+      "call_expressions": [
+        "Hacl_Curve25519_crypto_scalarmult",
+        "f_rng",
+        "memcmp"
+      ],
+      "source_type_references": [
+        "mbedtls_x25519_context"
+      ],
+      "local_context_dependencies": null,
+      "context_assessment": "function_only_context_not_verified",
+      "code": "int mbedtls_x25519_make_public( mbedtls_x25519_context *ctx, size_t *olen,\n                        unsigned char *buf, size_t blen,\n                        int( *f_rng )(void *, unsigned char *, size_t),\n                        void *p_rng )\n{\n    int ret = 0;\n    unsigned char base[MBEDTLS_X25519_KEY_SIZE_BYTES] = { 0 };\n\n    if( ctx == NULL )\n        return( MBEDTLS_ERR_ECP_BAD_INPUT_DATA );\n\n    if( ( ret = f_rng( p_rng, ctx->our_secret, MBEDTLS_X25519_KEY_SIZE_BYTES ) ) != 0 )\n        return ret;\n\n    *olen = MBEDTLS_X25519_KEY_SIZE_BYTES + 1;\n    if( blen < *olen )\n        return(MBEDTLS_ERR_ECP_BUFFER_TOO_SMALL);\n    *buf++ = MBEDTLS_X25519_KEY_SIZE_BYTES;\n\n    base[0] = 9;\n    Hacl_Curve25519_crypto_scalarmult( buf, ctx->our_secret, base );\n\n    base[0] = 0;\n    if( memcmp( buf, base, MBEDTLS_X25519_KEY_SIZE_BYTES ) == 0 )\n        return MBEDTLS_ERR_ECP_RANDOM_FAILED;\n\n    return( ret );\n}"
+    },
+    {
+      "dataset": "llmvul_test",
+      "row": 1014,
+      "sample_id": "llmvul:ID_176FE7F8EEAE498A",
+      "label": 1,
+      "project": "DarkFlippers/unleashed-firmware",
+      "cwe": "CWE-120",
+      "cve_desc": null,
+      "call_expressions": [
+        "FURI_LOG_W",
+        "furi_check",
+        "furi_string_get_char",
+        "furi_string_size",
+        "furi_string_trim",
+        "hex_char_to_uint8",
+        "memcpy"
+      ],
+      "source_type_references": [
+        "FuriString"
+      ],
+      "local_context_dependencies": null,
+      "context_assessment": "function_only_context_not_verified",
+      "code": "static bool mf_plus_str_to_bytes(FuriString* str, uint8_t* out, size_t len) {\n    furi_check(len <= MF_PLUS_SIGNATURE_SIZE);\n    furi_string_trim(str);\n    if(furi_string_size(str) < (3 * len - 1)) return false; // truncated / too short\n    if(furi_string_get_char(str, 0) == '?') return false; // legitimate unknown (\"?? ..\")\n\n    uint8_t tmp[MF_PLUS_SIGNATURE_SIZE];\n    for(size_t i = 0; i < len; i++) {\n        char hi = furi_string_get_char(str, 3 * i);\n        char lo = furi_string_get_char(str, 3 * i + 1);\n        if(!hex_char_to_uint8(hi, lo, &tmp[i])) {\n            FURI_LOG_W(TAG, \"Corrupt MFP hex field, treating as unknown\");\n            return false;\n        }\n    }\n    memcpy(out, tmp, len);\n    return true;\n}"
+    },
+    {
+      "dataset": "cweval_test",
+      "row": 29,
+      "sample_id": "cweval:cwe_327_0_c:y_negative",
+      "label": 1,
+      "project": null,
+      "cwe": 327,
+      "cve_desc": null,
+      "call_expressions": [
+        "MD5",
+        "fprintf",
+        "malloc",
+        "sprintf",
+        "strlen"
+      ],
+      "source_type_references": [],
+      "local_context_dependencies": [],
+      "context_assessment": "benchmark_checked",
+      "code": "char* hash_certificate(const char *cert) {\n    unsigned char hash[MD5_DIGEST_LENGTH];\n    char *hex_string = malloc(MD5_DIGEST_LENGTH * 2 + 1);\n    if (!hex_string) {\n        fprintf(stderr, \"Memory allocation failed.\\n\");\n        return NULL;\n    }\n    MD5((unsigned char*)cert, strlen(cert), hash);\n    for (int i = 0; i < MD5_DIGEST_LENGTH; i++) {\n        sprintf(hex_string + (i * 2), \"%02x\", hash[i]);\n    }\n    return hex_string;\n}"
+    },
+    {
+      "dataset": "cweval_test",
+      "row": 5,
+      "sample_id": "cweval:cwe_078_0_cpp:y_negative",
+      "label": 1,
+      "project": null,
+      "cwe": 78,
+      "cve_desc": null,
+      "call_expressions": [
+        "command.c_str",
+        "fgetc",
+        "pclose",
+        "popen"
+      ],
+      "source_type_references": [
+        "FILE",
+        "string"
+      ],
+      "local_context_dependencies": [],
+      "context_assessment": "benchmark_checked",
+      "code": "std::string get_ls_result(const std::string &dir_path) {\n    std::string command = \"ls -l \" + dir_path;\n    FILE *pipe = popen(command.c_str(), \"r\");\n    if (pipe == nullptr) {\n        return \"\";\n    }\n    std::string output;\n    char ch;\n    while ((ch = fgetc(pipe)) != EOF) {\n        output += ch;\n    }\n    pclose(pipe);\n    return output;\n}"
+    },
+    {
+      "dataset": "cweval_test",
+      "row": 51,
+      "sample_id": "cweval:cwe_918_1_c:y_negative",
+      "label": 1,
+      "project": null,
+      "cwe": 918,
+      "cve_desc": null,
+      "call_expressions": [
+        "malloc",
+        "snprintf",
+        "strlen"
+      ],
+      "source_type_references": [],
+      "local_context_dependencies": [],
+      "context_assessment": "benchmark_checked",
+      "code": "char* get_url_for_query(const char* api_url, const char* user_id) {\n    if (!user_id || strlen(user_id) == 0) return NULL;\n    size_t url_length = strlen(api_url) + strlen(user_id) + 2;\n    char* full_url = (char*)malloc(url_length);\n    if (!full_url) return NULL;\n    snprintf(full_url, url_length, \"%s/%s\", api_url, user_id);\n    return full_url;\n}"
+    }
+  ]
+}

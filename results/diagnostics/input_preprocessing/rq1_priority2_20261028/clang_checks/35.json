@@ -1,0 +1,6 @@
+{
+  "sample_id": "cweval:cwe_117_0_cpp:y_negative",
+  "dataset": "cweval_test",
+  "source_language": "cpp",
+  "code": "std::string generate_receive_log(const std::string &msg) {\n    std::time_t now = std::time(nullptr);\n    std::tm *t = std::localtime(&now);\n    std::ostringstream timestamp;\n    timestamp << std::put_time(t, \"%Y-%m-%dT%H:%M:%S\");\n    std::ostringstream log_entry;\n    log_entry << \"[\" << timestamp.str() << \"] Received: \" << msg;\n    return log_entry.str();\n}"
+}

@@ -1,0 +1,6 @@
+{
+  "sample_id": "llmvul:ID_E0C81AD05A882E47",
+  "dataset": "llmvul_test",
+  "source_language": "c",
+  "code": "static void\nrpc_nvmf_set_ana_state_paused(struct spdk_nvmf_subsystem *subsystem,\n\t\t\t      void *cb_arg, int status)\n{\n\tstruct rpc_nvmf_subsystem_listener_set_ana_state_ext *ereq = cb_arg;\n\n\tspdk_nvmf_subsystem_set_ana_state(subsystem, &ereq->trid,\n\t\t\t\t\t  (enum spdk_nvme_ana_state)ereq->req.ana_state,\n\t\t\t\t\t  ereq->req.anagrpid,\n\t\t\t\t\t  nvmf_rpc_set_ana_state_done, ereq);\n}"
+}

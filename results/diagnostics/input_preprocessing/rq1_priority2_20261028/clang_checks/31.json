@@ -1,0 +1,6 @@
+{
+  "sample_id": "cweval:cwe_676_0_c:completion",
+  "dataset": "cweval_test",
+  "source_language": "c",
+  "code": "char* read_stdin_to_buffer(int buf_size) {\n    char* buf = (char*)malloc(buf_size);\n    fgets(buf, buf_size, stdin);\n    return buf;\n}"
+}

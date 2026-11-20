@@ -1,0 +1,692 @@
+{
+  "status": "pass",
+  "date": "2026-10-29",
+  "checks": [
+    {
+      "check": "model_dataset_rows",
+      "status": "pass"
+    },
+    {
+      "check": "unique_model_dataset_row_keys",
+      "status": "pass"
+    },
+    {
+      "check": "dataset_rows",
+      "status": "pass"
+    },
+    {
+      "check": "finite_aligned_binary_probabilities",
+      "status": "pass"
+    },
+    {
+      "check": "fixed_paired_selection",
+      "status": "pass"
+    },
+    {
+      "check": "paired_baseline_parity",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_controls",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_count",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_count",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_count",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_hybrid_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/primevul_test_hybrid_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_count",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_count",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_hybrid_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/llmvul_test_hybrid_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_count",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_count",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_hybrid_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "vulberta/cweval_test_hybrid_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_0_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_0_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_0_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_0_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_0_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_1_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_1_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_1_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_1_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_1_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_2_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_2_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_2_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_2_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_2_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_3_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_3_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_3_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_3_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_3_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_4_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_4_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_4_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_4_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_4_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_5_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_5_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_5_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_5_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_5_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_6_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_6_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_6_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_6_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_6_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_7_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_7_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_7_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_7_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_7_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_8_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_8_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_8_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_8_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_8_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_9_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_9_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_9_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_9_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_9_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_10_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_10_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_10_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_10_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_10_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_11_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_11_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_11_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_11_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_11_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_12_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_12_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_12_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_12_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_12_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_13_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_13_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_13_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_13_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_13_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_14_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_14_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_14_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_14_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_14_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_15_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_15_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_15_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_15_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_15_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_16_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_16_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_16_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_16_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_16_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_17_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_17_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_17_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_17_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_17_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_18_count",
+      "status": "pass"
+    },
+    {
+      "check": "condition_18_baseline_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_18_baseline_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "condition_18_variant_confusion",
+      "status": "pass"
+    },
+    {
+      "check": "condition_18_variant_metrics",
+      "status": "pass"
+    },
+    {
+      "check": "bigvul_test_sample_2000_profile_hash",
+      "status": "pass"
+    },
+    {
+      "check": "bigvul_test_sample_2000_lexical_hash",
+      "status": "pass"
+    },
+    {
+      "check": "primevul_test_profile_hash",
+      "status": "pass"
+    },
+    {
+      "check": "primevul_test_lexical_hash",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_test_profile_hash",
+      "status": "pass"
+    },
+    {
+      "check": "llmvul_test_lexical_hash",
+      "status": "pass"
+    },
+    {
+      "check": "cweval_test_profile_hash",
+      "status": "pass"
+    },
+    {
+      "check": "cweval_test_lexical_hash",
+      "status": "pass"
+    },
+    {
+      "check": "frozen_profiler",
+      "status": "pass"
+    },
+    {
+      "check": "frozen_ablation_runner",
+      "status": "pass"
+    },
+    {
+      "check": "frozen_exporter",
+      "status": "pass"
+    },
+    {
+      "check": "summary_generator",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000_score_hash",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/primevul_test_score_hash",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/llmvul_test_score_hash",
+      "status": "pass"
+    },
+    {
+      "check": "linevul/cweval_test_score_hash",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/config.json",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/merges.txt",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/pytorch_model.bin",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/special_tokens_map.json",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/tokenizer_config.json",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/vocab.json",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/config.json",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/model.safetensors",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/special_tokens_map.json",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/tokenization_vulberta.py",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/tokenizer.json",
+      "status": "pass"
+    },
+    {
+      "check": "unchanged_asset_localScripts/.cache/huggingface/hub/models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/tokenizer_config.json",
+      "status": "pass"
+    },
+    {
+      "check": "clang_checks",
+      "status": "pass"
+    }
+  ],
+  "checks_passed": 158,
+  "independent_metric_implementation": "scikit-learn 1.9.1",
+  "observed_unit_test_run": {
+    "command": "python -m unittest discover -s localScripts -p test_rq1_priority2.py -v",
+    "tests": 6,
+    "result": "pass",
+    "test_script_sha256": "c453c3a11e476ffb1d6ceec540fd610e5686907aa96b547cbad81811d41e0bb7"
+  },
+  "artifacts": [
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/input_summary.json",
+      "sha256": "7a79e385671fba948276fe51eb51407b556e00e5de063d18fd390ac6434ca3cd"
+    },
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/joined_inputs.csv",
+      "sha256": "4ebbf054a9ed522fdc2296fa4f70ca4b4627b00fa2ff4f148b7ebdc4b7cf94a7"
+    },
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/ablations/selection.json",
+      "sha256": "22c1ef3423d60173332316786f25036fce2d5a4b790dfc17c149961be6a89fe3"
+    },
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/ablations/predictions.csv",
+      "sha256": "c722501873b6746efd96f8b827d80b784c9edc6ba47ef9cd38294ba4c292a15c"
+    },
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/ablations/summary.json",
+      "sha256": "f52f4c2991d15764112508b3038df854dab22a760ea430a4bc0c9846db91df4f"
+    },
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/examples.json",
+      "sha256": "d299b63fcd10ca36c937df0f0b1ca6adcbb1fadac526489027545e951b948d43"
+    },
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/context_review_selection.json",
+      "sha256": "b91ee964f12efa8aa6681ed77b169bb54578196d416d797010f2a81ade887748"
+    },
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/context_review_notes.json",
+      "sha256": "5d592e376d3b344847b87eac308771ecf7ec428f3cbc94e02ad98246f5261ea8"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority2_diagnostics.md",
+      "sha256": "b4b501b29921e070da4c347b073b77ab91e4827bd0dee1f399b743c76e195e75"
+    },
+    {
+      "path": "localScripts/reports/rq1_priority2_summary.json",
+      "sha256": "7a79e385671fba948276fe51eb51407b556e00e5de063d18fd390ac6434ca3cd"
+    },
+    {
+      "path": "localScripts/results/rq1_priority2_20261028/verify.py",
+      "sha256": "eb42f97643acf8ecffa28cc9bd8b017ad095547724eda3d84dc01027a1f6b3f3"
+    }
+  ]
+}

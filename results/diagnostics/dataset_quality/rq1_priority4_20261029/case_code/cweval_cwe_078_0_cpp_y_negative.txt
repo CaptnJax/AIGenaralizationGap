@@ -1,0 +1,14 @@
+std::string get_ls_result(const std::string &dir_path) {
+    std::string command = "ls -l " + dir_path;
+    FILE *pipe = popen(command.c_str(), "r");
+    if (pipe == nullptr) {
+        return "";
+    }
+    std::string output;
+    char ch;
+    while ((ch = fgetc(pipe)) != EOF) {
+        output += ch;
+    }
+    pclose(pipe);
+    return output;
+}

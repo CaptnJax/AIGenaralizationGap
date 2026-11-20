@@ -1,0 +1,4755 @@
+sample_id,processed_func,target,flaw_line,flaw_line_index
+devgpt-weak:82bf602e0dee187ab4c1984e37067c44172b7d0cb4fac08490ec8c1c1a2a2390,"void normalize_probability(double **pheromones)
+{
+    double sum_dimension = 0.0;
+    double prob, start;
+    for (int i = 0; i < parameters.dimension; i++)
+    {
+        sum_dimension += sum_pheromone_dimension(pheromones, parameters.dimension);
+    }
+    for (int i = 0; i < parameters.dimension; i++)
+    {
+        start = 0.0;
+        for (int j = 0; j < parameters.population_size; j++)
+        {
+            double pheromone = pheromones[j][i];
+            if (sum_dimension != 0.0 && pheromone != 0.0) {
+                prob = pheromone / sum_dimension;
+                probability_interval[j][i].min = start;
+                probability_interval[j][i].max = start + prob;
+                start += prob;
+            } else {
+                probability_interval[j][i].min = 0.0;
+                probability_interval[j][i].max = 0.0;
+            }
+        }
+    }
+}",0,,
+devgpt-weak:cceaff68b4987b0ee174dc87d29764375b8a21f06e944083ef07f9ae926f0ea0,"void free_matrix(double **matrix, int rows) {
+    if (matrix == NULL) return;
+    for (int i = 0; i < rows; i++) {
+        free(matrix[i]);
+    }
+    free(matrix);
+}",0,,
+devgpt-weak:77c41ad78673ed0b312eae2cd8771d0934916646e8a3272e7b2a26c234285d64,"int main() {
+    int rows = 10;
+    int cols = 5;
+    double **matrix = (double **)malloc(rows * sizeof(double *));
+    for (int i = 0; i < rows; i++) {
+        matrix[i] = (double *)malloc(cols * sizeof(double));
+    }
+    free_matrix(matrix, rows);
+    return 0;
+}",0,,
+devgpt-weak:5e01744c25354d47be706626ec851cab391ec8ec953dd3e44befdfa70fa096ce,"int complex_operation(int x, int y) {
+    int a = x / 2 * y + x % 3;
+    int b = x + y / 2;
+    int c = x * y + x / y;
+    int result = a * b / c;
+    return result;
+}",0,,
+devgpt-weak:463a852c5d964490618044805c7bb5975cc553a7c2c5e16261f6487248aaf824,"int main() {
+    int x = 10, y = 5;
+    int result = complex_operation(x, y);
+    cout << ""Result of complex operation: "" << result << endl;
+    return 0;
+}",0,,
+devgpt-weak:7e8389d73973df22afdc3565ef6bbff114f8de950153830099bc997bc44f629b,"int complex_operation(int x, int y) {
+    int a = (x / 2) * y + (x % 3);
+    int b = x + (y / 2);
+    int c = (x * y) + (x / y);
+    int result = (a * b) / c;
+    return result;
+}",0,,
+devgpt-weak:a057a6649ba0dbfa7b5cd92d06f4f4e8572b3f53a730746686fdbad33b4ff1f5,"int complex_operation(int x, int y) {
+    int a = (x / 2) * y;
+    a = a + (x % 3);
+    int b = x;
+    b = b + (y / 2);
+    int c = x * y;
+    c = c + (x / y);
+    int result = (a * b) / c;
+    return result;
+}",0,,
+devgpt-weak:8e6d9c515bbdaf47c1544641b8b5c3f48f5d5b18466a67da0c2d992b9eedb227,"int complex_operation(int x, int y) {
+    int a = (x / 2) * y;
+    a = a + (x % 3);
+    int b = x;
+    b = b + (y / 2);
+    int c = x * y;
+    c = c + (x / y);
+    int intermediate_result = a * b;
+    int result = intermediate_result / c;
+    return result;
+}",0,,
+devgpt-weak:ebee6a6f50917b2be4d1c56d791f4143c6bebbcc6440a0bb342206d971737d24,"int complex_operation(int x, int y) {
+    int a = (x / 2) * y;
+    a = a + (x % 3);
+    int b = x;
+    b = b + (y / 2);
+    int c = x * y;
+    c = c + (x / y);
+    int result = a * b;
+    result = result / c;
+    return result;
+}",0,,
+devgpt-weak:373d50187ede95b1cd8aeb2a5f9a575b6eba019a65df33532fff43dc3b60ea9d,"void fillArrayWithMultiplesOfFive(int array[], int size) {
+    for (int i = 0; i < size; ++i) {
+        array[i] = i * 5;
+    }
+}",0,,
+devgpt-weak:8628102fe9c48a580e7d33ea43e1b95731357c21e5dc6dcf69de966d91bff9d2,"int main() {
+    const int arraySize = 10;
+    int numbers[arraySize];
+    fillArrayWithMultiplesOfFive(numbers, arraySize);
+    for (int i = 0; i < arraySize; ++i) {
+        std::cout << numbers[i] << "" "";
+    }
+    std::cout << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:c213b3fc4497a0747001f671b95d582fd4a742a9d09671b7d55076507979a26e,"bool DFS(std::unordered_map<std::string, vertex<std::string>>& map,
+         std::unordered_map<std::string, std::vector<std::string>>& keys) {
+    std::unordered_map<std::string, bool> visited;
+    std::string room = ""MainHall"";
+    visited[room] = true;
+    std::string current;
+    auto currentIt = map[room].begin();
+    current = *currentIt;
+    while (current != ""Exit"") {
+        room = crossEdges(current, map, keys, visited);
+        if (room == ""End"")
+            break;
+        if (!keys[room].empty()) {
+            map[keys[room][0]].addEdge(keys[room][1]);
+            map[keys[room][1]].addEdge(keys[room][0]);
+            currentIt = map[keys[room][0]].begin();
+            keys[room].clear();
+        } else {
+            currentIt = map[room].begin();
+        }
+        current = *currentIt;
+    }
+    return current == ""Exit"";
+}",0,,
+devgpt-weak:7d9c6f2df23e3c0a0c5f3413796e9f3eb11185b697566b4c92602cbb892bdb4c,"std::string crossEdges(const std::string& current,
+                       std::unordered_map<std::string, vertex<std::string>>& map,
+                       std::unordered_map<std::string, std::vector<std::string>>& keys,
+                       std::unordered_map<std::string, bool>& visited) {
+    visited[current] = true;
+    if (!keys[current].empty())
+        return current;
+    for (auto& neighbor : map[current]) {
+        if (!visited[neighbor]) {
+            std::string result = crossEdges(neighbor, map, keys, visited);
+            if (result != ""End"")
+                return result;
+        }
+    }
+    return ""End"";
+}",0,,
+devgpt-weak:3c12938490fa2c4e7d27a95b580dfd65719c3e58e3b15c9267f9c8e73ded0a20,"void efficientSelectionSort(int arr[], int n) {
+    for (int i = 0; i < n - 1; ++i) {
+        int minIndex = i;
+        for (int j = i + 1; j < n; ++j) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        int temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+}",0,,
+devgpt-weak:ddcc420dfc39ca64dbe60db42b955e9bd4dbaa08ab809a9d4ef852f849b0154d,"void printArray(int arr[], int size) {
+    for (int i = 0; i < size; ++i) {
+        std::cout << arr[i];
+        if (i != size - 1)
+            std::cout << "" "";
+    }
+    std::cout << std::endl;
+}",0,,
+devgpt-weak:70920a62622ecf0d0075d6ea033d90387afaa28150883a3f26c2942bc52aeade,"int main() {
+    int arr[] = {64, 25, 12, 22, 11};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    efficientSelectionSort(arr, n);
+    std::cout << ""Sorted array: \n"";
+    printArray(arr, n);
+    return 0;
+}",0,,
+devgpt-weak:be913576717cc0b343790162c19ede562cf1a28baa5deeb456abe9d5c40bf52c,"int partition(vector<int>& arr, int low, int high) {
+    int pivot = arr[high];
+    int i = low - 1;
+    for (int j = low; j < high; j++) {
+        if (arr[j] <= pivot) {
+            i++;
+            swap(arr[i], arr[j]);
+        }
+    }
+    swap(arr[i + 1], arr[high]);
+    return i + 1;
+}",0,,
+devgpt-weak:23567690cd5839292d83a8fcc89d34bb4376564292e414e0ee16545c087f9bf4,"void quicksort(vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quicksort(arr, low, pi - 1);
+        quicksort(arr, pi + 1, high);
+    }
+}",0,,
+devgpt-weak:dc6599fda79a444849d284c259905d1cd0584348cf30c1bdae87cd3fb2eb512b,"int main() {
+    srand(time(0));
+    vector<int> arr;
+    int n = 10;
+    for (int i = 0; i < n; i++) {
+        arr.push_back(rand() % 100);
+    }
+    quicksort(arr, 0, n - 1);
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << "" "";
+    }
+    cout << endl;
+    return 0;
+}",1,,
+devgpt-weak:6697acea382669ff1c42bec7b913b79f811b843ef262eec46b0acbf929c46ef7,"std::pair<std::string, int> getMonthAndDay(int dayOfYear) {
+    std::tm timeIn = {0, 0, 0,
+                      1, 0,
+                      100};
+    timeIn.tm_yday = dayOfYear - 1;
+    std::mktime(&timeIn);
+    std::string monthNames[] = {""January"", ""February"", ""March"", ""April"", ""May"", ""June"",
+                                ""July"", ""August"", ""September"", ""October"", ""November"", ""December""};
+    return {monthNames[timeIn.tm_mon], timeIn.tm_mday};
+}",0,,
+devgpt-weak:d0ed3ab17903357215db898c9d153b944b87e52a6102f802a38b35e9ff74959b,"int main() {
+    int dayOfYear;
+    std::cout << ""Enter the day of the year (1-365): "";
+    std::cin >> dayOfYear;
+    if (dayOfYear < 1 || dayOfYear > 365) {
+        std::cerr << ""Invalid day of the year.\n"";
+        return 1;
+    }
+    auto result = getMonthAndDay(dayOfYear);
+    std::cout << ""Month: "" << result.first << ""\n"";
+    std::cout << ""Day in month: "" << result.second << ""\n"";
+    return 0;
+}",0,,
+devgpt-weak:8883dcd9c84ac640e59b4424613d321be423a6ea62887460e721881d1e9d117d,"std::string findMonth(int index) {
+    const int startingIndices[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
+    const char* monthNames[] = {""JAN"", ""FEB"", ""MAR"", ""APR"", ""MAY"", ""JUN"", ""JUL"", ""AUG"", ""SEP"", ""OCT"", ""NOV"", ""DEC""};
+    for (int i = 0; i < 12; ++i) {
+        if (index >= startingIndices[i] && index < startingIndices[i + 1]) {
+            return monthNames[i];
+        }
+    }
+    return """";
+}",0,,
+devgpt-weak:7324f1ddb6f382a0164e242c43bd5e4649ed3921cc343f8d7ed7ae62c374a68a,"int findDay(const std::string& month, int index) {
+    const int startingIndices[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
+    for (int i = 0; i < 12; ++i) {
+        if (month == findMonth(startingIndices[i])) {
+            return index - startingIndices[i] + 1;
+        }
+    }
+    return -1;
+}",0,,
+devgpt-weak:0db3440a4d507f9012d59c1c3443e89739be6442d41ebcd3829ba73ab06fe4d6,"int main() {
+    int index;
+    std::cout << ""Enter the index (1-365): "";
+    std::cin >> index;
+    if (index < 1 || index > 365) {
+        std::cerr << ""Invalid index.\n"";
+        return 1;
+    }
+    std::string month = findMonth(index);
+    int date = findDay(month, index);
+    std::cout << ""Month: "" << month << ""\n"";
+    std::cout << ""Day in month: "" << date << ""\n"";
+    return 0;
+}",0,,
+devgpt-weak:c2200911208109a9b56ee409db62c1f8157db004794738b6250ea6c363cf2b38,"int main() {
+    char input;
+    int Caccounts = 0;
+    int Saccounts = 0;
+    int count = 0;
+    do {
+        displayMainMenu();
+        cin >> input;
+        input = toupper(input);
+        switch (input) {
+            case 'D':
+                break;
+            case 'W':
+                break;
+            case 'Q':
+                cout << ""Goodbye!"" << endl;
+                break;
+            default:
+                cout << ""Invalid selection. Please try again."" << endl;
+                break;
+        }
+    } while (input != 'Q');
+    return 0;
+}",0,,
+devgpt-weak:2774e988369640d60ce0c2ea549299480aeeda7ba28c73e1bb6749b8bf5576a0,"void displayMainMenu() {
+    cout << ""Main Menu"" << endl;
+    cout << ""Please make your selection"" << endl;
+    cout << ""D - Deposit money"" << endl;
+    cout << ""W - Withdraw money"" << endl;
+    cout << ""Q - Quit"" << endl;
+    cout << ""Selection: "";
+}",0,,
+devgpt-weak:1d36be175857f9930fb03abdef364f644e50c821e97f9179fbba0b8aa0ac43b0,"bool wordLadder(std::string word, std::string wordFinal,
+                const std::vector<std::string>& words,
+                std::vector<std::string>& ladder)
+{
+    if (word == wordFinal) {
+        return true;
+    }
+    std::string strcomp;
+    int counter = 0;
+    for (auto begin = words.begin(); begin != words.end(); begin++) {
+        strcomp = *begin;
+        counter = 0;
+        if (isRedundant(*begin, ladder)) {
+            continue;
+        }
+        for (int i = 0; i < word.length(); i++) {
+            if (word[i] == strcomp[i])
+                counter++;
+        }
+        if (counter == word.length() - 1) {
+            ladder.push_back(*begin);
+            bool found = wordLadder(*begin, wordFinal, words, ladder);
+            if (found) {
+                return true;
+            } else {
+                ladder.pop_back();
+            }
+        }
+    }
+    return false;
+}",0,,
+devgpt-weak:9f6181ec615d2f126e65f84074be55252005ed1889e80b3a7aa1e82807609ee3,"bool isRedundant(std::string word, std::vector<std::string>& ladder)
+{
+    for (auto begin = ladder.begin(); begin != ladder.end(); begin++) {
+        if (word.compare(*begin) == 0) {
+            return true;
+        }
+    }
+    return false;
+}",0,,
+devgpt-weak:9a37c697ed76e9966dbdec265091353737c309243b492f6e098dc2dc36d4dcc6,"void deleteDeadEnds(std::vector<std::string>& ladder)
+{
+}",0,,
+devgpt-weak:b44bd23738e8d64c22d7918bee981d9584045a79a2bc11482015d70190e1cede,"void reverseLadder(std::vector<std::string>& ladder)
+{
+}",0,,
+devgpt-weak:cf5737e9c4e2718c60d8a2f5b1d30ff9418491e30120f942a945aa7a32968aab,"void cPlayer::buy(cStreet& Street)
+{
+    buy(Street, ""Street"");
+}",0,,
+devgpt-weak:44c00922a753364bfe3c5bc93b033a49b9c0cc57b67e87c5e8dd724dcfa02606,"void cPlayer::buy(cHouse& House)
+{
+    buy(House, ""House"");
+}",0,,
+devgpt-weak:556a8b982cbb92547800530982d6e40066bdb6c70fa1f199602177678a9524b6,"void cPlayer::buy(cComputer& PC)
+{
+    buy(PC, ""PC"");
+}",0,,
+devgpt-weak:3446113d551667e0485430c0ff0097ac45a5f3b069ce84be69dec647c37b197f,"void cPlayer::buy(cBook& Book)
+{
+    buy(Book, ""Book"");
+}",0,,
+devgpt-weak:b4b3108e32000bda2f82c66c019f6938fbd5545a3ec77d64357159a048a24df0,"std::vector<std::string> binTree::zigzagLeft(binTreeNode* r, std::vector<std::string>& path)
+{
+}",0,,
+devgpt-weak:c01e7127362ab44594d71b193a9917da7aea190eea222e2ecf4b9e312a6b79ed,"std::vector<std::string> binTree::zigzagRight(binTreeNode* r, std::vector<std::string>& path)
+{
+}",0,,
+devgpt-weak:6902017c96b037e986de1e153aa0545fab45d73c596c92913cb9dd85dfdea40e,"std::vector<std::string> binTree::zigzag()
+{
+    std::vector<std::string> vector1;
+    std::vector<std::string> leftZag;
+    std::vector<std::string> rightZag;
+    leftZag = zigzagLeft(root, leftZag);
+    rightZag = zigzagRight(root, rightZag);
+    if (leftZag.size() + rightZag.size() == 0)
+        return vector1;
+    if (leftZag.size() > rightZag.size())
+        return leftZag;
+    return rightZag;
+}",0,,
+devgpt-weak:3e10f1b0921868b18a481fc302f52ec15c0b3a723550648d8176ca63ecafea1f,"std::vector<std::string> binTree::zigzagLeft(binTreeNode* r, std::vector<std::string>& path)
+{
+    if (r == nullptr)
+        return std::vector<std::string>();
+    path.push_back(r->location);
+    std::vector<std::string> leftPath = zigzagLeft(r->left, path);
+    std::vector<std::string> rightPath = zigzagLeft(r->right, std::vector<std::string>());
+    return (leftPath.size() > rightPath.size()) ? leftPath : rightPath;
+}",0,,
+devgpt-weak:23d0b2c1d41aa574428f84ac7bb8be9722a2537fb8b050ae811aa9b0abad516b,"std::vector<std::string> binTree::zigzagRight(binTreeNode* r, std::vector<std::string>& path)
+{
+    if (r == nullptr)
+        return std::vector<std::string>();
+    path.push_back(r->location);
+    std::vector<std::string> leftPath = zigzagRight(r->left, std::vector<std::string>());
+    std::vector<std::string> rightPath = zigzagRight(r->right, path);
+    return (leftPath.size() > rightPath.size()) ? leftPath : rightPath;
+}",0,,
+devgpt-weak:f35f30103575590cebb527c25b0f29be72fce5e8d89dcfbaf6073b4a4fedc345,"std::vector<std::string> binTree::zigzag()
+{
+    std::vector<std::string> vector1;
+    std::vector<std::string> leftZag = zigzagLeft(root, vector1);
+    std::vector<std::string> rightZag = zigzagRight(root, vector1);
+    if (leftZag.size() + rightZag.size() == 0)
+        return vector1;
+    return (leftZag.size() > rightZag.size()) ? leftZag : rightZag;
+}",0,,
+devgpt-weak:bb648237a1c60c71a01101a89e35f2b55ead1e7fa22397ceb64eafc83aa2fa07,"bool compareBigrams(const Bigram& bg1, const Bigram& bg2) {
+    if (bg1.word1 != bg2.word1) {
+        return bg1.word1 < bg2.word1;
+    }
+    return bg1.word2 < bg2.word2;
+}",0,,
+devgpt-weak:116e3a943b675375a989cbafb76290a03e6ba67a52e5a98b8f864db2808c9c6e,"void sortBi(BigramDictionary& dict) {
+    std::sort(dict.bigrams, dict.bigrams + dict.numberOfElements, compareBigrams);
+}",0,,
+devgpt-weak:664bd8fad35d832595e709bf7b13c214deb8ab196c44ce260ccd4e0942205985,"void musicalChairs::printGrid() const {
+    string stars(35, '*');
+    cout << endl << stars << endl;
+    for (int i = 0; i < height; i++) {
+        cout << '*';
+        for (int j = 0; j < width; j++) {
+            if (grid[j][i].isEmpty()) {
+                cout << ""   "";
+            } else {
+                if (grid[j][i].isThereAPersonStandingHere()) {
+                    cout << ' ' << grid[j][i].getPersonID() << ' ';
+                } else {
+                    if (!(grid[j][i].isThereAPersonSittingHere())) {
+                        cout << "" c "";
+                    } else {
+                        cout << '[' << grid[j][i].getPersonID() << ']';
+                    }
+                }
+            }
+        }
+        cout << '*' << endl;
+    }
+    cout << stars << endl << endl;
+}",0,,
+devgpt-weak:80c8282777beccafef73f18f5e574535656cda349bfc8a4bdec1f348daf395d4,"int main() {
+    char input;
+    int Caccounts = 0;
+    int Saccounts = 0;
+    int count = 0;
+    do {
+        displayMainMenu();
+        cin >> input;
+        input = toupper(input);
+        switch (input) {
+            case 'D':
+                processMoney(Caccounts, Saccounts, true, false);
+                break;
+            case 'W':
+                processMoney(Caccounts, Saccounts, false, true);
+                break;
+            case 'Q':
+                writeFile(                              );
+                cout << ""Goodbye!"" << endl;
+                break;
+            default:
+                cout << ""Invalid selection. Please try again."" << endl;
+                break;
+        }
+    } while (input != 'Q');
+    return 0;
+}",0,,
+devgpt-weak:2a6a21792f4ccb98b1314f3bbc895f592af5b7e73b7643697df54322cc5b2ec4,"void processMoney(int& Caccounts, int& Saccounts, bool deposit, bool withdraw) {
+}",0,,
+devgpt-weak:afb374696350d0c07637d2fc46681acaff248de114b71172f3b287c1d58dc0e9,"void writeFile(               ) {
+}",0,,
+devgpt-weak:38f50268ea360ea0cf85b92dd01b00f044fcd9edfdf40e8d70e6a245adee9dfb,"void square(long& a, long& b, long& c, long& d){
+    int a_tmp, b_tmp, c_tmp, d_tmp;
+    a_tmp = a*a + b*b;
+    b_tmp = a*c + b*d;
+    c_tmp = c*a + d*b;
+    d_tmp = c*c + d*d;
+    a = a_tmp;
+    b = b_tmp;
+    c = c_tmp;
+    d = d_tmp;
+    return;
+}",0,,
+devgpt-weak:c423f7fe6c184aa16381561ed421e4e76adce21b0a5ef362ac6aa4917b1cdced,"char base64dec_getc(const char **src) {
+    while (**src && !isprint((unsigned char)**src))
+        (*src)++;
+    return **src ? *((*src)++) : '=';
+}",0,,
+devgpt-weak:38af213117862cbb43b0cd8aad7518bdac872b5a406f48671eebcb8eb3630236,"bool isPythagorean(int a, int b, int c) {
+    return (a * a + b * b == c * c);
+}",0,,
+devgpt-weak:64e9e957ac45115ba56b9076777fc219c649853c9281af41af6fda4fd4610e46,"long long findPythagoreanProduct(int sumOfSides) {
+    if (sumOfSides < 12)
+        return -1;
+    long long maxProduct = -1;
+    for (int m = 2; m * m < sumOfSides; ++m) {
+        for (int n = 1; n < m; ++n) {
+            int a = m * m - n * n;
+            int b = 2 * m * n;
+            int c = m * m + n * n;
+            if (a + b + c == sumOfSides && isPythagorean(a, b, c)) {
+                long long product = a * b * c;
+                maxProduct = std::max(maxProduct, product);
+            }
+        }
+    }
+    return maxProduct;
+}",0,,
+devgpt-weak:c74efa7858bb0af9f9e764b67d0e2e9d5c8ddba712f9f0ebc1655afca7c8e9f0,"int main() {
+    int q;
+    std::cout << ""How many times should this program be repeated: "";
+    std::cin >> q;
+    for (int i = 0; i < q; ++i) {
+        int sumOfSides;
+        std::cout << ""Enter the sum of sides: "";
+        std::cin >> sumOfSides;
+        long long product = findPythagoreanProduct(sumOfSides);
+        std::cout << ""Product of Pythagorean triplet: "" << product << std::endl;
+    }
+    return 0;
+}",0,,
+devgpt-weak:98c8b459f4da98a8775e4d940863f506a12ce3791dbd2feaf2aa02f547a1d139,"void processCharacters(char *input) {
+    if (*input == '\0') {
+        return;
+    }
+    if (*input == '/') {
+        putchar(*(input + 1));
+    }
+    processCharacters(input + 1);
+}",0,,
+devgpt-weak:a163c6457cad832864213df6d2bab438738e77c7d583eb45d0124682cd2a68f8,"int main() {
+    char *inputString = ""@n'+,#'/*{}w+/w#cdnr/+,{}r/*de}+,/*{*+,/w{%+,/w#q#n+,/#l+,/n{n+,/+#n+,/#;#q#n+,/+k#;*+,/'r :'d*'3,}{w+K w'K:'+}e#';dq#'l q#'+d'K#!/+k#;q#'r}eKK#}w'r}eKK{nl]'/#;#q#n'){)#}w'){){nl]'/+#n';d}rw' i;#){nl]!/n{n#'; r{#w'r nc{nl]'/#{l,+'K {rw' iK{;[{nl]'/w#q#n'wk nw' iwk{KK{nl]!/w{%'l##w#' i; :{nl]'/*{q#'ld;r'}{nlwb!/*de}'c ;;{nl'-{}rw]'/+,}##'*}#nc,',#nw]'/+kd'+e}+;#'rdq#w! nr'/ ') }+}{rl#'{n' ')# }'+}##(!!/"";
+    processCharacters(inputString);
+    return 0;
+}",0,,
+devgpt-weak:f416321cd2116c305a2bbd1a9e7404af20d69708874833b57e6c2a8122057ee0,"int main()
+{
+    double list[ARRAY_SIZE] = {3.5, 1.6, -4.9, 2.5};
+    double minimum = list[0];
+    double maximum = list[0];
+    findMinMax(list, minimum, maximum);
+    cout << ""Minimum: "" << minimum << endl;
+    cout << ""Maximum: "" << maximum << endl;
+    return 0;
+}",0,,
+devgpt-weak:90ca4b6f2616bb321ac70817e675518df2116e24f0fcb3840e75b7ecb0303e14,"void findMinMax(double list[], double& minimum, double& maximum)
+{
+    for (int i = 1; i < ARRAY_SIZE; i++)
+    {
+        if (list[i] < minimum) {
+            minimum = list[i];
+        }
+        else if (list[i] > maximum)
+        {
+            maximum = list[i];
+        }
+    }
+}",0,,
+devgpt-weak:35853159f83a15f21176e6dac4f0cf3223958b82e8b6b65ffee1aa5875b89f3d,"int main() {
+    Time t1(1, 30, 45);
+    Time t2(0, 45, 15);
+    Time t3 = t1 + t2;
+    std::cout << ""t1 + t2: "" << t3 << std::endl;
+    Time t4 = t1 + 1000;
+    std::cout << ""t1 + 1000 seconds: "" << t4 << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:62a41596ba3b4adffbc6a434314effb6f7d01567804b514708477ab045263af6,"int main()
+{
+    double list[ARRAY_SIZE] = {3.5, 1.6, -4.9, 2.5};
+    double minimum, maximum;
+    findMinMax(list, ARRAY_SIZE, minimum, maximum);
+    cout << ""Minimum: "" << minimum << endl;
+    cout << ""Maximum: "" << maximum << endl;
+    return 0;
+}",0,,
+devgpt-weak:cc1070aa342221ae80b43f2bc06a7a21388a19e86c693fc51857f4d43a3a27bb,"void findMinMax(const double arr[], int size, double& min, double& max)
+{
+    min = max = arr[0];
+    for (int i = 1; i < size; ++i)
+    {
+        if (arr[i] < min)
+            min = arr[i];
+        if (arr[i] > max)
+            max = arr[i];
+    }
+}",0,,
+devgpt-weak:240cff033034d3c1408fe045b0272abc509e9467cec95b2fe90e85f1196c5c30,"int main() {
+    std::unordered_map<std::string, int> wordFrequencyMap;
+    std::unordered_map<std::string, int> substringCountMap;
+    std::cout << ""Enter target string: "";
+    std::string targetString;
+    std::cin >> targetString;
+    std::cout << ""Enter list of words (type 'END' to finish):\n"";
+    std::string word;
+    while (std::cin >> word && word != ""END"") {
+        wordFrequencyMap[word]++;
+    }
+    if (wordFrequencyMap.empty()) {
+        std::cout << ""Word list is empty.\n"";
+        return 0;
+    }
+    int wordLength = wordFrequencyMap.begin()->first.size();
+    std::cout << ""List of substrings:\n"";
+    findSubstrings(substringCountMap, wordFrequencyMap, targetString, 0, wordLength);
+    if (substringCountMap.empty()) {
+        std::cout << ""No substrings found.\n"";
+    } else {
+        displaySubstrings(substringCountMap);
+    }
+    return 0;
+}",0,,
+devgpt-weak:12e8ec602c7c3d9909a98305b071b70751e2eba1ed52d93ac3f013ce9df74ceb,"void findSubstrings(std::unordered_map<std::string, int>& substringCounts, std::unordered_map<std::string, int> wordList,
+                    const std::string& targetString, int startIndex, int wordLength, const std::string& currentSubstring) {
+    if (startIndex + wordLength > targetString.size()) return;
+    std::string foundWord = targetString.substr(startIndex, wordLength);
+    if (wordList.find(foundWord) != wordList.end()) {
+        std::string newSubstring = currentSubstring + foundWord;
+        wordList[foundWord]--;
+        if (wordList[foundWord] == 0) {
+            wordList.erase(foundWord);
+        }
+        if (wordList.empty()) {
+            substringCounts[newSubstring]++;
+        } else {
+            findSubstrings(substringCounts, wordList, targetString, startIndex + wordLength, wordLength, newSubstring);
+        }
+    }
+}",0,,
+devgpt-weak:25e3e32c2d89c39d3673fc5ced400eb84cb1e7b1b5a613e3b926333b358e3e6d,"void displaySubstrings(const std::unordered_map<std::string, int>& substringCounts) {
+    for (const auto& pair : substringCounts) {
+        std::cout << pair.first << "" - Count: "" << pair.second << '\n';
+    }
+}",0,,
+devgpt-weak:226c5d069c86ccb7a938987c9b87f45d6c05a2623c70351ceb0c4eabbc13c6b5,"TBuffer TBuffer::copy(QPoint& P1, QPoint& P2)
+{
+    TBuffer slice(mpHost);
+    slice.clear();
+    const int y = P1.y();
+    int x = P1.x();
+    if (y < 0 || y >= static_cast<int>(buffer.size())) {
+        return slice;
+    }
+    if (x < 0 || x >= static_cast<int>(buffer.at(y).size())) {
+        x = 0;
+    }
+    int P2x_corrected = std::min(P2.x(), static_cast<int>(buffer.at(y).size()) - 1);
+    int oldLinkId{}, id{};
+    for (; x <= P2x_corrected; ++x) {
+        const int linkId = buffer.at(y).at(x).linkIndex();
+        if (linkId && (linkId != oldLinkId)) {
+            id = slice.mLinkStore.addLinks(mLinkStore.getLinksConst(linkId), mLinkStore.getHintsConst(linkId), mpHost);
+            oldLinkId = linkId;
+        }
+        if (!linkId) {
+            id = 0;
+        }
+        const QString s(lineBuffer.at(y).at(x));
+        slice.append(s, 0, 1, buffer.at(y).at(x).mFgColor, buffer.at(y).at(x).mBgColor, buffer.at(y).at(x).mFlags, id);
+    }
+    return slice;
+}",0,,
+devgpt-weak:c66d09718f95e96f13a171f86305c05a581032b9e08f4bd0f202b393afbdf64d,"stack<string> _88MPH(unordered_map<string, list<edge>> mapOfChargingStations, unordered_map<string, double> chargingStation, string startingLocation, double initialBattery){
+    stack<string> stationPath;
+    string stationName = """";
+    double currentBattery = initialBattery;
+    double decreaseBattery = 0.0;
+    double currentDistance = 0.0;
+    double charge = chargingStation[startingLocation];
+    if(currentBattery <= 0.0)
+        return {};
+    currentBattery = currentBattery + charge;
+    if(currentBattery > 75.5)
+        return {};
+    if(currentBattery >= 62.5 && currentBattery <= 75.5){
+        stationPath.push(startingLocation);
+        return stationPath;
+    }
+    for(auto& neighbor : mapOfChargingStations[startingLocation]){
+        stationName = neighbor.station;
+        currentDistance = neighbor.distance;
+        decreaseBattery = currentDistance * 0.346;
+        stationPath = _88MPH(mapOfChargingStations, chargingStation, stationName, currentBattery-decreaseBattery);
+        if(!stationPath.empty()){
+            stationPath.push(startingLocation);
+            break;
+        }
+    }
+    return stationPath;
+}",0,,
+devgpt-weak:2696b51a9bbc0c6583acf2caafe4bf7b45876e908def3e483c7d3aa0f2221c24,"stack<string> _88MPH(const unordered_map<string, list<edge>>& mapOfChargingStations, const unordered_map<string, double>& chargingStation, const string& startingLocation, double initialBattery) {
+    stack<string> stationPath;
+    if (initialBattery <= 0.0 || chargingStation.find(startingLocation) == chargingStation.end())
+        return stationPath;
+    double currentBattery = initialBattery + chargingStation.at(startingLocation);
+    if (currentBattery > 75.5)
+        return stationPath;
+    if (currentBattery >= 62.5) {
+        stationPath.push(startingLocation);
+        return stationPath;
+    }
+    for (const auto& neighbor : mapOfChargingStations.at(startingLocation)) {
+        double decreaseBattery = neighbor.distance * 0.346;
+        stack<string> path = _88MPH(mapOfChargingStations, chargingStation, neighbor.station, currentBattery - decreaseBattery);
+        if (!path.empty()) {
+            path.push(startingLocation);
+            return path;
+        }
+    }
+    return stationPath;
+}",0,,
+devgpt-weak:e400c4306a6ee473cd888651bc5d9dc9f5428f06654a34039e0b69bce9acd926,"int main() {
+    cPlayer player(""John"");
+    cStreet street;
+    cHouse house;
+    cComputer computer;
+    cBook book;
+    player.buy(street, ""Street"");
+    player.buy(house, ""House"");
+    player.buy(computer, ""Computer"");
+    player.buy(book, ""Book"");
+    return 0;
+}",0,,
+devgpt-weak:9c8913c58d02733a33b10be0292f6f3f03c59334b49d6e72f3300f5bec5632b9,"int maxSubArray(std::vector<int>& nums) {
+    int n = nums.size();
+    if (n == 0) {
+        return 0;
+    }
+    int maxSum = nums[0];
+    int currentSum = nums[0];
+    for (int i = 1; i < n; ++i) {
+        currentSum = std::max(nums[i], currentSum + nums[i]);
+        maxSum = std::max(maxSum, currentSum);
+    }
+    return maxSum;
+}",0,,
+devgpt-weak:24684e60cdeb9f4611e786a8851be6516c884945479c3f4a686d8bac1886b4f8,"int factorial(int n) {
+    int result = 1;
+    for (int i = 1; i <= n; ++i) {
+        result *= i;
+    }
+    return result;
+}",0,,
+devgpt-weak:7ded94c0eeb87f9d223a37e34099d308d6acf0487aac3aac17e745c49f36dad5,"int main() {
+    int number;
+    std::cout << ""Enter a number: "";
+    std::cin >> number;
+    if (number < 0) {
+        std::cout << ""Factorial is not defined for negative numbers."" << std::endl;
+    } else {
+        std::cout << ""Factorial of "" << number << "" is "" << factorial(number) << std::endl;
+    }
+    return 0;
+}",0,,
+devgpt-weak:ec7a35c42cc62f484dadf4ffcfa2360fe227a03367681f65495dba7747bd79f8,"void handle_error(const char* message) {
+    perror(message);
+    exit(EXIT_FAILURE);
+}",0,,
+devgpt-weak:bcd149a9e5ee6a6a9a1ff72f01fc2b6c3b951cb1737dc450d70e99672892bfa1,"int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        printf(""Usage: %s <up|down>\n"", argv[0]);
+        return EXIT_FAILURE;
+    }
+    int current_brightness = read_brightness(FILE_PATH);
+    int new_brightness;
+    if (strcmp(argv[1], ""up"") == 0) {
+        printf(""Brightness up\n"");
+        new_brightness = current_brightness + BRIGHTNESS_INCREMENT;
+    } else if (strcmp(argv[1], ""down"") == 0) {
+        printf(""Brightness down\n"");
+        new_brightness = current_brightness - BRIGHTNESS_INCREMENT;
+    } else {
+        printf(""Unknown option: %s\n"", argv[1]);
+        new_brightness = current_brightness;
+    }
+    if (new_brightness > MAX_BRIGHTNESS) {
+        new_brightness = MAX_BRIGHTNESS;
+    } else if (new_brightness < MIN_BRIGHTNESS) {
+        new_brightness = MIN_BRIGHTNESS;
+    }
+    printf(""Current brightness: %d\n"", current_brightness);
+    printf(""New brightness: %d\n"", new_brightness);
+    write_brightness(FILE_PATH, new_brightness);
+    return EXIT_SUCCESS;
+}",0,,
+devgpt-weak:5808ad19e1648007455a760e1d87d94f1922ddc3e96f595fa082703930ebc04e,"void merge(std::vector<int>& array, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+    std::vector<int> leftArray(n1), rightArray(n2);
+    for (int i = 0; i < n1; ++i)
+        leftArray[i] = array[left + i];
+    for (int j = 0; j < n2; ++j)
+        rightArray[j] = array[mid + 1 + j];
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (leftArray[i] <= rightArray[j])
+            array[k++] = leftArray[i++];
+        else
+            array[k++] = rightArray[j++];
+    }
+    while (i < n1)
+        array[k++] = leftArray[i++];
+    while (j < n2)
+        array[k++] = rightArray[j++];
+}",0,,
+devgpt-weak:79c1425d3fdf658117255d98f73c37e5023aee4e12012e84171a3f2c1d9597ef,"void mergeSort(std::vector<int>& array, int begin, int end) {
+    if (begin < end) {
+        int mid = begin + (end - begin) / 2;
+        mergeSort(array, begin, mid);
+        mergeSort(array, mid + 1, end);
+        merge(array, begin, mid, end);
+    }
+}",0,,
+devgpt-weak:543b1794fdf0c42f40871cccedcd5a316f26f9375f4845714fb6bfb54b981bd0,"void printArray(const std::vector<int>& array) {
+    for (int num : array)
+        std::cout << num << "" "";
+    std::cout << std::endl;
+}",0,,
+devgpt-weak:e1b27cfe61ade5261f36720022511315cd7d1b4dd9b2d71a390969bdee70da1d,"int main() {
+    std::vector<int> arr = {12, 11, 13, 5, 6, 7};
+    std::cout << ""Given array is:\n"";
+    printArray(arr);
+    mergeSort(arr, 0, arr.size() - 1);
+    std::cout << ""\nSorted array is:\n"";
+    printArray(arr);
+    return 0;
+}",0,,
+devgpt-weak:166c8bcd985742f603b33d9bcd1ee41b6258d32360d44e7d01052f7f82b0b410,"void Stack::push(int data)
+{
+    Node *newNode = new Node;
+    newNode->data = data;
+    newNode->next = top;
+    top = newNode;
+}",0,,
+devgpt-weak:1ca42e9319d523c0e8157358c3ef6e934ed283a8a5b4e1c7aa7c9c6fefb7550d,"int Stack::pop()
+{
+    if (top == nullptr)
+    {
+        cout << ""Stack is empty"" << endl;
+        return -1;
+    }
+    int data = top->data;
+    Node *temp = top;
+    top = top->next;
+    delete temp;
+    return data;
+}",0,,
+devgpt-weak:f8eaa2884819cb7ccd7451b92c4002b0ccebfff7018f52841b6aa8ebf4354469,"int main()
+{
+    Stack s;
+    s.push(5);
+    s.push(7);
+    s.push(-3);
+    cout << s.pop() << endl;
+    s.push(9);
+    while(s.top != nullptr)
+        cout << s.pop() << endl;
+    return 0;
+}",0,,
+devgpt-weak:182307ade5e1071be4010cf61309ee67370601d232e2d4956b652d65ad0045e6,"void Queue::enqueue(int data) {
+    Node *newNode = new Node;
+    newNode->data = data;
+    newNode->next = nullptr;
+    if (front == nullptr) {
+        front = newNode;
+        rear = newNode;
+    } else {
+        rear->next = newNode;
+        rear = newNode;
+    }
+}",0,,
+devgpt-weak:7bbea7f8128b5d0bb0236a0dff42e941f2d704095f17fcd1eafc91907c6c6c3d,"int Queue::dequeue() {
+    if (front == nullptr) {
+        cout << ""The Queue is empty"" << endl;
+        return -1;
+    } else {
+        Node *temp = front;
+        int data = temp->data;
+        front = front->next;
+        delete temp;
+        return data;
+    }
+}",0,,
+devgpt-weak:8e0a4ced9f9ab911c8c98e2ff19aa6b3d230caf462ac2238281d1aa54972f723,"int main() {
+    Queue q;
+    q.enqueue(5);
+    q.enqueue(7);
+    q.enqueue(-3);
+    cout << q.dequeue() << endl;
+    q.enqueue(9);
+    while (q.front != nullptr)
+        cout << q.dequeue() << endl;
+    return 0;
+}",0,,
+devgpt-weak:2a93d7040fa839228482ad351460045a19163556b8048e05ac963e6bb87e794e,"void set_socket_buffer_size(int sockfd, int size) {
+    if (setsockopt(sockfd, SOL_SOCKET, SO_SNDBUF, &size, sizeof(size)) < 0) {
+        perror(""setsockopt SO_SNDBUF failed"");
+    }
+    if (setsockopt(sockfd, SOL_SOCKET, SO_RCVBUF, &size, sizeof(size)) < 0) {
+        perror(""setsockopt SO_RCVBUF failed"");
+    }
+}",0,,
+devgpt-weak:eaca9d6c9a1a8a25f1f4c97c4a69b19f1c4016bd2e2c4d489495bba7fd318eb0,"void check_socket_buffer_size(int sockfd) {
+    int snd_size;
+    int rcv_size;
+    socklen_t optlen = sizeof(snd_size);
+    if (getsockopt(sockfd, SOL_SOCKET, SO_SNDBUF, &snd_size, &optlen) < 0) {
+        perror(""getsockopt SO_SNDBUF failed"");
+    } else {
+        std::cout << ""Send buffer size: "" << snd_size << "" bytes"" << std::endl;
+    }
+    if (getsockopt(sockfd, SOL_SOCKET, SO_RCVBUF, &rcv_size, &optlen) < 0) {
+        perror(""getsockopt SO_RCVBUF failed"");
+    } else {
+        std::cout << ""Receive buffer size: "" << rcv_size << "" bytes"" << std::endl;
+    }
+}",0,,
+devgpt-weak:719bb8e4b902759f53b3a8c4e4a469ad9b9260a3d7578aba557f8f80aeb09393,"bool MyApplication::event(QEvent *event) {
+    if (event->type() == QEvent::FileOpen) {
+        QFileOpenEvent *openEvent = static_cast<QFileOpenEvent *>(event);
+        if (openEvent->url().scheme() == ""mudlet"") {
+            qDebug() << ""Opening URL:"" << openEvent->url().toString();
+            return true;
+        }
+    }
+    return QApplication::event(event);
+}",0,,
+devgpt-weak:73c9fce01314a5a138bd8e250157716b55bbb86a1da1df79cd9caba0b586f0cc,"void myFunction(MyClass& obj, int x) {
+}",0,,
+devgpt-weak:598769ea3cda94671599f02e542a73a666d89f67d27f5c21971286daaec245a9,"bool sortByPriority(const Task& a, const Task& b) {
+    return a.priority > b.priority;
+}",0,,
+devgpt-weak:052fd922c8f6df299dfb8120094f79b296ccb968b8ab09a6bfbe9b7dd067fa53,"bool sortByDeadline(const Task& a, const Task& b) {
+    return a.deadline < b.deadline;
+}",0,,
+devgpt-weak:5511ec4ec48ab5b182c1e64f57135a73a6bccd3f57ed2b44719e4cc7793f9a35,"void displayTasks(const std::vector<Task>& tasks) {
+    std::cout << ""Task List:\n"";
+    std::cout << ""-------------------------------------------------------\n"";
+    for (const Task& task : tasks) {
+        std::cout << ""Name: "" << task.name << "" | Priority: "" << task.priority << "" | Deadline: "" << task.deadline << ""\n"";
+    }
+    std::cout << ""-------------------------------------------------------\n"";
+}",0,,
+devgpt-weak:6d1bb7f037090cc8cd99eacd321954c8d7b6a9bb52bbddfa851f790377a103d3,"int main() {
+    std::vector<Task> tasks;
+    while (true) {
+        std::cout << ""1. Add Task\n"";
+        std::cout << ""2. Schedule Tasks\n"";
+        std::cout << ""3. Exit\n"";
+        int choice;
+        std::cin >> choice;
+        if (choice == 1) {
+            std::string name;
+            int priority, deadline;
+            std::cout << ""Enter Task Name: "";
+            std::cin >> name;
+            std::cout << ""Enter Task Priority: "";
+            std::cin >> priority;
+            std::cout << ""Enter Task Deadline: "";
+            std::cin >> deadline;
+            tasks.emplace_back(name, priority, deadline);
+        }
+        else if (choice == 2) {
+            std::sort(tasks.begin(), tasks.end(), sortByPriority);
+            displayTasks(tasks);
+        }
+        else if (choice == 3) {
+            break;
+        }
+        else {
+            std::cout << ""Invalid choice. Please try again.\n"";
+        }
+    }
+    return 0;
+}",0,,
+devgpt-weak:31ea3d5fed0d492fa1cbd221471e31f601beb7cfed81ca81b22732ee0a40b980,"void scheduleTasks(std::vector<Task>& tasks) {
+    std::vector<Task> scheduledTasks;
+    std::sort(tasks.begin(), tasks.end(), sortByDeadline);
+    int currentTime = 0;
+    for (const Task& task : tasks) {
+        currentTime += task.priority;
+        if (currentTime <= task.deadline) {
+            scheduledTasks.push_back(task);
+        }
+    }
+    std::cout << ""Scheduled Tasks:\n"";
+    std::cout << ""-------------------------------------------------------\n"";
+    for (const Task& task : scheduledTasks) {
+        std::cout << ""Name: "" << task.name << "" | Priority: "" << task.priority << "" | Deadline: "" << task.deadline << ""\n"";
+    }
+    std::cout << ""-------------------------------------------------------\n"";
+}",0,,
+devgpt-weak:c4756aad9d67deec3472a399d9e3614594809e23dbeece8a47ec648ccd24a35a,"int main() {
+    std::vector<Task> tasks;
+    while (true) {
+        std::cout << ""1. Add Task\n"";
+        std::cout << ""2. Schedule Tasks\n"";
+        std::cout << ""3. Exit\n"";
+        int choice;
+        std::cin >> choice;
+        if (choice == 1) {
+            std::string name;
+            int priority, deadline;
+            std::cout << ""Enter Task Name: "";
+            std::cin >> name;
+            std::cout << ""Enter Task Priority: "";
+            std::cin >> priority;
+            std::cout << ""Enter Task Deadline: "";
+            std::cin >> deadline;
+            tasks.emplace_back(name, priority, deadline);
+        }
+        else if (choice == 2) {
+            scheduleTasks(tasks);
+        }
+        else if (choice == 3) {
+            break;
+        }
+        else {
+            std::cout << ""Invalid choice. Please try again.\n"";
+        }
+    }
+    return 0;
+}",0,,
+devgpt-weak:62c19d2c082f029dc361fc7c90b8d21fc9154eaa41d79dbb31b566c6006ceec8,"void scheduleTasks(std::vector<Task>& tasks) {
+    std::sort(tasks.begin(), tasks.end(), sortByDeadline);
+    std::vector<Task> scheduledTasks;
+    int currentTime = 0;
+    for (const Task& task : tasks) {
+        currentTime += task.priority;
+        if (currentTime <= task.deadline) {
+            scheduledTasks.push_back(task);
+        }
+    }
+    displayTasks(scheduledTasks);
+}",0,,
+devgpt-weak:1cf2b101e75cd0288e6baadf1dcc6c51442cb2382bd35040be2ae02e805bb9a7,"int main() {
+    std::vector<Task> tasks;
+    while (true) {
+        std::cout << ""1. Add Task\n"";
+        std::cout << ""2. Schedule Tasks\n"";
+        std::cout << ""3. Exit\n"";
+        int choice;
+        std::cin >> choice;
+        if (choice == 1) {
+            std::string name;
+            int priority, deadline;
+            std::cout << ""Enter Task Name: "";
+            std::cin >> name;
+            std::cout << ""Enter Task Priority: "";
+            std::cin >> priority;
+            std::cout << ""Enter Task Deadline: "";
+            std::cin >> deadline;
+            tasks.emplace_back(name, priority, deadline);
+        } else if (choice == 2) {
+            scheduleTasks(tasks);
+        } else if (choice == 3) {
+            break;
+        } else {
+            std::cout << ""Invalid choice. Please try again.\n"";
+        }
+    }
+    return 0;
+}",0,,
+devgpt-weak:bdf3e7df4dcacd187d5150069229a1c39d56f78fbbef801183e04c0b9b0ef2b3,"void scheduleTasks(std::vector<Task>& tasks) {
+    std::sort(tasks.begin(), tasks.end(), sortByDeadline);
+    std::vector<Task> scheduledTasks;
+    int currentTime = 0;
+    for (const Task& task : tasks) {
+        if (currentTime <= task.deadline) {
+            scheduledTasks.push_back(task);
+            currentTime += task.priority;
+        }
+    }
+    displayTasks(scheduledTasks);
+}",0,,
+devgpt-weak:732a92bc7e3e8e3ce7bef5ce4948c54f7743fe868c0bb7071e7d7713e971a7c6,"void DescriptorPool::AddEntity(Entity* entity)
+{
+    auto device = m_pDevice->GetVkDevice();
+    if (m_CurrentDescriptorCount >= m_MaxDescriptorCount) {
+        ExtendDescriptorPool();
+    }
+    VkDescriptorSetAllocateInfo allocInfo{};
+    allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
+    allocInfo.descriptorPool = m_DescriptorPool;
+    allocInfo.descriptorSetCount = 1;
+    allocInfo.pSetLayouts = &m_DescriptorSetLayout;
+    if (vkAllocateDescriptorSets(device, &allocInfo, &entity->GetDescriptorSet()) != VK_SUCCESS) {
+        throw std::runtime_error(""failed to allocate descriptor sets!"");
+    }
+    UpdateDescriptors(entity);
+    m_CurrentDescriptorCount++;
+}",0,,
+devgpt-weak:bb3b615fdcfdbbd998bbc86427ca29b06685417b9e1e7e4f1826f365c11112da,"void DescriptorPool::ExtendDescriptorPool()
+{
+    m_MaxDescriptorCount *= 2;
+    VkDescriptorPool newDescriptorPool;
+    CreateDescriptorPool(newDescriptorPool, m_MaxDescriptorCount);
+    TransferDescriptors(newDescriptorPool);
+    vkDestroyDescriptorPool(m_pDevice->GetVkDevice(), m_DescriptorPool, nullptr);
+    m_DescriptorPool = newDescriptorPool;
+}",0,,
+devgpt-weak:53ced0df534a0ba90be195ad1b7f25b1140d4dda5596758a70f77c6e0ff34a82,"void DescriptorPool::CreateDescriptorPool(VkDescriptorPool& descriptorPool, u32 descriptorCount)
+{
+    std::array<VkDescriptorPoolSize, 2> poolSizes{};
+    poolSizes[0].type = VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER;
+    poolSizes[0].descriptorCount = descriptorCount;
+    poolSizes[1].type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    poolSizes[1].descriptorCount = descriptorCount;
+    VkDescriptorPoolCreateInfo poolInfo{};
+    poolInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
+    poolInfo.flags = VK_DESCRIPTOR_POOL_CREATE_FREE_DESCRIPTOR_SET_BIT;
+    poolInfo.poolSizeCount = static_cast<u32>(poolSizes.size());
+    poolInfo.pPoolSizes = poolSizes.data();
+    poolInfo.maxSets = descriptorCount;
+    if (vkCreateDescriptorPool(m_pDevice->GetVkDevice(), &poolInfo, nullptr, &descriptorPool) != VK_SUCCESS) {
+        throw std::runtime_error(""failed to create descriptor pool!"");
+    }
+}",0,,
+devgpt-weak:bff4f3f21fafaa574faf9ab8fade3360de85be170b4b2b9eea31c5d88fd40f92,"void DescriptorPool::TransferDescriptors(VkDescriptorPool& newDescriptorPool)
+{
+}",0,,
+devgpt-weak:c38d8da74bccea9210e22673572b0568af4e29373b6d3aa58f55d68bcca87bcb,"void DescriptorPool::TransferDescriptors(VkDescriptorPool& newDescriptorPool)
+{
+    for (u32 i = 0; i < MAX_FRAMES_IN_FLIGHT; ++i) {
+        for (u32 j = 0; j < m_Entities.size(); ++j) {
+            VkDescriptorSet oldDescriptorSet = m_Entities[j]->GetDescriptorSets()[i];
+            VkDescriptorSetAllocateInfo allocInfo{};
+            allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
+            allocInfo.descriptorPool = newDescriptorPool;
+            allocInfo.descriptorSetCount = 1;
+            allocInfo.pSetLayouts = &m_DescriptorSetLayout;
+            if (vkAllocateDescriptorSets(m_pDevice->GetVkDevice(), &allocInfo, &(m_Entities[j]->GetDescriptorSets()[i])) != VK_SUCCESS) {
+                throw std::runtime_error(""failed to allocate descriptor sets!"");
+            }
+            CopyDescriptors(oldDescriptorSet, m_Entities[j]->GetDescriptorSets()[i]);
+            vkFreeDescriptorSets(m_pDevice->GetVkDevice(), m_DescriptorPool, 1, &oldDescriptorSet);
+        }
+    }
+}",0,,
+devgpt-weak:b48ac54a6be730bbf851575f2038610893708620fdfbe4a587f8d5a045122834,"void DescriptorPool::CopyDescriptors(VkDescriptorSet srcDescriptorSet, VkDescriptorSet dstDescriptorSet)
+{
+    VkCopyDescriptorSet copyDescriptorSet{};
+    copyDescriptorSet.sType = VK_STRUCTURE_TYPE_COPY_DESCRIPTOR_SET;
+    copyDescriptorSet.srcSet = srcDescriptorSet;
+    copyDescriptorSet.dstSet = dstDescriptorSet;
+    copyDescriptorSet.descriptorCount = 1;
+    copyDescriptorSet.pNext = nullptr;
+    vkUpdateDescriptorSets(m_pDevice->GetVkDevice(), 0, nullptr, 1, &copyDescriptorSet);
+}",0,,
+devgpt-weak:8d14adfaf46281d32830a17ba8922349bf8fe3d796bded5ef2bd90435e5c3faf,"char** hash_table_to_env_array(t_env_table* ht) {
+    char** env_array = malloc((ht->count + 1) * sizeof(char*));
+    if (!env_array) {
+        return NULL;
+    }
+    int index = 0;
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        t_env_var* node = ht->table[i];
+        while (node != NULL) {
+            env_array[index] = str_join_with_separator(node->key, ""="", node->value);
+            index++;
+            node = node->next;
+        }
+    }
+    env_array[ht->count] = NULL;
+    return env_array;
+}",0,,
+devgpt-weak:e2ff93954df7b7a5511e2cc9dcac1ec21c18d2d6a9d43077fcf6dadeca311bc5,"int main() {
+    int64_t value;
+    int64_t *p = &value;
+    if (scanf(""%"" SCNd64, p) == 1) {
+        printf(""Value: %"" PRId64 ""\n"", value);
+    } else {
+        printf(""Input error\n"");
+    }
+    return 0;
+}",1,,
+devgpt-weak:bbbe59b6a91535b41335a45d0feb8439b7e759731ba9bf93d67baac281d3311f,"int main() {
+  std::string timestamp_str = ""220517100000"";
+  std::tm timestamp_tm = {};
+  std::stringstream ss(timestamp_str);
+  ss >> std::get_time(&timestamp_tm, ""%y%m%d%H%M%S"");
+  std::time_t timestamp_unix = std::mktime(&timestamp_tm);
+  std::cout << ""Unix timestamp: "" << timestamp_unix << std::endl;
+  return 0;
+}",0,,
+devgpt-weak:f27b0e90d7044cf34b5a73ef974ffd6749c5702a2aa32fc65019f39cf2d66dc8,"int main() {
+  std::string timestamp_str = ""231031020000"";
+  std::tm timestamp_tm = {};
+  std::stringstream ss(timestamp_str);
+  ss >> std::get_time(&timestamp_tm, ""%y%m%d%H%M%S"");
+  timestamp_tm.tm_isdst = -1;
+  std::time_t timestamp_unix = std::mktime(&timestamp_tm);
+  std::cout << ""Unix timestamp: "" << timestamp_unix << std::endl;
+  std::cout << ""DST flag: "" << timestamp_tm.tm_isdst << std::endl;
+  return 0;
+}",0,,
+devgpt-weak:c36b54df5a4021bac174a8d6225186ca3e970d88505832129db610d88d500770,"int main() {
+  std::string timestamp_str = ""231031020000S"";
+  std::tm timestamp_tm = {};
+  std::stringstream ss(timestamp_str.substr(0,14));
+  ss >> std::get_time(&timestamp_tm, ""%y%m%d%H%M%S"");
+  bool dst_flag_present = timestamp_str.size() > 14;
+  if (dst_flag_present && timestamp_str[14] == 'S') {
+    timestamp_tm.tm_isdst = 1;
+  } else if (dst_flag_present && timestamp_str[14] == 'W') {
+    timestamp_tm.tm_isdst = 0;
+  } else {
+    timestamp_tm.tm_isdst = -1;
+  }
+  std::time_t timestamp_unix = std::mktime(&timestamp_tm);
+  std::cout << ""Unix timestamp: "" << timestamp_unix << std::endl;
+  std::cout << ""DST flag: "" << timestamp_tm.tm_isdst << std::endl;
+  return 0;
+}",0,,
+devgpt-weak:9fa7bef05088699d043fac1231c4aaa889d315cfa5994ff05974a086d71121ed,"void setup() {
+     Serial.begin(115200);
+   }",0,,
+devgpt-weak:657e49ba7cacad95471fddcb7eba772968f22114eadb8d41005930680f06b017,"void loop() {
+     int vinValue = analogRead(vinPin);
+     float voltage = vinValue / 4095.0 * 3.3;
+     Serial.print(""Vin Voltage: "");
+     Serial.print(voltage);
+     Serial.println(""V"");
+     delay(1000);
+   }",0,,
+devgpt-weak:0ffd50de82166f45f6663ba60a9a77a27da5fd93916b4b34d06366604c913ead,"int main() {
+    int client_socket;
+    struct sockaddr_in server_addr;
+    if ((client_socket = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+        perror(""socket creation failed"");
+        exit(EXIT_FAILURE);
+    }
+    memset(&server_addr, 0, sizeof(server_addr));
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(PORT);
+    if (inet_pton(AF_INET, SERVER_IP, &server_addr.sin_addr) <= 0) {
+        perror(""Invalid address/ Address not supported"");
+        exit(EXIT_FAILURE);
+    }
+    int number;
+    while (1) {
+        printf(""Client (You): "");
+        scanf(""%d"", &number);
+        sendto(client_socket, &number, sizeof(int), 0,
+               (const struct sockaddr *)&server_addr, sizeof(server_addr));
+        recvfrom(client_socket, &number, sizeof(int), 0, NULL, NULL);
+        printf(""Server: %d\n"", number);
+    }
+    close(client_socket);
+    return 0;
+}",0,,
+devgpt-weak:8c6332528d4052c8a71e6b421300d7f3b2e466a3562a618de1b092ba8eb670ba,"int main() {
+    int server_socket;
+    struct sockaddr_in server_addr, client_addr;
+    socklen_t client_addr_size = sizeof(client_addr);
+    int number;
+    if ((server_socket = socket(AF_INET, SOCK_DGRAM, 0)) < 0) {
+        perror(""socket creation failed"");
+        exit(EXIT_FAILURE);
+    }
+    memset(&server_addr, 0, sizeof(server_addr));
+    memset(&client_addr, 0, sizeof(client_addr));
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(PORT);
+    server_addr.sin_addr.s_addr = INADDR_ANY;
+    if (bind(server_socket, (const struct sockaddr *)&server_addr, sizeof(server_addr)) < 0) {
+        perror(""bind failed"");
+        exit(EXIT_FAILURE);
+    }
+    printf(""Server started. Waiting for messages...\n"");
+    while (1) {
+        recvfrom(server_socket, &number, sizeof(int), 0, (struct sockaddr *)&client_addr, &client_addr_size);
+        printf(""Client: %d\n"", number);
+        printf(""Server (You): "");
+        scanf(""%d"", &number);
+        sendto(server_socket, &number, sizeof(int), 0, (const struct sockaddr *)&client_addr, client_addr_size);
+    }
+    close(server_socket);
+    return 0;
+}",0,,
+devgpt-weak:408a1c98240fc7460e7d322bbd57e5f228d65afa1aca223ea45d38d32bf6a652,"pcre* compileRegex(const char* pattern) {
+    const char* error;
+    int errorOffset;
+    pcre* re = pcre_compile(pattern, 0, &error, &errorOffset, NULL);
+    if (re == nullptr) {
+        std::cerr << ""Failed to compile regex: "" << error << std::endl;
+    }
+    return re;
+}",0,,
+devgpt-weak:20aefe3030afe5131261989317b9c0e11080844f7a9210c019a08dd5588505ca,"int main() {
+    const char* regexPattern = ""hello\\s+world"";
+    const char* subject = ""hello   world"";
+    pcre* compiledRegex = compileRegex(regexPattern);
+    if (compiledRegex != nullptr) {
+        matchRegex(compiledRegex, subject);
+        pcre_free(compiledRegex);
+    }
+    return 0;
+}",0,,
+devgpt-weak:a028a95628337a6a0ce08ac5e9b52f8f9d99c6d6b28414bdd46012929342b757,"int main() {
+    uint32_t value = 0x03da0001;
+    uint32_t bigEndianValue = htonl(value);
+    printf(""빅 엔디안 값: 0x%08x\n"", bigEndianValue);
+    return 0;
+}",0,,
+devgpt-weak:be8330244ae6abcd0d18b384a49821002840a93f706021fb78ca0b9c1881907c,"int main() {
+  print_hello();
+  int sum = add(5, 10);
+  return 0;
+}",0,,
+devgpt-weak:a5bd7edcd546757c75ac856d74bbff01d5959187df5130209712a81d8a6768e2,"int main()
+{
+    student students[3];
+    students[0] = {""Erica"", ""Sanders"", 75, 89, 67, 77.0};
+    students[1] = {""Kelley"", ""Cummings"", 74, 70, 79, 74.3};
+    students[2] = {""Jamie"", ""Reynolds"", 64, 52, 66, 60.7};
+    student* student_ptrs[3];
+    for (int i = 0; i < 3; ++i) {
+        student_ptrs[i] = &students[i];
+    }
+    bubble(student_ptrs, 3);
+    for (int i = 0; i < 3; ++i) {
+        std::cout << student_ptrs[i]->first << "" "" << student_ptrs[i]->last << "" "" << student_ptrs[i]->mean << std::endl;
+    }
+    return 0;
+}",0,,
+devgpt-weak:ccb1ee0d18b92f562b20e98b0f952e1ff09539de71e990b3fa90b3f63ce1a004,"int main() {
+    MyLib::do_something();
+    return 0;
+}",0,,
+devgpt-weak:04da7d093ed2b74e8204ee9dd12eb8a90728a765a5ec8e1306c687379637d393,"int main() {
+    fHMMCpp::FluxusHMM hmm(""photon_data_file.txt"");
+    hmm.analyze();
+    return 0;
+}",0,,
+devgpt-weak:38054c720fb4a9953141c92a6d5b11ba3a9fe9d280542611091d4843e976f231,"int main() {
+    fHMMCpp hmm;
+    hmm.do_something();
+    return 0;
+}",0,,
+devgpt-weak:75a140d413ec4210f1777a8ace01eaf219844293473cb42b5f8f4823588ac9e7,"int main() {
+    fHMM hmm;
+    hmm.run();
+    return 0;
+}",0,,
+devgpt-weak:341ff4bfa0e5228061968acd93944d712734efb06ca1c8a735d9b7acb38f8449,"void fHMM::run() {
+}",0,,
+devgpt-weak:ce74efae80902e697d384b51f55c6c808d69794e77be1c1736f777879226956f,"int main() {
+    std::function<int(int)> factorial;
+    factorial = [&factorial](int n) -> int {
+        if (n <= 1) return 1;
+        else return n * factorial(n - 1);
+    };
+    std::cout << ""Factorial of 5 is "" << factorial(5) << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:818a58b8379288b444ce7a4228597840452462b6365d39c154fc0b926a85412d,"void workerFunction()
+{
+    proj_context* projCtx;
+    {
+        std::lock_guard<std::mutex> lock(projMutex);
+        projCtx = proj_context_create();
+    }
+    CPLSetThreadLocalConfigOption(""OGR_ENABLE_PARTIAL_REPROJECTION"", ""YES"");
+    CPLSetThreadLocalConfigOption(""OGR_ENABLE_PARTIAL_REPROJECTION_THREADS"", ""YES"");
+    CPLSetThreadLocalConfigOption(""PROJ_THREAD_SAFE"", ""YES"");
+    OGRRegisterAll();
+    OGRSpatialReference sourceSRS;
+    OGRSpatialReference targetSRS;
+    sourceSRS.importFromEPSG(4326);
+    targetSRS.importFromEPSG(3857);
+    OGRCoordinateTransformation* transformation = OGRCreateCoordinateTransformation(&sourceSRS, &targetSRS);
+    OGRCoordinateTransformation::DestroyCT(transformation);
+    {
+        std::lock_guard<std::mutex> lock(projMutex);
+        proj_context_destroy(projCtx);
+    }
+}",0,,
+devgpt-weak:4dd7b2209655fa336e25426147cd6759d073caed08b6ab28e9e0b33437041be1,"int main()
+{
+    int numThreads = 4;
+    std::vector<std::thread> threads;
+    for (int i = 0; i < numThreads; ++i)
+    {
+        threads.emplace_back(workerFunction);
+    }
+    for (std::thread& thread : threads)
+    {
+        thread.join();
+    }
+    return 0;
+}",0,,
+devgpt-weak:241896fb91fdae64d2395f4d476616d94461711f079c5613c5657426c66d8549,"int GetMonitorScaleFactor(HWND hWnd)
+{
+    HDC hdc = GetDC(hWnd);
+    int logPixelsX = GetDeviceCaps(hdc, LOGPIXELSX);
+    ReleaseDC(hWnd, hdc);
+    if (logPixelsX == 96)
+        return 100;
+    else if (logPixelsX == 120)
+        return 125;
+    else if (logPixelsX == 144)
+        return 150;
+    else if (logPixelsX == 192)
+        return 200;
+    return 0;
+}",0,,
+devgpt-weak:ea881cbf877cb318e99e957fb36904c62be85beb129ff0f06aeec37bfd2b2cec,"HWND GetHWNDFromQMdiSubWindow(QMdiSubWindow* subWindow)
+{
+    if (subWindow) {
+        QWidget* widget = subWindow->widget();
+        if (widget) {
+            WId wid = widget->winId();
+            if (wid != 0) {
+                HWND hWnd = reinterpret_cast<HWND>(wid);
+                return hWnd;
+            }
+        }
+    }
+    return nullptr;
+}",0,,
+devgpt-weak:e0b69d049978cdda2ca267cf2cae22ee063029abd805413acba8737309270ea8,"int GetMonitorScaleFactor(HWND hWnd)
+{
+    HWND hTopWnd = GetAncestor(hWnd, GA_ROOT);
+    HMONITOR hMonitor = MonitorFromWindow(hTopWnd, MONITOR_DEFAULTTONEAREST);
+    UINT dpiX, dpiY;
+    if (GetDpiForMonitor(hMonitor, MDT_EFFECTIVE_DPI, &dpiX, &dpiY) == S_OK) {
+        if (dpiX == 96)
+            return 100;
+        else if (dpiX == 120)
+            return 125;
+        else if (dpiX == 144)
+            return 150;
+        else if (dpiX == 192)
+            return 200;
+    }
+    return 0;
+}",0,,
+devgpt-weak:9601e18a68637e58acfe324f3c974e0087de9f44b60be94c64f5a6777967990c,"int main(int argc, char** argv)
+{
+    QCoreApplication app(argc, argv);
+    CustomEventFilter eventFilter;
+    app.installNativeEventFilter(&eventFilter);
+    return app.exec();
+}",0,,
+devgpt-weak:731c0c2d9b79d9a16c614b0017230c7e4749f3f169917441aeee08f9f158b7c6,"void printMatrix(int matrix[N][N]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf(""%d\t"", matrix[i][j]);
+        }
+        printf(""\n"");
+    }
+}",0,,
+devgpt-weak:533bd12367ce1cb1e605996990c1b24be79da5a83bfa203583601b70f6959417,"int main() {
+    int A[N][N], B[N][N], C[N][N];
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            A[i][j] = i + j;
+            B[i][j] = i - j;
+        }
+    }
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            C[i][j] = 0;
+        }
+    }
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            for (int k = 0; k < N; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+    printf(""Matriz resultante C (A*B):\n"");
+    printMatrix(C);
+    return 0;
+}",0,,
+devgpt-weak:7ea721d33e8cf16acf07f2d73bc104468acc39f1ee9d31a10ba8eafd4c45a56e,"void printMatrix(int matrix[N][N]) {
+        int i, j;
+        for (i = 0; i < N; i++) {
+            for (j = 0; j < N; j++) {
+                printf(""%d\t"", matrix[i][j]);
+            }
+            printf(""\n"");
+        }
+    }",0,,
+devgpt-weak:1d61e6a5d14b6db7181292a3bcdf0d98b9a05b7bfbe9c1df5f64712192b6e24d,"int main() {
+        int A[N][N], B[N][N], C[N][N];
+        int i, j, k;
+        for (i = 0; i < N; i++) {
+            for (j = 0; j < N; j++) {
+                A[i][j] = i + j;
+                B[i][j] = i - j;
+            }
+        }
+        for (i = 0; i < N; i++) {
+            for (j = 0; j < N; j++) {
+                C[i][j] = 0;
+            }
+        }
+        for (i = 0; i < N; i++) {
+            for (j = 0; j < N; j++) {
+                for (k = 0; k < N; k++) {
+                    C[i][j] += A[i][k] * B[k][j];
+                }
+            }
+        }
+        printf(""Matriz resultante C (A*B):\n"");
+        printMatrix(C);
+        return 0;
+    }",0,,
+devgpt-weak:c54a0971cf46361ad54ff49cf64590bd117d57ae41c58554bc4b72b5bff340dc,"void printMatrix(int matrix[N][N]) {
+    int i, j;
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            printf(""%d\t"", matrix[i][j]);
+        }
+        printf(""\n"");
+    }
+}",0,,
+devgpt-weak:130c5740cf35c13c696652f7ddac3fd3f5d9d3d40bfd4d652bf04b5a224024b1,"int main() {
+    int A[N][N], B[N][N], C[N][N];
+    int i, j, k;
+    srand(time(NULL));
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            A[i][j] = rand() % 100;
+            B[i][j] = rand() % 100;
+        }
+    }
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            C[i][j] = 0;
+        }
+    }
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            for (k = 0; k < N; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+    printf(""Matriz resultante C (A*B):\n"");
+    printMatrix(C);
+    return 0;
+}",1,,
+devgpt-weak:1afc57a27b19926768d41c898853a87a6a0c6f9ff6b5f1a82ebaadb87b4bdc40,"void printMatrix(int **matrix, int N) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf(""%d\t"", matrix[i][j]);
+        }
+        printf(""\n"");
+    }
+}",0,,
+devgpt-weak:8fc8dd308c70d18d4c1201af6c863154a018b24535e7e00092ad2ecd3e251a7c,"void printMatrix(int **matrix, int N) {
+    int i, j;
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
+            printf(""%d\t"", matrix[i][j]);
+        }
+        printf(""\n"");
+    }
+}",0,,
+devgpt-weak:a583c321dfa0e3c0b116776572ff7617d8a70f6891b66b458184a9b304e696ed,"void multiplyRowByMatrix(int row[N], int matrix[N][N], int result[N]) {
+    for (int i = 0; i < N; i++) {
+        result[i] = 0;
+        for (int j = 0; j < N; j++) {
+            result[i] += row[j] * matrix[j][i];
+        }
+    }
+}",0,,
+devgpt-weak:048ee2e2250d2d162d95c15bec77e8d9e6c6174240b615362792de6247cb3b80,"int main() {
+    int A[N][N], B[N][N], C[N][N];
+    pid_t pids[N];
+    int status;
+    srand(time(NULL));
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            A[i][j] = rand() % 10;
+            B[i][j] = rand() % 10;
+        }
+    }
+    for (int i = 0; i < N; i++) {
+        pids[i] = fork();
+        if (pids[i] < 0) {
+            perror(""Fork falló"");
+            exit(EXIT_FAILURE);
+        } else if (pids[i] == 0) {
+            multiplyRowByMatrix(A[i], B, C[i]);
+            exit(EXIT_SUCCESS);
+        }
+    }
+    for (int i = 0; i < N; i++) {
+        waitpid(pids[i], &status, 0);
+    }
+    printf(""Matriz resultante C (A*B):\n"");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf(""%d\t"", C[i][j]);
+        }
+        printf(""\n"");
+    }
+    return 0;
+}",1,,
+devgpt-weak:b806a976cad209280780d9e150c81370ebfab45c8bc560b1661e9524524ce43b,"void multiplyRowByMatrix(int **A, int **B, int **C, int N, int row) {
+    for (int j = 0; j < N; j++) {
+        for (int k = 0; k < N; k++) {
+            C[row][j] += A[row][k] * B[k][j];
+        }
+    }
+}",0,,
+devgpt-weak:d4935940a0807e01553ea4b8ba8df4ce0ccff0d29f433687505638dc8f12e851,"void multiplyRowByMatrix(int *A, int *B, int *C, int N, int row) {
+    for (int j = 0; j < N; j++) {
+        for (int k = 0; k < N; k++) {
+            C[row * N + j] += A[row * N + k] * B[k * N + j];
+        }
+    }
+}",0,,
+devgpt-weak:0dd78b10b1d39d958f2b8a47f298b4fd8d4a6f7bace436b8166a730f959902b4,"void multiplyChunk(int *A, int *B, int *C, int N, int startRow, int endRow) {
+    for (int i = startRow; i < endRow; i++) {
+        for (int j = 0; j < N; j++) {
+            C[i * N + j] = 0;
+            for (int k = 0; k < N; k++) {
+                C[i * N + j] += A[i * N + k] * B[k * N + j];
+            }
+        }
+    }
+}",0,,
+devgpt-weak:e2b1d35bf8999c13c8009e973bb410bd3b76237dcef55b958a03e2854b2193d6,"void printMatrix(int *matrix, int N) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf(""%d\t"", matrix[i * N + j]);
+        }
+        printf(""\n"");
+    }
+}",0,,
+devgpt-weak:7825c7bdccffbd7a2d7a2359861954984eabbcbef030b04ff7ae21c46b6a0d70,"int main() {
+    int **A, **B, **C;
+    for (int i = 0; i < N; i++) {
+        pid_t pid = fork();
+        if (pid == 0) {
+            exit(0);
+        }
+    }
+    while (wait(NULL) > 0);
+    return 0;
+}",0,,
+devgpt-weak:905adae7a5f01c52df9a6d814ee2865ffb710a41bfbb2c540da06b1b04b4b081,"void initializeAndFillMatrix(int ***matrix, int N, int isZero) {
+    *matrix = (int **)malloc(N * sizeof(int *));
+    for (int i = 0; i < N; i++) {
+        (*matrix)[i] = (int *)malloc(N * sizeof(int));
+        for (int j = 0; j < N; j++) {
+            (*matrix)[i][j] = isZero ? 0 : rand() % 100;
+        }
+    }
+}",0,,
+devgpt-weak:7b8f0e561598543c95b9e770c81a9219b43cfa06b4abefca9584c11397d433b2,"void multiplyMatrices(int **A, int **B, int **C, int N) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            C[i][j] = 0;
+            for (int k = 0; k < N; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}",0,,
+devgpt-weak:7f7692a9f955c28527d30df36ef7aefdbcad003e9bdfe97275b524ea7b248121,"void freeMatrix(int ***matrix, int N) {
+    for (int i = 0; i < N; i++) {
+        free((*matrix)[i]);
+    }
+    free(*matrix);
+}",0,,
+devgpt-weak:f99ab022754d079f63a0633640b5e861246a98c449568d4f108741c5cf114d94,"int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        printf(""N value not provided\n"");
+        return -1;
+    }
+    int N = atoi(argv[1]);
+    srand(time(NULL));
+    int **A, **B, **C;
+    initializeAndFillMatrix(&A, N, 0);
+    initializeAndFillMatrix(&B, N, 0);
+    initializeAndFillMatrix(&C, N, 1);
+    clock_t start = clock();
+    multiplyMatrices(A, B, C, N);
+    clock_t end = clock();
+    double cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf(""%d, %f\n"", N, cpu_time_used);
+    freeMatrix(&A, N);
+    freeMatrix(&B, N);
+    freeMatrix(&C, N);
+    return 0;
+}",1,,
+devgpt-weak:c83be3f6f801945d1b26cf6ca8979a112a197cba3de1bfac1419ed1d1df03f88,"void allocateMatrices(int ***A, int ***B, int ***C, int N){
+    *A = (int **)malloc(N * sizeof(int *));
+    *B = (int **)malloc(N * sizeof(int *));
+    *C = (int **)malloc(N * sizeof(int *));
+    for (int i = 0; i < N; i++) {
+        (*A)[i] = (int *)malloc(N * sizeof(int));
+        (*B)[i] = (int *)malloc(N * sizeof(int));
+        (*C)[i] = (int *)malloc(N * sizeof(int));
+    }
+}",0,,
+devgpt-weak:cb0db4bbd7eeb13af9cf468296a825a596e6e6a8a95adcdfd315a39caffcf7c0,"int** allocateMatrix(int N) {
+    int** matrix = (int**)malloc(N * sizeof(int*));
+    for (int i = 0; i < N; i++) {
+        matrix[i] = (int*)malloc(N * sizeof(int));
+    }
+    return matrix;
+}",0,,
+devgpt-weak:8d85573a8de327189b60bc3546f0092a1188323cdb9ace48825bd99363a01ec7,"void fillMatrixWithRandomValues(int** matrix, int N) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            matrix[i][j] = rand() % 100;
+        }
+    }
+}",0,,
+devgpt-weak:23cfbab2c5861ea6a1c0ae6d8861421f894a4e9d8a6e91fa977d5219c504f266,"void fillMatrixWithZeros(int** matrix, int N) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            matrix[i][j] = 0;
+        }
+    }
+}",0,,
+devgpt-weak:9e844ae32c5621f61a54690bab9de170d6241f1f5e0177281efa54b27546a0eb,"int main(int argc, char *argv[]) {
+    if (argc < 2) {
+        printf(""Usage: %s <matrix_size>\n"", argv[0]);
+        return -1;
+    }
+    int N = atoi(argv[1]);
+    srand(time(NULL));
+    int** A = allocateMatrix(N);
+    int** B = allocateMatrix(N);
+    int** C = allocateMatrix(N);
+    fillMatrixWithRandomValues(A, N);
+    fillMatrixWithRandomValues(B, N);
+    fillMatrixWithZeros(C, N);
+    for (int i = 0; i < N; i++) {
+        free(A[i]);
+        free(B[i]);
+        free(C[i]);
+    }
+    free(A);
+    free(B);
+    free(C);
+    return 0;
+}",1,,
+devgpt-weak:9a085ad47b8b004a29e52e9c83823505ea69ba182e23534df50ec0470b8b3ef4,"void allocateMatrices(int N, int ***A, int ***B, int ***C) {
+    *A = (int **)malloc(N * sizeof(int *));
+    *B = (int **)malloc(N * sizeof(int *));
+    *C = (int **)malloc(N * sizeof(int *));
+    for (int i = 0; i < N; i++) {
+        (*A)[i] = (int *)malloc(N * sizeof(int));
+        (*B)[i] = (int *)malloc(N * sizeof(int));
+        (*C)[i] = (int *)malloc(N * sizeof(int));
+    }
+}",0,,
+devgpt-weak:dcb66cecb9b347c36c35d0c2c0cce5ff4f92858df941ba820592f0bf11008e37,"void multiplyChunk(int **A, int **B, int *resultChunk, int N, int startRow, int endRow) {
+    int idx = 0;
+    for (int i = startRow; i < endRow; i++) {
+        for (int j = 0; j < N; j++) {
+            int sum = 0;
+            for (int k = 0; k < N; k++) {
+                sum += A[i][k] * B[k][j];
+            }
+            resultChunk[idx++] = sum;
+        }
+    }
+}",0,,
+devgpt-weak:ade1f921a3c960e23b588d6a06203ffad5b17e3a4d32f1ff5c2bf16a27c0b4d7,"void allocateSharedMatrix(int *shmid, int N) {
+    *shmid = shmget(IPC_PRIVATE, N * N * sizeof(int), IPC_CREAT | 0666);
+    if (*shmid < 0) {
+        perror(""shmget"");
+        exit(1);
+    }
+}",0,,
+devgpt-weak:9d6205f2075f8291f939f5f9372f3b0f3fd33d08fd4555cda5a0679940bc1b6f,"int** attachMatrix(int shmid, int N) {
+    int *data = (int *)shmat(shmid, NULL, 0);
+    if (data == (int *)-1) {
+        perror(""shmat"");
+        exit(1);
+    }
+    int **matrix = (int **)malloc(N * sizeof(int *));
+    for (int i = 0; i < N; i++) {
+        matrix[i] = data + N * i;
+    }
+    return matrix;
+}",0,,
+devgpt-weak:0ee63ac80d7acedcdc8ccb962830e648a04837efb6e4b9f0b1dd6b23c80eb503,"void detachMatrix(int **matrix) {
+    shmdt(*matrix);
+    free(matrix);
+}",0,,
+devgpt-weak:50a3266296007f67d171c006365e71eca24c09088c9d5c413b44942e9b8fea37,"void fillMatrix(int **matrix, int N, int isRandom) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            matrix[i][j] = isRandom ? rand() % 100 : 0;
+        }
+    }
+}",0,,
+devgpt-weak:923800ee1454566d74895f66e5cfc3d355a1c9da4bfff78068c2966c90b8ca03,"void multiplyMatrixChunk(int **A, int **B, int **C, int N, int startRow, int endRow) {
+    for (int i = startRow; i < endRow; i++) {
+        for (int j = 0; j < N; j++) {
+            for (int k = 0; k < N; k++) {
+                C[i][j] += A[i][k] * B[k][j];
+            }
+        }
+    }
+}",0,,
+devgpt-weak:2012a6a2a2a701a12cf1771dba90f3e0334cf5db135ce2cdea871749e471773b,"void checkSwitches() {
+  static unsigned long lastSW4Press = 0;
+  if (digitalRead(sw1) == LOW) {
+    Serial.println(""SW1 pressed"");
+  }
+  if (digitalRead(sw2) == LOW) {
+    Serial.println(""SW2 pressed"");
+    myservo.write(180);
+  }
+  if (digitalRead(sw3) == LOW) {
+    Serial.println(""SW3 pressed"");
+    myservo.write(0);
+  }
+  if (digitalRead(sw4) == LOW) {
+    Serial.println(""SW4 pressed"");
+    unsigned long currentMillis = millis();
+    if (currentMillis - lastSW4Press >= 3000) {
+      myservo.write(180);
+      delay(3000);
+      myservo.write(0);
+      lastSW4Press = currentMillis;
+    }
+  }
+}",0,,
+devgpt-weak:25453d734ee21ff4fd56f9b555af5256dbce7415166c8d1cfa3982e23e71a9fa,"void checkSwitches() {
+  static unsigned long lastSW4Press = 0;
+  static bool servoActivated = false;
+  unsigned long currentMillis = millis();
+  if (digitalRead(sw1) == LOW) {
+    Serial.println(""SW1 pressed"");
+  }
+  if (digitalRead(sw2) == LOW) {
+    Serial.println(""SW2 pressed"");
+    myservo.write(180);
+    servoActivated = true;
+  }
+  if (digitalRead(sw3) == LOW) {
+    Serial.println(""SW3 pressed"");
+    myservo.write(0);
+    servoActivated = false;
+  }
+  if (digitalRead(sw4) == LOW) {
+    Serial.println(""SW4 pressed"");
+    if (currentMillis - lastSW4Press >= 3000 && !servoActivated) {
+      myservo.write(180);
+      lastSW4Press = currentMillis;
+      servoActivated = true;
+    }
+    else if (currentMillis - lastSW4Press >= 3000 && servoActivated) {
+      myservo.write(0);
+      lastSW4Press = currentMillis;
+      servoActivated = false;
+    }
+  }
+}",0,,
+devgpt-weak:95fb543b58ceff6b30224400ac86a27b3a0419cebcb0d627ab00a9762b1bf19a,"void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.print(""Message arrived ["");
+  Serial.print(topic);
+  Serial.print(""] "");
+  String message;
+  for (int i = 0; i < length; i++) {
+    message = message + (char)payload[i];
+  }
+  if (strcmp(topic, ""@msg/timer/onSet"") == 0) {
+    if (message == ""on"") {
+      onSet = 1;
+    } else {
+      onSet = 0;
+    }
+  }
+  if (onSet) {
+    if (strcmp(topic, ""@msg/timer/setHr"") == 0) {
+      setHour = message.toInt();
+      Serial.println(setHour);
+    }
+    if (strcmp(topic, ""@msg/timer/setMinute"") == 0) {
+      setMinute = message.toInt();
+      Serial.println(setMinute);
+    }
+    if (strcmp(topic, ""@msg/timer/setSec"") == 0) {
+      setSec = message.toInt();
+      Serial.println(setSec);
+    }
+  }
+}",0,,
+devgpt-weak:4ac84e6854ebd42f8ce9fb6d858956ae6bf919932a26407473f860191c30c2e2,"PYBIND11_MODULE(my_module, m) {
+    py::class_<MyUnionWrapper>(m, ""MyUnion"")
+        .def(py::init<>())
+        .def(""set_int"", &MyUnionWrapper::set_int)
+        .def(""get_int"", &MyUnionWrapper::get_int)
+        .def(""set_float"", &MyUnionWrapper::set_float)
+        .def(""get_float"", &MyUnionWrapper::get_float)
+        .def(""set_char"", &MyUnionWrapper::set_char)
+        .def(""get_char"", &MyUnionWrapper::get_char);
+}",0,,
+devgpt-weak:320ec6310386aa027b1421296b8bf23508944d6be9354b9491bfe1da4d549aa4,"std::string extract_cookie(const std::string& header) {
+         size_t start_pos = header.find(""Cookie: session_id="");
+         if (start_pos == std::string::npos) return """";
+         start_pos += 19;
+         size_t end_pos = header.find("";"", start_pos);
+         if (end_pos == std::string::npos) end_pos = header.length();
+         return header.substr(start_pos, end_pos - start_pos);
+     }",0,,
+devgpt-weak:a669ac3facf60ced27df8a6b05c628151467ad904458ff3402214b1fe367d19c,"void drawMesh(mesh_t* mesh, vertexShader_t vertexShader, fragmentShader_t fragShader, void* uniformData) {
+    for (int i = 0; i < mesh->numTriangles; i++) {
+        triangle_t currentTri = mesh->triangles[i];
+        vec3_t transformedVertices[3];
+        for (int j = 0; j < 3; j++) {
+            int vertexIndex = currentTri.indices[j];
+            transformedVertices[j] = vertexShader(&mesh->vertices[vertexIndex], mesh, uniformData);
+        }
+        rasterizeTriangle(transformedVertices, mesh, fragShader, uniformData);
+    }
+}",0,,
+devgpt-weak:6ff81f14b0b0e5a3b8f4b39807b34a9b43b1f9d96c51c3599c3af2badea22577,"vec3_t myVertexShader(const vec3_t* inputVertex, const mesh_t* mesh, void* uniformData) {
+    return *inputVertex;
+}",0,,
+devgpt-weak:52e324fabd5a8a960f16890623abaf9fd334ae9896680d8e0004268f5fd22aae,"color_t myFragmentShader(const vec3_t* inputFragment, const mesh_t* mesh, void* uniformData) {
+    return (color_t){1.0, 0.0, 0.0};
+}",0,,
+devgpt-weak:9ce44602e482e1fc37db4786bbb7d736b7ce45b90a2aa19d16a9958473bbc6f5,"vertexOutput_t myVertexShader(const vec3_t* inputVertex, const vec3_t* normal, const mesh_t* mesh, void* uniformData) {
+    vertexOutput_t output;
+    output.position = *inputVertex;
+    output.lighting = (color_t){1.0, 1.0, 1.0};
+    return output;
+}",0,,
+devgpt-weak:463165db09f5890ba499ae243a8326d1eaaa7ba353db91c3ebb6fd80b82f9213,"void drawMesh(mesh_t* mesh, vertexShader_t vertexShader, fragmentShader_t fragShader, void* uniformData, framebuffer_t* fb) {
+    for (int i = 0; i < mesh->numTriangles; i++) {
+        triangle_t currentTri = mesh->triangles[i];
+        vertexOutput_t transformedVertices[3];
+        for (int j = 0; j < 3; j++) {
+            int vertexIndex = currentTri.indices[j];
+            int numAttributes;
+            transformedVertices[j] = vertexShader(&mesh->vertices[vertexIndex], uniformData, &numAttributes);
+        }
+        rasterizeTriangle(transformedVertices, fb, fragShader, uniformData);
+    }
+}",0,,
+devgpt-weak:0b9996a0f920c1518a7870c0ba6351a17d2772db57e3746ad5aaf6b0dbd6c717,"int main() {
+    return 0;
+}",0,,
+devgpt-weak:728f0808e1c040446bc1141e0fe2ed88dcd1bba255a72636b14aeefcfb19441c,"MyLibrary::MyLibrary(int interruptPin, int i2cAddress)
+    : interruptPin(interruptPin), i2cAddress(i2cAddress) {
+  instance = this;
+}",0,,
+devgpt-weak:33b9cc0da0f874ecfa1d41ce4da852c40c07e7ce068f9574fe4b53e8a06af0c8,"void MyLibrary::begin() {
+  pinMode(interruptPin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(interruptPin), interruptCallback, FALLING);
+}",0,,
+devgpt-weak:d5d75d7fa03029c059b09bdf1b07065c2b0172d72ea2d0cb6e1df4044e1b9758,"void MyLibrary::interruptCallback() {
+  if (instance) {
+    instance->processInterrupt();
+  }
+}",0,,
+devgpt-weak:f9abf2d3c6cf2fba044b9a0ce3f95ff9eeda3608956e402a4423aed898a9de27,"void MyLibrary::processInterrupt() {
+}",0,,
+devgpt-weak:b7328336da6bf71ca1eefe55838f54421016233961ba4f0c282643b157d8231d,"void setup() {
+  Serial.begin(115200);
+  myDevice.begin();
+}",0,,
+devgpt-weak:4edfb334cf030b7e1038160ccb0a6a30430ae90e9fbcbc0aad7fdda2fd127e37,"void loop() {
+}",0,,
+devgpt-weak:bfaed5a77e861bb683d66c16a40d5270ab7ca081e0ef83aca25d6432eb6edc38,"void loop() {
+  myDevice.handleInterrupt();
+}",0,,
+devgpt-weak:60ee1a8ea1006cce7308849d24bb0fc605ce282361dab16395ca1c949c69b4f0,"void countingSort(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    int* count = (int*)malloc((max + 1) * sizeof(int));
+    for (int i = 0; i <= max; i++) {
+        count[i] = 0;
+    }
+    for (int i = 0; i < n; i++) {
+        count[arr[i]]++;
+    }
+    for (int i = 1; i <= max; i++) {
+        count[i] += count[i - 1];
+    }
+    int* output = (int*)malloc(n * sizeof(int));
+    for (int i = n - 1; i >= 0; i--) {
+        output[count[arr[i]] - 1] = arr[i];
+        count[arr[i]]--;
+    }
+    for (int i = 0; i < n; i++) {
+        arr[i] = output[i];
+    }
+    free(count);
+    free(output);
+}",0,,
+devgpt-weak:155ca093e3316ffd99631103bd376dc53859acaa5428ed87ce4b2a5d39eb30f7,"int main() {
+    int arr[] = {4, 2, 10, 8, 7, 1, 5, 6, 3, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf(""Original array: "");
+    for (int i = 0; i < n; i++) {
+        printf(""%d "", arr[i]);
+    }
+    countingSort(arr, n);
+    printf(""\nSorted array: "");
+    for (int i = 0; i < n; i++) {
+        printf(""%d "", arr[i]);
+    }
+    return 0;
+}",0,,
+devgpt-weak:12499a6e6c158d29532a3e5500db87a4c51ffb5f8a4880aba46c51de999b2a82,"int main(int argc, char** argv) {
+    TaskScheduler* scheduler = BasicTaskScheduler::createNew();
+    UsageEnvironment* env = BasicUsageEnvironment::createNew(*scheduler);
+    RTSPServer* rtspServer = RTSPServer::createNew(*env, 8554);
+    ServerMediaSession* sms = ServerMediaSession::createNew(*env, ""StreamSession"", nullptr, ""Session description"");
+    H264VideoFileServerMediaSubsession* videoSubsession = H264VideoFileServerMediaSubsession::createNew(*env, ""path_to_video_file"");
+    sms->addSubsession(videoSubsession);
+    rtspServer->addServerMediaSession(sms);
+    rtspServer->setUpTunnelingOverHTTP(80);
+    env->taskScheduler().doEventLoop();
+    delete rtspServer;
+    delete scheduler;
+    return 0;
+}",0,,
+devgpt-weak:3890cb9cc8c0455ebda9c822825d33522d0cbeeec1487f37fa172376e84078d8,"int main(int argc, char** argv) {
+    TaskScheduler* scheduler = BasicTaskScheduler::createNew();
+    UsageEnvironment* env = BasicUsageEnvironment::createNew(*scheduler);
+    RTSPServer* rtspServer = RTSPServer::createNew(*env, 554);
+    ServerMediaSession* sms = ServerMediaSession::createNew(*env, ""my_channel"", nullptr, ""My Channel Description"");
+    DeviceSource* deviceSource = DeviceSource::createNew(*env, ""/dev/video0"");
+    H264VideoStreamDiscreteFramer* videoSource = H264VideoStreamDiscreteFramer::createNew(*env, deviceSource);
+    sms->addSubsession(videoSource);
+    rtspServer->addServerMediaSession(sms);
+    env->taskScheduler().doEventLoop();
+    delete rtspServer;
+    delete scheduler;
+    return 0;
+}",0,,
+devgpt-weak:2c25e839ef26faf13bb45026bbd1cdb25fd6938657fc54ec06208dea595d5c02,"unsigned int myfunc(const char *str, int additional_value) {
+    unsigned int hash = 5381;
+    int c;
+    while ((c = *str++)) {
+        hash = ((hash << 5) + hash) + c + additional_value;
+    }
+    return hash;
+}",0,,
+devgpt-weak:cba1c60a66f163adb0e0bc03143ab0df89497bb1a69c1e2918f0c7a7d5320cd0,"void threadFunction(int threadID) {
+    std::cout << ""Thread "" << threadID << "" is running"" << std::endl;
+}",0,,
+devgpt-weak:377496f9a08192b4169497c494e0a27fca581184662ba9938092ac298240410d,"int main() {
+    const int numThreads = 5;
+    boost::thread threads[numThreads];
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i] = boost::thread(threadFunction, i);
+    }
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i].join();
+    }
+    std::cout << ""All threads have finished executing"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:7ae0b05c4aac8044951ba5e1482192a4345508911e6af2729be19678e59a8dd5,"int main() {
+    const int numThreads = 5;
+    bdlmt::ThreadUtil::Handle threads[numThreads];
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i].start(&threadFunction, i);
+    }
+    for (int i = 0; i < numThreads; ++i) {
+        threads[i].join();
+    }
+    std::cout << ""All threads have finished executing"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:355a20e51a325dc6dc4b2ac7b7980af82e0ad21d156d4ce91ab217b3c07bf442,"double calculateWattage(double cadence, double resistance) {
+    double intercept = 12.16860795336126;
+    double coefCadence = 0.12260211;
+    double coefResistance = -0.39240546;
+    double coefCadenceSquared = 0.00464781;
+    double coefCadenceResistance = 0.34516268;
+    double coefResistanceSquared = -0.01031992;
+    double wattage = intercept +
+                     coefCadence * cadence +
+                     coefResistance * resistance +
+                     coefCadenceSquared * cadence * cadence +
+                     coefCadenceResistance * cadence * resistance +
+                     coefResistanceSquared * resistance * resistance;
+    return wattage;
+}",0,,
+devgpt-weak:489659368ca4f00c9d7c209193ed6de6044583ac66b496dce6396bb5d564fcc8,"int main() {
+    double cadence = 55;
+    double resistance = 13;
+    double wattage = calculateWattage(cadence, resistance);
+    printf(""Predicted Wattage: %.2f Watts\n"", wattage);
+    return 0;
+}",0,,
+devgpt-weak:24d8c2f4a73b3b3a92a28b219c4d4d1c73c9f9ce31f7cc206ff50c15c92c7e07,"void setup_logger() {
+    auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+    auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(""my_app.log"", true);
+    auto hello_imgui_sink = std::make_shared<hello_imgui_sink_mt>();
+    spdlog::logger logger(""multi_sink"", {console_sink, file_sink, hello_imgui_sink});
+    logger.set_level(spdlog::level::debug);
+    spdlog::set_default_logger(std::make_shared<spdlog::logger>(logger));
+}",0,,
+devgpt-weak:3bd593af3300804e4b9752d88561ee917847a697ef6e5528e4348e88437c4f39,"int main() {
+    setup_logger();
+    SPDLOG_INFO(""Hello, world!"");
+}",0,,
+devgpt-weak:7ce1acf93a583260b2b2864ed8ec655e8b0cb55c018fd8ff3b7e0745cd5f3fbc,"void timer_interrupt_handler() {
+    }",0,,
+devgpt-weak:d2a82da45a1c9ae6ab14913b7fffd29e2f0b331cc230f968b696b165e515aa36,"uint32_t factorial(int n) {
+  if (n == 0 || n == 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}",0,,
+devgpt-weak:32c251ec3e44e9758f0532047b1d7bdce194ee1b1ab18349a9d24ac0db0b7b8b,"fixed_point_t exp_fixed_point(fixed_point_t x) {
+  fixed_point_t result = 0;
+  fixed_point_t term = 1 << FRACTIONAL_BITS;
+  for (int n = 0; n < 10; ++n) {
+    result += term;
+    term = (term * x) / (n + 1) >> FRACTIONAL_BITS;
+  }
+  return result;
+}",0,,
+devgpt-weak:688c5f4004eca28693b123a05b1c893e629071d9cecef13bdac625071baadcd1,"void setup() {
+  Serial.begin(9600);
+  fixed_point_t x = 1 << FRACTIONAL_BITS;
+  fixed_point_t result = exp_fixed_point(x);
+  Serial.print(""exp(1) in fixed-point representation: "");
+  Serial.println(result);
+}",0,,
+devgpt-weak:bd0b51adcc226878847c109ecb3029150af1cbb48fc37ba1298c513b31a95826,"int32_t factorial(int n) {
+  if (n == 0 || n == 1) {
+    return 1;
+  } else {
+    return n * factorial(n - 1);
+  }
+}",0,,
+devgpt-weak:51f3ffc534cc9f8edf64eaf5b8c5c513770d33f23c1a6527240e682ab4edf130,"template <int Integer, int Fraction>
+SFixed<Integer, Fraction> exp_fixed_point(const SFixed<Integer, Fraction>& x) {
+  SFixed<Integer, Fraction> result = 1;
+  SFixed<Integer, Fraction> term = 1;
+  for (int n = 1; n < 10; ++n) {
+    term = (term * x) / factorial(n);
+    result += term;
+  }
+  return result;
+}",0,,
+devgpt-weak:00bbda4bb14f0e19a212bf578c59bb90341247a7cb80167f53a0482e1e4cc1ce,"void TestS4x27(void)
+{
+  SFixed<4,27> a = -9.1233459;
+  SFixed<4,27> result = exp_fixed_point(a);
+  Serial.println(static_cast<float>(result), 7);
+}",0,,
+devgpt-weak:25a2fce372b1d9e2c1be33d2326f8b78342488afe4c75c255fc08720faabbc54,"void setup()
+{
+  Serial.begin(9600);
+  while(!Serial);
+  TestS4x27();
+}",0,,
+devgpt-weak:9019ac37ba073ee282b4460701b881bab4fec4470f4713143e8caef03ee80c7a,void loop() {},0,,
+devgpt-weak:4f3d98e0db71f5f7d57f0d4960f750060748352c8bcc379e1651e1c5cd34a389,"template <int Integer, int Fraction>
+SFixed<Integer, Fraction> exp_fixed_point(const SFixed<Integer, Fraction>& x) {
+  SFixed<Integer, Fraction> result = 1;
+  SFixed<Integer, Fraction> term = 1;
+  for (int n = 1; n < 10; ++n) {
+    term = (term * x) / n;
+    result += term;
+  }
+  return result;
+}",0,,
+devgpt-weak:78924469d0c27dcbce8460e77f4c845dff16133acdaae93d834ca2769aa58205,"void TestS4x27(void)
+{
+  SFixed<4, 27> a = -9.1233459;
+  SFixed<4, 27> result = exp_fixed_point(a);
+  Serial.println(static_cast<float>(result), 7);
+}",0,,
+devgpt-weak:a52781a0da4619f475e670a8feea69211d42af20fdfa0d52ae7cdeaa66fc4376,"IoObject* hello(IoObject *self, IoObject *locals, IoMessage *m) {
+    puts(""Hello world!"");
+    return self;
+}",0,,
+devgpt-weak:0f69fb972ee6e1f55d107e00ba3f55c626354b880120a7917e0deda54dcd8887,"int main(int argc, const char *argv[]) {
+    IoState *self = IoState_new();
+    IoState_init(self);
+    IoObject *method = IoState_protoWithInitFunction(self, (IoStateProtoFunc)hello);
+    IoState_registerProtoWithFunc_(self, method, hello);
+    IoState_rawDoCString_(self, ""hello();"");
+    IoState_free(self);
+    return 0;
+}",0,,
+devgpt-weak:e6a896e207033e2ea84103c1c29a0044d883273d840d00c8b78a599aa124ab0d,"int main(int argc, const char *argv[]) {
+    IoState *self = IoState_new();
+    IoObject *lobby = IoState_lobby(self);
+    IoState_init(self);
+    IoMethodTable methodTable[] = {{""hello"", hello}, {NULL, NULL}};
+    IoObject_addMethodTable_(lobby, methodTable);
+    IoState_doCString_(self, ""hello();"");
+    IoState_free(self);
+    return 0;
+}",0,,
+devgpt-weak:31c2d50b7f3005ab06deb908bc81e97c408d8ade9d3301af277cd012434cc31a,"fluxpool SimpleNbox::npp(std::string biome, double time) const {
+  unitval temp = core->sendMessage(M_GETDATA, D_GLOBAL_TAS);
+  double temp_double = temp.value();
+  fluxpool npp(npp_flux0.at(biome).value(U_PGC_YR), U_PGC_YR);
+  double temp_adjust = (1 + (0.001639 - 2 * 0.0004306 * temp_double) * (1 / (0.3761 + 0.001639 * temp_double - 0.0004306 * temp_double * temp_double)) * temp_double);
+  if (time == Core::undefinedIndex()) {
+      npp = npp * co2fert.at(biome) * temp_adjust;
+  } else {
+      npp = npp * calc_co2fert(biome, time) * temp_adjust;
+  }
+  npp = npp * npp_luc_adjust;
+  return npp;
+}",0,,
+devgpt-weak:5c82c3f19ac8143d0f20fb77b4b5471765f338998b8d9b1ad4929980b0b51384,"int main() {
+    const int screenWidth = 800;
+    const int screenHeight = 600;
+    InitWindow(screenWidth, screenHeight, ""Random Circles"");
+    SetTargetFPS(60);
+    while (!WindowShouldClose()) {
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+        for (int i = 0; i < 50; ++i) {
+            int posX = GetRandomValue(0, screenWidth);
+            int posY = GetRandomValue(0, screenHeight);
+            Color circleColor = Color{GetRandomValue(200, 255), GetRandomValue(200, 255), GetRandomValue(200, 255), 255};
+            int radius = GetRandomValue(10, 50);
+            DrawCircle(posX, posY, radius, circleColor);
+        }
+        EndDrawing();
+    }
+    CloseWindow();
+    return 0;
+}",0,,
+devgpt-weak:1579974212e4d364048f038c76423707c4137dd4a750b85e5882f4d1f521f492,"int main() {
+    std::string filename = ""TextFile1.txt"";
+    std::string rawString = readFileIntoRawString(filename);
+    removeLeadingWhitespace(rawString);
+    ensureNewlineAfterBrace(rawString);
+    removeLeadingWhitespace(rawString);
+    std::vector<std::string> catsToRemove = { ""type"", ""category"", ""enabled"", ""order"", ""allow_decomposition"", ""main_product"", ""subgroup"", ""requester_paste_multiplier"", ""icon"" };
+    for (const auto& category : catsToRemove) {
+        removeLineStartingWith(rawString, category);
+    }
+    removeNewlineAfterEquals(rawString);
+    std::vector<std::string> individualMembers = extractIndividualMembers(rawString);
+    std::string output = generateOutput(individualMembers);
+    std::cout << output;
+    writeToTxtFile(output, ""roughCut.txt"");
+    return 0;
+}",0,,
+devgpt-weak:a17830bb00e7832edff2245337ab86627cc35f4f2bd52dd6c796e2fae287b81a,"std::string extractNestedBraces(const std::string& input) {
+}",0,,
+devgpt-weak:8fa7e2a68fa6aab52188ccecddddb61f1ccf84d02770c2cd10f91a88a2164321,"std::vector<std::string> extractIndividualMembers(const std::string& input) {
+}",0,,
+devgpt-weak:0845d930ffd5b8971ce905e7cfdf00fb8e1e077e004361f678ddf136e63aa3e8,"std::string getNormal(const std::string& inputMember) {
+}",0,,
+devgpt-weak:a2dedd5e11b381d1d8da8be645680d10b292c60a748eab08d28f81499ca5e04c,"std::string getIngredients(const std::string& inputMember) {
+}",0,,
+devgpt-weak:c2b7e1c7f934c12787705a8d6d83d1fb98c4bc6919002bde3c213bc051080465,"std::string getRecipeName(const std::string& inputMember) {
+}",0,,
+devgpt-weak:f1bf24172294b95de27e69aa0ed5198e19431551da729c96ec3cfda536869fcb,"std::string parseIngredients(const std::string& ingredientsData) {
+}",0,,
+devgpt-weak:a2afb38150b6daa25dffde8ec3f915dec1d20d11beeee92de5000eb25c2e53a2,"void removeLeadingWhitespace(std::string& text) {
+}",0,,
+devgpt-weak:06e0622625386ca1a68a6a0f74314275192dfe55c778f0dfec393c83701345c3,"void removeLineStartingWith(std::string& text, const std::string& sequence) {
+}",0,,
+devgpt-weak:1feb59786873eddcab65f1e901be4ea021736b4fc6af943e8ce6c3d065f6b5e2,"std::string removeQuotes(const std::string& input) {
+}",0,,
+devgpt-weak:d469b4040319857fe1f129a5c185b0663d213d4c384e105cedb4c1aafb8b574a,"void ensureNewlineAfterBrace(std::string& text) {
+}",0,,
+devgpt-weak:189bfe9e080feab6a7a4cddb11563a3dba847037be5f11b50a44a4a5d7ff2927,"void insertNewlineBetweenBrackets(std::string& input) {
+}",0,,
+devgpt-weak:5d82325998e3156ccf79066b6e75c3ffb056c25bdb6013d785dd5a97d989f5e1,"void removeNewlineAfterEquals(std::string& text) {
+}",0,,
+devgpt-weak:b80bf897be672d50a0177b2308713f8c00e9cfa87bb1abf450a14583e535abd0,"std::string removeCraftingMachineTint(const std::string& inputMember) {
+}",0,,
+devgpt-weak:a6b56bea2d94906a1ef1ef3e3b1ad7da652bd075a692efd5bc02f5abdb91b6ff,"std::string generateOutput(const std::vector<std::string>& individualMembers) {
+    std::ostringstream rawStringStream;
+    rawStringStream << ""{\n"";
+    for (size_t i = 0; i < individualMembers.size(); ++i) {
+        std::string nameOutput = getRecipeName(individualMembers[i]);
+        std::string ingredientsOutput = getIngredients(individualMembers[i]);
+        rawStringStream << removeQuotes(nameOutput) << '\n' << removeQuotes(ingredientsOutput) << ""\n\n"";
+    }
+    rawStringStream << ""}\n"";
+    return rawStringStream.str();
+}",0,,
+devgpt-weak:8e82ef0f612263c6cb7136967cc904296e4a9278b9c3e2a4e75335a57755e52f,"std::string generateOutput(const std::vector<Recipe>& recipes) {
+    std::ostringstream rawStringStream;
+    rawStringStream << ""{\n"";
+    for (size_t i = 0; i < recipes.size(); ++i) {
+        rawStringStream << removeQuotes(recipes[i].getName()) << '\n'
+                        << removeQuotes(recipes[i].getIngredients()) << ""\n\n"";
+    }
+    rawStringStream << ""}\n"";
+    return rawStringStream.str();
+}",0,,
+devgpt-weak:8aa2b1c21ab600590a60fa095ffad0cf75b414f7e215cf2c9239005c49d755b0,"int main() {
+    std::string filename = ""TextFile1.txt"";
+    std::string rawString = readFileIntoRawString(filename);
+    removeLeadingWhitespace(rawString);
+    ensureNewlineAfterBrace(rawString);
+    removeLeadingWhitespace(rawString);
+    std::vector<std::string> catsToRemove = { ""type"", ""category"", ""enabled"", ""order"", ""allow_decomposition"", ""main_product"", ""subgroup"", ""requester_paste_multiplier"", ""icon"" };
+    for (const auto& category : catsToRemove) {
+        removeLineStartingWith(rawString, category);
+    }
+    removeNewlineAfterEquals(rawString);
+    std::vector<std::string> individualMembers = extractIndividualMembers(rawString);
+    std::vector<Recipe> recipes;
+    for (const auto& member : individualMembers) {
+        recipes.emplace_back(member);
+    }
+    std::string output = generateOutput(recipes);
+    std::cout << output;
+    writeToTxtFile(output, ""roughCut.txt"");
+    return 0;
+}",0,,
+devgpt-weak:d6343dc065b32765221624eef1866f3c879fceede8899995061a61d546ea9d85,"std::string Recipe::extractNestedBraces(const std::string& input) const {
+}",0,,
+devgpt-weak:a67fb2b1366fced7c8fb4181e9af8e7a09d0e418fa4dc4e491760ac74274dc76,"std::string Recipe::parseIngredients(const std::string& ingredientsData) const {
+}",0,,
+devgpt-weak:c8fc2a274b512957631a5304fefcd406c91968b95abc00c9b0662a552c90f62f,"std::string Recipe::removeCraftingMachineTint(const std::string& inputMember) const {
+}",0,,
+devgpt-weak:1ae481d6fc712024ac73f7da546a4e0a5a1bb66114a355e5e7eb467d3b0e2f94,"std::string Recipe::getName() const {
+}",0,,
+devgpt-weak:6089b051b431ef593b755b02a5d8aca28e0f0e20ca686f823df1a94a934fd953,"std::string Recipe::getIngredients() const {
+}",0,,
+devgpt-weak:dc27241565cdadbbc7e82eff59afb0cb4a7367ac8d08a13a888d7b91a7b8e52d,"std::string Recipe::toString() const {
+}",0,,
+devgpt-weak:f78357aeeba71cc93961618d2434a91e1bf2980856b4ecfebd3213b49e6f7de1,"line_t parse_line(char* buffer) {
+    line_t line;
+    char* token = strtok(buffer, "","");
+    if(!token) {
+        fprintf(stderr, ""[ERROR]: Failed to tokenize input\n"");
+        exit(1);
+    }
+    line.command = strdup(token);
+    token = strtok(NULL, "","");
+    if(!token) {
+        fprintf(stderr, ""[ERROR]: Failed to tokenize input\n"");
+        exit(1);
+    }
+    line.param_one = strdup(token);
+    token = strtok(NULL, "","");
+    if(!token) {
+        fprintf(stderr, ""[ERROR]: Failed to tokenize input\n"");
+        exit(1);
+    }
+    line.param_two = strdup(token);
+    return line;
+}",0,,
+devgpt-weak:14d21785e1b7da18012af6415dccee71693e6f4b37665def8031c0b70d6f1d57,"void free_line(line_t line) {
+    free(line.command);
+    free(line.param_one);
+    free(line.param_two);
+}",0,,
+devgpt-weak:2d75440ec50743e2765bb932876a923350a6c16ba8bcc04ea8c495b418358dbf,"pthread_t* allocate_threads(size_t num_threads) {
+    pthread_t* threads = (pthread_t*)calloc(num_threads, sizeof(pthread_t));
+    if(!threads) {
+        fprintf(stderr, ""[ERROR]: Could not allocate space for threads\n"");
+        exit(1);
+    }
+    return threads;
+}",0,,
+devgpt-weak:2240c7349e951bd8e64b85d8872b465d08dc5f9cf6bfc3a753242da006b52639,"static inline int prot_queue_init(struct prot_queue* q, void* buf, int buflen,
+				  int elem_size)
+{
+	if (buflen == 0 || buflen % elem_size != 0)
+		return 0;
+	q->head = 0;
+	q->tail = 0;
+	q->count = 0;
+	q->buf = buf;
+	q->buflen = buflen;
+	q->elem_size = elem_size;
+	pthread_mutex_init(&q->mutex, NULL);
+	pthread_cond_init(&q->cond, NULL);
+	return 1;
+}",0,,
+devgpt-weak:c4176f945fd0fae8ec4e3b3a082a5b91d1bc2fffca249c7088cbad2079fe265d,"static inline int prot_queue_capacity(struct prot_queue *q) {
+	return q->buflen / q->elem_size;
+}",0,,
+devgpt-weak:daddeb704fd684983404705171cf245825e4a5b0c138afba6e8c0d00aa7b43eb,"static inline void prot_queue_destroy(struct prot_queue* q) {
+	pthread_mutex_destroy(&q->mutex);
+	pthread_cond_destroy(&q->cond);
+}",0,,
+devgpt-weak:547d44791c1a3896e28d6b64bba017644bcb38946278b7dbc84c555ae12b81e6,"static void test_queue_init_pop_push() {
+    struct prot_queue q;
+    int buffer[TEST_BUF_SIZE];
+    int data;
+    assert(prot_queue_init(&q, buffer, sizeof(buffer), sizeof(int)) == 1);
+    data = 5;
+    assert(prot_queue_push(&q, &data) == 1);
+    assert(prot_queue_pop(&q, &data) == 1);
+    assert(data == 5);
+    for (int i = 0; i < TEST_BUF_SIZE; i++) {
+        assert(prot_queue_push(&q, &i) == 1);
+    }
+    assert(prot_queue_push(&q, &data) == 0);
+    for (int i = 0; i < TEST_BUF_SIZE; i++) {
+        assert(prot_queue_try_pop(&q, &data) == 1);
+        assert(data == i);
+    }
+    assert(prot_queue_try_pop(&q, &data) == 0);
+}",0,,
+devgpt-weak:075bd05d9f3c87f29932b960a7122c7a2a7ab374a23f84bafeaf11f1e0205685,"void* thread_func(void* arg) {
+    struct prot_queue* q = (struct prot_queue*) arg;
+    int data;
+    for (int i = 0; i < 100; i++) {
+        data = i;
+        prot_queue_push(q, &data);
+        prot_queue_pop(q, &data);
+    }
+    return NULL;
+}",0,,
+devgpt-weak:38f5191a682d98357eeee02eed35f296591c294c7c8e1f6bf3e6959c9d4fdfdb,"static void test_queue_thread_safety() {
+    struct prot_queue q;
+    int buffer[TEST_BUF_SIZE];
+    pthread_t threads[2];
+    assert(prot_queue_init(&q, buffer, sizeof(buffer), sizeof(int)) == 1);
+    for (int i = 0; i < 2; i++) {
+        pthread_create(&threads[i], NULL, thread_func, &q);
+    }
+    for (int i = 0; i < 2; i++) {
+        pthread_join(threads[i], NULL);
+    }
+    int data;
+    assert(prot_queue_try_pop(&q, &data) == 0);
+}",0,,
+devgpt-weak:81e0fc07a6a6c68b99e1b040cbd201391cdc4dbeb58992c5cb7ab5d2d869b963,"int main(int argc, const char *argv[]) {
+    test_basic_event();
+    test_empty_tags();
+    test_parse_json();
+    test_parse_contact_list();
+    test_strings_work_before_finalization();
+    test_tce();
+    test_tce_command_result();
+    test_tce_eose();
+    test_tce_command_result_empty_msg();
+    test_content_len();
+    test_nostr_report();
+    test_queue_init_pop_push();
+    test_queue_thread_safety();
+    printf(""All tests passed!\n"");
+}",0,,
+devgpt-weak:23231d1c927b0c3cdf2648e7665fa38148be1837fb79deb798829ce941e556d9,"static void test_queue_boundary_conditions() {
+    struct prot_queue q;
+    int buffer[TEST_BUF_SIZE];
+    int data;
+    assert(prot_queue_init(&q, buffer, sizeof(buffer), sizeof(int)) == 1);
+    for (int i = 0; i < TEST_BUF_SIZE; i++) {
+        assert(prot_queue_push(&q, &i) == 1);
+    }
+    int old_head = q.head;
+    int old_tail = q.tail;
+    int old_count = q.count;
+    assert(prot_queue_push(&q, &data) == 0);
+    assert(old_head == q.head);
+    assert(old_tail == q.tail);
+    assert(old_count == q.count);
+    for (int i = 0; i < TEST_BUF_SIZE; i++) {
+        assert(prot_queue_try_pop(&q, &data) == 1);
+    }
+    old_head = q.head;
+    old_tail = q.tail;
+    old_count = q.count;
+    assert(prot_queue_try_pop(&q, &data) == 0);
+    assert(old_head == q.head);
+    assert(old_tail == q.tail);
+    assert(old_count == q.count);
+}",0,,
+devgpt-weak:c6492673743b8a50eb1cfeb11bff3a379cb67afb66deecf1ee1d7b5ee8bea0b2,"int main() {
+    int arr1[] = {1, 2, 3, 4, 5};
+    int size1 = sizeof(arr1) / sizeof(arr1[0]);
+    int arr2[] = {3, 4, 5, 6, 7};
+    int size2 = sizeof(arr2) / sizeof(arr2[0]);
+    int intersection[10];
+    int size3;
+    findIntersection(arr1, size1, arr2, size2, intersection, &size3);
+    printf(""Intersection: "");
+    for (int i = 0; i < size3; i++) {
+        printf(""%d "", intersection[i]);
+    }
+    return 0;
+}",0,,
+devgpt-weak:fccf00f028456a99f3bd3ddd10a7eb87ed956ffbd8d0c23c617bb8ddf4e0303a,"void findIntersection(int arr1[], int size1, int arr2[], int size2, int intersection[], int *size3) {
+}",0,,
+devgpt-weak:bef613f1dbd8e31b564e6f8e6fd564455acee161196b9b12fa5aca61e666e2d2,"void Wire_readRegister(uint8_t i2caddr, uint8_t regaddr, uint8_t *data, uint8_t bytes) {
+    uint8_t status;
+    I2C_Start();
+    status = I2C_SendByte((i2caddr << 1) | 0x00);
+    if (status != I2C_ACK) {
+        I2C_Stop();
+        return;
+    }
+    status = I2C_SendByte(regaddr);
+    if (status != I2C_ACK) {
+        I2C_Stop();
+        return;
+    }
+    I2C_Start();
+    status = I2C_SendByte((i2caddr << 1) | 0x01);
+    if (status != I2C_ACK) {
+        I2C_Stop();
+        return;
+    }
+    while (bytes > 0) {
+        if (bytes == 1) {
+            *data = I2C_RecvByte(I2C_NACK);
+        } else {
+            *data = I2C_RecvByte(I2C_ACK);
+        }
+        data++;
+        bytes--;
+    }
+    I2C_Stop();
+}",0,,
+devgpt-weak:3f7cadaa6955782f9a5d7c401cdf04e612f694cb77afe953c28be1731651f48a,"void Wire_readRegister(uint8_t i2caddr, uint8_t regaddr, uint8_t *data, uint8_t bytes) {
+    uint8_t ack_bit;
+    I2CStart();
+    ack_bit = I2CSend((i2caddr << 1) | 0);
+    if (ack_bit != 0) {
+        I2CStop();
+        return;
+    }
+    ack_bit = I2CSend(regaddr);
+    if (ack_bit != 0) {
+        I2CStop();
+        return;
+    }
+    I2CRestart();
+    ack_bit = I2CSend((i2caddr << 1) | 1);
+    if (ack_bit != 0) {
+        I2CStop();
+        return;
+    }
+    for (uint8_t i = 0; i < bytes; i++) {
+        data[i] = I2CRead();
+        if (i == (bytes - 1)) {
+            I2CNak();
+        } else {
+            I2CAck();
+        }
+    }
+    I2CStop();
+}",0,,
+devgpt-weak:0f40463423150e51395c2bd2d24c46c35fb268c03924a8fbe171c7053f65574b,"bool Wire_readRegister(uint8_t i2caddr, uint8_t regaddr, uint8_t *data, uint8_t bytes) {
+    uint8_t ack_bit;
+    I2CStart();
+    ack_bit = I2CSend((i2caddr << 1) | 0);
+    if (ack_bit != 0) {
+        I2CStop();
+        return false;
+    }
+    ack_bit = I2CSend(regaddr);
+    if (ack_bit != 0) {
+        I2CStop();
+        return false;
+    }
+    I2CRestart();
+    ack_bit = I2CSend((i2caddr << 1) | 1);
+    if (ack_bit != 0) {
+        I2CStop();
+        return false;
+    }
+    for (uint8_t i = 0; i < bytes; i++) {
+        data[i] = I2CRead();
+        if (i == (bytes - 1)) {
+            I2CNak();
+        } else {
+            I2CAck();
+        }
+    }
+    I2CStop();
+    return true;
+}",0,,
+devgpt-weak:0531080142bc27cc6d6320423dd8ebd89cc2030886b37bf84ac96fdcb2589d92,"bool Wire_scan(uint8_t i2caddr) {
+    uint8_t ack_bit;
+    I2CStart();
+    ack_bit = I2CSend((i2caddr << 1) | 0);
+    I2CStop();
+    return (ack_bit == 0);
+}",0,,
+devgpt-weak:352b66e22324470e73457e56f03e40f2ae95829fc6787b70226c2de64fcb2b49,"bool AHT20_getStatus(uint8_t *status) {
+    I2CStart();
+    if (I2CSend(AHTX0_I2CADDR_DEFAULT << 1 | 1) == 0) {
+        *status = I2CRead();
+        I2CNak();
+        I2CStop();
+        return true;
+    }
+    I2CStop();
+    return false;
+}",0,,
+devgpt-weak:601ee67b249ff30522e1875bcc8a84dae3c2c69447e97140b478b7797bbb9d25,"bool Wire_writeBytes(uint8_t i2caddr, uint8_t *data, uint8_t bytes) {
+    uint8_t ack_bit;
+    I2CStart();
+    ack_bit = I2CSend(i2caddr << 1 | 0);
+    if (ack_bit != 0) {
+        I2CStop();
+        return false;
+    }
+    for (uint8_t i = 0; i < bytes; i++) {
+        if (I2CSend(data[i]) != 0) {
+            I2CStop();
+            return false;
+        }
+    }
+    I2CStop();
+    return true;
+}",0,,
+devgpt-weak:13bccdd88ded7b4034bdf90dec329850d41631f83843e25c2d095a6646d446ee,"bool Wire_readBytes(uint8_t i2caddr, uint8_t *data, uint8_t bytes) {
+    uint8_t ack_bit;
+    I2CStart();
+    ack_bit = I2CSend(i2caddr << 1 | 1);
+    if (ack_bit != 0) {
+        I2CStop();
+        return false;
+    }
+    for (uint8_t i = 0; i < bytes; i++) {
+        data[i] = I2CRead();
+        if (i == bytes - 1) {
+            I2CNak();
+        } else {
+            I2CAck();
+        }
+    }
+    I2CStop();
+    return true;
+}",0,,
+devgpt-weak:3616f0857e058204ee5d067b6346db5e7534e00e44606a959f46b550a644b3c6,"bool Wire_readRegister(uint8_t i2caddr, uint8_t regaddr, uint8_t *data, uint8_t bytes) {
+    if (!Wire_writeBytes(i2caddr, &regaddr, 1)) {
+        return false;
+    }
+    return Wire_readBytes(i2caddr, data, bytes);
+}",0,,
+devgpt-weak:5490b6ae32f34bcb8fecd3fc8102f70348453e5ec52386d4c8cb0cb395fa625f,"bool Wire_scan(uint8_t i2caddr) {
+    return Wire_writeBytes(i2caddr, NULL, 0);
+}",0,,
+devgpt-weak:b897b6173143193f1b7dad03338ac654b8b00bfd6c202db4365d53ae8c4c2424,"bool AHT20_getStatus(uint8_t *status) {
+    return Wire_readBytes(AHTX0_I2CADDR_DEFAULT, status, 1);
+}",0,,
+devgpt-weak:de0de60767eecb16c9142a9eb19f3bc4cecaea592776778e0ec5a35a9f68dd39,"bool readAHT20(float *temperature, float *humidity) {
+    uint8_t cmd[3] = {AHTX0_CMD_TRIGGER, 0x33, 0x00};
+    uint8_t data[6], status;
+    uint32_t rawHumidity, rawTemperature;
+    if (!Wire_writeBytes(AHTX0_I2CADDR_DEFAULT, cmd, 3)) {
+        return false;
+    }
+    do {
+        if (!AHT20_getStatus(&status)) {
+            return false;
+        }
+        delay(10);
+    } while (status & AHTX0_STATUS_BUSY);
+    if (!Wire_readBytes(AHTX0_I2CADDR_DEFAULT, data, 6)) {
+        return false;
+    }
+    rawHumidity = data[1];
+    rawHumidity = (rawHumidity << 8) | data[2];
+    rawHumidity = (rawHumidity << 4) | (data[3] >> 4);
+    *humidity = ((float)rawHumidity * 100.0) / 0x100000;
+    rawTemperature = (data[3] & 0x0F);
+    rawTemperature = (rawTemperature << 8) | data[4];
+    rawTemperature = (rawTemperature << 8) | data[5];
+    *temperature = ((float)rawTemperature * 200.0 / 0x100000) - 50.0;
+    return true;
+}",0,,
+devgpt-weak:fe305c1c4f17b184d82d0010d91247dbf314891862caba948dd51ff6f8dd2da2,"void writeRect(std::ofstream &svgFile, int width, int height, const std::string &fillColor) {
+    svgFile << ""<rect width=\"""" << width << ""\"" height=\"""" << height << ""\"" fill=\"""" << fillColor << ""\""/>"" << std::endl;
+}",0,,
+devgpt-weak:353c9a8786df4ea1ac6967b95ad4852de25e1328635f967756f249b26733765e,"void closeSVGFile(std::ofstream &svgFile) {
+    svgFile << ""</svg>"" << std::endl;
+    svgFile.close();
+}",0,,
+devgpt-weak:7b1e1804df0447aa2118d0530ca396de77643f4df769e8a4a35e34b6512f11ea,"int main() {
+    int svgWidth = 200;
+    int svgHeight = 200;
+    int rectWidth = 120;
+    int rectHeight = 80;
+    std::ofstream svgFile;
+    openSVGFile(svgFile, ""output.svg"", svgWidth, svgHeight);
+    writeRect(svgFile, rectWidth, rectHeight, ""blue"");
+    closeSVGFile(svgFile);
+    return 0;
+}",0,,
+devgpt-weak:9cdfecdedf7d27a05d26126c3f8996778d1422833bcfaeadd87a93dcf913e8d9,"void writeCircle(std::ofstream &svgFile, double cx, double cy, double r, const std::string &strokeColor, const std::string &fillColor, double strokeWidth) {
+    svgFile << ""<circle cx=\"""" << cx << ""\"" cy=\"""" << cy << ""\"" r=\"""" << r << ""\"" stroke=\"""" << strokeColor << ""\"" fill=\"""" << fillColor << ""\"" stroke-width=\"""" << strokeWidth << ""\"" />"" << std::endl;
+}",0,,
+devgpt-weak:8adb39b62144df5d720407cd591274e58927d488edf29d7418c0c1fa66de3ad5,"int main() {
+    int svgWidth = 600;
+    int svgHeight = 600;
+    int rectWidth = 120;
+    int rectHeight = 80;
+    double circleCX = 504.2;
+    double circleCY = 403.5;
+    double circleRadius = 3;
+    std::string circleStrokeColor = ""purple"";
+    std::string circleFillColor = ""purple"";
+    double circleStrokeWidth = 1;
+    std::ofstream svgFile;
+    openSVGFile(svgFile, ""output.svg"", svgWidth, svgHeight);
+    writeRect(svgFile, rectWidth, rectHeight, ""blue"");
+    writeCircle(svgFile, circleCX, circleCY, circleRadius, circleStrokeColor, circleFillColor, circleStrokeWidth);
+    closeSVGFile(svgFile);
+    return 0;
+}",0,,
+devgpt-weak:22a674539e423d767b3c66909c602b9698bac0634ae7a56dd9c4505d251c00f0,"void writeMarker(std::ofstream &svgFile, const std::string &markerId) {
+    svgFile << ""<defs>"" << std::endl;
+    svgFile << ""  <marker style=\""overflow:visible\"" id=\"""" << markerId << ""\"" refX=\""0.0\"" refY=\""0.0\"" orient=\""auto\"">"" << std::endl;
+    svgFile << ""    <path transform=\""scale(0.2) translate(6,0)\"" style=\""fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt\"" d=\""M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z \"" />"" << std::endl;
+    svgFile << ""  </marker>"" << std::endl;
+    svgFile << ""</defs>"" << std::endl;
+}",0,,
+devgpt-weak:f0bf938b3b9e8b98d5b846ebc24a7a61c3f329757228efd135cbb3c1eb37d124,"void writeLine(std::ofstream &svgFile, double x1, double y1, double x2, double y2, const std::string &strokeColor, double strokeWidth, const std::string &markerStart) {
+    svgFile << ""<line x1=\"""" << x1 << ""\"" y1=\"""" << y1 << ""\"" x2=\"""" << x2 << ""\"" y2=\"""" << y2 << ""\"" stroke=\"""" << strokeColor << ""\"" stroke-width=\"""" << strokeWidth << ""\"" marker-start=\""url(#"" << markerStart << "")\"" />"" << std::endl;
+}",0,,
+devgpt-weak:4676d5bcb8b87e10d26722b02cfc91e2c14be0f20e691d3a0a5988782a484a40,"int main() {
+    int svgWidth = 600;
+    int svgHeight = 600;
+    int rectWidth = 120;
+    int rectHeight = 80;
+    double circleCX = 504.2;
+    double circleCY = 403.5;
+    double circleRadius = 3;
+    std::string circleStrokeColor = ""purple"";
+    std::string circleFillColor = ""purple"";
+    double circleStrokeWidth = 1;
+    double lineX1 = 312.0;
+    double lineY1 = 624.0;
+    double lineX2 = 408.0;
+    double lineY2 = 528.0;
+    std::string lineStrokeColor = ""purple"";
+    double lineStrokeWidth = 5;
+    std::string markerId = ""Arrow1Sstart"";
+    std::ofstream svgFile;
+    openSVGFile(svgFile, ""output.svg"", svgWidth, svgHeight);
+    writeRect(svgFile, rectWidth, rectHeight, ""blue"");
+    writeCircle(svgFile, circleCX, circleCY, circleRadius, circleStrokeColor, circleFillColor, circleStrokeWidth);
+    writeMarker(svgFile, markerId);
+    writeLine(svgFile, lineX1, lineY1, lineX2, lineY2, lineStrokeColor, lineStrokeWidth, markerId);
+    closeSVGFile(svgFile);
+    return 0;
+}",0,,
+devgpt-weak:5adeefd0627e055c4e1de11b7ff416e08eab7713b8dba738dfab51338a0e13ed,"int main() {
+       int value = MyClass::myMember;
+       return 0;
+   }",0,,
+devgpt-weak:68d2829dd17b589881b9df162379eca61f605e9a5fd444415c0bfeb9ec7484ba,"int main() {
+       MyClass myObject;
+       int value = myObject.myMember;
+       return 0;
+   }",0,,
+devgpt-weak:dab8d2f86395614dc18a189812e1e6332fc06ea6aab44eff903b6a341f5ae8d6,"SVGWriter::~SVGWriter() {
+    svgFile << ""</svg>"" << std::endl;
+    svgFile.close();
+}",0,,
+devgpt-weak:f86f539efca30dd9d5af9eca1f406db61364b78d5ab584066f2dca1f95dbf396,"void SVGWriter::writeRect(int width, int height, const std::string &fillColor) {
+    svgFile << ""<rect width=\"""" << width << ""\"" height=\"""" << height << ""\"" fill=\"""" << fillColor << ""\""/>"" << std::endl;
+}",0,,
+devgpt-weak:e9a50012431dbc3d15e62fa617c6285028c2a091952a240d3b1a1cfee452e2ed,"void SVGWriter::writeCircle(double cx, double cy, double r, const std::string &strokeColor, const std::string &fillColor, double strokeWidth) {
+    svgFile << ""<circle cx=\"""" << cx << ""\"" cy=\"""" << cy << ""\"" r=\"""" << r << ""\"" stroke=\"""" << strokeColor << ""\"" fill=\"""" << fillColor << ""\"" stroke-width=\"""" << strokeWidth << ""\"" />"" << std::endl;
+}",0,,
+devgpt-weak:754b521bba0b8219b257e6e0db98b5aa1bff14d8830c5def06a34a46f4089564,"void SVGWriter::writeMarker(const std::string &markerId) {
+    svgFile << ""<defs>"" << std::endl;
+    svgFile << ""  <marker style=\""overflow:visible\"" id=\"""" << markerId << ""\"" refX=\""0.0\"" refY=\""0.0\"" orient=\""auto\"">"" << std::endl;
+    svgFile << ""    <path transform=\""scale(0.2) translate(6,0)\"" style=\""fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt\"" d=\""M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z \"" />"" << std::endl;
+    svgFile << ""  </marker>"" << std::endl;
+    svgFile << ""</defs>"" << std::endl;
+}",0,,
+devgpt-weak:fefcfd71f797320ee6cc6f198fc96e1fa100d72ed46c763c15a339dea8ca36d6,"void SVGWriter::writeLine(double x1, double y1, double x2, double y2, const std::string &strokeColor, double strokeWidth, const std::string &markerStart) {
+    svgFile << ""<line x1=\"""" << x1 << ""\"" y1=\"""" << y1 << ""\"" x2=\"""" << x2 << ""\"" y2=\"""" << y2 << ""\"" stroke=\"""" << strokeColor << ""\"" stroke-width=\"""" << strokeWidth << ""\"" marker-start=\""url(#"" << markerStart << "")\"" />"" << std::endl;
+}",0,,
+devgpt-weak:1383848771822358903736af4bfd14266b54e8fe5a3f606c58ee36c5fc25d750,"int main() {
+    int svgWidth = 600;
+    int svgHeight = 600;
+    int rectWidth = 120;
+    int rectHeight = 80;
+    double circleCX = 504.2;
+    double circleCY = 403.5;
+    double circleRadius = 3;
+    std::string circleStrokeColor = ""purple"";
+    std::string circleFillColor = ""purple"";
+    double circleStrokeWidth = 1;
+    double lineX1 = 312.0;
+    double lineY1 = 624.0;
+    double lineX2 = 408.0;
+    double lineY2 = 528.0;
+    std::string lineStrokeColor = ""purple"";
+    double lineStrokeWidth = 5;
+    std::string markerId = ""Arrow1Sstart"";
+    SVGWriter svgWriter(""output.svg"", svgWidth, svgHeight);
+    svgWriter.writeRect(rectWidth, rectHeight, ""blue"");
+    svgWriter.writeCircle(circleCX, circleCY, circleRadius, circleStrokeColor, circleFillColor, circleStrokeWidth);
+    svgWriter.writeMarker(markerId);
+    svgWriter.writeLine(lineX1, lineY1, lineX2, lineY2, lineStrokeColor, lineStrokeWidth, markerId);
+    return 0;
+}",0,,
+devgpt-weak:a9fb14bb21079d2c240536efffd0b535599250b3e0fd9d619aeb23fe5af01248,"void draw_vector(std::ofstream &svgFile, Point2D &tail, Point2D &head, const std::string &stroke_color) {
+    svgFile << ""<line x1=\"""" << head.x << ""\"" x2=\"""" << tail.x << ""\"" y1=\"""" << head.y << ""\"" y2=\"""" << tail.y << ""\"" stroke=\"""" << stroke_color << ""\"" stroke-width=\""5\"" marker-start=\""url(#Arrow1Sstart)\"" />"" << std::endl;
+}",0,,
+devgpt-weak:06aa1c22fd01af8a264439a041048f5695935201744bb1d222a970fb0ddc2236,"int main() {
+    std::ofstream svgFile(""output.svg"");
+    if (!svgFile.is_open()) {
+        std::cerr << ""Error opening file!"" << std::endl;
+        return 1;
+    }
+    Point2D tail(100.0, 200.0);
+    Point2D head(300.0, 400.0);
+    std::string strokeColor = ""blue"";
+    draw_vector(svgFile, tail, head, strokeColor);
+    svgFile.close();
+    return 0;
+}",0,,
+devgpt-weak:b9bc6136db64f1f8093bc3c952aaf8e9e8510a865ede0d33f90eb350e05f4fa8,"int main() {
+      std::ofstream outputFile(""example.txt"");
+      if (!outputFile.is_open()) {
+          std::cerr << ""Error opening file!"" << std::endl;
+          return 1;
+      }
+      outputFile << ""Hello, File!\n"";
+      outputFile << ""This is a line written to the file."";
+      outputFile.close();
+      return 0;
+  }",0,,
+devgpt-weak:58679e9db2493ef0a41df9f0b2ba393557d20da3e768675bd45b2da58f411ff7,"int main() {
+    int file_desc;
+    char *filename = ""example_file.txt"";
+    HP_CreateFile(filename);
+    HP_OpenFile(filename, &file_desc);
+    CHUNK_Iterator iterator = CHUNK_CreateIterator(file_desc, 10);
+    HP_CloseFile(file_desc);
+    return 0;
+}",0,,
+devgpt-weak:bb07f67b80b4c688b14a3021758d4172db70375f6d9ceed4c7375f27cc5cb111,"CHUNK_Iterator CHUNK_CreateIterator(int fileDesc, int blocksInChunk) {
+    CHUNK_Iterator iterator;
+    iterator.file_desc = fileDesc;
+    iterator.current = 1;
+    iterator.lastBlocksID = 0;
+    iterator.blocksInChunk = blocksInChunk;
+    return iterator;
+}",0,,
+devgpt-weak:e173c962c2988ae39ee32f1ecb0809e57c0d6c4fc06b418e392b0c5c54d18394,"int main() {
+    int file_desc;
+    char *filename = ""example_file.txt"";
+    HP_CreateFile(filename);
+    HP_OpenFile(filename, &file_desc);
+    CHUNK_Iterator iterator = CHUNK_CreateIterator(file_desc, 10);
+    CHUNK chunk;
+    while (CHUNK_GetNext(&iterator, &chunk) == 0) {
+        printf(""File Descriptor: %d\n"", chunk.file_desc);
+        printf(""From Block ID: %d\n"", chunk.from_BlockId);
+        printf(""To Block ID: %d\n"", chunk.to_BlockId);
+        printf(""Records in Chunk: %d\n"", chunk.recordsInChunk);
+        printf(""Blocks in Chunk: %d\n"", chunk.blocksInChunk);
+        printf(""\n"");
+    }
+    HP_CloseFile(file_desc);
+    return 0;
+}",0,,
+devgpt-weak:177ff16f46b8ee6ea9033d566a2236b7fb92da0ad190cb47bc1929c1fab59f25,"int CHUNK_GetNext(CHUNK_Iterator *iterator, CHUNK *chunk) {
+    if (iterator->current > iterator->lastBlocksID) {
+        return -1;
+    }
+    chunk->file_desc = iterator->file_desc;
+    chunk->from_BlockId = iterator->current;
+    chunk->to_BlockId = iterator->current + iterator->blocksInChunk - 1;
+    chunk->recordsInChunk = 0;
+    chunk->blocksInChunk = iterator->blocksInChunk;
+    iterator->current += iterator->blocksInChunk;
+    return 0;
+}",0,,
+devgpt-weak:f10d1b35a262bb14074127e4a32eaa0e67b62a20fb61fb8c25bccea2a56d200f,"int main() {
+    int file_desc;
+    char *filename = ""example_file.txt"";
+    HP_CreateFile(filename);
+    HP_OpenFile(filename, &file_desc);
+    CHUNK_Iterator chunkIterator = CHUNK_CreateIterator(file_desc, 10);
+    CHUNK chunk;
+    while (CHUNK_GetNext(&chunkIterator, &chunk) == 0) {
+        CHUNK_Print(chunk);
+        Record record;
+        CHUNK_RecordIterator recordIterator = CHUNK_CreateRecordIterator(&chunk);
+        while (CHUNK_GetNextRecord(&recordIterator, &record) == 0) {
+            printf(""Record: %d\n"", record.someField);
+        }
+    }
+    HP_CloseFile(file_desc);
+    return 0;
+}",0,,
+devgpt-weak:873ad59b7c3f409bc4744e2404e4f0e3fd83a7d951e26d7733c7f76c91e21648,"int CHUNK_GetIthRecordInChunk(CHUNK *chunk, int i, Record *record) {
+    if (i < 0 || i >= chunk->recordsInChunk) {
+        return -1;
+    }
+    record->someField = i;
+    return 0;
+}",0,,
+devgpt-weak:40265ec4d258868ccec9452e6e0542b1861e8d1fcacf87f99f519d5f303ead8e,"int CHUNK_UpdateIthRecord(CHUNK *chunk, int i, Record record) {
+    if (i < 0 || i >= chunk->recordsInChunk) {
+        return -1;
+    }
+    return 0;
+}",0,,
+devgpt-weak:b997983837fa4ce284a767f10df04d0e005305249311c0ca8ae7aa0d7961eea9,"void CHUNK_Print(CHUNK chunk) {
+    printf(""File Descriptor: %d\n"", chunk.file_desc);
+    printf(""From Block ID: %d\n"", chunk.from_BlockId);
+    printf(""To Block ID: %d\n"", chunk.to_BlockId);
+    printf(""Records in Chunk: %d\n"", chunk.recordsInChunk);
+    printf(""Blocks in Chunk: %d\n"", chunk.blocksInChunk);
+    printf(""\n"");
+}",0,,
+devgpt-weak:3a79087a48cf7d37d11abf7b6c3f533f7a23eab03e2f12215c7d42492c881844,"CHUNK_RecordIterator CHUNK_CreateRecordIterator(CHUNK *chunk) {
+    CHUNK_RecordIterator iterator;
+    iterator.currentRecord = 0;
+    return iterator;
+}",0,,
+devgpt-weak:688cad4052642693a2af8496557bfb3982cb666ae77ae7159a0fd2a354c2e930,"int CHUNK_GetNextRecord(CHUNK_RecordIterator *iterator, Record *record) {
+    if (iterator->currentRecord >= iterator->chunk->recordsInChunk) {
+        return -1;
+    }
+    iterator->currentRecord++;
+    return 0;
+}",0,,
+devgpt-weak:c443f92cfa2ff43910861c95b525898ff34c8985aa8481c14a700e3061229df0,"int main() {
+    int file_desc;
+    char *filename = ""example_file.txt"";
+    HP_CreateFile(filename);
+    HP_OpenFile(filename, &file_desc);
+    CHUNK_Iterator chunkIterator = CHUNK_CreateIterator(file_desc, 10);
+    CHUNK chunk;
+    while (CHUNK_GetNext(&chunkIterator, &chunk) == 0) {
+        CHUNK_Print(chunk);
+        Record record;
+        CHUNK_RecordIterator recordIterator = CHUNK_CreateRecordIterator(&chunk);
+        while (CHUNK_GetNextRecord(&recordIterator, &record) == 0) {
+            printf(""Name: %s, Surname: %s, City: %s, ID: %d\n"", record.name, record.surname, record.city, record.id);
+        }
+    }
+    HP_CloseFile(file_desc);
+    return 0;
+}",0,,
+devgpt-weak:9632b752fb945e79a296ccb64c2c69a5b6cbc233d01c3bfd3ead19692ac3290f,"int CHUNK_UpdateIthRecord(CHUNK *chunk, int i, Record record) {
+    if (i < 0 || i >= chunk->recordsInChunk) {
+        return -1;
+    }
+    strcpy(chunk->records[i].name, record.name);
+    strcpy(chunk->records[i].surname, record.surname);
+    strcpy(chunk->records[i].city, record.city);
+    chunk->records[i].id = record.id;
+    return 0;
+}",1,,
+devgpt-weak:81189c931afe56e7aea26219de51f79bb423610f1867a1be0c38c907e5ccc281,"CHUNK_RecordIterator CHUNK_CreateRecordIterator(CHUNK *chunk) {
+    CHUNK_RecordIterator iterator;
+    iterator.chunk = chunk;
+    iterator.currentRecord = 0;
+    return iterator;
+}",0,,
+devgpt-weak:b9d913d6eed8b62efd08ab7a1b39d6d093d34daa00c0290e3d2ffc0561983c13,"int CHUNK_GetNextRecord(CHUNK_RecordIterator *iterator, Record *record) {
+    if (iterator->currentRecord >= iterator->chunk->recordsInChunk) {
+        return -1;
+    }
+    strcpy(record->name, iterator->chunk->records[iterator->currentRecord].name);
+    strcpy(record->surname, iterator->chunk->records[iterator->currentRecord].surname);
+    strcpy(record->city, iterator->chunk->records[iterator->currentRecord].city);
+    record->id = iterator->chunk->records[iterator->currentRecord].id;
+    iterator->currentRecord++;
+    return 0;
+}",1,,
+devgpt-weak:cea96aef57a52aad47fac6a5cd6555c7718ac28b1ce8ed82f856411e7679b0f3,"CHUNK_RecordIterator CHUNK_CreateRecordIterator(CHUNK *chunk) {
+    CHUNK_RecordIterator iterator;
+    iterator.chunk = *chunk;
+    iterator.currentRecord = 0;
+    return iterator;
+}",0,,
+devgpt-weak:e4dd2a5e3ec4d6b8a355d675d38bac936abf89b664bf00396c49f6b38d9ab217,"int CHUNK_GetNextRecord(CHUNK_RecordIterator *iterator, Record *record) {
+    if (iterator->currentRecord >= iterator->chunk.recordsInChunk) {
+        return -1;
+    }
+    strcpy(record->name, iterator->chunk.records[iterator->currentRecord].name);
+    strcpy(record->surname, iterator->chunk.records[iterator->currentRecord].surname);
+    strcpy(record->city, iterator->chunk.records[iterator->currentRecord].city);
+    record->id = iterator->chunk.records[iterator->currentRecord].id;
+    iterator->currentRecord++;
+    return 0;
+}",1,,
+devgpt-weak:73278846604136dc7c42e9cb49a70b777040c92bc2efb5d8d26cbd23b9a81b87,"CHUNK_RecordIterator CHUNK_CreateRecordIterator(CHUNK *chunk) {
+    CHUNK_RecordIterator iterator;
+    iterator.chunk = *chunk;
+    iterator.currentBlockId = chunk->from_BlockId;
+    iterator.cursor = 0;
+    return iterator;
+}",0,,
+devgpt-weak:02541f2052e82ac8c9beb8db72720bc0fa038f24856966f589649364e8fbf166,"int CHUNK_GetNextRecord(CHUNK_RecordIterator *iterator, Record *record) {
+    if (iterator->cursor >= iterator->chunk.recordsInChunk) {
+        return -1;
+    }
+    strcpy(record->name, iterator->chunk.records[iterator->cursor].name);
+    strcpy(record->surname, iterator->chunk.records[iterator->cursor].surname);
+    strcpy(record->city, iterator->chunk.records[iterator->cursor].city);
+    record->id = iterator->chunk.records[iterator->cursor].id;
+    iterator->cursor++;
+    return 0;
+}",1,,
+devgpt-weak:2c2b58bbdadb864acb52cdbec7560ab67adc067f5c8919a962e0a230d60e0831,"void rotateClockwise(vector<vector<int>>& matrix) {
+    int n = matrix.size();
+    for (int i = 0; i < n / 2; ++i) {
+        for (int j = i; j < n - i - 1; ++j) {
+            matrix[j][n - 1 - i] = std::exchange(matrix[i][j], matrix[j][n - 1 - i]);
+            matrix[n - 1 - i][n - 1 - j] = std::exchange(matrix[j][n - 1 - i], matrix[n - 1 - i][n - 1 - j]);
+            matrix[n - 1 - j][i] = std::exchange(matrix[n - 1 - i][n - 1 - j], matrix[n - 1 - j][i]);
+            matrix[i][j] = std::exchange(matrix[n - 1 - j][i], matrix[i][j]);
+        }
+    }
+}",0,,
+devgpt-weak:249acefceefcc7328a4b028b8285da3e02c10d4133dcf85f5769e32bb8594f74,"void store_data(Data& data, int value) {
+    if (value < 0) {
+        size_t idx = -value / data.size();
+        if (idx < data.size()) {
+            data[idx] = value;
+        }
+    } else {
+        size_t idx = value / data.size();
+        if (idx < data.size()) {
+            data[idx] = value;
+        }
+    }
+}",0,,
+devgpt-weak:071879ef51cd4316d4636c884be6ed787f3ed15c9546bf62be1c0c9663caf8d7,"void store_data(Data& data, int value) {
+    int idx = value / static_cast<int>(data.size());
+    if (idx >= 0 && idx < static_cast<int>(data.size())) {
+        data[idx] = value;
+    }
+}",0,,
+devgpt-weak:f2dc4b7bc23cad4b8ad2b1a3769e7fc7b9d78fb02d24993ae7aff54172eb3a42,"void store_data(Data& data, int value) {
+    size_t idx = (value % data.size() + data.size()) % data.size();
+    data[idx] = value;
+}",0,,
+devgpt-weak:80fb1f48a61ec6219663f04c30a043cef4da6f04b2d2ee3d17c3f87b2d8b331d,"uint64_t timestamp_now() {
+		return std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
+	}",0,,
+devgpt-weak:cc03370b8a00de1fa06e69291bb6994fa4873286abeac2b0b73e079d07cb4f75,"std::thread::id this_thread_id() {
+		static thread_local const std::thread::id id = std::this_thread::get_id();
+		return id;
+	}",0,,
+devgpt-weak:880edc7dfc741069cc39716aed68ea0f0369daa115839c3098b1691bfac7f171,"Item() : flag{ATOMIC_FLAG_INIT}, written(0), logline(LogLevel::INFO, nullptr, nullptr, 0) {}",0,,
+devgpt-weak:617f616b1dd467c7d68ef65b9d1e2763612fdc310f8ee5cf318bf912e139a377,"RingBuffer(size_t const size) : m_size(size), m_ring(static_cast<Item*>(std::malloc(size * sizeof(Item)))), m_write_index(0), m_read_index(0) {
+	for (size_t i = 0; i < m_size; i++) {
+		new(&m_ring[i]) Item();
+	}
+	static_assert(sizeof(Item) == 256, ""Unexpected size != 256"");
+}",0,,
+devgpt-weak:76facc6c19fa1afb99a59be57dec4ba3f8c24eb44496b007db2b592c8fe50d43,"void push(NanoLogLine&& logline)  override {
+	unsigned int write_index = m_write_index.fetch_add(1, std::memory_order_relaxed) % m_size;
+	Item& item = m_ring[write_index];
+	SpinLock spinlock(item.flag);
+	item.logline = std::move(logline);
+	item.written = 1;
+}",0,,
+devgpt-weak:30928600d374fa9e7f78980c1d0510b1dfd85480c877309354a9d55b95806d16,"bool try_pop(NanoLogLine& logline)  override {
+	Item& item = m_ring[m_read_index % m_size];
+	SpinLock spinlock(item.flag);
+	if (item.written == 1) {
+		logline = std::move(item.logline);
+		item.written = 0;
+		++m_read_index;
+		return true;
+	}
+	return false;
+}",0,,
+devgpt-weak:80e8f9f2ddaa3e6df5dd6aec38793d8ef1d547384171ccb3ae5e140c79aa2810,"FileWriter(std::string const& log_directory, std::string const& log_file_name, uint32_t log_file_roll_size_mb)
+	: m_log_file_roll_size_bytes(log_file_roll_size_mb * 1024 * 1024), m_name(log_directory + log_file_name)
+{
+	roll_file();
+}",0,,
+devgpt-weak:92b9985255f5c84dd92dab60ad1ac5d131f7e44600fccdbf7c9ff8855c4bf4bd,"void write(NanoLogLine& logline) {
+	auto pos = m_os->tellp();
+	logline.stringify(*m_os);
+	m_bytes_written += m_os->tellp() - pos;
+	if (m_bytes_written > m_log_file_roll_size_bytes) {
+		roll_file();
+	}
+}",0,,
+devgpt-weak:68ddd0abf61f48858762cd95265ff2fa6c4fcecd870d34996de4f540a9e0b43b,"Item() : flag{ATOMIC_FLAG_INIT}, written(0), logline(LogLevel::INFO, nullptr, nullptr, 0)
+{
+}",0,,
+devgpt-weak:c5374c0123c63ea9662fecbc0cb5d2b723d3672def30bb678ccf9a803c8913af,"CGEventRef tapCallback(CGEventTapProxy proxy, CGEventType type, CGEventRef event, void* refcon) {
+    double now = CFAbsoluteTimeGetCurrent();
+    if (type == kCGEventRightMouseDown) {
+        rightClickDown = now;
+    } else if (type == kCGEventRightMouseUp) {
+        if (now - rightClickDown >= 1.0) {
+            exit(0);
+        }
+    }
+    return nullptr;
+}",0,,
+devgpt-weak:01068a15ce986ee17172b3179cb022b6124b794cd153b2d4e4bf0c749d01f30f,"int main() {
+    CFMachPortRef eventTap;
+    CGEventMask mask = kCGEventMaskForAllEvents;
+    eventTap = CGEventTapCreate(kCGHIDEventTap, kCGHeadInsertEventTap,
+        kCGEventTapOptionDefault, mask, tapCallback, nullptr);
+    if (!eventTap) {
+        std::cerr << ""Failed to create event tap."" << std::endl;
+        return 1;
+    }
+    CFRunLoopSourceRef runLoopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, eventTap, 0);
+    CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, kCFRunLoopCommonModes);
+    CGEventTapEnable(eventTap, true);
+    CFRunLoopRun();
+    CFRelease(runLoopSource);
+    CFRelease(eventTap);
+    return 0;
+}",0,,
+devgpt-weak:4892d46f5e0cf3643f698d5221cd9b38151a14198974a2236618a538ea8e068c,"string convertThreeDigits(int num) {
+    string ones[] = {"""", ""One"", ""Two"", ""Three"", ""Four"", ""Five"", ""Six"", ""Seven"", ""Eight"", ""Nine""};
+    string teens[] = {"""", ""Eleven"", ""Twelve"", ""Thirteen"", ""Fourteen"", ""Fifteen"", ""Sixteen"", ""Seventeen"", ""Eighteen"", ""Nineteen""};
+    string tens[] = {"""", ""Ten"", ""Twenty"", ""Thirty"", ""Forty"", ""Fifty"", ""Sixty"", ""Seventy"", ""Eighty"", ""Ninety""};
+    string result;
+    int hundred = num / 100;
+    int ten = (num % 100) / 10;
+    int one = num % 10;
+    if (hundred > 0) {
+        result += ones[hundred] + "" Hundred "";
+    }
+    if (ten == 1) {
+        result += teens[one] + "" "";
+    } else {
+        if (ten > 1) {
+            result += tens[ten] + "" "";
+        }
+        if (one > 0) {
+            result += ones[one] + "" "";
+        }
+    }
+    return result;
+}",0,,
+devgpt-weak:c468fdff6b237a78f5140dc7228193e26b106d880d4f6d9a010986b3151456f5,"string numberToWords(int num) {
+    if (num == 0) {
+        return ""Zero"";
+    }
+    string scale[] = {"""", ""Thousand"", ""Million"", ""Billion""};
+    vector<string> groups;
+    int i = 0;
+    while (num > 0) {
+        int threeDigits = num % 1000;
+        if (threeDigits != 0) {
+            groups.push_back(convertThreeDigits(threeDigits) + scale[i]);
+        }
+        num /= 1000;
+        i++;
+    }
+    string result;
+    for (int j = groups.size() - 1; j >= 0; j--) {
+        result += groups[j] + "" "";
+    }
+    return result;
+}",0,,
+devgpt-weak:998410f18592a425eef638fda9b0b5810aa87bd6501616db9cd7d7b16207e4dc,"int main() {
+    int num;
+    cout << ""Enter an integer: "";
+    cin >> num;
+    cout << ""English phrase: "" << numberToWords(num) << endl;
+    return 0;
+}",0,,
+devgpt-weak:528e14a963a8146fdc020beafc1fa10ca8ca7c799ca0013bc6d80a2683a0dc69,"int main() {
+    std::cout << engInt(1008) << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:301d3229f0edede26f666aa3d6b299b94a29cb5431c2ace7e0130595792356eb,"std::string engInt(const int& n) {
+    if (n == 0) {
+        return ""Zero"";
+    }
+    std::string scale[] = {"""", ""Thousand"", ""Million"", ""Billion""};
+    std::vector<std::string> groups;
+    int num = n;
+    int i = 0;
+    while (num > 0) {
+        int threeDigits = num % 1000;
+        if (threeDigits != 0) {
+            groups.push_back(convertThreeDigits(threeDigits) + scale[i]);
+        }
+        num /= 1000;
+        i++;
+    }
+    std::string result;
+    for (int j = groups.size() - 1; j >= 0; j--) {
+        result += groups[j] + "" "";
+    }
+    return result;
+}",0,,
+devgpt-weak:fd98825443c23eab0a8a2b47893efd1afcb3c119815acc29c350f20a7b20e3f3,"std::pair<int, int> findSumSwapPair(std::vector<int>& arr1, std::vector<int>& arr2) {
+    int sum1 = 0, sum2 = 0;
+    for (int num : arr1) {
+        sum1 += num;
+    }
+    for (int num : arr2) {
+        sum2 += num;
+    }
+    int targetDifference = (sum1 - sum2) / 2;
+    std::unordered_set<int> setArr2(arr2.begin(), arr2.end());
+    for (int num : arr1) {
+        int complement = num - targetDifference;
+        if (setArr2.find(complement) != setArr2.end()) {
+            return {num, complement};
+        }
+    }
+    return {-1, -1};
+}",0,,
+devgpt-weak:d8c48882cc32a958ec9edeb86eae21a6a09106b46cbb95258ea92f4aded8d3a4,"int main() {
+    std::vector<int> arr1 = {4, 1, 2, 1, 1, 2};
+    std::vector<int> arr2 = {3, 6, 3, 3};
+    std::pair<int, int> result = findSumSwapPair(arr1, arr2);
+    if (result.first != -1 && result.second != -1) {
+        std::cout << ""Output: {"" << result.first << "", "" << result.second << ""}\n"";
+    } else {
+        std::cout << ""No such pair found.\n"";
+    }
+    return 0;
+}",0,,
+devgpt-weak:5ce23541b1d600761d7077cead2ae25c303a722e9b6531b56ed09166ce70b681,"void initialize(Stack* stack) {
+    stack->top = -1;
+}",0,,
+devgpt-weak:85cf2ebb2df247824e09096c863894e966fa6210038915867759f3c0a48ff56d,"bool is_empty(Stack* stack) {
+    return stack->top == -1;
+}",0,,
+devgpt-weak:99366bed17b2402d8cd99fb5b7ae72f2f7d59e370437ddbc85ebb427e142ba88,"bool is_full(Stack* stack) {
+    return stack->top == MAX_SIZE - 1;
+}",0,,
+devgpt-weak:331252bd0f62351e102a4abdef698acf26604cde6f70b476564dd628de188db4,"void push(Stack* stack, char symbol) {
+    if (is_full(stack)) {
+        printf(""Stack overflow!\n"");
+        exit(1);
+    }
+    stack->stack[++stack->top] = symbol;
+}",0,,
+devgpt-weak:833fdab09cbfccadfeeb7a24f0edc013277f6abc215926675aafab2705c36d73,"char pop(Stack* stack) {
+    if (is_empty(stack)) {
+        printf(""Stack underflow!\n"");
+        exit(1);
+    }
+    return stack->stack[stack->top--];
+}",0,,
+devgpt-weak:411ef764f926c3c9570085bfab56d37dae5407f5794e212f865a78f27d887e1e,"bool is_balanced(const char* expression) {
+    Stack stack;
+    initialize(&stack);
+    const char* opening_symbols = ""([{"";
+    const char* closing_symbols = "")]}"";
+    for (int i = 0; expression[i] != '\0'; i++) {
+        char symbol = expression[i];
+        if (strchr(opening_symbols, symbol) != NULL) {
+            push(&stack, symbol);
+        } else if (strchr(closing_symbols, symbol) != NULL) {
+            if (is_empty(&stack)) {
+                return false;
+            }
+            char opening_symbol = pop(&stack);
+            const char* matching_opening_symbol = strchr(opening_symbols, opening_symbol);
+            const char* matching_closing_symbol = strchr(closing_symbols, symbol);
+            if (matching_opening_symbol - opening_symbols != matching_closing_symbol - closing_symbols) {
+                return false;
+            }
+        }
+    }
+    return is_empty(&stack);
+}",0,,
+devgpt-weak:4acb3d218880fb58875a6f2deb4c533b3197efe11a00632362f74ff589a33356,"int main() {
+    printf(""%d\n"", is_balanced(""()""));
+    printf(""%d\n"", is_balanced(""({[]})""));
+    printf(""%d\n"", is_balanced(""({)}""));
+    printf(""%d\n"", is_balanced(""[[[]]]""));
+    printf(""%d\n"", is_balanced(""(]""));
+    return 0;
+}",0,,
+devgpt-weak:ac95600b30445e9bc5534c99c5765dd6d93c78ca3376ed323182c05a537903d2,"int main() {
+    srand(static_cast<unsigned int>(time(nullptr)));
+    TargetDummy dummy(100);
+    int damagePerHit = 20;
+    int ticks = 0;
+    while (dummy.isAlive()) {
+        dummy.takeDamage(damagePerHit);
+        ticks++;
+        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::cout << ""Tick "" << ticks << "": Dummy Health: "" << dummy.health << std::endl;
+    }
+    std::cout << ""Target dummy killed in "" << ticks << "" ticks."" << std::endl;
+    return 0;
+}",1,,
+devgpt-weak:65624b07fc6138a2ea16bdf84b75c18a698da43f32b1d177994f005050e86174,"int main() {
+    srand(static_cast<unsigned int>(time(nullptr)));
+    TargetDummy dummy(100);
+    int damagePerHit = 20;
+    double tickDuration = 0.1;
+    int ticks = 0;
+    while (dummy.isAlive()) {
+        dummy.takeDamage(damagePerHit);
+        ticks++;
+        std::cout << ""Tick "" << ticks << "": Dummy Health: "" << dummy.health << std::endl;
+    }
+    double elapsedTime = ticks * tickDuration;
+    std::cout << ""Target dummy killed in "" << elapsedTime << "" seconds."" << std::endl;
+    return 0;
+}",1,,
+devgpt-weak:e34dede392daaed29afc7bb2efb5762a675da38e22d474bdc90504b43d5d47e5,"void updateActivity(double elapsedTime) {
+    const double epsilon = 1e-5;
+    if (std::abs(elapsedTime - lastCastTime) >= durationSeconds - epsilon) {
+        isActive = false;
+    }
+}",0,,
+devgpt-weak:57f77e9482620e7c72d6296ba05578694b4f53207172f8efe6f1abe08038b86f,"bool compareAbilities(const DamageOverTimeAbility& a, const DamageOverTimeAbility& b) {
+    return a.priority > b.priority;
+}",0,,
+devgpt-weak:98ad17a50b9c7f7423cd07511cecdacb64b1e030cab310d78dc88eb0b99702d7,"DamageOverTimeAbility(double damage, double cooldown, double duration, int pri)
+    : damagePerTick(damage), cooldownSeconds(cooldown), durationSeconds(duration),
+      lastCastTime(-duration), lastDamageTime(-cooldown), isActive(false), priority(pri) {}",0,,
+devgpt-weak:0c318090599524b7e59b92aae8fc8e8d1f70e94a6efd5fb258e98a0d9393c614,"bool compareAbilities(const Ability& a, const Ability& b) {
+    return a.priority > b.priority;
+}",0,,
+devgpt-weak:1de83b7f8fc061922ccb8d053eaf940f8ea0d0dae6115bc7ad365ae535b3175f,"Ability(double damage, double interval, double duration, double cooldown, int pri)
+    : damagePerTick(damage), damageInterval(interval), durationSeconds(duration),
+      lastCastTime(-cooldown), lastDamageTime(-interval), individualCooldown(cooldown), isActive(false), priority(pri) {}",0,,
+devgpt-weak:674fb8683f8470d08152c3bd45cfd0e9ec939b65026a2ab46d78cd05599d4997,"bool canCast(double elapsedTime, double sharedCooldown) {
+    const double epsilon = 1e-5;
+    return !isActive && (elapsedTime - lastCastTime >= cooldown - epsilon) && (sharedCooldown <= epsilon);
+}",0,,
+devgpt-weak:d4f16725ca2962250a21eb1418f28f1fd933caca06f37204fe86e9896712ebcf,"Ability(double dmg, double interval, double duration, double cd, int pri, const std::string& n)
+    : damage(dmg), damageInterval(interval), durationSeconds(duration), cooldown(cd), priority(pri), name(n),
+      lastCastTime(-duration), lastDamageTime(-interval), isActive(false) {}",0,,
+devgpt-weak:337c8c2ba0dc37b99cc156681b081f2ee7cc12cb09aa2e9022c8eb3e504dc1c9,"int main() {
+    HashTable<std::string, int> myHashTable(5);
+    myHashTable.insert(""one"", 1);
+    myHashTable.insert(""two"", 2);
+    myHashTable.insert(""three"", 3);
+    std::cout << ""Value associated with 'two': "" << myHashTable.get(""two"") << std::endl;
+    myHashTable.remove(""two"");
+    if (myHashTable.contains(""two"")) {
+        std::cout << ""Found key 'two' in the hash table."" << std::endl;
+    } else {
+        std::cout << ""Key 'two' not found in the hash table."" << std::endl;
+    }
+    return 0;
+}",0,,
+devgpt-weak:73e3d8cbcbb179c18f69ac42b160865b856c2680d72f085d44805fe88f2f1421,"int main() {
+    std::cout << ""Size of size_t: "" << sizeof(size_t) << "" bytes"" << std::endl;
+    std::cout << ""Size of uint8_t: "" << sizeof(uint8_t) << "" bytes"" << std::endl;
+    std::cout << ""Size of uint16_t: "" << sizeof(uint16_t) << "" bytes"" << std::endl;
+    std::cout << ""Size of uint32_t: "" << sizeof(uint32_t) << "" bytes"" << std::endl;
+    std::cout << ""Size of uint64_t: "" << sizeof(uint64_t) << "" bytes"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:2f158771087a96b346a67523a42b941b7fa67a82d9f9dc8332bcd4212ead3b65,"int main() {
+    std::cout << ""Size of size_t: "" << sizeof(size_t) << "" bytes or ""
+              << (sizeof(size_t) * 8) << "" bits"" << std::endl;
+    std::cout << ""Size of uint8_t: "" << sizeof(uint8_t) << "" bytes or ""
+              << (sizeof(uint8_t) * 8) << "" bits"" << std::endl;
+    std::cout << ""Size of uint16_t: "" << sizeof(uint16_t) << "" bytes or ""
+              << (sizeof(uint16_t) * 8) << "" bits"" << std::endl;
+    std::cout << ""Size of uint32_t: "" << sizeof(uint32_t) << "" bytes or ""
+              << (sizeof(uint32_t) * 8) << "" bits"" << std::endl;
+    std::cout << ""Size of uint64_t: "" << sizeof(uint64_t) << "" bytes or ""
+              << (sizeof(uint64_t) * 8) << "" bits"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:41c901e590cad64f717a3c8bb5eca856a8d96b8f59f95e39192e77e5b81df188,"int main() {
+    FourBitInteger myFourBit;
+    myFourBit.value = 0b1010;
+    return 0;
+}",0,,
+devgpt-weak:3bcf29e983528fe09635dc72f7e6509749e0ddd76d4ff0113bece7ab2980b171,"int main() {
+    const uint8_t myConstUint8 = 42;
+    return 0;
+}",0,,
+devgpt-weak:6ca4f687bdb441e751430d0d0b737bc5edeb12505ec155343e2e7af71a8ea462,"UltrasonicSensor(String id) {
+        _id = id;
+    }",0,,
+devgpt-weak:c932e36e050f837c56030d104c76e174696a6b72f356e4045fb0e20352375993,"int main() {
+    uint16_t myUInt16 = 5000;
+    std::cout << ""Size of uint16_t: "" << sizeof(uint16_t) << "" bytes"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:f709d533f0d4f99803e8f6d050bb4ff9ce333d5e91e562fb38292b23a4b5eed7,"int main() {
+    std::cout << ""Size of int: "" << sizeof(int) << "" bytes"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:994c171efa4ad4d3af4dbc50884dd4b3bc281b27fe578834b3f8bb2924a67e63,"int findMostAliveYear(const vector<Person>& people) {
+    int years[101] = {0};
+    for (const Person& p : people) {
+        for (int year = p.birth; year <= p.death; ++year) {
+            years[year - 1900]++;
+        }
+    }
+    int maxAliveYear = 1900;
+    int maxAliveCount = years[0];
+    for (int i = 1; i < 101; ++i) {
+        if (years[i] > maxAliveCount) {
+            maxAliveCount = years[i];
+            maxAliveYear = 1900 + i;
+        }
+    }
+    return maxAliveYear;
+}",0,,
+devgpt-weak:c71cd5c945375c5d737f272dff78305598aff86e79d1f4157fa11efa0c070b26,"int main() {
+    vector<Person> people = {
+        {1900, 1950},
+        {1910, 1930},
+        {1920, 1970},
+    };
+    int mostAliveYear = findMostAliveYear(people);
+    cout << ""The year with the most people alive is: "" << mostAliveYear << endl;
+    return 0;
+}",0,,
+devgpt-weak:0cc70e860a6d1fff8537ba674687f718602bbc60d977a65abb0080282d144030,"int main() {
+    LRUCache cache(2);
+    cache.put(1, 1);
+    cache.put(2, 2);
+    cout << cache.get(1) << endl;
+    cache.put(3, 3);
+    cout << cache.get(2) << endl;
+    cache.put(4, 4);
+    cout << cache.get(1) << endl;
+    cout << cache.get(3) << endl;
+    cout << cache.get(4) << endl;
+    return 0;
+}",0,,
+devgpt-weak:12936bd577a2bcf1c91958c704857575a7be5f95da9aae49dfb719753fe8ac35,"Adafruit_HUSB238::Adafruit_HUSB238() {
+}",0,,
+devgpt-weak:bc77429886ee592cc6b26f441f52f2375e375d16ec3461247f9af6ba66959ea5,"bool Adafruit_HUSB238::begin() {
+  return true;
+}",0,,
+devgpt-weak:b6547f99685b975f59ba2b4a24e51ce7e0cda10bc33d7cbc0eff48e3083e3d7e,"void Adafruit_HUSB238::selectPDO(HUSB238_PDOSelection pd) {
+  Adafruit_I2CRegister pdoRegister = Adafruit_I2CRegister(i2c_dev, HUSB238_PDO_SELECT);
+  Adafruit_I2CRegisterBits pdoBits = Adafruit_I2CRegisterBits(&pdoRegister, 4, 4);
+  pdoBits.write(static_cast<uint8_t>(pd));
+}",0,,
+devgpt-weak:846bb9c4c04f87fed97533ffe36390249ff7a8819f6badbdfde240baec8bd7ac,"void Adafruit_HUSB238::reset() {
+  Adafruit_I2CRegister goCommandRegister = Adafruit_I2CRegister(i2c_dev, HUSB238_GO_COMMAND);
+  Adafruit_I2CRegisterBits resetBits = Adafruit_I2CRegisterBits(&goCommandRegister, 5, 0);
+  resetBits.write(0b10000);
+}",0,,
+devgpt-weak:09a160b7bb9ff81465cf8ea82f9a213c3abe79a4fc0f45a1750147073556bf83,"void Adafruit_HUSB238::requestPDO() {
+  Adafruit_I2CRegister goCommandRegister = Adafruit_I2CRegister(i2c_dev, HUSB238_GO_COMMAND);
+  Adafruit_I2CRegisterBits requestBits = Adafruit_I2CRegisterBits(&goCommandRegister, 1, 0);
+  requestBits.write(0b00001);
+}",0,,
+devgpt-weak:a34e36149aa4bcaf7f06da54cfb0a780797195375994c4bba48b3ec3770a8c91,"void Adafruit_HUSB238::getSourceCapabilities() {
+  Adafruit_I2CRegister goCommandRegister = Adafruit_I2CRegister(i2c_dev, HUSB238_GO_COMMAND);
+  Adafruit_I2CRegisterBits capabilitiesBits = Adafruit_I2CRegisterBits(&goCommandRegister, 3, 2);
+  capabilitiesBits.write(0b00100);
+}",0,,
+devgpt-weak:e1e6545fc26f227bf3fd06396fedb30e97fbb777e384cd64492a623aee5ae00c,"void Adafruit_HUSB238::getSourceCapabilities() {
+  Adafruit_I2CRegister goCommandRegister = Adafruit_I2CRegister(i2c_dev, HUSB238_GO_COMMAND);
+  Adafruit_I2CRegisterBits capabilitiesBits = Adafruit_I2CRegisterBits(&goCommandRegister, 5, 0);
+  capabilitiesBits.write(0b00100);
+}",0,,
+devgpt-weak:e784dfc3b0e06b434ab7e8c9f4e38728a814eab4035e8ff62c2cddfa6725f0a1,"template <typename T>
+Stack<T>::Stack(unsigned int stackSize)
+{
+    this->arr = new T[stackSize];
+    this->cnt = 0;
+    this->maxLen = stackSize;
+}",0,,
+devgpt-weak:0d137fcc955079dd7cb25a6c05735dd2518d9d3fb320fee041d79694301ab751,"template <typename T>
+Stack<T>::~Stack()
+{
+    delete[] this->arr;
+}",0,,
+devgpt-weak:39e85ac5047448780899271dd0ae8c63a3b3baee049578bdf8828eddd3951b75,"template <typename T>
+void Stack<T>::push(T val)
+{
+    if (this->cnt < this->maxLen)
+        this->arr[this->cnt++] = val;
+}",0,,
+devgpt-weak:6d73acfdf2a7e5d67e30e8ef56a4200b3e011152f064c4f402e1b0ff61961285,"template <typename T>
+T Stack<T>::pop()
+{
+    if (this->cnt)
+        return this->arr[--this->cnt];
+    else
+        throw StackEmptyException();
+}",0,,
+devgpt-weak:e34cdeadba849b94a4fc29f7bfa49aee3763c49dcdc460bd2878d84f4dc85cad,"int main()
+{
+    Stack<int> stack(5);
+    try
+    {
+        stack.pop();
+    }
+    catch (const std::exception &ex)
+    {
+        std::cerr << ""Exception: "" << ex.what() << std::endl;
+    }
+    return 0;
+}",0,,
+devgpt-weak:62a1d3a5e1577fd2afb4e539ecb293eb1a1ed41928cc4c97e2b3f10c97c09963,"template <typename T>
+   T Stack<T>::pop()
+   {
+       if (this->cnt)
+           return this->arr[--this->cnt];
+       else
+           return                                           ;
+   }",0,,
+devgpt-weak:a5503a3c1e6db639636dd02899970553bd4dd736cbf474a0b539959dc30361d5,"template <typename T>
+   bool Stack<T>::pop(T &result)
+   {
+       if (this->cnt)
+       {
+           result = this->arr[--this->cnt];
+           return true;
+       }
+       else
+       {
+           return false;
+       }
+   }",0,,
+devgpt-weak:9c4f0498813ecbe26337e25a3c2f08c6eb9abf5e34e1e3cc0a91fdde3938411c,"template <typename T>
+T Stack<T>::pop()
+{
+    if (this->cnt)
+        return this->arr[--this->cnt];
+    else
+        return                                            -1;
+}",0,,
+devgpt-weak:a15d83d64477a0255ddad47b197ea6a3aa8d2a57f75f4a57bd615042f19a121f,"template <typename T>
+Stack<T>::Stack(unsigned int stackSize, const T &emptyVal)
+{
+    this->arr = new T[stackSize];
+    this->cnt = 0;
+    this->maxLen = stackSize;
+    this->emptyValue = emptyVal;
+}",0,,
+devgpt-weak:923473ac7bc7e3a91b75387221ff88061a5f5e14b71c7ed8923096b2325d8130,"template <typename T>
+void Stack<T>::push(const T &val)
+{
+    if (this->cnt < this->maxLen)
+        this->arr[this->cnt++] = val;
+}",0,,
+devgpt-weak:463c2efda8c05c9caae70f215235a31e61495652be894cc5710d9a70dd6a0f3e,"template <typename T>
+T Stack<T>::pop()
+{
+    if (this->cnt)
+        return this->arr[--this->cnt];
+    else
+        return this->emptyValue;
+}",0,,
+devgpt-weak:b8ee2b4bb64c0131ba26ba0f29203d7b95198763a1e17c78aa67bd25dbcf4dca,"bool shouldSwap(struct Record* rec1, struct Record* rec2) {
+    int nameComparison = strcmp(rec1->name, rec2->name);
+    if (nameComparison < 0) {
+        return true;
+    } else if (nameComparison == 0) {
+        int surnameComparison = strcmp(rec1->surname, rec2->surname);
+        if (surnameComparison < 0) {
+            return true;
+        }
+    }
+    return false;
+}",0,,
+devgpt-weak:cffe831d94a98f78296512f41a6a5801e8d7589ed204c39e6628c485e3abec0d,"int main() {
+    struct Record record1 = {1, ""John"", ""Doe"", ""123 Main St""};
+    struct Record record2 = {2, ""Alice"", ""Smith"", ""456 Oak St""};
+    if (shouldSwap(&record1, &record2)) {
+        printf(""Swapping records.\n"");
+    } else {
+        printf(""No need to swap records.\n"");
+    }
+    printf(""Hello world.\n"");
+    return 0;
+}",0,,
+devgpt-weak:39732d74b12d9185ce2c5cd42c0a28e540cf5c291603a410cfa172861427f7d0,"void sort_Chunk(struct CHUNK* chunk) {
+    int i, j;
+    for (i = 0; i < chunk->recordsInChunk - 1; i++) {
+        for (j = 0; j < chunk->recordsInChunk - i - 1; j++) {
+            if (shouldSwap(&chunk->records[j], &chunk->records[j + 1])) {
+                struct Record temp = chunk->records[j];
+                chunk->records[j] = chunk->records[j + 1];
+                chunk->records[j + 1] = temp;
+            }
+        }
+    }
+}",0,,
+devgpt-weak:767100e8e941afc22a3f145cf965c75b09932cbc88f36629d29f5241521848ab,"int main() {
+    struct CHUNK chunk;
+    sort_Chunk(&chunk);
+    for (int i = 0; i < chunk.recordsInChunk; i++) {
+        printf(""Record %d: %s %s\n"", i + 1, chunk.records[i].name, chunk.records[i].surname);
+    }
+    return 0;
+}",0,,
+devgpt-weak:94ff21be5970221b573ac489fd6dbf917f84228bd87f95e6b03348f38328bb60,"int addWithoutPlus(int a, int b) {
+    while (b != 0) {
+        int carry = a & b;
+        a = a ^ b;
+        b = carry << 1;
+    }
+    return a;
+}",0,,
+devgpt-weak:4f7c3845dac7fbc360a7b61bee0264b10fd96e64886fea5edf91e2058de92254,"int main() {
+    int num1, num2;
+    std::cout << ""Enter the first number: "";
+    std::cin >> num1;
+    std::cout << ""Enter the second number: "";
+    std::cin >> num2;
+    int sum = addWithoutPlus(num1, num2);
+    std::cout << ""Sum: "" << sum << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:0ae695607c0a9f4eea57e5245201a3ce9da58500880640e76bd2c242fd88c25a,"int main() {
+    Element family(""family"");
+    family.attributes.emplace_back(""lastName"", ""McDowel"");
+    family.attributes.emplace_back(""state"", ""CA"");
+    Element person(""person"");
+    person.attributes.emplace_back(""firstName"", ""Gayle"");
+    person.value = ""Some Message"";
+    family.children.push_back(person);
+    std::string encodedXML = family.encode();
+    std::cout << ""Encoded XML: "" << encodedXML << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:f388b2e2b6df4cd8da1dbdc830073eb5a0f8c9ae963c6b5d498a6083ea0b5994,"double d2r(double degrees) {
+    return degrees * (M_PI / 180.0);
+}",0,,
+devgpt-weak:033c1becf69c687a2671d7e10ae2f3cf4b842689f8ed2c11c7adae660c84bffb,"template <typename A>
+std::optional<A> identity(A a) {
+    return a;
+}",0,,
+devgpt-weak:7a537f6d0e24418b0313241bf3804e2a17e2a962f0254d8418393be57605a119,"template <typename A, typename B, typename C>
+PartialFunction<A, C> compose(PartialFunction<A, B> f, PartialFunction<B, C> g) {
+    return [=](A a) -> std::optional<C> {
+        std::optional<B> b = f(a);
+        if(b.has_value())
+            return g(b.value());
+        else
+            return std::nullopt;
+    };
+}",0,,
+devgpt-weak:a188958fe4f80f9cd815136e1f940969627579229cef80e15ee01f2df1a0b24e,"std::optional<double> safe_square_root(double x) {
+    if(x >= 0)
+        return sqrt(x);
+    else
+        return std::nullopt;
+}",0,,
+devgpt-weak:48747efef4719eb7990d8eca5d6d4cf03cc23782f909868d32422f083371b839,"std::optional<double> safe_reciprocal(double x) {
+    if(x != 0)
+        return 1 / x;
+    else
+        return std::nullopt;
+}",0,,
+devgpt-weak:4da12455f3d9830ae1a6c64af3bd9fc93a2ada6c8f5a55ca9e62d0961cd7ddbe,"void test() {
+    PartialFunction<double, double> composed_function = compose(safe_reciprocal, safe_square_root);
+    std::optional<double> res1 = composed_function(4);
+    if(res1.has_value())
+        std::cout << ""Square root of the reciprocal of 4: "" << res1.value() << std::endl;
+    else
+        std::cout << ""Square root of the reciprocal of 4 is not defined"" << std::endl;
+    std::optional<double> res2 = composed_function(-4);
+    if(res2.has_value())
+        std::cout << ""Square root of the reciprocal of -4: "" << res2.value() << std::endl;
+    else
+        std::cout << ""Square root of the reciprocal of -4 is not defined"" << std::endl;
+    std::optional<double> res3 = composed_function(0);
+    if(res3.has_value())
+        std::cout << ""Square root of the reciprocal of 0: "" << res3.value() << std::endl;
+    else
+        std::cout << ""Square root of the reciprocal of 0 is not defined"" << std::endl;
+}",0,,
+devgpt-weak:88785a88c221db32e866ab3608e588e302d30c8aae8de5f7a408ea790fdc97f2,"int main() {
+    test();
+    return 0;
+}",0,,
+devgpt-weak:042b8da57649330cc928f449cb2a06201d2adf733aaa0b3342fc1297a007b6dc,"void init_hash_table() {
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        hash_table.table[i] = NULL;
+    }
+    pthread_rwlock_init(&hash_table.lock, NULL);
+}",0,,
+devgpt-weak:0efdcfa5f9e25a223faa6ae55316074ed3b396783cf9b48741ff9ba990e916b7,"uint32_t hash_function(const char *key) {
+    uint32_t hash = 0;
+    size_t i;
+    for (i = 0; key[i] != '\0'; ++i) {
+        hash += key[i];
+        hash += (hash << 10);
+        hash ^= (hash >> 6);
+    }
+    hash += (hash << 3);
+    hash ^= (hash >> 11);
+    hash += (hash << 15);
+    return hash;
+}",0,,
+devgpt-weak:65a00fa06578008b76b95545d3fbf9767d2af63c94ba52f7b0a50403f7fdb748,"void delete_record(const char *name) {
+    uint32_t hash_value = hash_function(name) % TABLE_SIZE;
+    pthread_rwlock_wrlock(&hash_table.lock);
+    hashRecord *current = hash_table.table[hash_value];
+    hashRecord *prev = NULL;
+    while (current != NULL && strcmp(current->name, name) != 0) {
+        prev = current;
+        current = current->next;
+    }
+    if (current != NULL && strcmp(current->name, name) == 0) {
+        if (prev == NULL) {
+            hash_table.table[hash_value] = current->next;
+        } else {
+            prev->next = current->next;
+        }
+        free(current);
+    }
+    pthread_rwlock_unlock(&hash_table.lock);
+}",0,,
+devgpt-weak:9b3e27118c2607fa4f376d6632b86e93777e8fed4579e311f317cb7686954510,"uint32_t search_record(const char *name) {
+    uint32_t hash_value = hash_function(name) % TABLE_SIZE;
+    uint32_t salary = 0;
+    pthread_rwlock_rdlock(&hash_table.lock);
+    hashRecord *current = hash_table.table[hash_value];
+    while (current != NULL && strcmp(current->name, name) != 0) {
+        current = current->next;
+    }
+    if (current != NULL && strcmp(current->name, name) == 0) {
+        salary = current->salary;
+    }
+    pthread_rwlock_unlock(&hash_table.lock);
+    return salary;
+}",0,,
+devgpt-weak:fcae67806b5a9eb2dfaac55b29517ee735950446c71dda006554841e8b06c1cd,"void print_record(const hashRecord *record) {
+    printf(""%u,%s,%u\n"", record->hash, record->name, record->salary);
+}",0,,
+devgpt-weak:177f934ebb712027440e1a7d4a1d8d914daa5f0a8cfbdaa812d824fe3a114e71,"void print_table() {
+    pthread_rwlock_rdlock(&hash_table.lock);
+    for (int i = 0; i < TABLE_SIZE; i++) {
+        hashRecord *current = hash_table.table[i];
+        while (current != NULL) {
+            print_record(current);
+            current = current->next;
+        }
+    }
+    pthread_rwlock_unlock(&hash_table.lock);
+}",0,,
+devgpt-weak:1d8f0c70a72d850b3219865e151c6738e5fbf87a1179eae6b8eee4baab10fd5f,"void init_hash_table() {
+    hash_table.head = NULL;
+    pthread_rwlock_init(&hash_table.lock, NULL);
+}",0,,
+devgpt-weak:874619efa1f729a3158e2f1eacbfe047fb225e64b6069912702ff3dda8685b0b,"void delete_record(const char *name) {
+    pthread_rwlock_wrlock(&hash_table.lock);
+    hashRecord *current = hash_table.head;
+    hashRecord *prev = NULL;
+    while (current != NULL && strcmp(current->name, name) != 0) {
+        prev = current;
+        current = current->next;
+    }
+    if (current != NULL && strcmp(current->name, name) == 0) {
+        if (prev == NULL) {
+            hash_table.head = current->next;
+        } else {
+            prev->next = current->next;
+        }
+        free(current);
+    }
+    pthread_rwlock_unlock(&hash_table.lock);
+}",0,,
+devgpt-weak:6a96de1a56697184ad47361b54c0feebb6cbd20377f2975e313ce35b8cff2b02,"uint32_t search_record(const char *name) {
+    pthread_rwlock_rdlock(&hash_table.lock);
+    hashRecord *current = hash_table.head;
+    while (current != NULL && strcmp(current->name, name) != 0) {
+        current = current->next;
+    }
+    uint32_t salary = 0;
+    if (current != NULL && strcmp(current->name, name) == 0) {
+        salary = current->salary;
+    }
+    pthread_rwlock_unlock(&hash_table.lock);
+    return salary;
+}",0,,
+devgpt-weak:def1d0abc6a7e1e76244ab63d0b5c72981be4305bcd355e022edfbef1d11c1f6,"void print_table() {
+    pthread_rwlock_rdlock(&hash_table.lock);
+    hashRecord *current = hash_table.head;
+    while (current != NULL) {
+        print_record(current);
+        current = current->next;
+    }
+    pthread_rwlock_unlock(&hash_table.lock);
+}",0,,
+devgpt-weak:5b1af7bc34314149165313e15d8830e9906285653beedb9a88edc2db502fc7ff,"void init_hash_table() {
+    hash_table.head = NULL;
+    pthread_mutex_init(&hash_table.lock, NULL);
+}",0,,
+devgpt-weak:80e9db02ba574126576d202d3079a81a852431b3f274d2dc7d0b4f85e6ccdde0,"void delete_record(const char *name) {
+    pthread_mutex_lock(&hash_table.lock);
+    hashRecord *current = hash_table.head;
+    hashRecord *prev = NULL;
+    while (current != NULL && strcmp(current->name, name) != 0) {
+        prev = current;
+        current = current->next;
+    }
+    if (current != NULL && strcmp(current->name, name) == 0) {
+        if (prev == NULL) {
+            hash_table.head = current->next;
+        } else {
+            prev->next = current->next;
+        }
+        free(current);
+    }
+    pthread_mutex_unlock(&hash_table.lock);
+}",0,,
+devgpt-weak:49d6c8cce4fb1c5008bb7b05430367fc98abcdb8776fa86624888e30720ba382,"uint32_t search_record(const char *name) {
+    pthread_mutex_lock(&hash_table.lock);
+    hashRecord *current = hash_table.head;
+    while (current != NULL && strcmp(current->name, name) != 0) {
+        current = current->next;
+    }
+    uint32_t salary = 0;
+    if (current != NULL && strcmp(current->name, name) == 0) {
+        salary = current->salary;
+    }
+    pthread_mutex_unlock(&hash_table.lock);
+    return salary;
+}",0,,
+devgpt-weak:cacec7a256f6cbabd19223269c98f77cae99ca2331285c03d1e0fc848d2aac5e,"void print_table() {
+    pthread_mutex_lock(&hash_table.lock);
+    hashRecord *current = hash_table.head;
+    while (current != NULL) {
+        print_record(current);
+        current = current->next;
+    }
+    pthread_mutex_unlock(&hash_table.lock);
+}",0,,
+devgpt-weak:19bc7638ad3b136aa0cc9d774a060642b5cfc7d94a6ad512d83f43670bb0668a,"uint32_t jenkins_one_at_a_time_hash(const uint8_t* key, size_t length) {
+    size_t i = 0;
+    uint32_t hash = 0;
+    while (i != length) {
+        hash += key[i++];
+        hash += hash << 10;
+        hash ^= hash >> 6;
+    }
+    hash += hash << 3;
+    hash ^= hash >> 11;
+    hash += hash << 15;
+    return hash;
+}",0,,
+devgpt-weak:3e96e14d44affadda1305344ce4eafb9f776e97c7d09bb1e3cc7be9aa621da7a,"void init_hash_table() {
+    hash_table.head = NULL;
+    pthread_create(&hash_table.lock, NULL, start_routine, arg);
+}",0,,
+devgpt-weak:8f16e90eab2e21e6ba3a728c3e0e5e6d75ce6007c450db1b438932e5280fa16e,"void *start_routine(void *arg) {
+    pthread_rwlock_init(&hash_table.lock, NULL);
+    return NULL;
+}",0,,
+devgpt-weak:06b4de0dde090a93c7bc8628cdd0bf8503e020c2aa9ba69b12feae8f35f405b6,"void init_hash_table() {
+    pthread_create(&hash_table.lock, NULL, start_routine, NULL);
+}",0,,
+devgpt-weak:1b71a58d1c0ac9cef9b2ef8b740168ba09ebe2dc649ccd8e0163f4f38ac33162,"vector<int> twoSum(vector<int>& nums, int target) {
+    unordered_map<int, int> m;
+    vector<int> result;
+    for (int i = 0; i < nums.size(); i++) {
+        int partner = target - nums[i];
+        if (m.find(partner) != m.end()) {
+            result.push_back(m[partner]);
+            result.push_back(i);
+            break;
+        } else {
+            m[nums[i]] = i;
+        }
+    }
+    return result;
+}",0,,
+devgpt-weak:392c50f8b3e5f9f6f4ccebac1cec0b4acc4b0cd36f5643305730d800bde85c57,"std::pair<int, int> findSubSortIndices(const std::vector<int>& arr) {
+    int n = arr.size();
+    int left = 0;
+    while (left < n - 1 && arr[left] <= arr[left + 1]) {
+        left++;
+    }
+    if (left == n - 1) {
+        return std::make_pair(-1, -1);
+    }
+    int right = n - 1;
+    while (right > 0 && arr[right] >= arr[right - 1]) {
+        right--;
+    }
+    int min_in_unsorted = *std::min_element(arr.begin() + left, arr.begin() + right + 1);
+    int max_in_unsorted = *std::max_element(arr.begin() + left, arr.begin() + right + 1);
+    while (left >= 0 && arr[left] > min_in_unsorted) {
+        left--;
+    }
+    while (right < n && arr[right] < max_in_unsorted) {
+        right++;
+    }
+    return std::make_pair(left + 1, right - 1);
+}",0,,
+devgpt-weak:f8ec3fc403b8ea17905f6b1f5b728ba5dfe24010b42110b982cea466d6c5b4b8,"int main() {
+    std::vector<int> arr = {1, 2, 4, 7, 10, 11, 7, 12, 6, 7, 16, 18, 19};
+    std::pair<int, int> result = findSubSortIndices(arr);
+    if (result.first == -1 && result.second == -1) {
+        std::cout << ""The array is already sorted."" << std::endl;
+    } else {
+        std::cout << ""Indices to sort the array: ("" << result.first << "", "" << result.second << "")"" << std::endl;
+    }
+    return 0;
+}",0,,
+devgpt-weak:8298840a4a2c9b8638dc5558f836723e4524b93e6bc54e73d5c5c2667e040096,"float getRandomFloat(float min, float max) {
+    std::random_device rd;
+    std::mt19937 eng(rd());
+    std::uniform_real_distribution<float> distr(min, max);
+    return distr(eng);
+}",0,,
+devgpt-weak:5eb150f5c28b5b02029472b181c372274e70f8d8dee1115f2ed53deb31047d38,"int main() {
+    float minValue = 1.0;
+    float maxValue = 10.0;
+    float randomValue = getRandomFloat(minValue, maxValue);
+    std::cout << ""Random float value between "" << minValue << "" and "" << maxValue << "": "" << randomValue << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:565d0cdd1fb048a7da5e7d7211506a96e74e7afe30483e0b1d64fc77cdea7806,"float calculateDistance(const Point& p1, const Point& p2) {
+    float dx = p2.x - p1.x;
+    float dy = p2.y - p1.y;
+    return std::sqrt(dx * dx + dy * dy);
+}",0,,
+devgpt-weak:4ceb84b21baeae6e8a3692c35149ebfde0108fd6817c8bf6d527c1a574daf48d,"int main() {
+    Point point1 = {1.0, 2.0};
+    Point point2 = {4.0, 6.0};
+    float distance = calculateDistance(point1, point2);
+    std::cout << ""Distance between point1 and point2: "" << distance << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:41e52b4e0b0b5ab864cbaab62735be7a2e4da22dfbf029a8461d4a8de39ee651,"int main() {
+    MyClass::staticMethod();
+    return 0;
+}",0,,
+devgpt-weak:7ae33f29af85cc49f040ce1f7812d5c2262451279bcc0588723b9ab3910fb196,"int main() {
+    std::list<int> myList = {1, 2, 3, 4};
+    myList.insert(myList.begin(), 0);
+    std::list<int>::iterator it = std::next(myList.begin(), 2);
+    myList.insert(it, 5);
+    std::list<int> newElements = {6, 7, 8};
+    myList.insert(it, newElements.begin(), newElements.end());
+    for (int num : myList) {
+        std::cout << num << "" "";
+    }
+    std::cout << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:74be1fb25642a64d79d8c7578e6d937f6dc233d282ea395387baa596a5808bff,"int main() {
+    std::list<int> myList = {1, 2, 3, 4};
+    for (int num : myList) {
+        std::cout << num << "" "";
+    }
+    std::cout << std::endl;
+    std::list<int>::iterator it;
+    for (it = myList.begin(); it != myList.end(); ++it) {
+        std::cout << *it << "" "";
+    }
+    std::cout << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:6c6c0886a59e01d2a7f8f7898e5f356be88ef31dffdbae284987ec6967f2495c,"int main() {
+    Point p1 = {1, 2};
+    Point p2 = {3, 4};
+    Point p3 = {1, 2};
+    if (p1 == p2) {
+        std::cout << ""p1 and p2 are equal"" << std::endl;
+    } else {
+        std::cout << ""p1 and p2 are not equal"" << std::endl;
+    }
+    if (p1 == p3) {
+        std::cout << ""p1 and p3 are equal"" << std::endl;
+    } else {
+        std::cout << ""p1 and p3 are not equal"" << std::endl;
+    }
+    return 0;
+}",0,,
+devgpt-weak:2a8579727ae9a9199a1abd7889f997cbb94470b3fe09f0797b811a4bf51f524e,"int main() {
+    SDL_version compiled;
+    SDL_version linked;
+    SDL_VERSION(&compiled);
+    SDL_GetVersion(&linked);
+    std::cout << ""SDL compiled version: "" << static_cast<int>(compiled.major) << "".""
+              << static_cast<int>(compiled.minor) << ""."" << static_cast<int>(compiled.patch) << std::endl;
+    std::cout << ""SDL linked version: "" << static_cast<int>(linked.major) << "".""
+              << static_cast<int>(linked.minor) << ""."" << static_cast<int>(linked.patch) << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:6f97e90bd5a34e96f530e53e17f3da372aedb2f454275f97f482d5ebdeb64e0f,"bool AreFRectsEqual(const SDL_FRect& rect1, const SDL_FRect& rect2) {
+    return (std::abs(rect1.x - rect2.x) < FLOAT_EPSILON) &&
+           (std::abs(rect1.y - rect2.y) < FLOAT_EPSILON) &&
+           (std::abs(rect1.w - rect2.w) < FLOAT_EPSILON) &&
+           (std::abs(rect1.h - rect2.h) < FLOAT_EPSILON);
+}",0,,
+devgpt-weak:cd0d232133c854472f544b529eae4f2c70b277f5fd61fcbf9bcebcbc32872f37,"int main() {
+    SDL_FRect rect1 = { 10.5f, 20.3f, 100.7f, 100.1f };
+    SDL_FRect rect2 = { 10.6f, 20.4f, 100.8f, 100.2f };
+    SDL_FRect rect3 = { 10.5f, 20.3f, 100.7f, 100.1f };
+    if (AreFRectsEqual(rect1, rect2)) {
+    } else {
+    }
+    if (AreFRectsEqual(rect1, rect3)) {
+    } else {
+    }
+    return 0;
+}",0,,
+devgpt-weak:a1e6b49707bf8926346e2a88b5be676217244a218422d986c462bbd5bbc5ab0a,"int main() {
+    MyClass obj1(10, ""Hello"");
+    MyClass obj2(20, ""World"");
+    std::cout << obj1.myInt << "" "" << obj1.myString << std::endl;
+    std::cout << obj2.myInt << "" "" << obj2.myString << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:09f3fdeac22d09d425a9c947b62c153367d7bef40ab31d7be93af6d442f64bc2,"void Reflect(Vector2D& velocity, const Vector2D& collisionNormal) {
+    float dotProduct = velocity.x * collisionNormal.x + velocity.y * collisionNormal.y;
+    velocity.x = velocity.x - 2.0f * dotProduct * collisionNormal.x;
+    velocity.y = velocity.y - 2.0f * dotProduct * collisionNormal.y;
+}",0,,
+devgpt-weak:3df7a6da5b88b34654547aada27111382f4e7d976ae709afbf43aeb5ecb219b2,"int main() {
+    Vector2D object1Velocity(1.0f, 1.0f);
+    Vector2D object2Velocity(-1.0f, -1.0f);
+    Vector2D collisionNormal(1.0f, 0.0f);
+    Reflect(object1Velocity, collisionNormal);
+    Reflect(object2Velocity, collisionNormal);
+    std::cout << ""New velocities:"" << std::endl;
+    std::cout << ""Object 1: ("" << object1Velocity.x << "", "" << object1Velocity.y << "")"" << std::endl;
+    std::cout << ""Object 2: ("" << object2Velocity.x << "", "" << object2Velocity.y << "")"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:7c56de29a0c6655ad9564a8073dfdb2ff7d261567364ae5ed9c0b0dbecbb5262,"Vector2D CalculateCollisionNormal(const Vector2D& collisionDirection) {
+    return Vector2D(-collisionDirection.y, collisionDirection.x);
+}",0,,
+devgpt-weak:acdf2413f6f2620a6dd4fb2f0489b977c74068a9407e7488a7875a751497d48b,"int main() {
+    Vector2D object1Velocity(1.0f, 1.0f);
+    Vector2D object2Velocity(-1.0f, -1.0f);
+    Vector2D collisionDirection(-1.0f, 0.0f);
+    Vector2D collisionNormal = CalculateCollisionNormal(collisionDirection);
+    Reflect(object1Velocity, collisionNormal);
+    Reflect(object2Velocity, collisionNormal);
+    std::cout << ""New velocities:"" << std::endl;
+    std::cout << ""Object 1: ("" << object1Velocity.x << "", "" << object1Velocity.y << "")"" << std::endl;
+    std::cout << ""Object 2: ("" << object2Velocity.x << "", "" << object2Velocity.y << "")"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:b3cd18ddf18a6a7ef1d86ae734261483646a12377a6dd5ae5c5871b0024d8fdc,"int main() {
+    Vector2D object1Velocity(1.0f, 1.0f);
+    Vector2D object2Velocity(-1.0f, -1.0f);
+    Vector2D collisionDirection(-1.0f, 0.0f);
+    if (collisionDirection.x < 0.0f) {
+        Reflect(object1Velocity, Vector2D(-1.0f, 0.0f));
+        Reflect(object2Velocity, Vector2D(-1.0f, 0.0f));
+    } else if (collisionDirection.x > 0.0f) {
+        Reflect(object1Velocity, Vector2D(1.0f, 0.0f));
+        Reflect(object2Velocity, Vector2D(1.0f, 0.0f));
+    } else if (collisionDirection.y < 0.0f) {
+        Reflect(object1Velocity, Vector2D(0.0f, -1.0f));
+        Reflect(object2Velocity, Vector2D(0.0f, -1.0f));
+    } else if (collisionDirection.y > 0.0f) {
+        Reflect(object1Velocity, Vector2D(0.0f, 1.0f));
+        Reflect(object2Velocity, Vector2D(0.0f, 1.0f));
+    }
+    std::cout << ""New velocities:"" << std::endl;
+    std::cout << ""Object 1: ("" << object1Velocity.x << "", "" << object1Velocity.y << "")"" << std::endl;
+    std::cout << ""Object 2: ("" << object2Velocity.x << "", "" << object2Velocity.y << "")"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:d6c3b856030fb756efe64e4214792fc01f2f8c0ae5138b7bdffd062d1376c49e,"void Normalize(Vector2D& vector) {
+    float length = std::sqrt(vector.x * vector.x + vector.y * vector.y);
+    vector.x /= length;
+    vector.y /= length;
+}",0,,
+devgpt-weak:af6f3a6d6a0ddb3a9b609bfa4cc55e00e51c7655040a200ebe5e7570e33158c1,"int main() {
+    Vector2D object1Velocity(1.0f, 1.0f);
+    Vector2D object2Velocity(-1.0f, -1.0f);
+    Vector2D collisionDirection(-1.0f, -1.0f);
+    Vector2D collisionNormal = collisionDirection;
+    Normalize(collisionNormal);
+    Reflect(object1Velocity, collisionNormal);
+    Reflect(object2Velocity, collisionNormal);
+    std::cout << ""New velocities:"" << std::endl;
+    std::cout << ""Object 1: ("" << object1Velocity.x << "", "" << object1Velocity.y << "")"" << std::endl;
+    std::cout << ""Object 2: ("" << object2Velocity.x << "", "" << object2Velocity.y << "")"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:7457997bef5527dd1cd102a7f24bc0c065846a9a00482f663386d3581eea359f,"int main() {
+    int numbers[] = {1, 2, 3, 4, 5};
+    for (int i = 0; i < sizeof(numbers) / sizeof(numbers[0]); i++) {
+        printf(""%d "", numbers[i]);
+    }
+    printf(""\n"");
+    return 0;
+}",0,,
+devgpt-weak:8a99983df279dc579f3f48801dd8896f86ef8ba3e309bab9ce218731bd67a7a2,"int main() {
+    MyClass obj1(42);
+    MyClass obj2(0);
+    obj2.assignObject(obj1);
+    obj2.printData();
+    MyClass obj3(0);
+    obj3.assignObject(std::move(obj1));
+    obj3.printData();
+    return 0;
+}",0,,
+devgpt-weak:2cfcf31452657c4887ac02a0553a22605ddf8dda4b29d2034a4dc15c22f0c84c,"void deleteLinkedList(Node* head) {
+    while (head != nullptr) {
+        Node* current = head;
+        head = head->next;
+        delete current;
+    }
+}",0,,
+devgpt-weak:2fed1c6fc0c6afeeee2acb9196d7510755889d6c6c126324209051371f8c00ac,"void deleteElements(Node* head) {
+    while (head != nullptr) {
+        Node* current = head;
+        head = head->next;
+        delete current->data;
+        delete current;
+    }
+}",0,,
+devgpt-weak:b1beb78aef868bde4a17e92d328e90b0f6465261fd410fabbb2c40e5cfefa782,"int main() {
+    Node* head = new Node{1, nullptr};
+    head->next = new Node{2, nullptr};
+    head->next->next = new Node{3, nullptr};
+    deleteLinkedList(head);
+    deleteElements(head);
+    return 0;
+}",0,,
+devgpt-weak:7dd2c3e1e6478554d03263b95c4de7c2b3f8cf6ab6e38ce3e310f2284ec8149b,"void DerivedClass::someFunction() {
+       std::cout << ""SomeFunction in DerivedClass"" << std::endl;
+   }",0,,
+devgpt-weak:839c3e5a0b9a016b3c394d95a4de0de64f80af23d1d1fc00a40c8fd693d583f8,"DerivedClass::DerivedClass() {
+       std::cout << ""Default constructor called"" << std::endl;
+   }",0,,
+devgpt-weak:83451a83c01b5bc5796e772e06547ea13f1e83eb0cb0e137d4b59e9125c8ce44,"DerivedClass::DerivedClass(int value) {
+       std::cout << ""Constructor with parameter called. Value: "" << value << std::endl;
+   }",0,,
+devgpt-weak:f5f3de96796dda26a3f3fa364af78bfac3bda1da7d0232336a8b4fa356fcb568,"DerivedClass::DerivedClass(int derivedValue, int baseValue) : BaseClass(baseValue) {
+    std::cout << ""DerivedClass constructor called. DerivedValue: "" << derivedValue << std::endl;
+}",0,,
+devgpt-weak:42ac816bc908e101006c9542812f8a665918a32fe72a72ba2401a6033cf9dfcb,"void printDoublyLinkedList(BiNode* head) {
+    while (head != nullptr) {
+        std::cout << head->data << "" "";
+        head = head->node2;
+    }
+    std::cout << std::endl;
+}",0,,
+devgpt-weak:9017efc671e98442bd23863da62df90f63773820120433f58877fd872fceeda4,"int main() {
+    BiNode* root = new BiNode(4);
+    root->node1 = new BiNode(2);
+    root->node2 = new BiNode(5);
+    root->node1->node1 = new BiNode(1);
+    root->node1->node2 = new BiNode(3);
+    BiNode* head = BinaryTreeToDoublyLinkedList::convertBSTToDLL(root);
+    std::cout << ""Doubly Linked List: "";
+    printDoublyLinkedList(head);
+    delete root->node1->node1;
+    delete root->node1->node2;
+    delete root->node1;
+    delete root->node2;
+    delete root;
+    return 0;
+}",0,,
+devgpt-weak:c5bc3f2b16e112efad5bbfa2cdc271bd1ae0dae5b752e834ec91fcc929820438,"static void convertBSTToDLLHelper(BiNode* root, BiNode*& head, BiNode*& prev) {
+    if (root == nullptr) {
+        return;
+    }
+    convertBSTToDLLHelper(root->node1, head, prev);
+    if (prev == nullptr) {
+        head = root;
+    } else {
+        prev->node2 = root;
+        root->node1 = prev;
+    }
+    prev = root;
+    convertBSTToDLLHelper(root->node2, head, prev);
+}",0,,
+devgpt-weak:d07b801a06ebfaa867341003b5b39efc3f66e6dc9efce6f5ba71d8f66b840904,"void inorderTraversal(TreeNode* root) {
+    if (root == nullptr) {
+        return;
+    }
+    std::stack<TreeNode*> stack;
+    while (root != nullptr || !stack.empty()) {
+        while (root != nullptr) {
+            stack.push(root);
+            root = root->left;
+        }
+        root = stack.top();
+        stack.pop();
+        std::cout << root->data << "" "";
+        root = root->right;
+    }
+}",0,,
+devgpt-weak:98ffe6329941693510ef49275d485a33fb6b16998977f46038d9f078435715a4,"int main() {
+    TreeNode* root = new TreeNode(4);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(5);
+    root->left->left = new TreeNode(1);
+    root->left->right = new TreeNode(3);
+    std::cout << ""In-order Traversal: "";
+    inorderTraversal(root);
+    std::cout << std::endl;
+    delete root->left->left;
+    delete root->left->right;
+    delete root->left;
+    delete root->right;
+    delete root;
+    return 0;
+}",0,,
+devgpt-weak:c259284eb64c1c90ee82c5b7cfbb2fb24f31ab75e4324f605091a2d16b94eaef,"void searchFiles(const char* searchPattern) {
+    glob_t globResult;
+    if (glob(searchPattern, 0, NULL, &globResult) != 0) {
+        printf(""Error matching files with pattern: %s\n"", searchPattern);
+        return;
+    }
+    for (size_t i = 0; i < globResult.gl_pathc; i++) {
+        processFile(globResult.gl_pathv[i]);
+    }
+    globfree(&globResult);
+}",0,,
+devgpt-weak:a87111e5faa8932c1a1903d14ed25652dbfc76657b2c2cd6d1ce82f551584e7a,"int main() {
+    const char* searchPattern = ""*.txt"";
+    searchFiles(searchPattern);
+    return 0;
+}",0,,
+devgpt-weak:f8cfd68a71a061a53356c097b4e2a678287053c2211d85ef637e691cd380bbe5,"int main() {
+    using namespace SNES;
+    PPU::setINIDISP(0x0F, true);
+    PPU::setBGMODE(1);
+    PPU::setOBSEL(0, 0x10);
+    return 0;
+}",0,,
+devgpt-weak:8541b96b4e28fde6b9a214879708434d8a7d2484a2da1f55898215e2c5f3483d,"void destroy_lexer(Lexer* lexer) {
+    free(lexer);
+}",0,,
+devgpt-weak:1031ad7872565ecedb73fd2ec63da38b6ed774b5f9c5468d94479107756ed316,"static char peek_char(Lexer* lexer) {
+    if (lexer->position >= lexer->length) {
+        return '\0';
+    }
+    return lexer->source[lexer->position];
+}",0,,
+devgpt-weak:455abb13169ef424ab92322e1bef62e45965af16d11188caf8630c1841975674,"static char advance_char(Lexer* lexer) {
+    if (lexer->position >= lexer->length) {
+        return '\0';
+    }
+    return lexer->source[lexer->position++];
+}",0,,
+devgpt-weak:1a9228561e442fd05cf4467a57dde362768171dafc15605dee79fe22fe03e2b3,"static Token make_token(TokenType type, const char* value) {
+    Token token;
+    token.type = type;
+    token.value = strdup(value);
+    return token;
+}",0,,
+devgpt-weak:f47112bfbe39d88ed997c502d9e95b1f1028d516354b2062fc1088180f608587,"static void skip_whitespace(Lexer* lexer) {
+    while (isspace(peek_char(lexer))) {
+        advance_char(lexer);
+    }
+}",0,,
+devgpt-weak:ed34d3b67247e65b435fabd7b20a9dd5178b925b72257a08bdfa67cda06f1227,"static Token scan_number(Lexer* lexer) {
+    size_t start = lexer->position - 1;
+    while (isdigit(peek_char(lexer))) {
+        advance_char(lexer);
+    }
+    char* value = strndup(lexer->source + start, lexer->position - start);
+    return make_token(TOKEN_INT, value);
+}",0,,
+devgpt-weak:fb343d58ddf770b16526326c17dcb319d267368834357db25b5f69f74f8589e0,"static Token scan_identifier(Lexer* lexer) {
+    size_t start = lexer->position - 1;
+    while (isalnum(peek_char(lexer)) || peek_char(lexer) == '_') {
+        advance_char(lexer);
+    }
+    char* value = strndup(lexer->source + start, lexer->position - start);
+    return make_token(TOKEN_IDENTIFIER, value);
+}",0,,
+devgpt-weak:675382d2a0b840a18b971c7f46899de8dad44895d925ac7b64e2589e13fe2001,"void destroy_token(Token token) {
+    free(token.value);
+}",0,,
+devgpt-weak:c0e6ae47ba2108eeb44f56a2567737d33236980d36d6644090ea61255aaee6e8,"Parser* create_parser(const char* source) {
+    Parser* parser = (Parser*)malloc(sizeof(Parser));
+    parser->lexer = create_lexer(source);
+    parser->current_token = next_token(parser->lexer);
+    return parser;
+}",0,,
+devgpt-weak:f89f53b7b47cc1d0e886d39a345b9bd500367345c696f75b610566248e0a1e50,"void destroy_parser(Parser* parser) {
+    destroy_token(parser->current_token);
+    destroy_lexer(parser->lexer);
+    free(parser);
+}",0,,
+devgpt-weak:5561129772a0cc3b356b90a44d3bb4349f9563ef0fef12b420e03d05ae54d7d7,"static void consume_token(Parser* parser, TokenType expected) {
+    if (parser->current_token.type == expected) {
+        destroy_token(parser->current_token);
+        parser->current_token = next_token(parser->lexer);
+    } else {
+        fprintf(stderr, ""Error: Expected token of type %d but got %d\n"", expected, parser->current_token.type);
+        exit(1);
+    }
+}",0,,
+devgpt-weak:37983405da4c48535ad537170876751da0614147033713bc8b4ef0b373f5c334,"ConstrainedIntType* parse_constrained_int_type(Parser* parser) {
+    ConstrainedIntType* result = (ConstrainedIntType*)malloc(sizeof(ConstrainedIntType));
+    if (parser->current_token.type != TOKEN_IDENTIFIER) {
+        fprintf(stderr, ""Error: Expected identifier for type name\n"");
+        exit(1);
+    }
+    result->name = strdup(parser->current_token.value);
+    consume_token(parser, TOKEN_IDENTIFIER);
+    consume_token(parser, TOKEN_LPAREN);
+    result->min_value = parse_integer(parser);
+    consume_token(parser, TOKEN_RANGE);
+    result->max_value = parse_integer(parser);
+    consume_token(parser, TOKEN_RPAREN);
+    return result;
+}",0,,
+devgpt-weak:aac4f3ac9e74b915420fd715f35442845e66d8dbed838d9cf85d33dd724106d5,"int main() {
+    const char* source_code = ""ConstrainedInt(0->100)"";
+    Parser* parser = create_parser(source_code);
+    ConstrainedIntType* int_type = parse_constrained_int_type(parser);
+    printf(""Parsed constrained int type:\n"");
+    printf(""Name: %s\n"", int_type->name);
+    printf(""Range: %d -> %d\n"", int_type->min_value, int_type->max_value);
+    destroy_parser(parser);
+    free(int_type->name);
+    free(int_type);
+    return 0;
+}",0,,
+devgpt-weak:755efde830bdbdf17fbb0efd76307597b0c9feca1400b22337706ba28ded62b9,"void setup() {
+  Serial.begin(115200);
+  pinMode(ledPin, OUTPUT);
+  esp_skainet_init();
+  esp_skainet_add_command(commands[0], 1);
+  esp_skainet_add_command(commands[1], 2);
+  esp_skainet_start();
+}",0,,
+devgpt-weak:436e7d8f8aed5d1df4a8fa6329c7bfd8791eb2a2cdb41675018ef8a8f5246732,"void loop() {
+  int command_id = esp_skainet_listen();
+  switch (command_id) {
+    case 1:
+      digitalWrite(ledPin, HIGH);
+      Serial.println(""LED turned ON"");
+      break;
+    case 2:
+      digitalWrite(ledPin, LOW);
+      Serial.println(""LED turned OFF"");
+      break;
+    default:
+      break;
+  }
+}",0,,
+devgpt-weak:11f3a03e35c66a99382fd7db1f1fc4e5a09eef4133de10effec0de12c87c9a3d,"template<typename Iterator>
+Iterator find_begin(Iterator begin, Iterator end) {
+    while (begin != end && std::isspace(*begin)) {
+        ++begin;
+    }
+    return begin;
+}",0,,
+devgpt-weak:6ea556053cdb65565a4501e41d7ca570e569e735b93a615b50e1ea345d10a206,"template<typename Iterator>
+Iterator find_end(Iterator begin, Iterator end) {
+    while (begin != end && std::isspace(*(end - 1))) {
+        --end;
+    }
+    return end;
+}",0,,
+devgpt-weak:c14d0fa18e5fbb2449fad90a3f4d7f3606c4f81fce2894ab7e75a7e072f16a54,"int main() {
+    std::string str = ""   Hello, world!   "";
+    auto begin = find_begin(str.begin(), str.end());
+    auto end = find_end(str.begin(), str.end());
+    for (auto it = begin; it != end; ++it) {
+        std::cout << *it;
+    }
+    std::cout << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:30812d43f4c14e10cde41b6720ea27a7951cd555302be2ef117df2d17de28fdc,"template<typename Iterator>
+Iterator find_begin(Iterator begin, Iterator end) {
+    return std::find_if_not(begin, end, [](char c) { return std::isspace(c); });
+}",0,,
+devgpt-weak:738f6c66d362555fa2b32f1a7b5876f9a4dedcd0d3d0707891f66ad4c5b6d268,"template<typename Iterator>
+Iterator find_end(Iterator begin, Iterator end) {
+    return std::find_if_not(std::make_reverse_iterator(end), std::make_reverse_iterator(begin), [](char c) { return std::isspace(c); }).base();
+}",0,,
+devgpt-weak:7d45de0e7d078ec40ea3b66daf2b06ff7aa2d213173e287fd49741fb9ff96818,"int main() {
+    std::string text = ""   Hello, world!   "";
+    auto begin = find_begin(text.begin(), text.end());
+    auto end = find_end(text.begin(), text.end());
+    std::string stripped_text(begin, end);
+    std::cout << ""Stripped text: '"" << stripped_text << ""'"" << std::endl;
+    return 0;
+}",0,,
+devgpt-weak:1830b61d7a28a8a91a06ac231035d78ab53d21547d51d4665dfb75b3f55c9a4b,"void signal_handler(int signum) {
+    exit(EXIT_FAILURE);
+}",0,,
+devgpt-weak:fe95ee1b89bcd34d96d8f686f3276f0b6e678659a658fdb3a657f7001c1705f7,"int main() {
+    struct sigaction sa;
+    pid_t pid;
+    sa.sa_handler = signal_handler;
+    sa.sa_flags = SA_RESETHAND;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGINT, &sa, NULL) == -1) {
+        exit(EXIT_FAILURE);
+    }
+    pid = fork();
+    if (pid == -1) {
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+        sleep(1);
+        kill(getppid(), SIGINT);
+        exit(EXIT_SUCCESS);
+    } else {
+        pause();
+        exit(EXIT_FAILURE);
+    }
+}",0,,
+devgpt-weak:1d21ad4cb1efe20fdbe4464fc5792a0021c8af1a1eae60f2623c1dd5f39eddbd,"void signal_handler(int signum) {
+    handler_invoked = true;
+}",0,,
+devgpt-weak:1538db83246770195ddb5c3802913dde437c41a783c7eba59d74e39e078cb2d4,"int main() {
+    struct sigaction sa;
+    sa.sa_handler = signal_handler;
+    sa.sa_flags = SA_RESETHAND;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGINT, &sa, NULL) == -1) {
+        exit(EXIT_FAILURE);
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+        sleep(1);
+        kill(getppid(), SIGINT);
+        exit(EXIT_SUCCESS);
+    } else {
+        pause();
+        if (!handler_invoked) {
+            exit(EXIT_FAILURE);
+        }
+        sa.sa_handler = SIG_DFL;
+        if (sigaction(SIGINT, &sa, NULL) == -1) {
+            exit(EXIT_FAILURE);
+        }
+        raise(SIGINT);
+        exit(EXIT_FAILURE);
+    }
+}",0,,
+devgpt-weak:938bb3f31508a7b79ecf3d5c5c3e823b6b5c93ca15857f342053c8590f989203,"int main() {
+    struct sigaction sa;
+    sa.sa_handler = signal_handler;
+    sa.sa_flags = SA_RESETHAND;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGINT, &sa, NULL) == -1) {
+        exit(EXIT_FAILURE);
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        exit(EXIT_FAILURE);
+    } else if (pid == 0) {
+        sleep(1);
+        kill(getppid(), SIGINT);
+        exit(EXIT_SUCCESS);
+    } else {
+        pause();
+        if (!handler_invoked) {
+            exit(EXIT_FAILURE);
+        }
+        struct sigaction current_sa;
+        if (sigaction(SIGINT, NULL, &current_sa) == -1) {
+            exit(EXIT_FAILURE);
+        }
+        if (current_sa.sa_handler != SIG_DFL) {
+            exit(EXIT_FAILURE);
+        }
+        exit(EXIT_SUCCESS);
+    }
+}",0,,
+devgpt-weak:547695ec6b8deb54786f7410233a1aee58b36494b5651eb3db674d49f60979da,"int main() {
+    struct sigaction sa, current_sa;
+    sa.sa_handler = signal_handler;
+    sa.sa_flags = SA_RESETHAND;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGINT, &sa, NULL) == -1) {
+        exit(1);
+    }
+    if (sigaction(SIGINT, NULL, &current_sa) == -1 || current_sa.sa_handler != signal_handler) {
+        exit(2);
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        exit(3);
+    } else if (pid == 0) {
+        sleep(1);
+        kill(getppid(), SIGINT);
+        exit(EXIT_SUCCESS);
+    } else {
+        pause();
+        if (!handler_invoked) {
+            exit(4);
+        }
+        if (sigaction(SIGINT, NULL, &current_sa) == -1 || current_sa.sa_handler != SIG_DFL) {
+            exit(5);
+        }
+        exit(EXIT_SUCCESS);
+    }
+}",0,,
+devgpt-weak:c12d5605d21c1c7bc03289ebbd03ab57f1214b4a6501d72a0e064cc2760a7579,"int main() {
+    struct sigaction sa, current_sa;
+    sa.sa_handler = signal_handler;
+    sa.sa_flags = SA_RESETHAND;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGINT, &sa, NULL) == -1) {
+        exit(10);
+    }
+    if (sigaction(SIGINT, NULL, &current_sa) == -1) {
+        exit(11);
+    }
+    if (current_sa.sa_handler != signal_handler || current_sa.sa_flags != SA_RESETHAND) {
+        exit(12);
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        exit(13);
+    } else if (pid == 0) {
+        sleep(1);
+        kill(getppid(), SIGINT);
+        exit(EXIT_SUCCESS);
+    } else {
+        pause();
+        if (!handler_invoked) {
+            exit(14);
+        }
+        if (sigaction(SIGINT, NULL, &current_sa) == -1) {
+            exit(15);
+        }
+        if (current_sa.sa_handler != SIG_DFL) {
+            exit(16);
+        }
+        exit(EXIT_SUCCESS);
+    }
+}",0,,
+devgpt-weak:aef46d5f6ff32865742a10c65d0aa133f996818c300b46d0e71b8257ff6ea61f,"int main() {
+    struct sigaction sa, current_sa;
+    sa.sa_handler = signal_handler;
+    sa.sa_flags = SA_RESETHAND;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGINT, &sa, NULL) == -1) {
+        exit(10);
+    }
+    if (sigaction(SIGINT, NULL, &current_sa) == -1) {
+        exit(11);
+    }
+    if (current_sa.sa_handler != signal_handler) {
+        exit(12);
+    }
+    if ((current_sa.sa_flags & SA_RESETHAND) != SA_RESETHAND) {
+        exit(17);
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        exit(13);
+    } else if (pid == 0) {
+        sleep(1);
+        kill(getppid(), SIGINT);
+        exit(EXIT_SUCCESS);
+    } else {
+        pause();
+        if (!handler_invoked) {
+            exit(14);
+        }
+        if (sigaction(SIGINT, NULL, &current_sa) == -1) {
+            exit(15);
+        }
+        if (current_sa.sa_handler != SIG_DFL) {
+            exit(16);
+        }
+        exit(EXIT_SUCCESS);
+    }
+}",0,,
+devgpt-weak:ad003683b28e520eace8c6b8d8465369e8be5e504ed6696cec34f7e039e83cfe,"int main() {
+    struct sigaction sa, current_sa;
+    sigset_t mask, oldmask;
+    sa.sa_handler = signal_handler;
+    sa.sa_flags = SA_RESETHAND;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGINT, &sa, NULL) == -1) {
+        exit(10);
+    }
+    sigemptyset(&mask);
+    sigaddset(&mask, SIGINT);
+    if (sigprocmask(SIG_BLOCK, &mask, &oldmask) == -1) {
+        exit(11);
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        exit(12);
+    } else if (pid == 0) {
+        sleep(1);
+        kill(getppid(), SIGINT);
+        exit(EXIT_SUCCESS);
+    } else {
+        while (!handler_invoked) {
+            sigsuspend(&oldmask);
+        }
+        if (!handler_invoked) {
+            exit(13);
+        }
+        if (sigaction(SIGINT, NULL, &current_sa) == -1 || current_sa.sa_handler != SIG_DFL) {
+            exit(14);
+        }
+        exit(EXIT_SUCCESS);
+    }
+}",0,,
+devgpt-weak:38286140a78c5564765e569b36e5176488defc2b5aab285fdaf38b56be26adb6,"int main() {
+    struct sigaction sa, current_sa;
+    sigset_t mask, oldmask;
+    sa.sa_handler = signal_handler;
+    sa.sa_flags = SA_RESETHAND;
+    sigemptyset(&sa.sa_mask);
+    if (sigaction(SIGINT, &sa, NULL) == -1) {
+        exit(10);
+    }
+    sigemptyset(&mask);
+    sigaddset(&mask, SIGINT);
+    if (sigprocmask(SIG_BLOCK, &mask, &oldmask) == -1) {
+        exit(11);
+    }
+    pid_t pid = fork();
+    if (pid == -1) {
+        exit(12);
+    } else if (pid == 0) {
+        sleep(1);
+        kill(getppid(), SIGINT);
+        exit(EXIT_SUCCESS);
+    } else {
+        while (!handler_invoked) {
+            sigsuspend(&oldmask);
+        }
+        if (sigaction(SIGINT, NULL, &current_sa) == -1) {
+            exit(13);
+        }
+        if (current_sa.sa_handler != SIG_DFL) {
+            exit(14);
+        }
+        exit(EXIT_SUCCESS);
+    }
+}",0,,
+devgpt-weak:adb066f7e0b2a9eb8df0db4c94938626b484a3bb2100354ef1f60863b15fcbde,"template<typename... Keys>
+requires (std::same_as<Keys, KeyCode> && ...)
+inline bool IsKeyDown(Keys... keys) {
+    return (::IsKeyDown(KeyCodeToRaylibKey(keys)) || ...);
+}",0,,
+devgpt-weak:92a57df501eb4b0f03d63e30e2e1403d6cd5f329f60f8062e408321dbc3afa7e,"static void dissect_ssh_decryptor(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data)
+{
+    col_set_str(pinfo->cinfo, COL_PROTOCOL, ""SSHDECRYPTOR"");
+    col_clear(pinfo->cinfo,COL_INFO);
+    proto_item *ti = proto_tree_add_item(tree, proto_ssh_decryptor, tvb, 0, -1, ENC_NA);
+    proto_tree *ssh_decryptor_tree = proto_item_add_subtree(ti, ett_ssh_decryptor);
+    guchar *decrypted_data;
+    guint decrypted_data_len = 0;
+    if (decrypt_ssh_payload(tvb_get_ptr(tvb, 0, -1), tvb_reported_length(tvb), &decrypted_data, &decrypted_data_len)) {
+        proto_tree_add_bytes(ssh_decryptor_tree, hf_ssh_decrypted_payload, tvb, 0, decrypted_data_len, decrypted_data);
+        col_add_fstr(pinfo->cinfo, COL_INFO, ""SSH Decrypted Payload, Len: %u"", decrypted_data_len);
+    } else {
+        col_add_fstr(pinfo->cinfo, COL_INFO, ""SSH Decryption Failed"");
+    }
+}",0,,
+devgpt-weak:9164d19304e119dd223161e311e841765c001a6740d243afe406aa551e3f54d3,"void proto_register_ssh_decryptor(void)
+{
+    static hf_register_info hf[] = {
+        { &hf_ssh_decrypted_payload,
+          { ""Decrypted Payload"", ""sshdecryptor.decrypted_payload"",
+            FT_BYTES, BASE_NONE, NULL, 0x0,
+            NULL, HFILL }
+        },
+    };
+    static gint *ett[] = {
+        &ett_ssh_decryptor,
+    };
+    proto_ssh_decryptor = proto_register_protocol(
+        SSH_DECRYPTOR_DESCRIPTION,
+        ""SSHDECRYPTOR"",
+        ""sshdecryptor""
+    );
+    proto_register_field_array(proto_ssh_decryptor, hf, array_length(hf));
+    proto_register_subtree_array(ett, array_length(ett));
+}",0,,
+devgpt-weak:5d5af728ccd6bc3a6d09ae78916e18924053df0be1a421c158b2fb4bcb589e1c,"void proto_reg_handoff_ssh_decryptor(void)
+{
+    static dissector_handle_t ssh_decryptor_handle;
+    ssh_decryptor_handle = create_dissector_handle(dissect_ssh_decryptor, proto_ssh_decryptor);
+    dissector_add_uint(""ssh.port"", 22, ssh_decryptor_handle);
+}",0,,
+devgpt-weak:843c1d310d99cadd2e4690f0cf89d76fb9bf255eaa3f0c369ae170f8c49186de,"void ssh_crypto_init() {
+    if (!gcry_check_version(GCRYPT_VERSION)) {
+        fprintf(stderr, ""Libgcrypt version mismatch\n"");
+        exit(2);
+    }
+    gcry_control(GCRYCTL_SUSPEND_SECMEM_WARN);
+    gcry_control(GCRYCTL_INIT_SECMEM, 16384, 0);
+    gcry_control(GCRYCTL_RESUME_SECMEM_WARN);
+    gcry_control(GCRYCTL_INITIALIZATION_FINISHED, 0);
+}",0,,
+devgpt-weak:cb649a0de69bea5b178964ad78b0f06baaebb1bb71bf7bac3e963cad78805497,"int main() {
+    int num = 7000000;
+    char *formattedNum = format_with_commas(num);
+    if (formattedNum) {
+        printf(""%s\n"", formattedNum);
+        free(formattedNum);
+    } else {
+        printf(""Memory allocation failed.\n"");
+    }
+    return 0;
+}",0,,
+devgpt-weak:f85aa79e56712c66041cbddc40132e39eaaf2a9dbefd5dfe1e2ddff45cbf2b4e,"int main() {
+    using namespace gw2combat::component;
+    entt::registry registry;
+    entt::registry copyRegistry;
+    auto entity = registry.create();
+    registry.emplace<ComponentA>(entity);
+    registry.emplace<ComponentB>(entity);
+    registry.emplace<ComponentC>(entity);
+    registry.each([&](auto entity) {
+        auto newEntity = copyRegistry.create();
+        if(registry.all_of<ComponentA>(entity)) {
+            copyRegistry.emplace<ComponentA>(newEntity, registry.get<ComponentA>(entity));
+        }
+        if(registry.all_of<ComponentB>(entity)) {
+            copyRegistry.emplace<ComponentB>(newEntity, registry.get<ComponentB>(entity));
+        }
+        if(registry.all_of<ComponentC>(entity)) {
+            copyRegistry.emplace<ComponentC>(newEntity, registry.get<ComponentC>(entity));
+        }
+    });
+    return 0;
+}",0,,
+devgpt-weak:9039aee88c6a239005843625a6b1404c172902bfa90020b403ffe59e3e8ff9df,"int main() {
+    std::cout << ""Size of Empty: "" << sizeof(Empty) << '\n';
+    std::cout << ""Size of NotEmpty: "" << sizeof(NotEmpty) << '\n';
+    if(sizeof(Empty) == 1) {
+        std::cout << ""Empty struct has no non-static data members"" << '\n';
+    }
+    if(sizeof(NotEmpty) == 1) {
+        std::cout << ""NotEmpty struct has no non-static data members"" << '\n';
+    }
+    return 0;
+}",0,,
+devgpt-weak:57aed773dc675fb07c9ceda650d0c60d7ba1a5d037543501a6a433998006c23e,"int main() {
+    entt::registry registry;
+    for (int i = 0; i < 10; ++i) {
+        auto entity = registry.create();
+    }
+    registry.clear();
+    return 0;
+}",0,,
+devgpt-weak:d2ee7c1efbb8a4513f19de7b813d0ed6104bb8b2a850f7084279f8bd2694588c,"int main() {
+    Queue q;
+    q.push(1);
+    q.push(2);
+    q.push(3);
+    std::cout << q.peek(0) << std::endl;
+    std::cout << q.peek(1) << std::endl;
+    std::cout << q.peek(2) << std::endl;
+    std::cout << q.pop() << std::endl;
+    std::cout << q.peek(0) << std::endl;
+    return 0;
+}",0,,

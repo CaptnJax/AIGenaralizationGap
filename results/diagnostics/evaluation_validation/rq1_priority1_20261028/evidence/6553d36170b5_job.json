@@ -1,0 +1,25 @@
+{
+  "status": "complete",
+  "signature": {
+    "job": "vulberta-primevul",
+    "dataset_sha256": "1523c975662023d429808c28de326f1de70d5331dd3db861fdee8e4e17271b85",
+    "device": "cuda",
+    "batch_size": 16,
+    "seed": 42,
+    "threshold": 0.5,
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.57.1",
+      "tokenizers": "0.22.1",
+      "libclang": "18.1.1",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1"
+    },
+    "runner_sha256": "3ed351d09c160e24f827b0c107568275234af108b1f2d0f3cae09cc561fa3b19",
+    "implementation_sha256": "f1f6e5036d476afc4780be35ca74fcc2593a7ed7831fa157498cc48da0a563f4",
+    "checkpoint_revision": "fecabdee24a3ef6e804d7629d6eed03dc6b4f61e",
+    "block_size": 1024,
+    "tokenizer_fix": "clang_skip_function_bodies_v1",
+    "preprocessing": "original_vulberta_cleaner_v1"
+  }
+}

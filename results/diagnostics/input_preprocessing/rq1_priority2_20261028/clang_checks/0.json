@@ -1,0 +1,4 @@
+{
+  "sample_id": "fixture:body",
+  "code": "int f(){ int BODY_TOKEN=3; return BODY_TOKEN; }"
+}

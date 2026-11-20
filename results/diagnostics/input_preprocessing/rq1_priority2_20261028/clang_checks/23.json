@@ -1,0 +1,6 @@
+{
+  "sample_id": "llmvul:ID_12EE9E53034AE2F9",
+  "dataset": "llmvul_test",
+  "source_language": "c",
+  "code": "id run_pending_ktimers(void)\n   ulong var;\n   while (true) {\n\n      struct ktimer *t;\n\n      disable_interrupts(&var);\n      {\n         if (list_is_empty(&deferred_fire_list)) {\n            enable_interrupts(&var);\n            break;\n         }\n\n         t = list_first_obj(&deferred_fire_list,\n                            struct ktimer,\n                            deferred_node);\n         list_remove(&t->deferred_node);\n         list_node_init(&t->deferred_node);\n      }\n      enable_interrupts(&var);\n\n      disable_preemption();\n      {\n         t->fire(t, t->ctx);\n      }\n      enable_preemption();\n   }"
+}

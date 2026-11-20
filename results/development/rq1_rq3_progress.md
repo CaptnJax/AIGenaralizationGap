@@ -1,0 +1,13 @@
+# RQ1 and RQ3 Progress Summary
+
+Status as of October 15, 2026.
+
+**RQ1: Generalization of existing vulnerability detectors.** The initial evaluation of LineVul and VulBERTa on human-written PrimeVul code and LLM-generated LLMVul code has been completed. Compatible datasets were prepared containing 24,788 PrimeVul test functions and 18,751 labeled LLMVul functions; 2,679 uncertain LLMVul records were excluded. A reproducible evaluation pipeline was implemented with frozen checkpoints, a fixed decision threshold of 0.5, and saved predictions, metrics, and execution metadata. VulBERTa's preprocessing and Clang tokenization issues were corrected, and both datasets were reevaluated.
+
+LineVul achieved F1 scores of 10.32% on PrimeVul and 10.49% on LLMVul. With corrected preprocessing, VulBERTa achieved 4.55% and 14.26%, respectively. These results establish the initial baselines but do not demonstrate the hypothesized F1 degradation on LLM-generated code. The broader comparison across detectors and vulnerability categories, including statistical significance testing, remains incomplete.
+
+**RQ3: Specialization through fine-tuning.** A dataset-specific fine-tuning pipeline was implemented with grouped training, development, and test partitions, development-based checkpoint selection, and baseline comparisons on identical held-out samples. Three-epoch LineVul fine-tuning was completed separately on LLMVul and PrimeVul. On the 1,676-record LLMVul holdout, F1 improved from 15.07% to 81.45%; on the 24,788-record PrimeVul holdout, it decreased from 10.32% to 3.92%. Checkpoints, training histories, predictions, and metrics were preserved.
+
+These results provide preliminary evidence of dataset-dependent adaptation. They use one seed and existing labels; LLMVul performance measures agreement with automated labels rather than independently verified vulnerability accuracy. VulBERTa fine-tuning was cancelled before any training epoch completed, and the proposed mixed human/LLM training comparison remains incomplete. The LLMVul fine-tuning holdout is a subset of the full RQ1 evaluation set, so its baseline scores are reported separately.
+
+Supporting records: [dataset preparation](../../datasets/pruned/README.md), [evaluation implementation](../../localScripts/README.md), training protocol (`localScripts/TRAINING.md` in the development repository; outside this RQ1 bundle), and preserved fine-tuning results (`localScripts/reports/finetuning_run1_cancelled.md` in the development repository; outside this RQ1 bundle). Frozen F1 values were checked against the LineVul entries in local run `20261009_203942_809681` and the corrected VulBERTa run `20261009_211327_299195` now preserved in [evaluation_runs](../evaluation_runs/README.md).

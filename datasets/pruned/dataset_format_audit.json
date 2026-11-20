@@ -1,0 +1,238 @@
+{
+  "datasets": {
+    "primevul_test": {
+      "source_rows": 24788,
+      "evaluated_rows": 24788,
+      "counts": {
+        "0": 24239,
+        "1": 549
+      },
+      "duplicate_ids": 0,
+      "duplicate_code_extra_rows": 0,
+      "conflicting_labels_for_identical_code": 0,
+      "source_invalid_label_types": 0,
+      "checks": {
+        "linevul/primevul_test.csv": {
+          "rows": 24788,
+          "columns": [
+            "sample_id",
+            "processed_func",
+            "target",
+            "flaw_line",
+            "flaw_line_index"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0,
+          "flaw_columns_all_empty": true
+        },
+        "vulberta/primevul_test.csv": {
+          "rows": 24788,
+          "columns": [
+            "sample_id",
+            "func",
+            "label"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0
+        },
+        "vulberta/primevul_test.pkl": {
+          "rows": 24788,
+          "columns": [
+            "sample_id",
+            "func",
+            "label"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0
+        }
+      }
+    },
+    "primevul_valid": {
+      "source_rows": 23948,
+      "evaluated_rows": 23948,
+      "counts": {
+        "0": 23355,
+        "1": 593
+      },
+      "duplicate_ids": 0,
+      "duplicate_code_extra_rows": 0,
+      "conflicting_labels_for_identical_code": 0,
+      "source_invalid_label_types": 0,
+      "checks": {
+        "linevul/primevul_valid.csv": {
+          "rows": 23948,
+          "columns": [
+            "sample_id",
+            "processed_func",
+            "target",
+            "flaw_line",
+            "flaw_line_index"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0,
+          "flaw_columns_all_empty": true
+        },
+        "vulberta/primevul_valid.csv": {
+          "rows": 23948,
+          "columns": [
+            "sample_id",
+            "func",
+            "label"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0
+        },
+        "vulberta/primevul_valid.pkl": {
+          "rows": 23948,
+          "columns": [
+            "sample_id",
+            "func",
+            "label"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0
+        }
+      }
+    },
+    "llmvul_test": {
+      "source_rows": 21430,
+      "evaluated_rows": 18751,
+      "counts": {
+        "0": 17211,
+        "1": 1540
+      },
+      "duplicate_ids": 0,
+      "duplicate_code_extra_rows": 877,
+      "conflicting_labels_for_identical_code": 0,
+      "source_label_pairs": [
+        {
+          "ensemble_label": "safe",
+          "vuln_label": "0.0",
+          "count": 17211
+        },
+        {
+          "ensemble_label": "vulnerable",
+          "vuln_label": "1.0",
+          "count": 1540
+        },
+        {
+          "ensemble_label": "uncertain",
+          "vuln_label": "",
+          "count": 2679
+        }
+      ],
+      "source_label_field_disagreements": 0,
+      "malformed_csv_rows": 0,
+      "excluded_uncertain": 2679,
+      "checks": {
+        "linevul/llmvul_test.csv": {
+          "rows": 18751,
+          "columns": [
+            "sample_id",
+            "processed_func",
+            "target",
+            "flaw_line",
+            "flaw_line_index"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0,
+          "flaw_columns_all_empty": true
+        },
+        "vulberta/llmvul_test.csv": {
+          "rows": 18751,
+          "columns": [
+            "sample_id",
+            "func",
+            "label"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0
+        },
+        "vulberta/llmvul_test.pkl": {
+          "rows": 18751,
+          "columns": [
+            "sample_id",
+            "func",
+            "label"
+          ],
+          "integer_label_dtype": true,
+          "ids_and_order_match": true,
+          "code_matches_source_exactly": true,
+          "labels_match_source_exactly": true,
+          "missing_code": 0,
+          "missing_labels": 0,
+          "invalid_labels": 0
+        }
+      }
+    }
+  },
+  "source_hash_matches": {
+    "primevul_test.jsonl": true,
+    "primevul_valid.jsonl": true,
+    "LLMVul_v3-Updated.csv": true
+  },
+  "prepared_hash_matches": {
+    "linevul/primevul_test.csv": true,
+    "vulberta/primevul_test.csv": true,
+    "vulberta/primevul_test.pkl": true,
+    "linevul/primevul_valid.csv": true,
+    "vulberta/primevul_valid.csv": true,
+    "vulberta/primevul_valid.pkl": true,
+    "linevul/llmvul_test.csv": true,
+    "vulberta/llmvul_test.csv": true,
+    "vulberta/llmvul_test.pkl": true
+  },
+  "zip_matches": {
+    "linevul/primevul_test.csv": true,
+    "vulberta/primevul_test.csv": true,
+    "vulberta/primevul_test.pkl": true,
+    "linevul/primevul_valid.csv": true,
+    "vulberta/primevul_valid.csv": true,
+    "vulberta/primevul_valid.pkl": true,
+    "linevul/llmvul_test.csv": true,
+    "vulberta/llmvul_test.csv": true,
+    "vulberta/llmvul_test.pkl": true
+  },
+  "cross_dataset_conflicting_exact_code": 0,
+  "scope": "Local source, prepared files, and uploaded bundle candidate. Colab filesystem and semantic correctness of source ground truth were not inspected."
+}

@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "dataset": "bigvul_test",
+  "rows": 18864,
+  "signature": {
+    "script": "9ce4b2a85015c06c4180c4fb795fd91ee4353affa8c395c274d3833cb62756f7",
+    "checkpoint": "1b18ff8e75af787520a00139bd86e70d02eb448c716290ee7b2cb20bda61a67b",
+    "input_manifest": "850ff91693360c6844d1b833e32d757b7e76c94ab88a19af94e42a8e4d3da9de",
+    "model": "linevul",
+    "seed": 42,
+    "batch_size": 16,
+    "device": "cuda",
+    "versions": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.57.1",
+      "tokenizers": "0.22.1",
+      "libclang": "18.1.1"
+    }
+  },
+  "predictions_sha256": "77d1cca8782b22e32ee65fd2f04db774e6a6dd0555d23a5332ed3a28a5f61b3d",
+  "parity_rows": 2000,
+  "max_parity_delta": 0.0,
+  "measured": {
+    "confusion_matrix": {
+      "tn": 17782,
+      "fp": 27,
+      "fn": 144,
+      "tp": 911
+    },
+    "test_accuracy": 0.9909351145038168,
+    "test_precision": 0.9712153518123667,
+    "test_recall": 0.8635071090047394,
+    "test_f1": 0.9141996989463121,
+    "precision_defined": true
+  },
+  "embedded_sample_prediction_changes": 0,
+  "embedded_sample_max_score_delta": 0.0
+}

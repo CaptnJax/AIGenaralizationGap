@@ -1,0 +1,6 @@
+{
+  "sample_id": "llmvul:ID_19932D3F2CDFD43E",
+  "dataset": "llmvul_test",
+  "source_language": "c",
+  "code": "void mbedtls_sha512_clone(mbedtls_sha512_context *dst,\n                          const mbedtls_sha512_context *src)\n{\n    *dst = *src;\n}"
+}

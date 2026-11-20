@@ -1,0 +1,6 @@
+{
+  "sample_id": "bigvul-source:17661",
+  "dataset": "bigvul_test_sample_2000",
+  "source_language": "CPP",
+  "code": "  int getDataSize() { return h * line; }\n"
+}

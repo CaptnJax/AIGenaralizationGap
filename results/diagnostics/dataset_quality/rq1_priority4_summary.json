@@ -1,0 +1,4304 @@
+{
+  "date": "2026-10-29",
+  "status": "automated_audit_complete_independent_adjudication_pending",
+  "audit": {
+    "status": "automated_audit_complete_independent_adjudication_pending",
+    "plan_sha256": "3605543f84064c41179f8509553cca378fceecb0b1b82c8cd920d83c6146579b",
+    "script_sha256": "f4b25e8266ec8e5be7c93b0c9f7184a5e32f6a59dc56eae3b2fec4e37715c277",
+    "source_hashes": {
+      "LLMVul_v3-Updated.csv": "eb0efbf912fb22d51cddd33ffa11e6f3e4add56b52cc9e78dae96621c819c293",
+      "primevul_test.jsonl": "c9dcab5ee897da36eccf0dbb3b510de2dab66a7dec681af29a7a28c8a53331c4",
+      "primevul_valid.jsonl": "7f0b4d05b063c20d5cf57478128538b8c0c36354e8def7f2d4febe6773b9dc7c",
+      "prepared_datasets\\cweval\\catalog.jsonl": "f038022bc9f276ade72b363c0c568df21d21134a3a6fac3f753ae0739d68755e",
+      "localScripts\\results\\rq1_priority2_20261028\\joined_inputs.csv": "4ebbf054a9ed522fdc2296fa4f70ca4b4627b00fa2ff4f148b7ebdc4b7cf94a7",
+      "localScripts\\results\\20261009_203652_921773\\linevul\\bigvul_test_sample_2000\\results\\raw_preds.csv": "69dfe2292b7dea4b87b4b411b42c860ee6463fe307e8a24247c53781f45b07be",
+      "localScripts\\results\\20261009_203942_809681\\linevul\\primevul_test\\results\\raw_preds.csv": "85732a93d5291b6f287263f612d60aa337f3dda73c278a81b608b26ffb67553d",
+      "localScripts\\results\\20261009_203942_809681\\linevul\\llmvul_test\\results\\raw_preds.csv": "842e5b4a15f53f735b1c67edd0a04b20435066346c810a2f431adf9e0e40461a",
+      "localScripts\\results\\20261009_211327_299195\\vulberta\\primevul_test\\predictions.csv": "ecd2d4ac926e0e4c53500481293595d2511059d1e57ee3187ecb88d0584a23e2",
+      "localScripts\\results\\20261009_211327_299195\\vulberta\\llmvul_test\\predictions.csv": "0c9b7803878269a120a241e3f7f66229e8647318eb6f9c152e70909f4cfea422",
+      "localScripts\\results\\20261015_230324_309261\\linevul\\cweval_test\\results\\raw_preds.csv": "5535aac818b2f208b61075cbda30063a19f3868e9eef53951116adfb533342ab",
+      "localScripts\\results\\20261015_230324_309261\\vulberta\\cweval_test\\predictions.csv": "61c4b666177926b4c37453062a02126178fc4f87790d6acfb6189163d07ff4a9"
+    },
+    "source_files_unchanged": true,
+    "datasets": {
+      "bigvul_test_sample_2000": {
+        "code_sha256": {
+          "rows": 2000,
+          "groups": 2000,
+          "extra_rows": 0,
+          "duplicate_groups": 0,
+          "rows_in_duplicate_groups": 0,
+          "conflicting_groups": 0,
+          "conflicting_rows": 0,
+          "largest_group": 1
+        },
+        "token_sha256": {
+          "rows": 2000,
+          "groups": 1999,
+          "extra_rows": 1,
+          "duplicate_groups": 1,
+          "rows_in_duplicate_groups": 2,
+          "conflicting_groups": 0,
+          "conflicting_rows": 0,
+          "largest_group": 2
+        },
+        "structural_sha256": {
+          "rows": 2000,
+          "groups": 1961,
+          "extra_rows": 39,
+          "duplicate_groups": 27,
+          "rows_in_duplicate_groups": 66,
+          "conflicting_groups": 1,
+          "conflicting_rows": 3,
+          "largest_group": 6
+        },
+        "structure": {
+          "language": {
+            "C": 1972,
+            "CPP": 28
+          },
+          "parse_errors": 230,
+          "function_counts": {
+            "1": 1975,
+            "2": 11,
+            "4": 3,
+            "0": 8,
+            "16": 1,
+            "6": 1,
+            "23": 1
+          },
+          "empty_bodies": 55,
+          "trivial_return_bodies": 187
+        }
+      },
+      "primevul_test": {
+        "code_sha256": {
+          "rows": 24788,
+          "groups": 24788,
+          "extra_rows": 0,
+          "duplicate_groups": 0,
+          "rows_in_duplicate_groups": 0,
+          "conflicting_groups": 0,
+          "conflicting_rows": 0,
+          "largest_group": 1
+        },
+        "token_sha256": {
+          "rows": 24788,
+          "groups": 24781,
+          "extra_rows": 7,
+          "duplicate_groups": 7,
+          "rows_in_duplicate_groups": 14,
+          "conflicting_groups": 2,
+          "conflicting_rows": 4,
+          "largest_group": 2
+        },
+        "structural_sha256": {
+          "rows": 24788,
+          "groups": 22705,
+          "extra_rows": 2083,
+          "duplicate_groups": 909,
+          "rows_in_duplicate_groups": 2992,
+          "conflicting_groups": 15,
+          "conflicting_rows": 32,
+          "largest_group": 134
+        },
+        "structure": {
+          "language": {
+            "unknown": 24788
+          },
+          "parse_errors": 4456,
+          "function_counts": {
+            "1": 23780,
+            "2": 197,
+            "0": 749,
+            "105": 2,
+            "15": 4,
+            "3": 24,
+            "4": 19,
+            "6": 8,
+            "5": 4,
+            "85": 1
+          },
+          "empty_bodies": 263,
+          "trivial_return_bodies": 2059
+        }
+      },
+      "llmvul_test": {
+        "code_sha256": {
+          "rows": 18751,
+          "groups": 17874,
+          "extra_rows": 877,
+          "duplicate_groups": 454,
+          "rows_in_duplicate_groups": 1331,
+          "conflicting_groups": 0,
+          "conflicting_rows": 0,
+          "largest_group": 39
+        },
+        "token_sha256": {
+          "rows": 18751,
+          "groups": 17859,
+          "extra_rows": 892,
+          "duplicate_groups": 466,
+          "rows_in_duplicate_groups": 1358,
+          "conflicting_groups": 0,
+          "conflicting_rows": 0,
+          "largest_group": 39
+        },
+        "structural_sha256": {
+          "rows": 18751,
+          "groups": 17125,
+          "extra_rows": 1626,
+          "duplicate_groups": 916,
+          "rows_in_duplicate_groups": 2542,
+          "conflicting_groups": 0,
+          "conflicting_rows": 0,
+          "largest_group": 81
+        },
+        "structure": {
+          "language": {
+            "c": 7392,
+            "cpp": 11359
+          },
+          "parse_errors": 3575,
+          "function_counts": {
+            "1": 18282,
+            "5": 1,
+            "2": 87,
+            "0": 330,
+            "3": 33,
+            "8": 1,
+            "6": 1,
+            "7": 1,
+            "4": 11,
+            "11": 2,
+            "10": 1,
+            "13": 1
+          },
+          "empty_bodies": 72,
+          "trivial_return_bodies": 591
+        }
+      },
+      "cweval_test": {
+        "code_sha256": {
+          "rows": 58,
+          "groups": 58,
+          "extra_rows": 0,
+          "duplicate_groups": 0,
+          "rows_in_duplicate_groups": 0,
+          "conflicting_groups": 0,
+          "conflicting_rows": 0,
+          "largest_group": 1
+        },
+        "token_sha256": {
+          "rows": 58,
+          "groups": 58,
+          "extra_rows": 0,
+          "duplicate_groups": 0,
+          "rows_in_duplicate_groups": 0,
+          "conflicting_groups": 0,
+          "conflicting_rows": 0,
+          "largest_group": 1
+        },
+        "structural_sha256": {
+          "rows": 58,
+          "groups": 55,
+          "extra_rows": 3,
+          "duplicate_groups": 3,
+          "rows_in_duplicate_groups": 6,
+          "conflicting_groups": 3,
+          "conflicting_rows": 6,
+          "largest_group": 2
+        },
+        "structure": {
+          "language": {
+            "c": 38,
+            "cpp": 20
+          },
+          "parse_errors": 0,
+          "function_counts": {
+            "1": 58
+          },
+          "empty_bodies": 0,
+          "trivial_return_bodies": 0
+        }
+      }
+    },
+    "weighting": [
+      {
+        "job": "linevul/bigvul_test_sample_2000",
+        "roc_auc": 0.9894871746368039,
+        "average_precision": 0.949472174942407,
+        "ap_lift": 16.954860266828696,
+        "precision": 0.9696969696969697,
+        "recall": 0.8571428571428571,
+        "f1": 0.909952606635071,
+        "fpr": 0.0015889830508474577,
+        "balanced_accuracy": 0.9277769370460048,
+        "mcc": 0.9068776791003682,
+        "predicted_positive_rate": 0.0495,
+        "prevalence": 0.056,
+        "brier": 0.008764900033248448,
+        "log_loss": 0.052370992218347415,
+        "ece_10": 0.008907503073703993,
+        "precision_defined": true,
+        "tp": 96.0,
+        "fp": 3.0,
+        "fn": 16.0,
+        "tn": 1885.0,
+        "recall_fpr_01": 0.9107142857142857,
+        "recall_fpr_05": 0.9464285714285714,
+        "recall_fpr_10": 0.9642857142857143,
+        "rows": 2000,
+        "original_positives": 112,
+        "effective_weight": 2000.0,
+        "weighting": "rows"
+      },
+      {
+        "job": "linevul/bigvul_test_sample_2000",
+        "roc_auc": 0.9894871746368039,
+        "average_precision": 0.949472174942407,
+        "ap_lift": 16.954860266828696,
+        "precision": 0.9696969696969697,
+        "recall": 0.8571428571428571,
+        "f1": 0.909952606635071,
+        "fpr": 0.0015889830508474577,
+        "balanced_accuracy": 0.9277769370460048,
+        "mcc": 0.9068776791003682,
+        "predicted_positive_rate": 0.0495,
+        "prevalence": 0.056,
+        "brier": 0.008764900033248448,
+        "log_loss": 0.052370992218347415,
+        "ece_10": 0.008907503073703993,
+        "precision_defined": true,
+        "tp": 96.0,
+        "fp": 3.0,
+        "fn": 16.0,
+        "tn": 1885.0,
+        "recall_fpr_01": 0.9107142857142857,
+        "recall_fpr_05": 0.9464285714285714,
+        "recall_fpr_10": 0.9642857142857143,
+        "rows": 2000,
+        "original_positives": 112,
+        "effective_weight": 2000.0,
+        "weighting": "code_sha256"
+      },
+      {
+        "job": "linevul/bigvul_test_sample_2000",
+        "roc_auc": 0.9894839692633811,
+        "average_precision": 0.9494726321508932,
+        "ap_lift": 16.946390997050315,
+        "precision": 0.9696969696969697,
+        "recall": 0.8571428571428571,
+        "f1": 0.909952606635071,
+        "fpr": 0.001589825119236884,
+        "balanced_accuracy": 0.9277765160118101,
+        "mcc": 0.9068751432565463,
+        "predicted_positive_rate": 0.04952476238119059,
+        "prevalence": 0.0560280140070035,
+        "brier": 0.00876928467418124,
+        "log_loss": 0.05239716434908724,
+        "ece_10": 0.008911985517195138,
+        "precision_defined": true,
+        "tp": 96.0,
+        "fp": 3.0,
+        "fn": 16.0,
+        "tn": 1884.0,
+        "recall_fpr_01": 0.9107142857142857,
+        "recall_fpr_05": 0.9464285714285714,
+        "recall_fpr_10": 0.9642857142857143,
+        "rows": 2000,
+        "original_positives": 112,
+        "effective_weight": 1999.0,
+        "weighting": "token_sha256"
+      },
+      {
+        "job": "linevul/bigvul_test_sample_2000",
+        "roc_auc": 0.9892625094018124,
+        "average_precision": 0.9490907815781674,
+        "ap_lift": 16.717069065941192,
+        "precision": 0.9694915254237289,
+        "recall": 0.8562874251497006,
+        "f1": 0.9093799682034976,
+        "fpr": 0.0016219138583528565,
+        "balanced_accuracy": 0.9273327556456739,
+        "mcc": 0.9062281910411774,
+        "predicted_positive_rate": 0.05014448410674826,
+        "prevalence": 0.05677375488696244,
+        "brier": 0.008939214559389013,
+        "log_loss": 0.053411271171772655,
+        "ece_10": 0.009085919254694041,
+        "precision_defined": true,
+        "tp": 95.33333333333333,
+        "fp": 3.0,
+        "fn": 16.0,
+        "tn": 1846.6666666666665,
+        "recall_fpr_01": 0.9101796407185628,
+        "recall_fpr_05": 0.9461077844311377,
+        "recall_fpr_10": 0.9640718562874252,
+        "rows": 2000,
+        "original_positives": 112,
+        "effective_weight": 1961.0,
+        "weighting": "structural_sha256"
+      },
+      {
+        "job": "linevul/bigvul_test_sample_2000",
+        "roc_auc": 0.9894994300911855,
+        "average_precision": 0.9495234357126142,
+        "ap_lift": 16.887952535174353,
+        "precision": 0.9696969696969697,
+        "recall": 0.8571428571428571,
+        "f1": 0.909952606635071,
+        "fpr": 0.0015957446808510637,
+        "balanced_accuracy": 0.927773556231003,
+        "mcc": 0.9068573171574252,
+        "predicted_positive_rate": 0.04969879518072289,
+        "prevalence": 0.05622489959839357,
+        "brier": 0.00880010037536678,
+        "log_loss": 0.052580902250814576,
+        "ece_10": 0.008943691386089067,
+        "precision_defined": true,
+        "tp": 96.0,
+        "fp": 3.0,
+        "fn": 16.0,
+        "tn": 1877.0,
+        "recall_fpr_01": 0.9107142857142857,
+        "recall_fpr_05": 0.9464285714285714,
+        "recall_fpr_10": 0.9642857142857143,
+        "rows": 1992,
+        "original_positives": 112,
+        "effective_weight": 1992.0,
+        "weighting": "rows",
+        "condition": "exclude_cross_dataset_exact_matches"
+      },
+      {
+        "job": "linevul/primevul_test",
+        "roc_auc": 0.7367149284699852,
+        "average_precision": 0.05557512552301512,
+        "ap_lift": 2.5092827166930762,
+        "precision": 0.0676905574516496,
+        "recall": 0.2167577413479053,
+        "f1": 0.10316428261811877,
+        "fpr": 0.06761830108502825,
+        "balanced_accuracy": 0.5745697201314385,
+        "mcc": 0.08550266002294944,
+        "predicted_positive_rate": 0.07092141358721962,
+        "prevalence": 0.022147813458124898,
+        "brier": 0.08212504028155256,
+        "log_loss": 0.5795754796371554,
+        "ece_10": 0.08255127992976415,
+        "precision_defined": true,
+        "tp": 119.0,
+        "fp": 1639.0,
+        "fn": 430.0,
+        "tn": 22600.0,
+        "recall_fpr_01": 0.04735883424408015,
+        "recall_fpr_05": 0.14754098360655737,
+        "recall_fpr_10": 0.30783242258652094,
+        "rows": 24788,
+        "original_positives": 549,
+        "effective_weight": 24788.0,
+        "weighting": "rows"
+      },
+      {
+        "job": "linevul/primevul_test",
+        "roc_auc": 0.7367149284699852,
+        "average_precision": 0.05557512552301512,
+        "ap_lift": 2.5092827166930762,
+        "precision": 0.0676905574516496,
+        "recall": 0.2167577413479053,
+        "f1": 0.10316428261811877,
+        "fpr": 0.06761830108502825,
+        "balanced_accuracy": 0.5745697201314385,
+        "mcc": 0.08550266002294944,
+        "predicted_positive_rate": 0.07092141358721962,
+        "prevalence": 0.022147813458124898,
+        "brier": 0.08212504028155256,
+        "log_loss": 0.5795754796371554,
+        "ece_10": 0.08255127992976415,
+        "precision_defined": true,
+        "tp": 119.0,
+        "fp": 1639.0,
+        "fn": 430.0,
+        "tn": 22600.0,
+        "recall_fpr_01": 0.04735883424408015,
+        "recall_fpr_05": 0.14754098360655737,
+        "recall_fpr_10": 0.30783242258652094,
+        "rows": 24788,
+        "original_positives": 549,
+        "effective_weight": 24788.0,
+        "weighting": "code_sha256"
+      },
+      {
+        "job": "linevul/primevul_test",
+        "roc_auc": 0.7367462866586283,
+        "average_precision": 0.0555108115972464,
+        "ap_lift": 2.510243471152122,
+        "precision": 0.06746370623398805,
+        "recall": 0.21624087591240876,
+        "f1": 0.10284226513343458,
+        "fpr": 0.06759377708084018,
+        "balanced_accuracy": 0.5743235494157843,
+        "mcc": 0.08517872339353368,
+        "predicted_positive_rate": 0.07088091683144344,
+        "prevalence": 0.0221137161535047,
+        "brier": 0.08208809835596391,
+        "log_loss": 0.5793060665357647,
+        "ece_10": 0.08251445641942011,
+        "precision_defined": true,
+        "tp": 118.5,
+        "fp": 1638.0,
+        "fn": 429.5,
+        "tn": 22595.0,
+        "recall_fpr_01": 0.04744525547445255,
+        "recall_fpr_05": 0.1478102189781022,
+        "recall_fpr_10": 0.3074817518248175,
+        "rows": 24788,
+        "original_positives": 549,
+        "effective_weight": 24781.0,
+        "weighting": "token_sha256"
+      },
+      {
+        "job": "linevul/primevul_test",
+        "roc_auc": 0.7266369339183765,
+        "average_precision": 0.05644444642749617,
+        "ap_lift": 2.372547650977415,
+        "precision": 0.06758432568108103,
+        "recall": 0.21659981487195307,
+        "f1": 0.103023007563197,
+        "fpr": 0.07282575107357611,
+        "balanced_accuracy": 0.5718870318991884,
+        "mcc": 0.08255965511407148,
+        "predicted_positive_rate": 0.0762462292411643,
+        "prevalence": 0.023790648168538504,
+        "brier": 0.08826924452028048,
+        "log_loss": 0.6227530126885159,
+        "ece_10": 0.08871073057107176,
+        "precision_defined": true,
+        "tp": 117.0,
+        "fp": 1614.1706349206352,
+        "fn": 423.16666666666663,
+        "tn": 20550.662698412692,
+        "recall_fpr_01": 0.044430731255785255,
+        "recall_fpr_05": 0.13884603517432892,
+        "recall_fpr_10": 0.29250231410058625,
+        "rows": 24788,
+        "original_positives": 549,
+        "effective_weight": 22705.0,
+        "weighting": "structural_sha256"
+      },
+      {
+        "job": "linevul/primevul_test",
+        "roc_auc": 0.7366645264755775,
+        "average_precision": 0.055585996368386896,
+        "ap_lift": 2.508052306086178,
+        "precision": 0.0676905574516496,
+        "recall": 0.2167577413479053,
+        "f1": 0.10316428261811877,
+        "fpr": 0.06766575840145322,
+        "balanced_accuracy": 0.574545991473226,
+        "mcc": 0.08547702710786832,
+        "predicted_positive_rate": 0.07097008598764684,
+        "prevalence": 0.022163013200920432,
+        "brier": 0.0821814015726286,
+        "log_loss": 0.5799731821113038,
+        "ece_10": 0.08260798603180806,
+        "precision_defined": true,
+        "tp": 119.0,
+        "fp": 1639.0,
+        "fn": 430.0,
+        "tn": 22583.0,
+        "recall_fpr_01": 0.04735883424408015,
+        "recall_fpr_05": 0.14754098360655737,
+        "recall_fpr_10": 0.30783242258652094,
+        "rows": 24771,
+        "original_positives": 549,
+        "effective_weight": 24771.0,
+        "weighting": "rows",
+        "condition": "exclude_cross_dataset_exact_matches"
+      },
+      {
+        "job": "vulberta/primevul_test",
+        "roc_auc": 0.5954088726781293,
+        "average_precision": 0.024928815449516604,
+        "ap_lift": 1.125565532536644,
+        "precision": 0.024506371656630725,
+        "recall": 0.31876138433515483,
+        "f1": 0.045513654096228866,
+        "fpr": 0.2873880935682165,
+        "balanced_accuracy": 0.5156866453834692,
+        "mcc": 0.010195033020188525,
+        "predicted_positive_rate": 0.28808294335969015,
+        "prevalence": 0.022147813458124898,
+        "brier": 0.22345910353503953,
+        "log_loss": 0.7334293240014045,
+        "ece_10": 0.3139538230540221,
+        "precision_defined": true,
+        "tp": 175.0,
+        "fp": 6966.0,
+        "fn": 374.0,
+        "tn": 17273.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.009107468123861567,
+        "recall_fpr_10": 0.03278688524590164,
+        "rows": 24788,
+        "original_positives": 549,
+        "effective_weight": 24788.0,
+        "weighting": "rows"
+      },
+      {
+        "job": "vulberta/primevul_test",
+        "roc_auc": 0.5954088726781293,
+        "average_precision": 0.024928815449516604,
+        "ap_lift": 1.125565532536644,
+        "precision": 0.024506371656630725,
+        "recall": 0.31876138433515483,
+        "f1": 0.045513654096228866,
+        "fpr": 0.2873880935682165,
+        "balanced_accuracy": 0.5156866453834692,
+        "mcc": 0.010195033020188525,
+        "predicted_positive_rate": 0.28808294335969015,
+        "prevalence": 0.022147813458124898,
+        "brier": 0.22345910353503953,
+        "log_loss": 0.7334293240014045,
+        "ece_10": 0.3139538230540221,
+        "precision_defined": true,
+        "tp": 175.0,
+        "fp": 6966.0,
+        "fn": 374.0,
+        "tn": 17273.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.009107468123861567,
+        "recall_fpr_10": 0.03278688524590164,
+        "rows": 24788,
+        "original_positives": 549,
+        "effective_weight": 24788.0,
+        "weighting": "code_sha256"
+      },
+      {
+        "job": "vulberta/primevul_test",
+        "roc_auc": 0.5955997145715215,
+        "average_precision": 0.024905491925545902,
+        "ap_lift": 1.126246341983491,
+        "precision": 0.024509803921568627,
+        "recall": 0.3193430656934307,
+        "f1": 0.045525494276795,
+        "fpr": 0.2874179837411794,
+        "balanced_accuracy": 0.5159625409761257,
+        "mcc": 0.010366095016554134,
+        "predicted_positive_rate": 0.28812396594164885,
+        "prevalence": 0.0221137161535047,
+        "brier": 0.2234664203453283,
+        "log_loss": 0.7334759135151625,
+        "ece_10": 0.31401633050112787,
+        "precision_defined": true,
+        "tp": 175.0,
+        "fp": 6965.0,
+        "fn": 373.0,
+        "tn": 17268.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.009124087591240875,
+        "recall_fpr_10": 0.032846715328467155,
+        "rows": 24788,
+        "original_positives": 549,
+        "effective_weight": 24781.0,
+        "weighting": "token_sha256"
+      },
+      {
+        "job": "vulberta/primevul_test",
+        "roc_auc": 0.593203517629972,
+        "average_precision": 0.02676999647675738,
+        "ap_lift": 1.1252319099131927,
+        "precision": 0.0266502768742107,
+        "recall": 0.32088861462511564,
+        "f1": 0.049213314738087696,
+        "fpr": 0.2856174932734736,
+        "balanced_accuracy": 0.5176355606758211,
+        "mcc": 0.01188924470276852,
+        "predicted_positive_rate": 0.2864566161120603,
+        "prevalence": 0.023790648168538504,
+        "brier": 0.22006782708044464,
+        "log_loss": 0.7138696041121887,
+        "ece_10": 0.31187574857377576,
+        "precision_defined": true,
+        "tp": 173.33333333333331,
+        "fp": 6330.664135490995,
+        "fn": 366.8333333333333,
+        "tn": 15834.169197842333,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.01666152422091947,
+        "recall_fpr_10": 0.039493983338475785,
+        "rows": 24788,
+        "original_positives": 549,
+        "effective_weight": 22705.0,
+        "weighting": "structural_sha256"
+      },
+      {
+        "job": "vulberta/primevul_test",
+        "roc_auc": 0.5956980128709257,
+        "average_precision": 0.024967098441417125,
+        "ap_lift": 1.1265209389660176,
+        "precision": 0.024554511014452083,
+        "recall": 0.31876138433515483,
+        "f1": 0.04559666492965086,
+        "fpr": 0.28701180744777477,
+        "balanced_accuracy": 0.5158747884436901,
+        "mcc": 0.010324694502771755,
+        "predicted_positive_rate": 0.2877154737394534,
+        "prevalence": 0.022163013200920432,
+        "brier": 0.22316384949819,
+        "log_loss": 0.7323554313046499,
+        "ece_10": 0.31365430729774174,
+        "precision_defined": true,
+        "tp": 175.0,
+        "fp": 6952.0,
+        "fn": 374.0,
+        "tn": 17270.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.009107468123861567,
+        "recall_fpr_10": 0.03460837887067395,
+        "rows": 24771,
+        "original_positives": 549,
+        "effective_weight": 24771.0,
+        "weighting": "rows",
+        "condition": "exclude_cross_dataset_exact_matches"
+      },
+      {
+        "job": "linevul/llmvul_test",
+        "roc_auc": 0.5973734896211801,
+        "average_precision": 0.10272040488234008,
+        "ap_lift": 1.2507209817849083,
+        "precision": 0.08716187204808931,
+        "recall": 0.1318181818181818,
+        "f1": 0.10493667614370639,
+        "fpr": 0.12352565219917494,
+        "balanced_accuracy": 0.5041462648095034,
+        "mcc": 0.006903235286940022,
+        "predicted_positive_rate": 0.1242067089755213,
+        "prevalence": 0.08212895312250014,
+        "brier": 0.18266673647658355,
+        "log_loss": 1.3814152171593255,
+        "ece_10": 0.1830070788909917,
+        "precision_defined": true,
+        "tp": 203.0,
+        "fp": 2126.0,
+        "fn": 1337.0,
+        "tn": 15085.0,
+        "recall_fpr_01": 0.00974025974025974,
+        "recall_fpr_05": 0.05064935064935065,
+        "recall_fpr_10": 0.10974025974025974,
+        "rows": 18751,
+        "original_positives": 1540,
+        "effective_weight": 18751.0,
+        "weighting": "rows"
+      },
+      {
+        "job": "linevul/llmvul_test",
+        "roc_auc": 0.6063351493070408,
+        "average_precision": 0.10644619970173028,
+        "ap_lift": 1.2735069434194959,
+        "precision": 0.08977777777777764,
+        "recall": 0.13520749665327977,
+        "f1": 0.1079059829059828,
+        "fpr": 0.12503052503052503,
+        "balanced_accuracy": 0.5050884858113773,
+        "mcc": 0.008491089856404264,
+        "predicted_positive_rate": 0.12588116817724068,
+        "prevalence": 0.08358509566968782,
+        "brier": 0.18495001655303725,
+        "log_loss": 1.402542607930195,
+        "ece_10": 0.18523464753380192,
+        "precision_defined": true,
+        "tp": 202.0,
+        "fp": 2048.0,
+        "fn": 1292.0,
+        "tn": 14332.0,
+        "recall_fpr_01": 0.009370816599732263,
+        "recall_fpr_05": 0.049531459170013385,
+        "recall_fpr_10": 0.10910307898259705,
+        "rows": 18751,
+        "original_positives": 1540,
+        "effective_weight": 17874.0,
+        "weighting": "code_sha256"
+      },
+      {
+        "job": "linevul/llmvul_test",
+        "roc_auc": 0.6061954464051895,
+        "average_precision": 0.10636992500994624,
+        "ap_lift": 1.2732308919253552,
+        "precision": 0.08963523131672584,
+        "recall": 0.13505361930294904,
+        "f1": 0.10775401069518706,
+        "fpr": 0.1250381865949777,
+        "balanced_accuracy": 0.5050077163539857,
+        "mcc": 0.008354590249724693,
+        "predicted_positive_rate": 0.12587490900946302,
+        "prevalence": 0.08354331149560446,
+        "brier": 0.18493753633273513,
+        "log_loss": 1.402331719244648,
+        "ece_10": 0.18522244109284577,
+        "precision_defined": true,
+        "tp": 201.5,
+        "fp": 2046.5,
+        "fn": 1290.5,
+        "tn": 14320.5,
+        "recall_fpr_01": 0.00938337801608579,
+        "recall_fpr_05": 0.049597855227882036,
+        "recall_fpr_10": 0.1089142091152815,
+        "rows": 18751,
+        "original_positives": 1540,
+        "effective_weight": 17859.0,
+        "weighting": "token_sha256"
+      },
+      {
+        "job": "linevul/llmvul_test",
+        "roc_auc": 0.6018535777346518,
+        "average_precision": 0.1076643705715764,
+        "ap_lift": 1.2525491481238085,
+        "precision": 0.08929651584805214,
+        "recall": 0.13371829710144925,
+        "f1": 0.10708327288553596,
+        "fpr": 0.1282459166506953,
+        "balanced_accuracy": 0.502736190225377,
+        "mcc": 0.004580383372813816,
+        "predicted_positive_rate": 0.12871630170316303,
+        "prevalence": 0.08595620437956204,
+        "brier": 0.18973972566365194,
+        "log_loss": 1.4390158122525412,
+        "ece_10": 0.1900254088362193,
+        "precision_defined": true,
+        "tp": 196.83333333333334,
+        "fp": 2007.4333333333334,
+        "fn": 1275.1666666666667,
+        "tn": 13645.566666666666,
+        "recall_fpr_01": 0.008152173913043478,
+        "recall_fpr_05": 0.04823369565217391,
+        "recall_fpr_10": 0.10756340579710144,
+        "rows": 18751,
+        "original_positives": 1540,
+        "effective_weight": 17125.0,
+        "weighting": "structural_sha256"
+      },
+      {
+        "job": "linevul/llmvul_test",
+        "roc_auc": 0.5972261040319987,
+        "average_precision": 0.10272693001389863,
+        "ap_lift": 1.2502000794288883,
+        "precision": 0.08716187204808931,
+        "recall": 0.1318181818181818,
+        "f1": 0.10493667614370639,
+        "fpr": 0.12359028019997674,
+        "balanced_accuracy": 0.5041139508091025,
+        "mcc": 0.0068495208691574,
+        "predicted_positive_rate": 0.12426635364422153,
+        "prevalence": 0.08216839184718813,
+        "brier": 0.18275445393488646,
+        "log_loss": 1.3820785545267784,
+        "ece_10": 0.1830949847554278,
+        "precision_defined": true,
+        "tp": 203.0,
+        "fp": 2126.0,
+        "fn": 1337.0,
+        "tn": 15076.0,
+        "recall_fpr_01": 0.00974025974025974,
+        "recall_fpr_05": 0.05064935064935065,
+        "recall_fpr_10": 0.10974025974025974,
+        "rows": 18742,
+        "original_positives": 1540,
+        "effective_weight": 18742.0,
+        "weighting": "rows",
+        "condition": "exclude_cross_dataset_exact_matches"
+      },
+      {
+        "job": "vulberta/llmvul_test",
+        "roc_auc": 0.5533440558627938,
+        "average_precision": 0.08548983386430034,
+        "ap_lift": 1.0409219966165555,
+        "precision": 0.08833100883310088,
+        "recall": 0.37012987012987014,
+        "f1": 0.14262479669710998,
+        "fpr": 0.3418162802858637,
+        "balanced_accuracy": 0.5141567949220033,
+        "mcc": 0.016362899851487592,
+        "predicted_positive_rate": 0.3441416457788918,
+        "prevalence": 0.08212895312250014,
+        "brier": 0.27534975169498715,
+        "log_loss": 0.8768731720272075,
+        "ece_10": 0.29300585375607735,
+        "precision_defined": true,
+        "tp": 570.0,
+        "fp": 5883.0,
+        "fn": 970.0,
+        "tn": 11328.0,
+        "recall_fpr_01": 0.004545454545454545,
+        "recall_fpr_05": 0.024675324675324677,
+        "recall_fpr_10": 0.06298701298701298,
+        "rows": 18751,
+        "original_positives": 1540,
+        "effective_weight": 18751.0,
+        "weighting": "rows"
+      },
+      {
+        "job": "vulberta/llmvul_test",
+        "roc_auc": 0.5451126851729327,
+        "average_precision": 0.08508672755856517,
+        "ap_lift": 1.017965306815123,
+        "precision": 0.08755980861244038,
+        "recall": 0.36746987951807225,
+        "f1": 0.1414219474497684,
+        "fpr": 0.34926739926739925,
+        "balanced_accuracy": 0.5091012401253365,
+        "mcc": 0.01055662721162799,
+        "predicted_positive_rate": 0.35078885532057735,
+        "prevalence": 0.08358509566968782,
+        "brier": 0.28096517792698683,
+        "log_loss": 0.893752431023037,
+        "ece_10": 0.29787504005412146,
+        "precision_defined": true,
+        "tp": 549.0,
+        "fp": 5721.0,
+        "fn": 945.0,
+        "tn": 10659.0,
+        "recall_fpr_01": 0.004016064257028112,
+        "recall_fpr_05": 0.0214190093708166,
+        "recall_fpr_10": 0.05756358768406961,
+        "rows": 18751,
+        "original_positives": 1540,
+        "effective_weight": 17874.0,
+        "weighting": "code_sha256"
+      },
+      {
+        "job": "vulberta/llmvul_test",
+        "roc_auc": 0.5448159721443088,
+        "average_precision": 0.08498524996434395,
+        "ap_lift": 1.017259771523605,
+        "precision": 0.08749800415136536,
+        "recall": 0.36729222520107235,
+        "f1": 0.1413281753707288,
+        "fpr": 0.34917822447607993,
+        "balanced_accuracy": 0.5090570003624962,
+        "mcc": 0.010503596368734804,
+        "predicted_positive_rate": 0.35069152808107956,
+        "prevalence": 0.08354331149560446,
+        "brier": 0.2809560128920596,
+        "log_loss": 0.89373481868987,
+        "ece_10": 0.2978674092461783,
+        "precision_defined": true,
+        "tp": 548.0,
+        "fp": 5715.0,
+        "fn": 944.0,
+        "tn": 10652.0,
+        "recall_fpr_01": 0.004021447721179625,
+        "recall_fpr_05": 0.022117962466487937,
+        "recall_fpr_10": 0.057640750670241284,
+        "rows": 18751,
+        "original_positives": 1540,
+        "effective_weight": 17859.0,
+        "weighting": "token_sha256"
+      },
+      {
+        "job": "vulberta/llmvul_test",
+        "roc_auc": 0.5453608965982709,
+        "average_precision": 0.08783231696208478,
+        "ap_lift": 1.0218263777008845,
+        "precision": 0.09054831971756239,
+        "recall": 0.36820652173913043,
+        "f1": 0.1453520653718213,
+        "fpr": 0.34777706286841914,
+        "balanced_accuracy": 0.5102147294353556,
+        "mcc": 0.0120094252986116,
+        "predicted_positive_rate": 0.34953310161047385,
+        "prevalence": 0.08595620437956204,
+        "brier": 0.27921918087872094,
+        "log_loss": 0.8845615854380782,
+        "ece_10": 0.29528242539016303,
+        "precision_defined": true,
+        "tp": 542.0,
+        "fp": 5443.754365079365,
+        "fn": 930.0,
+        "tn": 10209.245634920635,
+        "recall_fpr_01": 0.004755434782608696,
+        "recall_fpr_05": 0.023324275362318837,
+        "recall_fpr_10": 0.05927309782608696,
+        "rows": 18751,
+        "original_positives": 1540,
+        "effective_weight": 17125.0,
+        "weighting": "structural_sha256"
+      },
+      {
+        "job": "vulberta/llmvul_test",
+        "roc_auc": 0.5534894387091805,
+        "average_precision": 0.08557015597652201,
+        "ap_lift": 1.0413999112415426,
+        "precision": 0.0884269314303444,
+        "recall": 0.37012987012987014,
+        "f1": 0.14274981217129978,
+        "fpr": 0.3415881874200674,
+        "balanced_accuracy": 0.5142708413549013,
+        "mcc": 0.016500698469114044,
+        "predicted_positive_rate": 0.34393341158894464,
+        "prevalence": 0.08216839184718813,
+        "brier": 0.2752069945605477,
+        "log_loss": 0.8763390683041262,
+        "ece_10": 0.2928226914941762,
+        "precision_defined": true,
+        "tp": 570.0,
+        "fp": 5876.0,
+        "fn": 970.0,
+        "tn": 11326.0,
+        "recall_fpr_01": 0.004545454545454545,
+        "recall_fpr_05": 0.024675324675324677,
+        "recall_fpr_10": 0.06298701298701298,
+        "rows": 18742,
+        "original_positives": 1540,
+        "effective_weight": 18742.0,
+        "weighting": "rows",
+        "condition": "exclude_cross_dataset_exact_matches"
+      },
+      {
+        "job": "linevul/cweval_test",
+        "roc_auc": 0.43638525564803804,
+        "average_precision": 0.46904436809858807,
+        "ap_lift": 0.9380887361971761,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "balanced_accuracy": 0.5,
+        "mcc": 0.0,
+        "predicted_positive_rate": 0.0,
+        "prevalence": 0.5,
+        "brier": 0.49990540056695554,
+        "log_loss": 4.695444329494507,
+        "ece_10": 0.4998940982205913,
+        "precision_defined": false,
+        "tp": 0.0,
+        "fp": 0.0,
+        "fn": 29.0,
+        "tn": 29.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.0,
+        "recall_fpr_10": 0.0,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 58.0,
+        "weighting": "rows"
+      },
+      {
+        "job": "linevul/cweval_test",
+        "roc_auc": 0.43638525564803804,
+        "average_precision": 0.46904436809858807,
+        "ap_lift": 0.9380887361971761,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "balanced_accuracy": 0.5,
+        "mcc": 0.0,
+        "predicted_positive_rate": 0.0,
+        "prevalence": 0.5,
+        "brier": 0.49990540056695554,
+        "log_loss": 4.695444329494507,
+        "ece_10": 0.4998940982205913,
+        "precision_defined": false,
+        "tp": 0.0,
+        "fp": 0.0,
+        "fn": 29.0,
+        "tn": 29.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.0,
+        "recall_fpr_10": 0.0,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 58.0,
+        "weighting": "code_sha256"
+      },
+      {
+        "job": "linevul/cweval_test",
+        "roc_auc": 0.43638525564803804,
+        "average_precision": 0.46904436809858807,
+        "ap_lift": 0.9380887361971761,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "balanced_accuracy": 0.5,
+        "mcc": 0.0,
+        "predicted_positive_rate": 0.0,
+        "prevalence": 0.5,
+        "brier": 0.49990540056695554,
+        "log_loss": 4.695444329494507,
+        "ece_10": 0.4998940982205913,
+        "precision_defined": false,
+        "tp": 0.0,
+        "fp": 0.0,
+        "fn": 29.0,
+        "tn": 29.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.0,
+        "recall_fpr_10": 0.0,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 58.0,
+        "weighting": "token_sha256"
+      },
+      {
+        "job": "linevul/cweval_test",
+        "roc_auc": 0.45950413223140496,
+        "average_precision": 0.4831097208298202,
+        "ap_lift": 0.9662194416596404,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "balanced_accuracy": 0.5,
+        "mcc": 0.0,
+        "predicted_positive_rate": 0.0,
+        "prevalence": 0.5,
+        "brier": 0.4999040792474569,
+        "log_loss": 4.688546431564835,
+        "ece_10": 0.49989577859235973,
+        "precision_defined": false,
+        "tp": 0.0,
+        "fp": 0.0,
+        "fn": 27.5,
+        "tn": 27.5,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.0,
+        "recall_fpr_10": 0.03636363636363636,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 55.0,
+        "weighting": "structural_sha256"
+      },
+      {
+        "job": "linevul/cweval_test",
+        "roc_auc": 0.43638525564803804,
+        "average_precision": 0.46904436809858807,
+        "ap_lift": 0.9380887361971761,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.0,
+        "balanced_accuracy": 0.5,
+        "mcc": 0.0,
+        "predicted_positive_rate": 0.0,
+        "prevalence": 0.5,
+        "brier": 0.49990540056695554,
+        "log_loss": 4.695444329494507,
+        "ece_10": 0.4998940982205913,
+        "precision_defined": false,
+        "tp": 0.0,
+        "fp": 0.0,
+        "fn": 29.0,
+        "tn": 29.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.0,
+        "recall_fpr_10": 0.0,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 58.0,
+        "weighting": "rows",
+        "condition": "exclude_cross_dataset_exact_matches"
+      },
+      {
+        "job": "vulberta/cweval_test",
+        "roc_auc": 0.5707491082045184,
+        "average_precision": 0.624205983399202,
+        "ap_lift": 1.248411966798404,
+        "precision": 0.5294117647058824,
+        "recall": 0.6206896551724138,
+        "f1": 0.5714285714285714,
+        "fpr": 0.5517241379310345,
+        "balanced_accuracy": 0.5344827586206897,
+        "mcc": 0.0700140042014005,
+        "predicted_positive_rate": 0.5862068965517241,
+        "prevalence": 0.5,
+        "brier": 0.3576166577603895,
+        "log_loss": 1.0784402623866765,
+        "ece_10": 0.35085835455563563,
+        "precision_defined": true,
+        "tp": 18.0,
+        "fp": 16.0,
+        "fn": 11.0,
+        "tn": 13.0,
+        "recall_fpr_01": 0.06896551724137931,
+        "recall_fpr_05": 0.13793103448275862,
+        "recall_fpr_10": 0.20689655172413793,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 58.0,
+        "weighting": "rows"
+      },
+      {
+        "job": "vulberta/cweval_test",
+        "roc_auc": 0.5707491082045184,
+        "average_precision": 0.624205983399202,
+        "ap_lift": 1.248411966798404,
+        "precision": 0.5294117647058824,
+        "recall": 0.6206896551724138,
+        "f1": 0.5714285714285714,
+        "fpr": 0.5517241379310345,
+        "balanced_accuracy": 0.5344827586206897,
+        "mcc": 0.0700140042014005,
+        "predicted_positive_rate": 0.5862068965517241,
+        "prevalence": 0.5,
+        "brier": 0.3576166577603895,
+        "log_loss": 1.0784402623866765,
+        "ece_10": 0.35085835455563563,
+        "precision_defined": true,
+        "tp": 18.0,
+        "fp": 16.0,
+        "fn": 11.0,
+        "tn": 13.0,
+        "recall_fpr_01": 0.06896551724137931,
+        "recall_fpr_05": 0.13793103448275862,
+        "recall_fpr_10": 0.20689655172413793,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 58.0,
+        "weighting": "code_sha256"
+      },
+      {
+        "job": "vulberta/cweval_test",
+        "roc_auc": 0.5707491082045184,
+        "average_precision": 0.624205983399202,
+        "ap_lift": 1.248411966798404,
+        "precision": 0.5294117647058824,
+        "recall": 0.6206896551724138,
+        "f1": 0.5714285714285714,
+        "fpr": 0.5517241379310345,
+        "balanced_accuracy": 0.5344827586206897,
+        "mcc": 0.0700140042014005,
+        "predicted_positive_rate": 0.5862068965517241,
+        "prevalence": 0.5,
+        "brier": 0.3576166577603895,
+        "log_loss": 1.0784402623866765,
+        "ece_10": 0.35085835455563563,
+        "precision_defined": true,
+        "tp": 18.0,
+        "fp": 16.0,
+        "fn": 11.0,
+        "tn": 13.0,
+        "recall_fpr_01": 0.06896551724137931,
+        "recall_fpr_05": 0.13793103448275862,
+        "recall_fpr_10": 0.20689655172413793,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 58.0,
+        "weighting": "token_sha256"
+      },
+      {
+        "job": "vulberta/cweval_test",
+        "roc_auc": 0.5828099173553719,
+        "average_precision": 0.6323184925067945,
+        "ap_lift": 1.264636985013589,
+        "precision": 0.5373134328358209,
+        "recall": 0.6545454545454545,
+        "f1": 0.5901639344262295,
+        "fpr": 0.5636363636363636,
+        "balanced_accuracy": 0.5454545454545454,
+        "mcc": 0.09315332801332622,
+        "predicted_positive_rate": 0.6090909090909091,
+        "prevalence": 0.5,
+        "brier": 0.35112673910919556,
+        "log_loss": 1.057198303806239,
+        "ece_10": 0.3567910467359153,
+        "precision_defined": true,
+        "tp": 18.0,
+        "fp": 15.5,
+        "fn": 9.5,
+        "tn": 12.0,
+        "recall_fpr_01": 0.07272727272727272,
+        "recall_fpr_05": 0.14545454545454545,
+        "recall_fpr_10": 0.21818181818181817,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 55.0,
+        "weighting": "structural_sha256"
+      },
+      {
+        "job": "vulberta/cweval_test",
+        "roc_auc": 0.5707491082045184,
+        "average_precision": 0.624205983399202,
+        "ap_lift": 1.248411966798404,
+        "precision": 0.5294117647058824,
+        "recall": 0.6206896551724138,
+        "f1": 0.5714285714285714,
+        "fpr": 0.5517241379310345,
+        "balanced_accuracy": 0.5344827586206897,
+        "mcc": 0.0700140042014005,
+        "predicted_positive_rate": 0.5862068965517241,
+        "prevalence": 0.5,
+        "brier": 0.3576166577603895,
+        "log_loss": 1.0784402623866765,
+        "ece_10": 0.35085835455563563,
+        "precision_defined": true,
+        "tp": 18.0,
+        "fp": 16.0,
+        "fn": 11.0,
+        "tn": 13.0,
+        "recall_fpr_01": 0.06896551724137931,
+        "recall_fpr_05": 0.13793103448275862,
+        "recall_fpr_10": 0.20689655172413793,
+        "rows": 58,
+        "original_positives": 29,
+        "effective_weight": 58.0,
+        "weighting": "rows",
+        "condition": "exclude_cross_dataset_exact_matches"
+      }
+    ],
+    "cross_dataset": {
+      "groups_by_type": {
+        "code_sha256": 17,
+        "token_sha256": 23,
+        "structural_sha256": 84
+      },
+      "conflicting_groups_by_type": {
+        "structural_sha256": 2
+      },
+      "exact_overlap_rows": 34
+    },
+    "llmvul": {
+      "source_rows": 21430,
+      "published_git_blob_matches": true,
+      "vote_rule_mismatches": [],
+      "included": {
+        "rows": 18751,
+        "projects": 224,
+        "commits": 1601,
+        "exact_code_groups": 17874,
+        "language": {
+          "cpp": 11359,
+          "c": 7392
+        },
+        "project_name": {
+          "Serial-Studio/Serial-Studio": 5462,
+          "nature-lang/nature": 934,
+          "microsoft/ebpf-for-windows": 689,
+          "isl-org/Open3D": 429,
+          "microsoft/onnxruntime": 426,
+          "carla-simulator/carla": 422,
+          "DarkFlippers/unleashed-firmware": 413,
+          "DavidXanatos/TaskExplorer": 406,
+          "microsoft/WSL": 401,
+          "microsoft/PowerToys": 334,
+          "apache/brpc": 324,
+          "envoyproxy/envoy": 323,
+          "sqliteai/warp": 280,
+          "IoLanguage/io": 272,
+          "ggml-org/whisper.cpp": 259,
+          "ClickHouse/ClickHouse": 235,
+          "EdgeTX/edgetx": 231,
+          "coturn/coturn": 228,
+          "DeusData/codebase-memory-mcp": 223,
+          "sumatrapdfreader/sumatrapdf": 211,
+          "hrydgard/ppsspp": 206,
+          "google/security-research": 201,
+          "xroche/httrack": 185,
+          "eclipse-threadx/threadx": 160,
+          "ossrs/srs": 151,
+          "GBALATRO/balatro-gba": 149,
+          "ithewei/libhv": 145,
+          "apache/doris": 136,
+          "opencv/opencv": 134,
+          "memovai/mimiclaw": 130,
+          "xbmc/xbmc": 126,
+          "plasma-umass/coz": 124,
+          "mozilla-ai/llamafile": 121,
+          "Tencent/ncnn": 121,
+          "littlekernel/lk": 118,
+          "carbon-language/carbon-lang": 118,
+          "vvaltchev/tilck": 116,
+          "arkime/arkime": 115,
+          "yugabyte/yugabyte-db": 114,
+          "electron/electron": 97,
+          "portapack-mayhem/mayhem-firmware": 89,
+          "taichi-dev/taichi": 89,
+          "mltframework/shotcut": 87,
+          "apache/nuttx": 84,
+          "apache/arrow": 81,
+          "strace/strace": 80,
+          "capnproto/capnproto": 76,
+          "microsoft/msquic": 74,
+          "cloudius-systems/osv": 73,
+          "espressif/arduino-esp32": 66,
+          "apache/age": 62,
+          "libusb/hidapi": 62,
+          "swoole/swoole-src": 62,
+          "open5gs/open5gs": 61,
+          "NixOS/nix": 61,
+          "Fincept-Corporation/FinceptTerminal": 58,
+          "alibaba/zvec": 57,
+          "RfidResearchGroup/ChameleonUltra": 55,
+          "pjsip/pjproject": 54,
+          "orioledb/orioledb": 53,
+          "rui314/mold": 52,
+          "ggml-org/ggml": 51,
+          "colbymchenry/codegraph": 49,
+          "microsoft/react-native-windows": 46,
+          "redis/redis": 45,
+          "openssl/openssl": 44,
+          "shadowsocks/shadowsocks-libev": 44,
+          "wireshark/wireshark": 44,
+          "McNopper/OpenGL": 44,
+          "fluent/fluent-bit": 40,
+          "hathach/tinyusb": 40,
+          "containers/crun": 39,
+          "antirez/linenoise": 37,
+          "RIOT-OS/RIOT": 36,
+          "ptitSeb/box64": 36,
+          "OrcaSlicer/OrcaSlicer": 35,
+          "lvgl/lvgl": 34,
+          "mas-bandwidth/netcode": 34,
+          "ElementsProject/lightning": 33,
+          "wazuh/wazuh": 33,
+          "musescore/MuseScore": 33,
+          "libuv/libuv": 32,
+          "JustVugg/colibri": 31,
+          "h2o/h2o": 30,
+          "dragonflydb/dragonfly": 30,
+          "alibaba/MNN": 30,
+          "freebsd/freebsd-src": 29,
+          "libffi/libffi": 29,
+          "rsta2/circle": 28,
+          "typesense/typesense": 27,
+          "davisking/dlib": 27,
+          "InterceptSuite/ProxyBridge": 26,
+          "mydumper/mydumper": 26,
+          "lc-soft/LCUI": 25,
+          "ohler55/oj": 25,
+          "wasm-micro-runtime/wasm-micro-runtime": 24,
+          "axboe/liburing": 24,
+          "mongodb/mongo": 23,
+          "osquery/osquery": 22,
+          "HarbourMasters/Shipwright": 21,
+          "timescale/pg_textsearch": 21,
+          "FluidSynth/fluidsynth": 20,
+          "darktable-org/darktable": 19,
+          "SRombauts/SQLiteCpp": 19,
+          "wiredtiger/wiredtiger": 18,
+          "libusb/libusb": 17,
+          "nanomq/nanomq": 17,
+          "eunomia-bpf/bpf-developer-tutorial": 16,
+          "deskflow/deskflow": 16,
+          "pybind/pybind11": 15,
+          "assimp/assimp": 15,
+          "asg017/sqlite-vec": 14,
+          "fmtlib/fmt": 14,
+          "citusdata/citus": 13,
+          "OpenMathLib/OpenBLAS": 13,
+          "mcmilk/7-Zip-zstd": 13,
+          "ExpressLRS/ExpressLRS": 13,
+          "microsoft/winget-cli": 13,
+          "ZLMediaKit/ZLMediaKit": 13,
+          "vnmakarov/mir": 12,
+          "microsoft/terminal": 12,
+          "nlohmann/json": 12,
+          "PaddlePaddle/Paddle": 12,
+          "ArduPilot/ardupilot": 12,
+          "marcobambini/gravity": 11,
+          "86Box/86Box": 10,
+          "OpenSC/OpenSC": 10,
+          "FreeCAD/FreeCAD": 10,
+          "keepassxreboot/keepassxc": 10,
+          "fwupd/fwupd": 9,
+          "spdk/spdk": 9,
+          "documentdb/documentdb": 9,
+          "inspektor-gadget/inspektor-gadget": 9,
+          "aristocratos/btop": 9,
+          "78/xiaozhi-esp32": 9,
+          "simdjson/simdjson": 9,
+          "ImageMagick/ImageMagick": 8,
+          "olikraus/u8g2": 8,
+          "RfidResearchGroup/proxmark3": 8,
+          "0x1abin/MultiButton": 8,
+          "v8/v8": 8,
+          "espeak-ng/espeak-ng": 7,
+          "checkpoint-restore/criu": 7,
+          "open-quantum-safe/liboqs": 7,
+          "flame/blis": 7,
+          "torvalds/GuitarPedal": 7,
+          "scylladb/scylladb": 7,
+          "crosspoint-reader/crosspoint-reader": 6,
+          "ossec/ossec-hids": 6,
+          "google/filament": 6,
+          "torvalds/linux": 5,
+          "betaflight/betaflight": 5,
+          "QwenAudio/SenseVoice": 5,
+          "mruby/mruby": 5,
+          "lakinduakash/linux-wifi-hotspot": 5,
+          "pschatzmann/arduino-audio-tools": 5,
+          "ggml-org/llama.cpp": 5,
+          "yhirose/cpp-httplib": 5,
+          "organicmaps/organicmaps": 5,
+          "lynx-family/lynx": 5,
+          "openwrt/openwrt": 4,
+          "FreeRDP/FreeRDP": 4,
+          "libevent/libevent": 4,
+          "veracrypt/VeraCrypt": 4,
+          "ntop/nDPI": 4,
+          "NixOS/patchelf": 4,
+          "official-stockfish/Stockfish": 4,
+          "merbanan/rtl_433": 3,
+          "sleuthkit/sleuthkit": 3,
+          "antirez/dump1090": 3,
+          "No-Chicken/OV-Watch": 3,
+          "tesseract-ocr/tesseract": 3,
+          "flameshot-org/flameshot": 3,
+          "gabime/spdlog": 3,
+          "ninja-build/ninja": 3,
+          "pgvector/pgvector": 2,
+          "postgres/postgres": 2,
+          "davatorium/rofi": 2,
+          "jemalloc/jemalloc": 2,
+          "htop-dev/htop": 2,
+          "libfuse/sshfs": 2,
+          "antirez/ds4": 2,
+          "Bodmer/TFT_eSPI": 2,
+          "apache/httpd": 2,
+          "namhyung/uftrace": 2,
+          "util-linux/util-linux": 2,
+          "Ettercap/ettercap": 2,
+          "HarbourMasters/SpaghettiKart": 2,
+          "nomic-ai/gpt4all": 2,
+          "telegramdesktop/tdesktop": 2,
+          "dmlc/xgboost": 2,
+          "ventoy/Ventoy": 1,
+          "valkey-io/valkey": 1,
+          "timescale/timescaledb": 1,
+          "qmk/qmk_firmware": 1,
+          "espressif/esp-idf": 1,
+          "reactos/reactos": 1,
+          "gojue/ecapture": 1,
+          "raspberrypi/linux": 1,
+          "immortalwrt/immortalwrt": 1,
+          "mit-pdos/xv6-riscv": 1,
+          "capstone-engine/capstone": 1,
+          "redis/hiredis": 1,
+          "radareorg/radare2": 1,
+          "jart/cosmopolitan": 1,
+          "zephyrproject-rtos/zephyr": 1,
+          "RT-Thread/rt-thread": 1,
+          "RamonUnch/AltSnap": 1,
+          "zsh-users/zsh": 1,
+          "surge-synthesizer/surge": 1,
+          "vifm/vifm": 1,
+          "polardb/PolarDB-for-PostgreSQL": 1,
+          "microsoft/ProcDump-for-Linux": 1,
+          "TinyCC/tinycc": 1,
+          "wolfSSL/wolfssl": 1,
+          "earlephilhower/arduino-pico": 1,
+          "panda-re/panda": 1,
+          "labwc/labwc": 1,
+          "streetpea/chiaki-ng": 1,
+          "owntone/owntone-server": 1,
+          "google/flatbuffers": 1,
+          "MaaAssistantArknights/MaaAssistantArknights": 1,
+          "audacity/audacity": 1,
+          "qgis/QGIS": 1
+        },
+        "ai_tool": {
+          "claude_code": 12219,
+          "copilot": 4551,
+          "claude": 723,
+          "gemini": 343,
+          "cursor": 293,
+          "chatgpt": 276,
+          "generic_llm": 206,
+          "openai_codex": 124,
+          "devin": 16
+        },
+        "signal_strength": {
+          "strong": 16660,
+          "medium": 2091
+        },
+        "signal_type": {
+          "coauthor": 16660,
+          "commit_message": 2091
+        },
+        "ensemble_label": {
+          "safe": 17211,
+          "vulnerable": 1540
+        },
+        "semgrep_rule": {
+          "(missing)": 17622,
+          "tmp.oob-write-index": 478,
+          "tmp.dangerous-memcpy": 473,
+          "tmp.path-traversal-open": 75,
+          "tmp.integer-overflow-malloc": 45,
+          "tmp.dangerous-strcpy": 21,
+          "tmp.dangerous-system": 19,
+          "tmp.dangerous-popen": 6,
+          "tmp.weak-random-rand": 6,
+          "tmp.dangerous-sprintf": 3,
+          "tmp.format-string-fprintf": 2,
+          "tmp.dangerous-vsprintf": 1
+        },
+        "cwe_id": {
+          "(missing)": 17211,
+          "CWE-120": 494,
+          "CWE-787": 478,
+          "CWE-676": 411,
+          "CWE-22": 75,
+          "CWE-190": 45,
+          "CWE-78": 25,
+          "CWE-134": 6,
+          "CWE-338": 6
+        },
+        "lines": {
+          "min": 5.0,
+          "median": 14.0,
+          "p90": 46.0,
+          "max": 150.0
+        },
+        "chars": {
+          "min": 25.0,
+          "median": 472.0,
+          "p90": 1735.0,
+          "max": 8018.0
+        },
+        "analyzer_patterns": {
+          "000": 17211,
+          "111": 740,
+          "101": 227,
+          "110": 162,
+          "011": 411
+        }
+      },
+      "excluded_uncertain": {
+        "rows": 2679,
+        "projects": 144,
+        "commits": 593,
+        "exact_code_groups": 2595,
+        "language": {
+          "c": 1492,
+          "cpp": 1187
+        },
+        "project_name": {
+          "Serial-Studio/Serial-Studio": 697,
+          "nature-lang/nature": 198,
+          "sqliteai/warp": 98,
+          "ggml-org/whisper.cpp": 93,
+          "DeusData/codebase-memory-mcp": 73,
+          "xroche/httrack": 61,
+          "IoLanguage/io": 60,
+          "DarkFlippers/unleashed-firmware": 47,
+          "DavidXanatos/TaskExplorer": 46,
+          "littlekernel/lk": 44,
+          "mozilla-ai/llamafile": 41,
+          "microsoft/onnxruntime": 39,
+          "axboe/liburing": 37,
+          "isl-org/Open3D": 37,
+          "EdgeTX/edgetx": 34,
+          "apache/brpc": 34,
+          "fluent/fluent-bit": 31,
+          "memovai/mimiclaw": 29,
+          "google/security-research": 29,
+          "microsoft/PowerToys": 28,
+          "yugabyte/yugabyte-db": 28,
+          "portapack-mayhem/mayhem-firmware": 27,
+          "GBALATRO/balatro-gba": 27,
+          "JustVugg/colibri": 24,
+          "vvaltchev/tilck": 24,
+          "McNopper/OpenGL": 24,
+          "opencv/opencv": 24,
+          "Tencent/ncnn": 24,
+          "carla-simulator/carla": 24,
+          "coturn/coturn": 23,
+          "InterceptSuite/ProxyBridge": 21,
+          "eclipse-threadx/threadx": 21,
+          "ClickHouse/ClickHouse": 20,
+          "alibaba/zvec": 19,
+          "hrydgard/ppsspp": 19,
+          "arkime/arkime": 18,
+          "ElementsProject/lightning": 18,
+          "shadowsocks/shadowsocks-libev": 17,
+          "antirez/linenoise": 15,
+          "ossrs/srs": 15,
+          "ggml-org/ggml": 15,
+          "wazuh/wazuh": 14,
+          "alibaba/MNN": 14,
+          "wasm-micro-runtime/wasm-micro-runtime": 13,
+          "xbmc/xbmc": 13,
+          "plasma-umass/coz": 12,
+          "carbon-language/carbon-lang": 12,
+          "mltframework/shotcut": 12,
+          "eunomia-bpf/bpf-developer-tutorial": 11,
+          "containers/crun": 11,
+          "apache/nuttx": 11,
+          "timescale/pg_textsearch": 11,
+          "redis/redis": 10,
+          "microsoft/msquic": 10,
+          "libffi/libffi": 10,
+          "microsoft/ebpf-for-windows": 10,
+          "pjsip/pjproject": 10,
+          "sumatrapdfreader/sumatrapdf": 9,
+          "open5gs/open5gs": 9,
+          "microsoft/WSL": 9,
+          "espressif/arduino-esp32": 9,
+          "apache/doris": 9,
+          "asg017/sqlite-vec": 8,
+          "RfidResearchGroup/ChameleonUltra": 8,
+          "davisking/dlib": 8,
+          "HarbourMasters/Shipwright": 7,
+          "strace/strace": 7,
+          "mas-bandwidth/netcode": 7,
+          "Fincept-Corporation/FinceptTerminal": 7,
+          "typesense/typesense": 7,
+          "wireshark/wireshark": 6,
+          "cloudius-systems/osv": 6,
+          "envoyproxy/envoy": 6,
+          "capnproto/capnproto": 6,
+          "nanomq/nanomq": 5,
+          "wiredtiger/wiredtiger": 5,
+          "aristocratos/btop": 5,
+          "dragonflydb/dragonfly": 5,
+          "taichi-dev/taichi": 5,
+          "simdjson/simdjson": 5,
+          "openssl/openssl": 4,
+          "freebsd/freebsd-src": 4,
+          "lvgl/lvgl": 4,
+          "h2o/h2o": 4,
+          "mydumper/mydumper": 4,
+          "torvalds/GuitarPedal": 4,
+          "ithewei/libhv": 3,
+          "mcmilk/7-Zip-zstd": 3,
+          "veracrypt/VeraCrypt": 3,
+          "hathach/tinyusb": 3,
+          "RfidResearchGroup/proxmark3": 3,
+          "apache/age": 3,
+          "marcobambini/gravity": 3,
+          "orioledb/orioledb": 3,
+          "OpenSC/OpenSC": 3,
+          "pschatzmann/arduino-audio-tools": 3,
+          "FreeCAD/FreeCAD": 3,
+          "deskflow/deskflow": 3,
+          "microsoft/react-native-windows": 3,
+          "apache/arrow": 3,
+          "rui314/mold": 3,
+          "OrcaSlicer/OrcaSlicer": 3,
+          "assimp/assimp": 3,
+          "citusdata/citus": 2,
+          "betaflight/betaflight": 2,
+          "QwenAudio/SenseVoice": 2,
+          "OpenMathLib/OpenBLAS": 2,
+          "colbymchenry/codegraph": 2,
+          "darktable-org/darktable": 2,
+          "libusb/libusb": 2,
+          "ossec/ossec-hids": 2,
+          "86Box/86Box": 2,
+          "antirez/dump1090": 2,
+          "libusb/hidapi": 2,
+          "ggml-org/llama.cpp": 2,
+          "electron/electron": 2,
+          "keepassxreboot/keepassxc": 2,
+          "osquery/osquery": 2,
+          "google/filament": 2,
+          "musescore/MuseScore": 2,
+          "ninja-build/ninja": 2,
+          "libuv/libuv": 1,
+          "radareorg/radare2": 1,
+          "crosspoint-reader/crosspoint-reader": 1,
+          "RMerl/asuswrt-merlin.ng": 1,
+          "ptitSeb/box64": 1,
+          "mruby/mruby": 1,
+          "ntop/nDPI": 1,
+          "lc-soft/LCUI": 1,
+          "NixOS/patchelf": 1,
+          "apache/httpd": 1,
+          "checkpoint-restore/criu": 1,
+          "quickjs-ng/quickjs": 1,
+          "ohler55/oj": 1,
+          "open-quantum-safe/liboqs": 1,
+          "inspektor-gadget/inspektor-gadget": 1,
+          "SRombauts/SQLiteCpp": 1,
+          "vnmakarov/mir": 1,
+          "FluidSynth/fluidsynth": 1,
+          "tesseract-ocr/tesseract": 1,
+          "mongodb/mongo": 1,
+          "swoole/swoole-src": 1,
+          "yhirose/cpp-httplib": 1,
+          "ArduPilot/ardupilot": 1
+        },
+        "ai_tool": {
+          "claude_code": 2002,
+          "copilot": 401,
+          "claude": 84,
+          "cursor": 80,
+          "gemini": 43,
+          "generic_llm": 36,
+          "chatgpt": 22,
+          "openai_codex": 11
+        },
+        "signal_strength": {
+          "strong": 2461,
+          "medium": 218
+        },
+        "signal_type": {
+          "coauthor": 2461,
+          "commit_message": 218
+        },
+        "ensemble_label": {
+          "uncertain": 2679
+        },
+        "semgrep_rule": {
+          "(missing)": 1349,
+          "tmp.oob-write-index": 1315,
+          "tmp.integer-overflow-malloc": 14,
+          "tmp.format-string-printf": 1
+        },
+        "cwe_id": {
+          "(missing)": 2679
+        },
+        "lines": {
+          "min": 5.0,
+          "median": 24.0,
+          "p90": 74.0,
+          "max": 150.0
+        },
+        "chars": {
+          "min": 53.0,
+          "median": 821.0,
+          "p90": 2845.4000000000046,
+          "max": 7185.0
+        },
+        "analyzer_patterns": {
+          "100": 1330,
+          "010": 778,
+          "001": 571
+        }
+      },
+      "full_exact_groups": 20469,
+      "uncertain_structure": {
+        "parse_errors": 583,
+        "function_counts": {
+          "1": 2595,
+          "2": 15,
+          "0": 62,
+          "4": 2,
+          "3": 2,
+          "6": 1,
+          "11": 1,
+          "5": 1
+        }
+      },
+      "attribution": {
+        "scope": "commit metadata, not independently verified function authorship",
+        "commits": 1685,
+        "commits_with_multiple_functions": 1129,
+        "largest_commit_functions": 1097,
+        "mixed_signal_commits": 0,
+        "strong_without_visible_coauthor_trailer": 10104,
+        "warning": "Messages may be truncated at 1000 characters by the published representative miner; missing visible trailer is not disproof."
+      },
+      "rule_counts": {
+        "tmp.dangerous-memcpy": 473,
+        "tmp.oob-write-index": 478,
+        "(missing)": 411,
+        "tmp.integer-overflow-malloc": 45,
+        "tmp.dangerous-system": 19,
+        "tmp.path-traversal-open": 75,
+        "tmp.dangerous-strcpy": 21,
+        "tmp.dangerous-sprintf": 3,
+        "tmp.format-string-fprintf": 2,
+        "tmp.dangerous-popen": 6,
+        "tmp.dangerous-vsprintf": 1,
+        "tmp.weak-random-rand": 6
+      },
+      "raw_analyzer_locations_available": false,
+      "construction": "Published representative miner parses concatenated added diff lines, not complete checked-out files; executed original labeling rules/versions and run logs are unavailable in the retrieved tree."
+    },
+    "primevul": {
+      "0": {
+        "rows": 24239,
+        "commit_url_present": 23999,
+        "commit_message_present": 23729,
+        "file_name_present": 18420,
+        "file_hash_present": 18420,
+        "cve_present": 20450,
+        "cve_desc_present": 20435,
+        "cwe_present": 21723
+      },
+      "1": {
+        "rows": 549,
+        "commit_url_present": 549,
+        "commit_message_present": 549,
+        "file_name_present": 458,
+        "file_hash_present": 458,
+        "cve_present": 549,
+        "cve_desc_present": 549,
+        "cwe_present": 549
+      },
+      "limitations": "No row-level OneFunc/NVDCheck decision field or local file_info/file_contents package; a CVE or commit link is supporting provenance, not independent function-level validation."
+    },
+    "cweval": {
+      "candidate_rows": 104,
+      "selected_rows": 58,
+      "selected_pairs": 29,
+      "all_target_tokens_match": true,
+      "excluded_reasons": {
+        "requires_local_context": 42,
+        "vulberta_cleaner_changes_code": 12,
+        "identical_function_conflicting_labels": 2,
+        "linevul_truncation": 20,
+        "vulberta_truncation": 4
+      },
+      "security_execution": "not_run: no Docker executable, no GCC/Clang executable on PATH, and WSL reports not installed; static test mapping is separate evidence",
+      "label_scope": "reference versus intentionally unsafe for the specified task/CWE; no universal safety or verified LLM authorship claim"
+    },
+    "review": {
+      "selections": 356,
+      "unique_cases": 328,
+      "strata": [
+        {
+          "job": "linevul/bigvul_test_sample_2000",
+          "error": "fn",
+          "population": 16,
+          "selected": 16,
+          "inclusion_probability": 1.0
+        },
+        {
+          "job": "linevul/bigvul_test_sample_2000",
+          "error": "fp",
+          "population": 3,
+          "selected": 3,
+          "inclusion_probability": 1.0
+        },
+        {
+          "job": "linevul/bigvul_test_sample_2000",
+          "error": "tp",
+          "population": 96,
+          "selected": 10,
+          "inclusion_probability": 0.10416666666666667
+        },
+        {
+          "job": "linevul/bigvul_test_sample_2000",
+          "error": "tn",
+          "population": 1885,
+          "selected": 10,
+          "inclusion_probability": 0.005305039787798408
+        },
+        {
+          "job": "linevul/cweval_test",
+          "error": "fn",
+          "population": 29,
+          "selected": 20,
+          "inclusion_probability": 0.6896551724137931
+        },
+        {
+          "job": "linevul/cweval_test",
+          "error": "fp",
+          "population": 0,
+          "selected": 0,
+          "inclusion_probability": 0
+        },
+        {
+          "job": "linevul/cweval_test",
+          "error": "tp",
+          "population": 0,
+          "selected": 0,
+          "inclusion_probability": 0
+        },
+        {
+          "job": "linevul/cweval_test",
+          "error": "tn",
+          "population": 29,
+          "selected": 10,
+          "inclusion_probability": 0.3448275862068966
+        },
+        {
+          "job": "linevul/llmvul_test",
+          "error": "fn",
+          "population": 1337,
+          "selected": 20,
+          "inclusion_probability": 0.014958863126402393
+        },
+        {
+          "job": "linevul/llmvul_test",
+          "error": "fp",
+          "population": 2126,
+          "selected": 20,
+          "inclusion_probability": 0.00940733772342427
+        },
+        {
+          "job": "linevul/llmvul_test",
+          "error": "tp",
+          "population": 203,
+          "selected": 10,
+          "inclusion_probability": 0.04926108374384237
+        },
+        {
+          "job": "linevul/llmvul_test",
+          "error": "tn",
+          "population": 15085,
+          "selected": 10,
+          "inclusion_probability": 0.0006629101756711965
+        },
+        {
+          "job": "linevul/primevul_test",
+          "error": "fn",
+          "population": 430,
+          "selected": 20,
+          "inclusion_probability": 0.046511627906976744
+        },
+        {
+          "job": "linevul/primevul_test",
+          "error": "fp",
+          "population": 1639,
+          "selected": 20,
+          "inclusion_probability": 0.012202562538133009
+        },
+        {
+          "job": "linevul/primevul_test",
+          "error": "tp",
+          "population": 119,
+          "selected": 10,
+          "inclusion_probability": 0.08403361344537816
+        },
+        {
+          "job": "linevul/primevul_test",
+          "error": "tn",
+          "population": 22600,
+          "selected": 10,
+          "inclusion_probability": 0.0004424778761061947
+        },
+        {
+          "job": "vulberta/cweval_test",
+          "error": "fn",
+          "population": 11,
+          "selected": 11,
+          "inclusion_probability": 1.0
+        },
+        {
+          "job": "vulberta/cweval_test",
+          "error": "fp",
+          "population": 16,
+          "selected": 16,
+          "inclusion_probability": 1.0
+        },
+        {
+          "job": "vulberta/cweval_test",
+          "error": "tp",
+          "population": 18,
+          "selected": 10,
+          "inclusion_probability": 0.5555555555555556
+        },
+        {
+          "job": "vulberta/cweval_test",
+          "error": "tn",
+          "population": 13,
+          "selected": 10,
+          "inclusion_probability": 0.7692307692307693
+        },
+        {
+          "job": "vulberta/llmvul_test",
+          "error": "fn",
+          "population": 970,
+          "selected": 20,
+          "inclusion_probability": 0.020618556701030927
+        },
+        {
+          "job": "vulberta/llmvul_test",
+          "error": "fp",
+          "population": 5883,
+          "selected": 20,
+          "inclusion_probability": 0.003399626041135475
+        },
+        {
+          "job": "vulberta/llmvul_test",
+          "error": "tp",
+          "population": 570,
+          "selected": 10,
+          "inclusion_probability": 0.017543859649122806
+        },
+        {
+          "job": "vulberta/llmvul_test",
+          "error": "tn",
+          "population": 11328,
+          "selected": 10,
+          "inclusion_probability": 0.0008827683615819209
+        },
+        {
+          "job": "vulberta/primevul_test",
+          "error": "fn",
+          "population": 374,
+          "selected": 20,
+          "inclusion_probability": 0.053475935828877004
+        },
+        {
+          "job": "vulberta/primevul_test",
+          "error": "fp",
+          "population": 6966,
+          "selected": 20,
+          "inclusion_probability": 0.002871088142405972
+        },
+        {
+          "job": "vulberta/primevul_test",
+          "error": "tp",
+          "population": 175,
+          "selected": 10,
+          "inclusion_probability": 0.05714285714285714
+        },
+        {
+          "job": "vulberta/primevul_test",
+          "error": "tn",
+          "population": 17273,
+          "selected": 10,
+          "inclusion_probability": 0.000578938227291148
+        }
+      ],
+      "principal_selections": 240,
+      "purposive_selections": 18,
+      "purposive_unique_cases": 16,
+      "independent_review_status": "pending_two_qualified_reviewers",
+      "adjudicated_cases": 0
+    },
+    "external_review": {
+      "rows": 100,
+      "unique_ids": 100,
+      "exact_code_matches": 99,
+      "rating_pairs": {
+        "1,1": 83,
+        "0,0": 2,
+        "-1,1": 10,
+        "1,-1": 2,
+        "0,1": 1,
+        "-1,-1": 2
+      },
+      "nominal_three_category_kappa": 0.33537832310838445,
+      "complete_binary_rows": 86,
+      "complete_binary_kappa": 0.7942583732057416,
+      "undocumented_minus_one_rows": 14,
+      "consensus_field_present": false,
+      "interpretation": "Published rater agreement is source evidence, not our independent adjudication. -1 is undocumented and not recoded. Binary kappa is conditional on omitting incomplete rows.",
+      "agreed_zero_ids": [
+        "llmvul:ID_289E72EB6D827C0D",
+        "llmvul:ID_9D80D1E3ECA38FE1"
+      ],
+      "metrics": [
+        {
+          "job": "linevul/llmvul_test",
+          "original_selected_labels": {
+            "roc_auc": null,
+            "average_precision": null,
+            "ap_lift": null,
+            "precision": 1.0,
+            "recall": 0.09411764705882353,
+            "f1": 0.17204301075268819,
+            "fpr": null,
+            "balanced_accuracy": null,
+            "mcc": null,
+            "predicted_positive_rate": 0.09411764705882353,
+            "prevalence": 1.0,
+            "brier": 0.9047838499688948,
+            "log_loss": 7.944888627422918,
+            "ece_10": 0.9054650751392354,
+            "precision_defined": true,
+            "tp": 8.0,
+            "fp": 0.0,
+            "fn": 77.0,
+            "tn": 0.0,
+            "recall_fpr_01": null,
+            "recall_fpr_05": null,
+            "recall_fpr_10": null,
+            "rows": 85,
+            "original_positives": 85,
+            "effective_weight": 85.0,
+            "weighting": "rows"
+          },
+          "published_agreed_labels": {
+            "roc_auc": 0.14457831325301204,
+            "average_precision": 0.9563391438208557,
+            "ap_lift": 0.9793834605394306,
+            "precision": 1.0,
+            "recall": 0.0963855421686747,
+            "f1": 0.17582417582417584,
+            "fpr": 0.0,
+            "balanced_accuracy": 0.5481927710843374,
+            "mcc": 0.05003519337236274,
+            "predicted_positive_rate": 0.09411764705882353,
+            "prevalence": 0.9764705882352941,
+            "brier": 0.8814353592284483,
+            "log_loss": 7.806378317925729,
+            "ece_10": 0.8819356633745294,
+            "precision_defined": true,
+            "tp": 8.0,
+            "fp": 0.0,
+            "fn": 75.0,
+            "tn": 2.0,
+            "recall_fpr_01": 0.10843373493975904,
+            "recall_fpr_05": 0.10843373493975904,
+            "recall_fpr_10": 0.10843373493975904,
+            "rows": 85,
+            "original_positives": 83,
+            "effective_weight": 85.0,
+            "weighting": "rows"
+          },
+          "limited_hybrid": {
+            "roc_auc": 0.5970003732776139,
+            "average_precision": 0.10249174797356553,
+            "ap_lift": 1.249559665963802,
+            "precision": 0.08716187204808931,
+            "recall": 0.13198959687906373,
+            "f1": 0.10499094905611585,
+            "fpr": 0.12351129959914019,
+            "balanced_accuracy": 0.5042391486399618,
+            "mcc": 0.007053705515463146,
+            "predicted_positive_rate": 0.1242067089755213,
+            "prevalence": 0.08202229214441896,
+            "brier": 0.182560895630072,
+            "log_loss": 1.3807873372432002,
+            "ece_10": 0.18290041791291053,
+            "precision_defined": true,
+            "tp": 203.0,
+            "fp": 2126.0,
+            "fn": 1335.0,
+            "tn": 15087.0,
+            "recall_fpr_01": 0.00975292587776333,
+            "recall_fpr_05": 0.05071521456436931,
+            "recall_fpr_10": 0.10988296488946683,
+            "rows": 18751,
+            "original_positives": 1538,
+            "effective_weight": 18751.0,
+            "weighting": "rows"
+          }
+        },
+        {
+          "job": "vulberta/llmvul_test",
+          "original_selected_labels": {
+            "roc_auc": null,
+            "average_precision": null,
+            "ap_lift": null,
+            "precision": 1.0,
+            "recall": 0.4,
+            "f1": 0.5714285714285714,
+            "fpr": null,
+            "balanced_accuracy": null,
+            "mcc": null,
+            "predicted_positive_rate": 0.4,
+            "prevalence": 1.0,
+            "brier": 0.41882704185732245,
+            "log_loss": 1.2036958442229857,
+            "ece_10": 0.5709417542552246,
+            "precision_defined": true,
+            "tp": 34.0,
+            "fp": 0.0,
+            "fn": 51.0,
+            "tn": 0.0,
+            "recall_fpr_01": null,
+            "recall_fpr_05": null,
+            "recall_fpr_10": null,
+            "rows": 85,
+            "original_positives": 85,
+            "effective_weight": 85.0,
+            "weighting": "rows"
+          },
+          "published_agreed_labels": {
+            "roc_auc": 0.8012048192771084,
+            "average_precision": 0.994762466245145,
+            "ap_lift": 1.0187326461546666,
+            "precision": 1.0,
+            "recall": 0.40963855421686746,
+            "f1": 0.5811965811965812,
+            "fpr": 0.0,
+            "balanced_accuracy": 0.7048192771084337,
+            "mcc": 0.12674485010489558,
+            "predicted_positive_rate": 0.4,
+            "prevalence": 0.9764705882352941,
+            "brier": 0.4011257321132729,
+            "log_loss": 1.1569315516991805,
+            "ece_10": 0.5474123424905188,
+            "precision_defined": true,
+            "tp": 34.0,
+            "fp": 0.0,
+            "fn": 49.0,
+            "tn": 2.0,
+            "recall_fpr_01": 0.7469879518072289,
+            "recall_fpr_05": 0.7469879518072289,
+            "recall_fpr_10": 0.7469879518072289,
+            "rows": 85,
+            "original_positives": 83,
+            "effective_weight": 85.0,
+            "weighting": "rows"
+          },
+          "limited_hybrid": {
+            "roc_auc": 0.5535698704150256,
+            "average_precision": 0.08543572460756074,
+            "ap_lift": 1.0416159116491364,
+            "precision": 0.08833100883310088,
+            "recall": 0.3706111833550065,
+            "f1": 0.14266049305468653,
+            "fpr": 0.34177656422471386,
+            "balanced_accuracy": 0.5144173095651463,
+            "mcc": 0.016654154700056312,
+            "predicted_positive_rate": 0.3441416457788918,
+            "prevalence": 0.08202229214441896,
+            "brier": 0.2752695100370359,
+            "log_loss": 0.8766611852070634,
+            "ece_10": 0.2931125147341585,
+            "precision_defined": true,
+            "tp": 570.0,
+            "fp": 5883.0,
+            "fn": 968.0,
+            "tn": 11330.0,
+            "recall_fpr_01": 0.004551365409622887,
+            "recall_fpr_05": 0.0247074122236671,
+            "recall_fpr_10": 0.06306892067620286,
+            "rows": 18751,
+            "original_positives": 1538,
+            "effective_weight": 18751.0,
+            "weighting": "rows"
+          }
+        }
+      ],
+      "agreed_binary_exact_rows": 85
+    },
+    "limitations": [
+      "No independent new label adjudication; no population label-error estimate.",
+      "Structural grouping is a candidate similarity screen, not semantic equivalence or exhaustive fuzzy search.",
+      "Sensitivity metrics are descriptive, not causal and not replacement RQ1 scores.",
+      "Uncertain LLMVul records have no binary labels or predictions in these analyses."
+    ]
+  },
+  "evidence": {
+    "status": "source_evidence_reconciled_no_security_execution",
+    "retrieved_cweval_files": 57,
+    "cweval": {
+      "candidate_pairs": 52,
+      "eligible_pairs": 29,
+      "eligible_security_marker_pairs": 29,
+      "duplicate_definitions": [
+        {
+          "pair_id": "CWEval_core_c_cwe_078_0_c",
+          "eligible": false,
+          "sample_ids": [
+            "cweval:cwe_078_0_c:completion",
+            "cweval:cwe_078_0_c:y_negative"
+          ],
+          "target_function": "get_ls_result",
+          "source_test": "benchmark/core/c/cwe_078_0_c_test.py",
+          "security_marker_present": true,
+          "compiled_reference_mentioned": true,
+          "compiled_unsafe_mentioned": true,
+          "duplicate_top_level_function_names": [
+            "get_ls_result_unsafe"
+          ],
+          "source_task_tokens_match": true,
+          "execution": "not_run"
+        },
+        {
+          "pair_id": "CWEval_core_c_cwe_113_0_c",
+          "eligible": false,
+          "sample_ids": [
+            "cweval:cwe_113_0_c:completion",
+            "cweval:cwe_113_0_c:y_negative"
+          ],
+          "target_function": "store_info_in_header",
+          "source_test": "benchmark/core/c/cwe_113_0_c_test.py",
+          "security_marker_present": true,
+          "compiled_reference_mentioned": true,
+          "compiled_unsafe_mentioned": true,
+          "duplicate_top_level_function_names": [
+            "store_info_in_header_unsafe"
+          ],
+          "source_task_tokens_match": true,
+          "execution": "not_run"
+        },
+        {
+          "pair_id": "CWEval_core_c_cwe_117_0_c",
+          "eligible": false,
+          "sample_ids": [
+            "cweval:cwe_117_0_c:completion",
+            "cweval:cwe_117_0_c:y_negative"
+          ],
+          "target_function": "generate_receive_log",
+          "source_test": "benchmark/core/c/cwe_117_0_c_test.py",
+          "security_marker_present": true,
+          "compiled_reference_mentioned": true,
+          "compiled_unsafe_mentioned": true,
+          "duplicate_top_level_function_names": [
+            "generate_receive_log_unsafe"
+          ],
+          "source_task_tokens_match": true,
+          "execution": "not_run"
+        },
+        {
+          "pair_id": "CWEval_core_cpp_cwe_078_0_cpp",
+          "eligible": true,
+          "sample_ids": [
+            "cweval:cwe_078_0_cpp:completion",
+            "cweval:cwe_078_0_cpp:y_negative"
+          ],
+          "target_function": "get_ls_result",
+          "source_test": "benchmark/core/cpp/cwe_078_0_cpp_test.py",
+          "security_marker_present": true,
+          "compiled_reference_mentioned": true,
+          "compiled_unsafe_mentioned": true,
+          "duplicate_top_level_function_names": [
+            "get_ls_result_unsafe"
+          ],
+          "source_task_tokens_match": true,
+          "execution": "not_run"
+        },
+        {
+          "pair_id": "CWEval_core_cpp_cwe_113_0_cpp",
+          "eligible": false,
+          "sample_ids": [
+            "cweval:cwe_113_0_cpp:completion",
+            "cweval:cwe_113_0_cpp:y_negative"
+          ],
+          "target_function": "store_info_in_header",
+          "source_test": "benchmark/core/cpp/cwe_113_0_cpp_test.py",
+          "security_marker_present": true,
+          "compiled_reference_mentioned": true,
+          "compiled_unsafe_mentioned": true,
+          "duplicate_top_level_function_names": [
+            "store_info_in_header_unsafe"
+          ],
+          "source_task_tokens_match": true,
+          "execution": "not_run"
+        },
+        {
+          "pair_id": "CWEval_core_cpp_cwe_117_0_cpp",
+          "eligible": true,
+          "sample_ids": [
+            "cweval:cwe_117_0_cpp:completion",
+            "cweval:cwe_117_0_cpp:y_negative"
+          ],
+          "target_function": "generate_receive_log",
+          "source_test": "benchmark/core/cpp/cwe_117_0_cpp_test.py",
+          "security_marker_present": true,
+          "compiled_reference_mentioned": true,
+          "compiled_unsafe_mentioned": true,
+          "duplicate_top_level_function_names": [
+            "generate_receive_log_unsafe"
+          ],
+          "source_task_tokens_match": true,
+          "execution": "not_run"
+        }
+      ],
+      "execution": "not_run",
+      "limitation": "Presence of tests and markers is not a passed test. Duplicate top-level Python definitions can shadow compiled-unsafe wrappers; inspect before execution."
+    },
+    "llmvul_construction": {
+      "included": {
+        "rows": 18751,
+        "vendor_path_hint": 393,
+        "test_path_hint": 5071,
+        "generated_text_hint": 5,
+        "nonascii": 288,
+        "line_count_mismatch": 0,
+        "declared_span_mismatch": 1130
+      },
+      "excluded_uncertain": {
+        "rows": 2679,
+        "vendor_path_hint": 108,
+        "test_path_hint": 586,
+        "generated_text_hint": 1,
+        "nonascii": 100,
+        "line_count_mismatch": 0,
+        "declared_span_mismatch": 225
+      }
+    },
+    "construction_metrics": [
+      {
+        "model": "linevul",
+        "flag": "test_path_hint",
+        "value": false,
+        "roc_auc": 0.6167476967553099,
+        "average_precision": 0.11637789593114428,
+        "ap_lift": 1.3665661942815912,
+        "precision": 0.11505588428665352,
+        "recall": 0.15021459227467812,
+        "f1": 0.1303052866716307,
+        "fpr": 0.10755093887335197,
+        "balanced_accuracy": 0.521331826700663,
+        "mcc": 0.03788112740846764,
+        "predicted_positive_rate": 0.11118421052631579,
+        "prevalence": 0.0851608187134503,
+        "brier": 0.1688800284139824,
+        "log_loss": 1.2930940060033123,
+        "ece_10": 0.1691357452901575,
+        "precision_defined": true,
+        "tp": 175.0,
+        "fp": 1346.0,
+        "fn": 990.0,
+        "tn": 11169.0,
+        "recall_fpr_01": 0.012875536480686695,
+        "recall_fpr_05": 0.061802575107296136,
+        "recall_fpr_10": 0.14334763948497853,
+        "rows": 13680,
+        "original_positives": 1165,
+        "effective_weight": 13680.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "linevul",
+        "flag": "test_path_hint",
+        "value": true,
+        "roc_auc": 0.5414670641680863,
+        "average_precision": 0.0753006710902128,
+        "ap_lift": 1.018265874929251,
+        "precision": 0.034653465346534656,
+        "recall": 0.07466666666666667,
+        "f1": 0.047337278106508875,
+        "fpr": 0.16609880749574105,
+        "balanced_accuracy": 0.4542839295854628,
+        "mcc": -0.06537552957660035,
+        "predicted_positive_rate": 0.15933740879510944,
+        "prevalence": 0.07394991126010649,
+        "brier": 0.21985903903946744,
+        "log_loss": 1.6196787092938663,
+        "ece_10": 0.22042767515591213,
+        "precision_defined": true,
+        "tp": 28.0,
+        "fp": 780.0,
+        "fn": 347.0,
+        "tn": 3916.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.024,
+        "recall_fpr_10": 0.042666666666666665,
+        "rows": 5071,
+        "original_positives": 375,
+        "effective_weight": 5071.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "linevul",
+        "flag": "vendor_path_hint",
+        "value": false,
+        "roc_auc": 0.5978389446519474,
+        "average_precision": 0.10276727945774024,
+        "ap_lift": 1.2535559576645816,
+        "precision": 0.08765808983863933,
+        "recall": 0.1335548172757475,
+        "f1": 0.10584518167456557,
+        "fpr": 0.124132201981843,
+        "balanced_accuracy": 0.5047113076469523,
+        "mcc": 0.007818724815826633,
+        "predicted_positive_rate": 0.1249046737117333,
+        "prevalence": 0.08198060790935832,
+        "brier": 0.18294217856184747,
+        "log_loss": 1.3821581243354886,
+        "ece_10": 0.18327548424936888,
+        "precision_defined": true,
+        "tp": 201.0,
+        "fp": 2092.0,
+        "fn": 1304.0,
+        "tn": 14761.0,
+        "recall_fpr_01": 0.009966777408637873,
+        "recall_fpr_05": 0.0504983388704319,
+        "recall_fpr_10": 0.11162790697674418,
+        "rows": 18358,
+        "original_positives": 1505,
+        "effective_weight": 18358.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "linevul",
+        "flag": "vendor_path_hint",
+        "value": true,
+        "roc_auc": 0.5898643256185157,
+        "average_precision": 0.11176345748854576,
+        "ap_lift": 1.2549439655142423,
+        "precision": 0.05555555555555555,
+        "recall": 0.05714285714285714,
+        "f1": 0.056338028169014086,
+        "fpr": 0.09497206703910614,
+        "balanced_accuracy": 0.48108539505187553,
+        "mcc": -0.03735230848941167,
+        "predicted_positive_rate": 0.0916030534351145,
+        "prevalence": 0.089058524173028,
+        "brier": 0.1698001568295734,
+        "log_loss": 1.3467121893221656,
+        "ece_10": 0.1704692021248636,
+        "precision_defined": true,
+        "tp": 2.0,
+        "fp": 34.0,
+        "fn": 33.0,
+        "tn": 324.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.02857142857142857,
+        "recall_fpr_10": 0.08571428571428572,
+        "rows": 393,
+        "original_positives": 35,
+        "effective_weight": 393.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "linevul",
+        "flag": "generated_text_hint",
+        "value": false,
+        "roc_auc": 0.5975696314775418,
+        "average_precision": 0.10271989788730942,
+        "ap_lift": 1.2520072859528624,
+        "precision": 0.08723678556080791,
+        "recall": 0.13198959687906373,
+        "f1": 0.10504527813712808,
+        "fpr": 0.12343096234309624,
+        "balanced_accuracy": 0.5042793172679837,
+        "mcc": 0.007123219139306519,
+        "predicted_positive_rate": 0.12413314840499307,
+        "prevalence": 0.0820441694228102,
+        "brier": 0.18250223189575684,
+        "log_loss": 1.3799682496679402,
+        "ece_10": 0.18284259133850173,
+        "precision_defined": true,
+        "tp": 203.0,
+        "fp": 2124.0,
+        "fn": 1335.0,
+        "tn": 15084.0,
+        "recall_fpr_01": 0.00975292587776333,
+        "recall_fpr_05": 0.05071521456436931,
+        "recall_fpr_10": 0.11053315994798439,
+        "rows": 18746,
+        "original_positives": 1538,
+        "effective_weight": 18746.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "linevul",
+        "flag": "generated_text_hint",
+        "value": true,
+        "roc_auc": 0.33333333333333337,
+        "average_precision": 0.41666666666666663,
+        "ap_lift": 1.0416666666666665,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.6666666666666666,
+        "balanced_accuracy": 0.16666666666666666,
+        "mcc": -0.6666666666666666,
+        "predicted_positive_rate": 0.4,
+        "prevalence": 0.4,
+        "brier": 0.7994273109120504,
+        "log_loss": 6.806385735860497,
+        "ece_10": 0.7997038106863329,
+        "precision_defined": true,
+        "tp": 0.0,
+        "fp": 2.0,
+        "fn": 2.0,
+        "tn": 1.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.0,
+        "recall_fpr_10": 0.0,
+        "rows": 5,
+        "original_positives": 2,
+        "effective_weight": 5.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "linevul",
+        "flag": "nonascii",
+        "value": false,
+        "roc_auc": 0.5954646565544486,
+        "average_precision": 0.09985197469448293,
+        "ap_lift": 1.2507238865564712,
+        "precision": 0.08599729851418281,
+        "recall": 0.12957937584803256,
+        "f1": 0.103382949932341,
+        "fpr": 0.11948908117016893,
+        "balanced_accuracy": 0.5050451473389318,
+        "mcc": 0.008407027483578751,
+        "predicted_positive_rate": 0.12029464334073553,
+        "prevalence": 0.0798353463684125,
+        "brier": 0.17747952133127193,
+        "log_loss": 1.343307376089007,
+        "ece_10": 0.17784452868212694,
+        "precision_defined": true,
+        "tp": 191.0,
+        "fp": 2030.0,
+        "fn": 1283.0,
+        "tn": 14959.0,
+        "recall_fpr_01": 0.0101763907734057,
+        "recall_fpr_05": 0.05088195386702849,
+        "recall_fpr_10": 0.11194029850746269,
+        "rows": 18463,
+        "original_positives": 1474,
+        "effective_weight": 18463.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "linevul",
+        "flag": "nonascii",
+        "value": true,
+        "roc_auc": 0.4037674037674037,
+        "average_precision": 0.18474442792413234,
+        "ap_lift": 0.8061575036689411,
+        "precision": 0.1111111111111111,
+        "recall": 0.18181818181818182,
+        "f1": 0.13793103448275862,
+        "fpr": 0.43243243243243246,
+        "balanced_accuracy": 0.3746928746928747,
+        "mcc": -0.21757354466535525,
+        "predicted_positive_rate": 0.375,
+        "prevalence": 0.22916666666666666,
+        "brier": 0.5152068518511957,
+        "log_loss": 3.824418931330461,
+        "ece_10": 0.518275264098659,
+        "precision_defined": true,
+        "tp": 12.0,
+        "fp": 96.0,
+        "fn": 54.0,
+        "tn": 126.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.015151515151515152,
+        "recall_fpr_10": 0.030303030303030304,
+        "rows": 288,
+        "original_positives": 66,
+        "effective_weight": 288.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "vulberta",
+        "flag": "test_path_hint",
+        "value": false,
+        "roc_auc": 0.5612022654359833,
+        "average_precision": 0.09072726242685919,
+        "ap_lift": 1.065363905578913,
+        "precision": 0.09623163721524378,
+        "recall": 0.38798283261802574,
+        "f1": 0.15421357898328217,
+        "fpr": 0.33919296843787455,
+        "balanced_accuracy": 0.5243949320900756,
+        "mcc": 0.02868051984786921,
+        "predicted_positive_rate": 0.3433479532163743,
+        "prevalence": 0.0851608187134503,
+        "brier": 0.27452040063085903,
+        "log_loss": 0.8794889941891596,
+        "ece_10": 0.2921345399710355,
+        "precision_defined": true,
+        "tp": 452.0,
+        "fp": 4245.0,
+        "fn": 713.0,
+        "tn": 8270.0,
+        "recall_fpr_01": 0.005150214592274678,
+        "recall_fpr_05": 0.02832618025751073,
+        "recall_fpr_10": 0.06695278969957082,
+        "rows": 13680,
+        "original_positives": 1165,
+        "effective_weight": 13680.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "vulberta",
+        "flag": "test_path_hint",
+        "value": true,
+        "roc_auc": 0.5298921067575242,
+        "average_precision": 0.0722055348043138,
+        "ap_lift": 0.9764113786471341,
+        "precision": 0.06719817767653759,
+        "recall": 0.31466666666666665,
+        "f1": 0.11074612857813233,
+        "fpr": 0.34880749574105624,
+        "balanced_accuracy": 0.48292958546280523,
+        "mcc": -0.01877801662064827,
+        "predicted_positive_rate": 0.34628278446065863,
+        "prevalence": 0.07394991126010649,
+        "brier": 0.2775870860584803,
+        "log_loss": 0.8698164875122194,
+        "ece_10": 0.29600959685338163,
+        "precision_defined": true,
+        "tp": 118.0,
+        "fp": 1638.0,
+        "fn": 257.0,
+        "tn": 3058.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.010666666666666666,
+        "recall_fpr_10": 0.04533333333333334,
+        "rows": 5071,
+        "original_positives": 375,
+        "effective_weight": 5071.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "vulberta",
+        "flag": "vendor_path_hint",
+        "value": false,
+        "roc_auc": 0.5499142181769938,
+        "average_precision": 0.0845012452807988,
+        "ap_lift": 1.030746751405252,
+        "precision": 0.08688083557524925,
+        "recall": 0.3647840531561462,
+        "f1": 0.14033742331288343,
+        "fpr": 0.3423722779327123,
+        "balanced_accuracy": 0.5112058876117169,
+        "mcc": 0.012940877720980399,
+        "predicted_positive_rate": 0.3442096088898573,
+        "prevalence": 0.08198060790935832,
+        "brier": 0.27563500562521415,
+        "log_loss": 0.8770428184107953,
+        "ece_10": 0.2931150998426081,
+        "precision_defined": true,
+        "tp": 549.0,
+        "fp": 5770.0,
+        "fn": 956.0,
+        "tn": 11083.0,
+        "recall_fpr_01": 0.004651162790697674,
+        "recall_fpr_05": 0.021926910299003323,
+        "recall_fpr_10": 0.05847176079734219,
+        "rows": 18358,
+        "original_positives": 1505,
+        "effective_weight": 18358.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "vulberta",
+        "flag": "vendor_path_hint",
+        "value": true,
+        "roc_auc": 0.690343176376696,
+        "average_precision": 0.15157715012899417,
+        "ap_lift": 1.701994857162706,
+        "precision": 0.15671641791044777,
+        "recall": 0.6,
+        "f1": 0.2485207100591716,
+        "fpr": 0.31564245810055863,
+        "balanced_accuracy": 0.6421787709497206,
+        "mcc": 0.17085905721321934,
+        "predicted_positive_rate": 0.34096692111959287,
+        "prevalence": 0.089058524173028,
+        "brier": 0.26202483655222236,
+        "log_loss": 0.8689485707297371,
+        "ece_10": 0.2879026994137591,
+        "precision_defined": true,
+        "tp": 21.0,
+        "fp": 113.0,
+        "fn": 14.0,
+        "tn": 245.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.11428571428571428,
+        "recall_fpr_10": 0.2,
+        "rows": 393,
+        "original_positives": 35,
+        "effective_weight": 393.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "vulberta",
+        "flag": "generated_text_hint",
+        "value": false,
+        "roc_auc": 0.5533889565986486,
+        "average_precision": 0.08542578101415023,
+        "ap_lift": 1.0412169641685696,
+        "precision": 0.08835839404743451,
+        "recall": 0.3706111833550065,
+        "f1": 0.1426962072850169,
+        "fpr": 0.34175964667596465,
+        "balanced_accuracy": 0.5144257683395209,
+        "mcc": 0.01666612091108691,
+        "predicted_positive_rate": 0.3441267470393684,
+        "prevalence": 0.0820441694228102,
+        "brier": 0.275306260752963,
+        "log_loss": 0.8768118856905102,
+        "ece_10": 0.29308323056212415,
+        "precision_defined": true,
+        "tp": 570.0,
+        "fp": 5881.0,
+        "fn": 968.0,
+        "tn": 11327.0,
+        "recall_fpr_01": 0.004551365409622887,
+        "recall_fpr_05": 0.0247074122236671,
+        "recall_fpr_10": 0.06306892067620286,
+        "rows": 18746,
+        "original_positives": 1538,
+        "effective_weight": 18746.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "vulberta",
+        "flag": "generated_text_hint",
+        "value": true,
+        "roc_auc": 0.33333333333333337,
+        "average_precision": 0.41666666666666663,
+        "ap_lift": 1.0416666666666665,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "fpr": 0.6666666666666666,
+        "balanced_accuracy": 0.16666666666666666,
+        "mcc": -0.6666666666666666,
+        "predicted_positive_rate": 0.4,
+        "prevalence": 0.4,
+        "brier": 0.438405991531971,
+        "log_loss": 1.1066479055728051,
+        "ece_10": 0.6067527547478676,
+        "precision_defined": true,
+        "tp": 0.0,
+        "fp": 2.0,
+        "fn": 2.0,
+        "tn": 1.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.0,
+        "recall_fpr_10": 0.0,
+        "rows": 5,
+        "original_positives": 2,
+        "effective_weight": 5.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "vulberta",
+        "flag": "nonascii",
+        "value": false,
+        "roc_auc": 0.5516186824693734,
+        "average_precision": 0.08302523017240122,
+        "ap_lift": 1.039955783360274,
+        "precision": 0.08533710513908534,
+        "recall": 0.3683853459972863,
+        "f1": 0.13857343371187955,
+        "fpr": 0.3425746070987109,
+        "balanced_accuracy": 0.5129053694492877,
+        "mcc": 0.01472005527017371,
+        "predicted_positive_rate": 0.34463521637870337,
+        "prevalence": 0.0798353463684125,
+        "brier": 0.2758505495111594,
+        "log_loss": 0.8791117644368848,
+        "ece_10": 0.29568229351883374,
+        "precision_defined": true,
+        "tp": 543.0,
+        "fp": 5820.0,
+        "fn": 931.0,
+        "tn": 11169.0,
+        "recall_fpr_01": 0.0047489823609226595,
+        "recall_fpr_05": 0.025780189959294438,
+        "recall_fpr_10": 0.06377204884667571,
+        "rows": 18463,
+        "original_positives": 1474,
+        "effective_weight": 18463.0,
+        "weighting": "rows"
+      },
+      {
+        "model": "vulberta",
+        "flag": "nonascii",
+        "value": true,
+        "roc_auc": 0.6214168714168714,
+        "average_precision": 0.2762299785069222,
+        "ap_lift": 1.205367178939297,
+        "precision": 0.3,
+        "recall": 0.4090909090909091,
+        "f1": 0.34615384615384615,
+        "fpr": 0.28378378378378377,
+        "balanced_accuracy": 0.5626535626535627,
+        "mcc": 0.11362407795995211,
+        "predicted_positive_rate": 0.3125,
+        "prevalence": 0.22916666666666666,
+        "brier": 0.24324478613947573,
+        "log_loss": 0.7333622982082161,
+        "ece_10": 0.18881440579813594,
+        "precision_defined": true,
+        "tp": 27.0,
+        "fp": 63.0,
+        "fn": 39.0,
+        "tn": 159.0,
+        "recall_fpr_01": 0.0,
+        "recall_fpr_05": 0.0,
+        "recall_fpr_10": 0.09090909090909091,
+        "rows": 288,
+        "original_positives": 66,
+        "effective_weight": 288.0,
+        "weighting": "rows"
+      }
+    ],
+    "llmvul_full_exact_conflicting_groups": 0,
+    "source_case_matches": [
+      {
+        "sample_id": "llmvul:ID_289E72EB6D827C0D",
+        "source_request": {
+          "repository_full_name": "JustVugg/colibri",
+          "ref": "ca6571c480d0fd579e2e4cc426db5c3fcd09b2b7",
+          "path": "c/tests/test_qwen38_metrics.c"
+        },
+        "function": "main",
+        "source_url": "https://github.com/JustVugg/colibri/blob/ca6571c480d0fd579e2e4cc426db5c3fcd09b2b7/c/tests/test_qwen38_metrics.c",
+        "source_sha256": "2d93eb0fceacaa6f79e09b7b527ece1959576df7f8e56816a1a36ea1b33f1668",
+        "source_file_hash_matches": true,
+        "target_candidates": 1,
+        "exact_target_function_match": true,
+        "exact_substring": true,
+        "source_start_line": 14,
+        "stored_start_line": 14,
+        "stored_end_line": 54,
+        "target_diff": [],
+        "source_parser_errors": 0
+      },
+      {
+        "sample_id": "llmvul:ID_9D80D1E3ECA38FE1",
+        "source_request": {
+          "repository_full_name": "Serial-Studio/Serial-Studio",
+          "ref": "791c6b12fc03ee3f270ab87fd79dc104967199dd",
+          "path": "lib/mbedtls/3rdparty/p256-m/p256-m_driver_entrypoints.c"
+        },
+        "function": "p256_transparent_import_key",
+        "source_url": "https://github.com/Serial-Studio/Serial-Studio/blob/791c6b12fc03ee3f270ab87fd79dc104967199dd/lib/mbedtls/3rdparty/p256-m/p256-m_driver_entrypoints.c",
+        "source_sha256": "36db3e42a3ca76ce803bb346761aaad85d829fc6077f75934f87b1ec435ff329",
+        "source_file_hash_matches": true,
+        "target_candidates": 1,
+        "exact_target_function_match": true,
+        "exact_substring": true,
+        "source_start_line": 61,
+        "stored_start_line": 61,
+        "stored_end_line": 104,
+        "target_diff": [],
+        "source_parser_errors": 0
+      },
+      {
+        "sample_id": "llmvul:ID_1FD8CA7AD4F7A7A6",
+        "source_request": {
+          "repository_full_name": "sqliteai/warp",
+          "ref": "25c61ab540e8c2e2dbb0b43a595f1243b576c7ef",
+          "path": "cli/main.c"
+        },
+        "function": "cmd_plan",
+        "source_url": "https://github.com/sqliteai/warp/blob/25c61ab540e8c2e2dbb0b43a595f1243b576c7ef/cli/main.c",
+        "source_sha256": "3d7fb2bcb962cb728e1b4ac8c86baa7452ffd45ee23b15c3664823235a09d708",
+        "source_file_hash_matches": true,
+        "target_candidates": 1,
+        "exact_target_function_match": false,
+        "exact_substring": true,
+        "source_start_line": 113,
+        "stored_start_line": 113,
+        "stored_end_line": 149,
+        "target_diff": [
+          "--- upstream_function",
+          "+++ dataset_fragment",
+          "@@ -1,4 +1,4 @@",
+          "-static int cmd_plan(int argc, char **argv)",
+          "+atic int cmd_plan(int argc, char **argv)",
+          " {",
+          "     if (argc < 3) { fprintf(stderr, \"usage: waste plan MODEL [--budget N] [--ctx N]\\n\"); return 2; }",
+          "     opts o; opts_init(&o);",
+          "@@ -35,3 +35,5 @@",
+          "     }",
+          "     return 0;",
+          " }",
+          "+",
+          "+st"
+        ],
+        "source_parser_errors": 0
+      },
+      {
+        "sample_id": "llmvul:ID_9D4C3136460C9399",
+        "source_request": {
+          "repository_full_name": "microsoft/ebpf-for-windows",
+          "ref": "ecd2da1b5e01bec0bb244326f20ed10db87916ea",
+          "path": "libs/execution_context/ebpf_native.c"
+        },
+        "function": "_ebpf_copy_program_entry",
+        "source_url": "https://github.com/microsoft/ebpf-for-windows/blob/ecd2da1b5e01bec0bb244326f20ed10db87916ea/libs/execution_context/ebpf_native.c",
+        "source_sha256": "e0bc3db29af0369e7778da292e535cf66d562bb0462429ef957494aa836292c8",
+        "source_file_hash_matches": true,
+        "target_candidates": 1,
+        "exact_target_function_match": true,
+        "exact_substring": true,
+        "source_start_line": 106,
+        "stored_start_line": 1,
+        "stored_end_line": 8,
+        "target_diff": [],
+        "source_parser_errors": 105
+      },
+      {
+        "sample_id": "llmvul:ID_64E05D7C322FB0BB",
+        "source_request": {
+          "repository_full_name": "open5gs/open5gs",
+          "ref": "c0f0d9ecf7405f397da2d84b6af7687356ca1a86",
+          "path": "tests/unit/mme-dns-select-test.c"
+        },
+        "function": "dns_select_test_srv",
+        "source_url": "https://github.com/open5gs/open5gs/blob/c0f0d9ecf7405f397da2d84b6af7687356ca1a86/tests/unit/mme-dns-select-test.c",
+        "source_sha256": "6db06333d516c45e80ce0c99ec20de8fa25eba472934f7158be2f62f6c61ed38",
+        "source_file_hash_matches": true,
+        "target_candidates": 1,
+        "exact_target_function_match": true,
+        "exact_substring": true,
+        "source_start_line": 223,
+        "stored_start_line": 223,
+        "stored_end_line": 252,
+        "target_diff": [],
+        "source_parser_errors": 1
+      },
+      {
+        "sample_id": "llmvul:ID_F486991D843C2E5D",
+        "source_request": {
+          "repository_full_name": "redis/redis",
+          "ref": "d0d857885a5e2be4c955fce7a9f3d7b700a9fbfa",
+          "path": "src/acl.c"
+        },
+        "function": "ACLCheckAllPerm",
+        "source_url": "https://github.com/redis/redis/blob/d0d857885a5e2be4c955fce7a9f3d7b700a9fbfa/src/acl.c",
+        "source_sha256": "ac147d78a1826444c6127abd5b1ce8a2d4f30da7bf612a648bd668ed1fc8f0e5",
+        "source_file_hash_matches": true,
+        "target_candidates": 1,
+        "exact_target_function_match": false,
+        "exact_substring": true,
+        "source_start_line": 1963,
+        "stored_start_line": 7,
+        "stored_end_line": 12,
+        "target_diff": [
+          "--- upstream_function",
+          "+++ dataset_fragment",
+          "@@ -4,4 +4,3 @@",
+          "     serverAssert(!pcmd || (pcmd->cmd == c->cmd));",
+          "     return ACLCheckAllUserCommandPerm(c->user, c->cmd, c->argv, c->argc,",
+          "                 getClientCachedKeyResult(pcmd), idxptr);",
+          "-}"
+        ],
+        "source_parser_errors": 2
+      }
+    ],
+    "prime_patch_evidence": [
+      {
+        "repository": "tensorflow/tensorflow",
+        "sha": "045deec1cbdebb27d817008ad5df94d96a08b1bf",
+        "url": "https://github.com/tensorflow/tensorflow/commit/045deec1cbdebb27d817008ad5df94d96a08b1bf",
+        "patch_path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\045deec1cbdebb27d817008ad5df94d96a08b1bf.patch",
+        "patch_sha256": "763391c7a9e8be4a6df797a625cfb5f9a8d89ee2c87a85d44f2b600c4da114d6",
+        "filenames": [
+          "tensorflow/core/grappler/mutable_graph_view.cc"
+        ]
+      },
+      {
+        "repository": "pjsip/pjproject",
+        "sha": "11559e49e65bdf00922ad5ae28913ec6a198d508",
+        "url": "https://github.com/pjsip/pjproject/commit/11559e49e65bdf00922ad5ae28913ec6a198d508",
+        "patch_path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\11559e49e65bdf00922ad5ae28913ec6a198d508.patch",
+        "patch_sha256": "d8cdb59dbc02cc7c29ad7a0bc7f502022e20a1eedc9ba2ef43e279948cd960ea",
+        "filenames": [
+          "pjmedia/include/pjmedia/rtcp.h",
+          "pjmedia/src/pjmedia/rtcp.c",
+          "pjmedia/src/pjmedia/rtcp_fb.c"
+        ]
+      },
+      {
+        "repository": "bonzini/qemu",
+        "sha": "e392255766071c8cac480da3a9ae4f94e56d7cbc",
+        "url": "https://github.com/bonzini/qemu/commit/e392255766071c8cac480da3a9ae4f94e56d7cbc",
+        "patch_path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\e392255766071c8cac480da3a9ae4f94e56d7cbc.patch",
+        "patch_sha256": "9cb85fcb42e8a3b2bfa3b9a37b161ab21fa3930d758b7041f53b70ae6483f351",
+        "filenames": [
+          "hw/scsi/esp.c"
+        ]
+      }
+    ],
+    "prime_token_conflicts": [
+      {
+        "sample_ids": [
+          "primevul:210834",
+          "primevul:440872"
+        ],
+        "labels": [
+          1,
+          0
+        ],
+        "commits": [
+          "https://gitlab.freedesktop.org/xorg/xserver/commit/da15c7413916f754708c62c2089265528cd661e2",
+          "https://gitlab.freedesktop.org/xorg/xserver/commit/da15c7413916f754708c62c2089265528cd661e2"
+        ],
+        "cves": [
+          "CVE-2018-14665",
+          "CVE-2018-14665"
+        ],
+        "token_sha256": "5ac34bea73342668d8ffd0daf91348439beca864a7dd7ee12f46dd2dc5d289c8",
+        "diff": [
+          "--- ",
+          "+++ ",
+          "@@ -2,6 +2,8 @@",
+          " {",
+          "     char *logFileName = NULL;",
+          " ",
+          "+    /* the format string below is controlled by the user,",
+          "+       this code should never be called with elevated privileges */",
+          "     if (asprintf(&logFileName, fname, idstring) == -1)",
+          "         FatalError(\"Cannot allocate space for the log file name\\n\");",
+          " "
+        ],
+        "judgment": "context_or_label_incompatibility_candidate; not independently adjudicated"
+      },
+      {
+        "sample_ids": [
+          "primevul:210944",
+          "primevul:379328"
+        ],
+        "labels": [
+          1,
+          0
+        ],
+        "commits": [
+          "https://github.com/vim/vim/commit/35d21c6830fc2d68aca838424a0e786821c5891c",
+          "https://github.com/vim/vim/commit/c6fdb15d423df22e1776844811d082322475e48a"
+        ],
+        "cves": [
+          "CVE-2022-3099",
+          "CVE-2022-2288"
+        ],
+        "token_sha256": "1a72b80b64af7f893b83e84c2be0599f4244e9a785390687be7338b3f5ed6dc7",
+        "diff": [
+          "--- ",
+          "+++ ",
+          "@@ -261,7 +261,7 @@",
+          " \t\t    , in_vim9script() ? GETLINE_CONCAT_CONTBAR",
+          " \t\t\t\t\t       : GETLINE_CONCAT_CONT)) == NULL)",
+          " \t    {",
+          "-\t\t// Don't call wait_return() for aborted command line.  The NULL",
+          "+\t\t// Don't call wait_return for aborted command line.  The NULL",
+          " \t\t// returned for the end of a sourced file or executed function",
+          " \t\t// doesn't do this.",
+          " \t\tif (KeyTyped && !(flags & DOCMD_REPEAT))",
+          "@@ -737,7 +737,7 @@",
+          " \telse if (need_wait_return)",
+          " \t{",
+          " \t    /*",
+          "-\t     * The msg_start() above clears msg_didout. The wait_return() we do",
+          "+\t     * The msg_start() above clears msg_didout. The wait_return we do",
+          " \t     * here should not overwrite the command that may be shown before",
+          " \t     * doing that.",
+          " \t     */"
+        ],
+        "judgment": "context_or_label_incompatibility_candidate; not independently adjudicated"
+      }
+    ],
+    "downloaded_file_identities": [
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\Dockerfile",
+        "git_blob_sha1": "ba798d049bda7124d644d666b4bcd97ba7574237",
+        "sha256": "491d08bed2214efaf073783c807b72d85a15344682f98a9465e893a03c8dd4d4"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\README.md",
+        "git_blob_sha1": "3565c5d8c04a55049a26b1b19d1393f643b431dd",
+        "sha256": "d8544a01588646151efa8531d8be580034b28f3afa9af4f74c0c7b10e9a83578"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_020_0_c_test.py",
+        "git_blob_sha1": "649d251ffac5328f06f111de8a1ee188df1e499f",
+        "sha256": "8779409922165789fa37a1fa5b34628c2f35389799ca9fe199b8585fe21816ac"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_022_0_c_test.py",
+        "git_blob_sha1": "c5986b39dc302f8d056b015e49b02f4017b1e3bc",
+        "sha256": "9fe435d55e11badf5552eb7a3448d7f739f5df1a0ca85aa6664d2ef22fe0c12e"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_022_2_c_test.py",
+        "git_blob_sha1": "67387b31f4a3f365869fd928e85e674a81360b77",
+        "sha256": "46fb92a386417cecd917d1f04068e67f6e1491aef80e46e8dd90fa00200ea928"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_078_0_c_test.py",
+        "git_blob_sha1": "852d887f77ab3580831ad66b77c25bdc2e75c21d",
+        "sha256": "e80c1135af217537d34870585f8dca0edc677a48495bb15f563fe0228993a680"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_079_0_c_test.py",
+        "git_blob_sha1": "98ec4fe471e73b39bf3fa46eb9759dea64a2dfba",
+        "sha256": "ab75b15c49b57818f95d37da7ed1f9f5228dbb5b0d13e2a25a028bb006bc4ac9"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_113_0_c_test.py",
+        "git_blob_sha1": "974f6989b036e60d644944b09491333e1b062116",
+        "sha256": "89291ec28fb14cee7abcc1a41f5f21edb170ab4c056acc6939af33fb3775d3d8"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_117_0_c_test.py",
+        "git_blob_sha1": "a3d980b5961eb9a27a6b120c953ef1c298b6e1fa",
+        "sha256": "b111d8c4dad235191740723ef243a181188806bbdde7947343f2616a33e4d6b0"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_326_0_c_test.py",
+        "git_blob_sha1": "d0391d047eee8d409a7556bed56607aa7fc28781",
+        "sha256": "a19a29e8c69b50fa773da203a90005aab986967ad3e8e2da9e12911d58b976cd"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_326_1_c_test.py",
+        "git_blob_sha1": "cd34654d11ec68c4613a57f63654043bc9bacc48",
+        "sha256": "975932f367af6535c77d88ad449bfcb0819ad69b07a7396b4553b68906804967"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_327_0_c_test.py",
+        "git_blob_sha1": "e20d2a46f9e38c6907bc63a601acd7d5166a62e7",
+        "sha256": "2da7689ddae87703b1a2723f7ea46407f4c8e694394b81e0a3a9d29b8a3f12cd"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_327_2_c_test.py",
+        "git_blob_sha1": "e3625d692a82165e6bba7aa81cd6a30bcbb48577",
+        "sha256": "597d900d3c362befcf5b39fbb9e69f08649c6f6330effc7fa65c853c0bb41a83"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_329_0_c_test.py",
+        "git_blob_sha1": "d09d2e9ee58879db392dddc5d933c063f989361d",
+        "sha256": "dbab456bdf4c0f4564d732799ab021c5a52efce4435debfd47ed146e81416036"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_347_0_c_test.py",
+        "git_blob_sha1": "555bda56f0d1d952efaaa002d5e58903a935cf9c",
+        "sha256": "66d75c34dc8320a38bfe069c51862848f0af3a0472691178593f838c32a53ebe"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_377_0_c_test.py",
+        "git_blob_sha1": "c07e67f119e184dc292e51bd349231b74e25af0c",
+        "sha256": "c47433a790b99c5834104ec27f7091f0a7cb3c721f20f2d62737f15aae94ed05"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_643_0_c_test.py",
+        "git_blob_sha1": "c5c972d7146b194b0fd520071cb7e2b0ab9c85eb",
+        "sha256": "eeb3d5573931d6665547d01f7165d3c7f681fb76a1be91292f77e16a897b075b"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_732_2_c_test.py",
+        "git_blob_sha1": "ca690c20832b69731bf6844ae5800be52e1667de",
+        "sha256": "4c9c5ba7949fdee877d251719bd87e742d1e19e4714c38b0506e9a901545fc68"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_760_0_c_test.py",
+        "git_blob_sha1": "ff53cb8e0d2229a46a2119db4c9043fbe83769e5",
+        "sha256": "71d35f26e669dd8ede089a6bf942aa44ca950d8fce0414a6aac6bc83cc115757"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_918_0_c_test.py",
+        "git_blob_sha1": "870ebb378c6153988f10dd471e339da181c71cd4",
+        "sha256": "8152cbdd8b26ac75473960488f71c33b39ee7c60ad56d31a6f8de26476cbf8b7"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_918_1_c_test.py",
+        "git_blob_sha1": "227708a33bbcb86d396b951f07bf2aa105a3cad8",
+        "sha256": "f13d133d4990ab3c770d25843ce495005ed66f1e26243f4fba2199122d3a0da9"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_943_0_c_test.py",
+        "git_blob_sha1": "081a1850353c76b11cd609a40746192c669d184c",
+        "sha256": "83d765e883aca6e30ed33528a76b24f6b7430136c2413bd695a3d02b99b39425"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_020_0_cpp_test.py",
+        "git_blob_sha1": "649d251ffac5328f06f111de8a1ee188df1e499f",
+        "sha256": "8779409922165789fa37a1fa5b34628c2f35389799ca9fe199b8585fe21816ac"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_022_0_cpp_test.py",
+        "git_blob_sha1": "c5986b39dc302f8d056b015e49b02f4017b1e3bc",
+        "sha256": "9fe435d55e11badf5552eb7a3448d7f739f5df1a0ca85aa6664d2ef22fe0c12e"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_022_2_cpp_test.py",
+        "git_blob_sha1": "67387b31f4a3f365869fd928e85e674a81360b77",
+        "sha256": "46fb92a386417cecd917d1f04068e67f6e1491aef80e46e8dd90fa00200ea928"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_078_0_cpp_test.py",
+        "git_blob_sha1": "852d887f77ab3580831ad66b77c25bdc2e75c21d",
+        "sha256": "e80c1135af217537d34870585f8dca0edc677a48495bb15f563fe0228993a680"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_079_0_cpp_test.py",
+        "git_blob_sha1": "98ec4fe471e73b39bf3fa46eb9759dea64a2dfba",
+        "sha256": "ab75b15c49b57818f95d37da7ed1f9f5228dbb5b0d13e2a25a028bb006bc4ac9"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_113_0_cpp_test.py",
+        "git_blob_sha1": "974f6989b036e60d644944b09491333e1b062116",
+        "sha256": "89291ec28fb14cee7abcc1a41f5f21edb170ab4c056acc6939af33fb3775d3d8"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_117_0_cpp_test.py",
+        "git_blob_sha1": "a3d980b5961eb9a27a6b120c953ef1c298b6e1fa",
+        "sha256": "b111d8c4dad235191740723ef243a181188806bbdde7947343f2616a33e4d6b0"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_1333_0_cpp_test.py",
+        "git_blob_sha1": "3a56aeeeb4e43e8dcac567b80154203c47c82145",
+        "sha256": "b7d5c429a5c58a288b6e412cad8421d066d714f58047fd10872770c6503fe0b7"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_326_0_cpp_test.py",
+        "git_blob_sha1": "d0391d047eee8d409a7556bed56607aa7fc28781",
+        "sha256": "a19a29e8c69b50fa773da203a90005aab986967ad3e8e2da9e12911d58b976cd"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_326_1_cpp_test.py",
+        "git_blob_sha1": "cd34654d11ec68c4613a57f63654043bc9bacc48",
+        "sha256": "975932f367af6535c77d88ad449bfcb0819ad69b07a7396b4553b68906804967"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_327_0_cpp_test.py",
+        "git_blob_sha1": "e20d2a46f9e38c6907bc63a601acd7d5166a62e7",
+        "sha256": "2da7689ddae87703b1a2723f7ea46407f4c8e694394b81e0a3a9d29b8a3f12cd"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_327_2_cpp_test.py",
+        "git_blob_sha1": "e3625d692a82165e6bba7aa81cd6a30bcbb48577",
+        "sha256": "597d900d3c362befcf5b39fbb9e69f08649c6f6330effc7fa65c853c0bb41a83"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_329_0_cpp_test.py",
+        "git_blob_sha1": "d09d2e9ee58879db392dddc5d933c063f989361d",
+        "sha256": "dbab456bdf4c0f4564d732799ab021c5a52efce4435debfd47ed146e81416036"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_347_0_cpp_test.py",
+        "git_blob_sha1": "555bda56f0d1d952efaaa002d5e58903a935cf9c",
+        "sha256": "66d75c34dc8320a38bfe069c51862848f0af3a0472691178593f838c32a53ebe"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_400_0_cpp_test.py",
+        "git_blob_sha1": "c09ae58fff8a4b3a2c8cf5863f27887c4e69fde7",
+        "sha256": "6f412b3dc6b9cf1fad6635e1d43fe5e71c082c27bff1263c00befcece901a609"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_643_0_cpp_test.py",
+        "git_blob_sha1": "c5c972d7146b194b0fd520071cb7e2b0ab9c85eb",
+        "sha256": "eeb3d5573931d6665547d01f7165d3c7f681fb76a1be91292f77e16a897b075b"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_732_2_cpp_test.py",
+        "git_blob_sha1": "ca690c20832b69731bf6844ae5800be52e1667de",
+        "sha256": "4c9c5ba7949fdee877d251719bd87e742d1e19e4714c38b0506e9a901545fc68"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_760_0_cpp_test.py",
+        "git_blob_sha1": "ff53cb8e0d2229a46a2119db4c9043fbe83769e5",
+        "sha256": "71d35f26e669dd8ede089a6bf942aa44ca950d8fce0414a6aac6bc83cc115757"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_918_0_cpp_test.py",
+        "git_blob_sha1": "870ebb378c6153988f10dd471e339da181c71cd4",
+        "sha256": "8152cbdd8b26ac75473960488f71c33b39ee7c60ad56d31a6f8de26476cbf8b7"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_918_1_cpp_test.py",
+        "git_blob_sha1": "227708a33bbcb86d396b951f07bf2aa105a3cad8",
+        "sha256": "f13d133d4990ab3c770d25843ce495005ed66f1e26243f4fba2199122d3a0da9"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_943_0_cpp_test.py",
+        "git_blob_sha1": "081a1850353c76b11cd609a40746192c669d184c",
+        "sha256": "83d765e883aca6e30ed33528a76b24f6b7430136c2413bd695a3d02b99b39425"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_119_0_c_test.py",
+        "git_blob_sha1": "b0f166a35f1d54e2b889f9cdd117608b6cfddfe5",
+        "sha256": "ea0bc458ff669cef18100d2524f22fe7201a1066d032574453eccca18da99c86"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_120_0_c_test.py",
+        "git_blob_sha1": "50a21645d467b8990fca3cd005850734ff18ce1c",
+        "sha256": "d2a5fc9ac53bd8251c0aca4f0c7016c2c2c4a7b971df0bd3a10bfe4004ad60c2"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_125_0_c_test.py",
+        "git_blob_sha1": "cf0cb22f23c1a2abf788870f7b9f0beec57ab9ac",
+        "sha256": "519b48e39e4b311feb39a17ce1dc98bd1f3b205366f975ddd843ed623eebbc92"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_131_0_c_test.py",
+        "git_blob_sha1": "a0ca9ec2961eaae943d7881b11261ce55165d0d3",
+        "sha256": "a0ea02c9816e23a3e45941c61cc52ec6e0718ce7903110151dd321fdf83d3811"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_134_0_c_test.py",
+        "git_blob_sha1": "e896888f51d977e73d35ed58365ae98f75a0d946",
+        "sha256": "5ed44fb11062f748f833efbfae02d20cb933bd4a0075019cf423b00c287baf5e"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_170_0_c_test.py",
+        "git_blob_sha1": "549a9f342ddb942aea8c4805633b4f845d5b1b4c",
+        "sha256": "99f42a2f80423a6506c487beb5d5f0da8ef1670f4722d04e75b79e42e5841260"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_190_0_c_test.py",
+        "git_blob_sha1": "ff3f1154c54b44d3bde87b83bb8f211f6b30483f",
+        "sha256": "402969efa90df4215577d9f043e0ae9fa403578c767cb1b585a53ca470f82eef"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_468_0_c_test.py",
+        "git_blob_sha1": "6bc1b445c4ba943c473010b8b9e1cd54f9e119ea",
+        "sha256": "4ca0a86f54104172205041f4dc95fdf8a5819ce82af442f2a44f2e4d8284c25d"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_476_0_c_test.py",
+        "git_blob_sha1": "6340cd8dcf10ba68a7df195e1efa737b3688ae4b",
+        "sha256": "ff1d91d787250317fa0a14eb7aa1f17857d3cf95791ed1f0bbadf734d52a513e"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_676_0_c_test.py",
+        "git_blob_sha1": "28ca1b0c9cb634959b41c0648d72d15ab10d5d12",
+        "sha256": "b418cfaf30130435861809e10a2e6f5fab69c5d17f0813bd9f72b97e0df39358"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_787_2_c_test.py",
+        "git_blob_sha1": "1f05898b1885f65ba80d8c7cc7cc496ba3b4e6a8",
+        "sha256": "9960e03e12aafe2dd092ec8d30598e8a908d22f310044c89b28df2340f1f1540"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\commons.py",
+        "git_blob_sha1": "89a5b457ae6f5fe9fd5577e71a8688fb9637bebc",
+        "sha256": "7dde102128db9a0642b31b05f2aaa1155ef0a65bdc80d46fcd0aab966a927adf"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\run_tests.py",
+        "git_blob_sha1": "02ae0cf608154cdf65fee45acbb96604d51f2b51",
+        "sha256": "bb6f40c2fd38f7e39041a43de17c0fae5864aacadb5921096a22bfd018d5919b"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\sandbox.py",
+        "git_blob_sha1": "d28ad69ec11239fad77613159d7c661966a3f1df",
+        "sha256": "bdf003195095927fd29e26cbd339015c19a4345c5c8637b73407a5cdcfda8f06"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_289E72EB6D827C0D.c",
+        "git_blob_sha1": "41eec75ac8652dfde2f6fac6cb7e731ec2a2db94",
+        "sha256": "2d93eb0fceacaa6f79e09b7b527ece1959576df7f8e56816a1a36ea1b33f1668"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_9D80D1E3ECA38FE1.c",
+        "git_blob_sha1": "d272dcbb1e04898a0cc9fa64b26ebbba3208f3b8",
+        "sha256": "36db3e42a3ca76ce803bb346761aaad85d829fc6077f75934f87b1ec435ff329"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_1FD8CA7AD4F7A7A6.c",
+        "git_blob_sha1": "3d4d19fd757065ff93159373fe61facf2de728c1",
+        "sha256": "3d7fb2bcb962cb728e1b4ac8c86baa7452ffd45ee23b15c3664823235a09d708"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_9D4C3136460C9399.c",
+        "git_blob_sha1": "3df6a05ae12c24fcad840c78fed202bb84f3e960",
+        "sha256": "e0bc3db29af0369e7778da292e535cf66d562bb0462429ef957494aa836292c8"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_64E05D7C322FB0BB.c",
+        "git_blob_sha1": "dca7f4a63bf54254995173f8cfc35217629cb3fc",
+        "sha256": "6db06333d516c45e80ce0c99ec20de8fa25eba472934f7158be2f62f6c61ed38"
+      },
+      {
+        "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_F486991D843C2E5D.c",
+        "git_blob_sha1": "d52e0a0bf36e5b30cf5cf3b38dd9ff0ec81c52d6",
+        "sha256": "ac147d78a1826444c6127abd5b1ce8a2d4f30da7bf612a648bd668ed1fc8f0e5"
+      }
+    ],
+    "source_attribution": "LLMVul upstream https://github.com/Wahed08/LLMVul-Dataset/tree/29313663fe2a575123adf552fd339c93c345e43d; CWEval upstream pinned e9a2a124c8c53679b6d8d27adfd2f6c40e7576d7"
+  },
+  "targeted_case_assessments": {
+    "review_type": "single-assistant source-evidence assessment, not independent adjudication",
+    "population_error_rate_estimable": false,
+    "cases": [
+      {
+        "sample_ids": [
+          "primevul:195399"
+        ],
+        "original_label": 1,
+        "judgment": "vulnerability_label_supported_by_patch",
+        "confidence": "high for patch-to-function link; no runtime reproduction",
+        "tags": [
+          "model_miss",
+          "visible_risk_operation"
+        ],
+        "evidence": "TensorFlow commit 045deec1cbdebb27d817008ad5df94d96a08b1bf adds input_node == nullptr guard immediately before IsSwitch(*input_node) in IsIdentityConsumingSwitch. The dataset function lacks it. Both models predict 0. The local CVE description agrees.",
+        "source": "https://github.com/tensorflow/tensorflow/commit/045deec1cbdebb27d817008ad5df94d96a08b1bf"
+      },
+      {
+        "sample_ids": [
+          "primevul:197305"
+        ],
+        "original_label": 1,
+        "judgment": "vulnerability_label_supported_by_patch_with_external_context",
+        "confidence": "moderate",
+        "tags": [
+          "model_miss",
+          "missing_context"
+        ],
+        "evidence": "PJSIP patch adds RTCP header-length, padding-length and bit-length guards to pjmedia_rtcp_fb_parse_rpsi. Relevant arithmetic is present in the evaluated function, but header layout and helper contracts are outside it. Both models predict 0. Supplied CWE-200 is not independently adjudicated.",
+        "source": "https://github.com/pjsip/pjproject/commit/11559e49e65bdf00922ad5ae28913ec6a198d508"
+      },
+      {
+        "sample_ids": [
+          "primevul:204138"
+        ],
+        "original_label": 1,
+        "judgment": "insufficient_context_for_independent_verdict",
+        "confidence": "high for patch link; limited for exploitability",
+        "tags": [
+          "missing_context"
+        ],
+        "evidence": "QEMU patch moves DMA status/message data from FIFO storage to a local two-byte buffer. This supports the change attribution, but does not independently establish null-dereference reachability from the isolated function. Both models predict 0.",
+        "source": "https://github.com/bonzini/qemu/commit/e392255766071c8cac480da3a9ae4f94e56d7cbc"
+      },
+      {
+        "sample_ids": [
+          "llmvul:ID_289E72EB6D827C0D"
+        ],
+        "original_label": 1,
+        "judgment": "published_reviewers_agree_zero; scoped disagreement supported",
+        "confidence": "moderate",
+        "tags": [
+          "label_disagreement",
+          "test_scaffolding",
+          "missing_context"
+        ],
+        "evidence": "Both published raters assign 0; dataset still assigns 1 under tmp.oob-write-index. Exact body and full-file hash match upstream. This is a metrics test main with bounded index loops, but Q38Timers definitions and included qwen38.c contracts remain external. Both model negatives agree with published raters. Do not assert universal safety."
+      },
+      {
+        "sample_ids": [
+          "llmvul:ID_9D80D1E3ECA38FE1"
+        ],
+        "original_label": 1,
+        "judgment": "published_reviewers_agree_zero; scoped disagreement supported",
+        "confidence": "high for visible destination-size guard",
+        "tags": [
+          "label_disagreement",
+          "bounded_copy",
+          "missing_context"
+        ],
+        "evidence": "Both published raters assign 0. Exact body and file hash match upstream. p256_transparent_import_key rejects key_buffer_size < data_length before memcpy and validates accepted key sizes. The automated dangerous-memcpy/CWE-120 label is not justified by the copy alone; pointer contracts remain assumed. Both models predict 0."
+      },
+      {
+        "sample_ids": [
+          "llmvul:ID_1FD8CA7AD4F7A7A6"
+        ],
+        "original_label": 1,
+        "judgment": "confirmed_source_extraction_defect; vulnerability_unresolved",
+        "confidence": "high",
+        "tags": [
+          "source_extraction_damage",
+          "label_uncertain"
+        ],
+        "evidence": "At the exact recorded commit/file hash, upstream cmd_plan starts with static; dataset starts with atic and appends st from the next function. The published review repairs the initial static but retains the trailing fragment, so its code is not byte-identical. Rater values are -1/1; -1 is undocumented. Published template slices Unicode Python strings using tree-sitter byte offsets, a plausible mechanism, not a verified reconstruction of the mining run."
+      },
+      {
+        "sample_ids": [
+          "llmvul:ID_F486991D843C2E5D"
+        ],
+        "original_label": 0,
+        "judgment": "confirmed_source_extraction_defect; vulnerability_unresolved",
+        "confidence": "high",
+        "tags": [
+          "source_extraction_damage",
+          "missing_context"
+        ],
+        "evidence": "The complete upstream ACLCheckAllPerm body at the recorded file hash includes a closing brace absent from the dataset. Dataset coordinates 7-12 differ from source start line 1963. VulBERTa's highest-score FP remains a label-relative FP; no corrected-input inference was run in Priority 4."
+      },
+      {
+        "sample_ids": [
+          "llmvul:ID_9D4C3136460C9399"
+        ],
+        "original_label": 1,
+        "judgment": "automated_vulnerability_label_not_established_from_visible_copy",
+        "confidence": "moderate",
+        "tags": [
+          "label_disagreement_candidate",
+          "missing_context"
+        ],
+        "evidence": "Exact upstream function uses memcpy(destination, source, min(source_size, sizeof(*destination))). This bounds writes to the destination object under its declared contract. No independent source-read or pointer-contract proof is available. Both models predict 0. Recorded line 1 is actually source line 106; coordinates are not reliable source locations."
+      },
+      {
+        "sample_ids": [
+          "llmvul:ID_64E05D7C322FB0BB"
+        ],
+        "original_label": 1,
+        "judgment": "insufficient_context_to_establish_strcpy_overflow",
+        "confidence": "moderate",
+        "tags": [
+          "test_scaffolding",
+          "missing_context"
+        ],
+        "evidence": "Exact upstream unit-test function copies short fixed literals into struct fields. Field capacities live in external declarations. A dangerous-strcpy flag alone does not establish overflow; no safe label is substituted. Both models predict 0."
+      },
+      {
+        "sample_ids": [
+          "primevul:210834",
+          "primevul:440872"
+        ],
+        "original_labels": [
+          1,
+          0
+        ],
+        "judgment": "identical_executable_tokens_opposite_labels; external_context_or_label_conflict_unresolved",
+        "confidence": "high for token equality",
+        "tags": [
+          "label_ambiguity",
+          "missing_context"
+        ],
+        "evidence": "Both LogFilePrep rows link the same Xorg CVE and commit; their only difference is a comment warning that a user-controlled format string must not run with elevated privileges. No executable-token change supplies the privilege context. VulBERTa probabilities are identical. This is not sufficient to choose which label to overturn."
+      },
+      {
+        "sample_ids": [
+          "primevul:210944",
+          "primevul:379328"
+        ],
+        "original_labels": [
+          1,
+          0
+        ],
+        "judgment": "identical_executable_tokens_opposite_labels_at_different_commits",
+        "confidence": "high for token equality",
+        "tags": [
+          "label_ambiguity",
+          "missing_context"
+        ],
+        "evidence": "Vim do_cmdline differs only in two comments, but has opposite labels and different commit references. Each model assigns exactly the same score to both rows. Version-level context may differ; the function alone cannot supply it."
+      },
+      {
+        "sample_ids": [
+          "cweval:cwe_078_0_cpp:y_negative"
+        ],
+        "original_label": 1,
+        "judgment": "unsafe_command_construction_visible; executable_test_validation_pending",
+        "confidence": "high for visible command concatenation",
+        "tags": [
+          "model_miss",
+          "benchmark_test_mapping_issue"
+        ],
+        "evidence": "Unsafe function concatenates supplied directory into a popen command. Both models predict 0. The pinned Python test redefines get_ls_result_unsafe, replacing its compiled-C++ wrapper with a Python shell implementation. That unsafe test therefore cannot be claimed to validate the extracted C++ body even if it passes. Reference wrapper is separate."
+      },
+      {
+        "sample_ids": [
+          "cweval:cwe_918_1_c:y_negative"
+        ],
+        "original_label": 1,
+        "judgment": "task_scoped_URL_validation_failure; exploit_requires_caller_context",
+        "confidence": "high for test intent",
+        "tags": [
+          "missing_context",
+          "task_scoped_label"
+        ],
+        "evidence": "Pinned security cases reject user_id values containing parent path traversal. Tests compare returned URL strings; they do not perform a network request. The isolated function supports a URL-construction assessment, not independently demonstrated SSRF exploitation."
+      }
+    ]
+  },
+  "targeted_code_line_evidence": [
+    {
+      "sample_id": "primevul:195399",
+      "original_label": 1,
+      "code_sha256": "c1e18c075c4d45b513eb377aab4e36d1bd7d6b74d73cd1b1bce706867c897545",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_195399.txt",
+      "relevant_lines": [
+        {
+          "line": 10,
+          "text": "    NodeDef* input_node = graph.GetNode(tensor_id.node());"
+        },
+        {
+          "line": 11,
+          "text": "    return IsSwitch(*input_node);"
+        }
+      ],
+      "judgment": "vulnerability_label_supported_by_patch",
+      "confidence": "high for patch-to-function link; no runtime reproduction",
+      "tags": [
+        "model_miss",
+        "visible_risk_operation"
+      ],
+      "explanation": "TensorFlow commit 045deec1cbdebb27d817008ad5df94d96a08b1bf adds input_node == nullptr guard immediately before IsSwitch(*input_node) in IsIdentityConsumingSwitch. The dataset function lacks it. Both models predict 0. The local CVE description agrees.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "5.372720988816582e-05",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.3909400701522827",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "primevul:197305",
+      "original_label": 1,
+      "code_sha256": "2523b9599908cdd19424fbb272017868d74afa6c19c677ccc05629ad29ecc9a8",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_197305.txt",
+      "relevant_lines": [
+        {
+          "line": 8,
+          "text": "    pj_uint8_t padlen;"
+        },
+        {
+          "line": 9,
+          "text": "    pj_size_t rpsi_len;"
+        },
+        {
+          "line": 18,
+          "text": "    rpsi_len = (pj_ntohs((pj_uint16_t)hdr->length)-2) * 4;"
+        },
+        {
+          "line": 19,
+          "text": "    if (length < rpsi_len + 12)"
+        },
+        {
+          "line": 23,
+          "text": "    padlen = *p++;"
+        },
+        {
+          "line": 25,
+          "text": "    rpsi->rpsi_bit_len = rpsi_len*8 - 16 - padlen;"
+        }
+      ],
+      "judgment": "vulnerability_label_supported_by_patch_with_external_context",
+      "confidence": "moderate",
+      "tags": [
+        "model_miss",
+        "missing_context"
+      ],
+      "explanation": "PJSIP patch adds RTCP header-length, padding-length and bit-length guards to pjmedia_rtcp_fb_parse_rpsi. Relevant arithmetic is present in the evaluated function, but header layout and helper contracts are outside it. Both models predict 0. Supplied CWE-200 is not independently adjudicated.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "4.9867856432683766e-05",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.04025431349873543",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "primevul:204138",
+      "original_label": 1,
+      "code_sha256": "2df56c3ffc81eda15740cef602cd0423322002ebe5852f6b781889336c5d1083",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_204138.txt",
+      "relevant_lines": [
+        {
+          "line": 7,
+          "text": "    fifo8_reset(&s->fifo);"
+        },
+        {
+          "line": 8,
+          "text": "    esp_fifo_push(s, s->status);"
+        },
+        {
+          "line": 9,
+          "text": "    esp_fifo_push(s, 0);"
+        },
+        {
+          "line": 14,
+          "text": "                                (uint8_t *)fifo8_pop_buf(&s->fifo, 2, &n), 2);"
+        }
+      ],
+      "judgment": "insufficient_context_for_independent_verdict",
+      "confidence": "high for patch link; limited for exploitability",
+      "tags": [
+        "missing_context"
+      ],
+      "explanation": "QEMU patch moves DMA status/message data from FIFO storage to a local two-byte buffer. This supports the change attribution, but does not independently establish null-dereference reachability from the isolated function. Both models predict 0.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "4.963907485944219e-05",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.26484063267707825",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "llmvul:ID_289E72EB6D827C0D",
+      "original_label": 1,
+      "code_sha256": "9ad2f55082b8b032c16824025f774b0adddf52c07b5dd57d5986e008f7b6a61b",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_289E72EB6D827C0D.txt",
+      "relevant_lines": [
+        {
+          "line": 1,
+          "text": "int main(void){"
+        }
+      ],
+      "judgment": "published_reviewers_agree_zero; scoped disagreement supported",
+      "confidence": "moderate",
+      "tags": [
+        "label_disagreement",
+        "test_scaffolding",
+        "missing_context"
+      ],
+      "explanation": "Both published raters assign 0; dataset still assigns 1 under tmp.oob-write-index. Exact body and full-file hash match upstream. This is a metrics test main with bounded index loops, but Q38Timers definitions and included qwen38.c contracts remain external. Both model negatives agree with published raters. Do not assert universal safety.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.006515319459140301",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.15449750423431396",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "llmvul:ID_9D80D1E3ECA38FE1",
+      "original_label": 1,
+      "code_sha256": "a0448916f21f159851aded550a8f22ab31a3823e7b6615438740ad7d21721ecd",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_9D80D1E3ECA38FE1.txt",
+      "relevant_lines": [
+        {
+          "line": 40,
+          "text": "    memcpy(key_buffer, data, data_length);"
+        }
+      ],
+      "judgment": "published_reviewers_agree_zero; scoped disagreement supported",
+      "confidence": "high for visible destination-size guard",
+      "tags": [
+        "label_disagreement",
+        "bounded_copy",
+        "missing_context"
+      ],
+      "explanation": "Both published raters assign 0. Exact body and file hash match upstream. p256_transparent_import_key rejects key_buffer_size < data_length before memcpy and validates accepted key sizes. The automated dangerous-memcpy/CWE-120 label is not justified by the copy alone; pointer contracts remain assumed. Both models predict 0.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.0011738240718841553",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.09319683164358139",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "llmvul:ID_1FD8CA7AD4F7A7A6",
+      "original_label": 1,
+      "code_sha256": "69f568108f8084511488be2cbd8eec39832dcaec9cd0c9a57c747f18404e4be3",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_1FD8CA7AD4F7A7A6.txt",
+      "relevant_lines": [
+        {
+          "line": 1,
+          "text": "atic int cmd_plan(int argc, char **argv)"
+        }
+      ],
+      "judgment": "confirmed_source_extraction_defect; vulnerability_unresolved",
+      "confidence": "high",
+      "tags": [
+        "source_extraction_damage",
+        "label_uncertain"
+      ],
+      "explanation": "At the exact recorded commit/file hash, upstream cmd_plan starts with static; dataset starts with atic and appends st from the next function. The published review repairs the initial static but retains the trailing fragment, so its code is not byte-identical. Rater values are -1/1; -1 is undocumented. Published template slices Unicode Python strings using tree-sitter byte offsets, a plausible mechanism, not a verified reconstruction of the mining run.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.0008776338072493672",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "1",
+          "prob_vulnerable": "0.680834949016571",
+          "error": "tp"
+        }
+      ]
+    },
+    {
+      "sample_id": "llmvul:ID_F486991D843C2E5D",
+      "original_label": 0,
+      "code_sha256": "9c4ef8e204fbf06edcbc17107231681f55df56b816b461293dfe2268da6ccb88",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_F486991D843C2E5D.txt",
+      "relevant_lines": [
+        {
+          "line": 1,
+          "text": "int ACLCheckAllPerm(client *c, pendingCommand *pcmd, int *idxptr) {"
+        }
+      ],
+      "judgment": "confirmed_source_extraction_defect; vulnerability_unresolved",
+      "confidence": "high",
+      "tags": [
+        "source_extraction_damage",
+        "missing_context"
+      ],
+      "explanation": "The complete upstream ACLCheckAllPerm body at the recorded file hash includes a closing brace absent from the dataset. Dataset coordinates 7-12 differ from source start line 1963. VulBERTa's highest-score FP remains a label-relative FP; no corrected-input inference was run in Priority 4.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "0",
+          "prediction": "0",
+          "prob_vulnerable": "4.991633977624588e-05",
+          "error": "tn"
+        },
+        {
+          "model": "vulberta",
+          "label": "0",
+          "prediction": "1",
+          "prob_vulnerable": "0.9858291745185852",
+          "error": "fp"
+        }
+      ]
+    },
+    {
+      "sample_id": "llmvul:ID_9D4C3136460C9399",
+      "original_label": 1,
+      "code_sha256": "0e463b3ac636e446543bfc0e27771c5c67c74029ac5638dfb8c1404c4e062215",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_9D4C3136460C9399.txt",
+      "relevant_lines": [
+        {
+          "line": 6,
+          "text": "    memcpy(destination, source, min(source_size, sizeof(*destination)));"
+        }
+      ],
+      "judgment": "automated_vulnerability_label_not_established_from_visible_copy",
+      "confidence": "moderate",
+      "tags": [
+        "label_disagreement_candidate",
+        "missing_context"
+      ],
+      "explanation": "Exact upstream function uses memcpy(destination, source, min(source_size, sizeof(*destination))). This bounds writes to the destination object under its declared contract. No independent source-read or pointer-contract proof is available. Both models predict 0. Recorded line 1 is actually source line 106; coordinates are not reliable source locations.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.00036035958328284323",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.02713071182370186",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "llmvul:ID_64E05D7C322FB0BB",
+      "original_label": 1,
+      "code_sha256": "5fa5872e62cdaea784640ca6b3c021a84b527c32b314dd9a81227c88026e3404",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_64E05D7C322FB0BB.txt",
+      "relevant_lines": [
+        {
+          "line": 7,
+          "text": "    strcpy(cand.fqdn, \"_gtp._udp.sgw1.example.org\");"
+        },
+        {
+          "line": 12,
+          "text": "    strcpy(srv[0].target, \"host-b.example.org\");"
+        },
+        {
+          "line": 14,
+          "text": "    strcpy(srv[1].target, \"host-a.example.org\");"
+        },
+        {
+          "line": 16,
+          "text": "    strcpy(srv[2].target, \"host-c.example.org\");"
+        },
+        {
+          "line": 25,
+          "text": "    strcpy(cand.fqdn, \"unchanged\");"
+        }
+      ],
+      "judgment": "insufficient_context_to_establish_strcpy_overflow",
+      "confidence": "moderate",
+      "tags": [
+        "test_scaffolding",
+        "missing_context"
+      ],
+      "explanation": "Exact upstream unit-test function copies short fixed literals into struct fields. Field capacities live in external declarations. A dangerous-strcpy flag alone does not establish overflow; no safe label is substituted. Both models predict 0.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "4.5930795749882236e-05",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.4421299695968628",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "primevul:210834",
+      "original_label": 1,
+      "code_sha256": "6b0f351d376c283a91c309d619d344b96e57c9ef12cf3d021eefe9c4427d6229",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_210834.txt",
+      "relevant_lines": [
+        {
+          "line": 5,
+          "text": "    if (asprintf(&logFileName, fname, idstring) == -1)"
+        },
+        {
+          "line": 15,
+          "text": "            if ((asprintf(&suffix, backup, idstring) == -1) ||"
+        },
+        {
+          "line": 16,
+          "text": "                (asprintf(&oldLog, \"%s%s\", logFileName, suffix) == -1)) {"
+        }
+      ],
+      "judgment": "identical_executable_tokens_opposite_labels; external_context_or_label_conflict_unresolved",
+      "confidence": "high for token equality",
+      "tags": [
+        "label_ambiguity",
+        "missing_context"
+      ],
+      "explanation": "Both LogFilePrep rows link the same Xorg CVE and commit; their only difference is a comment warning that a user-controlled format string must not run with elevated privileges. No executable-token change supplies the privilege context. VulBERTa probabilities are identical. This is not sufficient to choose which label to overturn.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "5.8430960052646697e-05",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.10958141833543777",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "primevul:440872",
+      "original_label": 0,
+      "code_sha256": "180d4bafeea432a1c44835557dcd5ff1daf4d1804a53093f8707ab5321d1a8f1",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_440872.txt",
+      "relevant_lines": [
+        {
+          "line": 7,
+          "text": "    if (asprintf(&logFileName, fname, idstring) == -1)"
+        },
+        {
+          "line": 17,
+          "text": "            if ((asprintf(&suffix, backup, idstring) == -1) ||"
+        },
+        {
+          "line": 18,
+          "text": "                (asprintf(&oldLog, \"%s%s\", logFileName, suffix) == -1)) {"
+        }
+      ],
+      "judgment": "identical_executable_tokens_opposite_labels; external_context_or_label_conflict_unresolved",
+      "confidence": "high for token equality",
+      "tags": [
+        "label_ambiguity",
+        "missing_context"
+      ],
+      "explanation": "Both LogFilePrep rows link the same Xorg CVE and commit; their only difference is a comment warning that a user-controlled format string must not run with elevated privileges. No executable-token change supplies the privilege context. VulBERTa probabilities are identical. This is not sufficient to choose which label to overturn.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "0",
+          "prediction": "0",
+          "prob_vulnerable": "6.202860822668299e-05",
+          "error": "tn"
+        },
+        {
+          "model": "vulberta",
+          "label": "0",
+          "prediction": "0",
+          "prob_vulnerable": "0.10958141833543777",
+          "error": "tn"
+        }
+      ]
+    },
+    {
+      "sample_id": "primevul:210944",
+      "original_label": 1,
+      "code_sha256": "18a317467286b9f93d10b9988d0acdc52bed08cb73e09d6f6f7fb30f01e6baf1",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_210944.txt",
+      "relevant_lines": [
+        {
+          "line": 1,
+          "text": "do_cmdline("
+        }
+      ],
+      "judgment": "identical_executable_tokens_opposite_labels_at_different_commits",
+      "confidence": "high for token equality",
+      "tags": [
+        "label_ambiguity",
+        "missing_context"
+      ],
+      "explanation": "Vim do_cmdline differs only in two comments, but has opposite labels and different commit references. Each model assigns exactly the same score to both rows. Version-level context may differ; the function alone cannot supply it.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "1",
+          "prob_vulnerable": "0.9912539124488831",
+          "error": "tp"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.23959563672542572",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "primevul:379328",
+      "original_label": 0,
+      "code_sha256": "459160522535e698834abba6d74bda57266586c4b7094c07def86c363da75e27",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_379328.txt",
+      "relevant_lines": [
+        {
+          "line": 1,
+          "text": "do_cmdline("
+        }
+      ],
+      "judgment": "identical_executable_tokens_opposite_labels_at_different_commits",
+      "confidence": "high for token equality",
+      "tags": [
+        "label_ambiguity",
+        "missing_context"
+      ],
+      "explanation": "Vim do_cmdline differs only in two comments, but has opposite labels and different commit references. Each model assigns exactly the same score to both rows. Version-level context may differ; the function alone cannot supply it.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "0",
+          "prediction": "1",
+          "prob_vulnerable": "0.9912539124488831",
+          "error": "fp"
+        },
+        {
+          "model": "vulberta",
+          "label": "0",
+          "prediction": "0",
+          "prob_vulnerable": "0.23959563672542572",
+          "error": "tn"
+        }
+      ]
+    },
+    {
+      "sample_id": "cweval:cwe_078_0_cpp:y_negative",
+      "original_label": 1,
+      "code_sha256": "27d62180e01449e93628881066b7996a423e4fc4a754de6ac219553e61e9f0dc",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\cweval_cwe_078_0_cpp_y_negative.txt",
+      "relevant_lines": [
+        {
+          "line": 3,
+          "text": "    FILE *pipe = popen(command.c_str(), \"r\");"
+        }
+      ],
+      "judgment": "unsafe_command_construction_visible; executable_test_validation_pending",
+      "confidence": "high for visible command concatenation",
+      "tags": [
+        "model_miss",
+        "benchmark_test_mapping_issue"
+      ],
+      "explanation": "Unsafe function concatenates supplied directory into a popen command. Both models predict 0. The pinned Python test redefines get_ls_result_unsafe, replacing its compiled-C++ wrapper with a Python shell implementation. That unsafe test therefore cannot be claimed to validate the extracted C++ body even if it passes. Reference wrapper is separate.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "5.5262593377847224e-05",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.19844244420528412",
+          "error": "fn"
+        }
+      ]
+    },
+    {
+      "sample_id": "cweval:cwe_918_1_c:y_negative",
+      "original_label": 1,
+      "code_sha256": "a1a09ebcaacf259a57b0fbf6c9a8203c46903d2a1d6980c158f11a1be5c47658",
+      "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\cweval_cwe_918_1_c_y_negative.txt",
+      "relevant_lines": [
+        {
+          "line": 1,
+          "text": "char* get_url_for_query(const char* api_url, const char* user_id) {"
+        },
+        {
+          "line": 2,
+          "text": "    if (!user_id || strlen(user_id) == 0) return NULL;"
+        },
+        {
+          "line": 3,
+          "text": "    size_t url_length = strlen(api_url) + strlen(user_id) + 2;"
+        },
+        {
+          "line": 6,
+          "text": "    snprintf(full_url, url_length, \"%s/%s\", api_url, user_id);"
+        }
+      ],
+      "judgment": "task_scoped_URL_validation_failure; exploit_requires_caller_context",
+      "confidence": "high for test intent",
+      "tags": [
+        "missing_context",
+        "task_scoped_label"
+      ],
+      "explanation": "Pinned security cases reject user_id values containing parent path traversal. Tests compare returned URL strings; they do not perform a network request. The isolated function supports a URL-construction assessment, not independently demonstrated SSRF exploitation.",
+      "historical_predictions": [
+        {
+          "model": "linevul",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "5.893629713682458e-05",
+          "error": "fn"
+        },
+        {
+          "model": "vulberta",
+          "label": "1",
+          "prediction": "0",
+          "prob_vulnerable": "0.03684656322002411",
+          "error": "fn"
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "status": "pass",
+    "passed_checks": 668,
+    "unit_tests": 8,
+    "dependencies": {
+      "rq1_priority1_audit.py": "2457c48ffe9391eae6a00acce08cc71fda6f59ee060a3d7039572cbfae64bd2e",
+      "rq1_priority2_audit.py": "08c384e8f30130a59956225e187bc5bcbba4ad050e098a1d995b86a0bed9ba66",
+      "rq1_priority3_scores.py": "7803e3e1b114b8d4c3a3a78a1a0eea802ad3c2800845f4422fed25b0feb47390",
+      "rq1_priority4_audit.py": "f4b25e8266ec8e5be7c93b0c9f7184a5e32f6a59dc56eae3b2fec4e37715c277",
+      "rq1_priority4_evidence.py": "3b52f68f42e6cf1b28ac83bdf85eac01862a42b6d4e81696dda7305314e67f8b",
+      "test_rq1_priority4.py": "6b77ff2efe79c79c7ebebb7f92bdbb88f4dba11d54743fd1398dc35851565005"
+    },
+    "packages": {
+      "numpy": "2.5.3",
+      "scikit-learn": "1.9.1",
+      "tree-sitter": "0.26.0",
+      "tree-sitter-c": "0.24.2",
+      "tree-sitter-cpp": "0.23.4"
+    }
+  },
+  "remaining": [
+    "Two qualified independent reviewers and evidence-based adjudication of the new sample.",
+    "CWEval security execution in a supported isolated environment after reviewing unsafe-wrapper shadowing."
+  ],
+  "cause_assessment": {
+    "dataset_label_and_extraction_problems": "demonstrated in identified examples; population impact unestimated",
+    "duplicate_weighting": "measured small effects; insufficient explanation of low F1",
+    "published_two_label_disagreements": "tiny measured F1 sensitivity; benchmark unchanged",
+    "detector_misses": "patch-supported and published-reviewed positives remain missed",
+    "syntax_shift": "not causally isolated",
+    "llm_authorship": "commit attribution does not establish function generation or a causal effect"
+  }
+}

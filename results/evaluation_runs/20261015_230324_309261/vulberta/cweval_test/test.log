@@ -1,0 +1,21 @@
+
+RUN 2026-10-16T04:03:37.198212+00:00
+device: cuda; GPU: NVIDIA GeForce RTX 3080 Ti
+Dataset: D:\GitRepo\PIVD\Repo\prepared_datasets\vulberta\cweval_test.csv; rows: 58
+Label counts: {0: 29, 1: 29}
+Checkpoint: claudios/VulBERTa-MLP-Devign@fecabdee24a3ef6e804d7629d6eed03dc6b4f61e
+Trained classifier loaded successfully. Starting test.
+Completed rows restored: 0
+Clang parser fix enabled; completed batches will be saved.
+Preprocessing: original_vulberta_cleaner_v1 (comments, newlines and tabs removed before tokenization).
+
+VulBERTa test:   0%|          | 0/4 [00:00<?, ?batch/s]
+VulBERTa test: 100%|██████████| 4/4 [00:01<00:00,  2.39batch/s]
+
+***** Test results *****
+  test_accuracy = 0.5345
+  test_f1 = 0.5714
+  test_precision = 0.5294
+  test_recall = 0.6207
+  test_threshold = 0.5000
+Saved metrics.json and predictions.csv to D:\GitRepo\PIVD\Repo\localScripts\results\20261015_230324_309261\vulberta\cweval_test

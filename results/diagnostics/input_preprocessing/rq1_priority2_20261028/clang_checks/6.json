@@ -1,0 +1,6 @@
+{
+  "sample_id": "bigvul-source:485",
+  "dataset": "bigvul_test_sample_2000",
+  "source_language": "C",
+  "code": "static int __udp6_lib_mcast_deliver(struct net *net, struct sk_buff *skb,\n\t\tstruct in6_addr *saddr, struct in6_addr *daddr,\n\t\tstruct udp_table *udptable)\n{\n\tstruct sock *sk, *stack[256 / sizeof(struct sock *)];\n\tconst struct udphdr *uh = udp_hdr(skb);\n\tstruct udp_hslot *hslot = udp_hashslot(udptable, net, ntohs(uh->dest));\n\tint dif;\n\tunsigned int i, count = 0;\n\n\tspin_lock(&hslot->lock);\n\tsk = sk_nulls_head(&hslot->head);\n\tdif = inet6_iif(skb);\n\tsk = udp_v6_mcast_next(net, sk, uh->dest, daddr, uh->source, saddr, dif);\n\twhile (sk) {\n\t\tstack[count++] = sk;\n\t\tsk = udp_v6_mcast_next(net, sk_nulls_next(sk), uh->dest, daddr,\n\t\t\t\t       uh->source, saddr, dif);\n\t\tif (unlikely(count == ARRAY_SIZE(stack))) {\n\t\t\tif (!sk)\n\t\t\t\tbreak;\n\t\t\tflush_stack(stack, count, skb, ~0);\n\t\t\tcount = 0;\n\t\t}\n\t}\n\t/*\n\t * before releasing the lock, we must take reference on sockets\n\t */\n\tfor (i = 0; i < count; i++)\n\t\tsock_hold(stack[i]);\n\n\tspin_unlock(&hslot->lock);\n\n\tif (count) {\n\t\tflush_stack(stack, count, skb, count - 1);\n\n\t\tfor (i = 0; i < count; i++)\n\t\t\tsock_put(stack[i]);\n\t} else {\n\t\tkfree_skb(skb);\n\t}\n\treturn 0;\n}\n"
+}

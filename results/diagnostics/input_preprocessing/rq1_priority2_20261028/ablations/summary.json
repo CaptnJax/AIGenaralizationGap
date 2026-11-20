@@ -1,0 +1,714 @@
+{
+  "status": "pass",
+  "device": "cuda",
+  "threshold": 0.5,
+  "selection_seed": 42,
+  "script_sha256": "f9659d8d86fbc3f91db8ae278e053a84190742c090fce961438e773bb1bede18",
+  "historical_prediction_changes": 0,
+  "selection_policy": "All confirmed, lexical-preserving cleaner changes visible in retained input; seed-42 stratified tail and unchanged controls.",
+  "conditions": [
+    {
+      "model": "linevul",
+      "dataset": "bigvul_test_sample_2000",
+      "condition": "tail_untruncated_control",
+      "rows": 12,
+      "positives": 8,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 4,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.6666666666666666,
+        "test_precision": 1.0,
+        "test_recall": 0.5,
+        "test_f1": 0.6666666666666666,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.6666666666666666,
+        "test_precision": 1.0,
+        "test_recall": 0.5,
+        "test_f1": 0.6666666666666666,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "linevul",
+      "dataset": "bigvul_test_sample_2000",
+      "condition": "tail_window",
+      "rows": 45,
+      "positives": 26,
+      "input_changed": 45,
+      "recovered_errors": 5,
+      "introduced_errors": 2,
+      "unchanged_errors": 8,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 16,
+          "fp": 3,
+          "fn": 10,
+          "tp": 16
+        },
+        "test_accuracy": 0.7111111111111111,
+        "test_precision": 0.8421052631578947,
+        "test_recall": 0.6153846153846154,
+        "test_f1": 0.7111111111111111,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 19,
+          "fp": 0,
+          "fn": 10,
+          "tp": 16
+        },
+        "test_accuracy": 0.7777777777777778,
+        "test_precision": 1.0,
+        "test_recall": 0.6153846153846154,
+        "test_f1": 0.7619047619047619,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "linevul",
+      "dataset": "primevul_test",
+      "condition": "tail_untruncated_control",
+      "rows": 16,
+      "positives": 8,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 8,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "linevul",
+      "dataset": "primevul_test",
+      "condition": "tail_window",
+      "rows": 64,
+      "positives": 32,
+      "input_changed": 64,
+      "recovered_errors": 11,
+      "introduced_errors": 9,
+      "unchanged_errors": 21,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 16,
+          "fp": 16,
+          "fn": 16,
+          "tp": 16
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 23,
+          "fp": 9,
+          "fn": 21,
+          "tp": 11
+        },
+        "test_accuracy": 0.53125,
+        "test_precision": 0.55,
+        "test_recall": 0.34375,
+        "test_f1": 0.4230769230769231,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "linevul",
+      "dataset": "llmvul_test",
+      "condition": "tail_untruncated_control",
+      "rows": 16,
+      "positives": 8,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 8,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "linevul",
+      "dataset": "llmvul_test",
+      "condition": "tail_window",
+      "rows": 64,
+      "positives": 32,
+      "input_changed": 64,
+      "recovered_errors": 5,
+      "introduced_errors": 3,
+      "unchanged_errors": 27,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 16,
+          "fp": 16,
+          "fn": 16,
+          "tp": 16
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 21,
+          "fp": 11,
+          "fn": 19,
+          "tp": 13
+        },
+        "test_accuracy": 0.53125,
+        "test_precision": 0.5416666666666666,
+        "test_recall": 0.40625,
+        "test_f1": 0.4642857142857143,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "linevul",
+      "dataset": "cweval_test",
+      "condition": "tail_untruncated_control",
+      "rows": 8,
+      "positives": 4,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 4,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "tp": 0
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.0,
+        "test_recall": 0.0,
+        "test_f1": 0.0,
+        "precision_defined": false
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 0,
+          "fn": 4,
+          "tp": 0
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.0,
+        "test_recall": 0.0,
+        "test_f1": 0.0,
+        "precision_defined": false
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "primevul_test",
+      "condition": "cleaner_unchanged_control",
+      "rows": 32,
+      "positives": 16,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 16,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 8,
+          "fp": 8,
+          "fn": 8,
+          "tp": 8
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 8,
+          "fp": 8,
+          "fn": 8,
+          "tp": 8
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "primevul_test",
+      "condition": "cleaner_untruncated",
+      "rows": 824,
+      "positives": 24,
+      "input_changed": 824,
+      "recovered_errors": 27,
+      "introduced_errors": 71,
+      "unchanged_errors": 166,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 628,
+          "fp": 172,
+          "fn": 21,
+          "tp": 3
+        },
+        "test_accuracy": 0.7657766990291263,
+        "test_precision": 0.017142857142857144,
+        "test_recall": 0.125,
+        "test_f1": 0.03015075376884422,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 584,
+          "fp": 216,
+          "fn": 21,
+          "tp": 3
+        },
+        "test_accuracy": 0.712378640776699,
+        "test_precision": 0.0136986301369863,
+        "test_recall": 0.125,
+        "test_f1": 0.024691358024691357,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "primevul_test",
+      "condition": "cleaner_with_truncation",
+      "rows": 234,
+      "positives": 32,
+      "input_changed": 234,
+      "recovered_errors": 9,
+      "introduced_errors": 10,
+      "unchanged_errors": 79,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 138,
+          "fp": 64,
+          "fn": 24,
+          "tp": 8
+        },
+        "test_accuracy": 0.6239316239316239,
+        "test_precision": 0.1111111111111111,
+        "test_recall": 0.25,
+        "test_f1": 0.15384615384615385,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 139,
+          "fp": 63,
+          "fn": 26,
+          "tp": 6
+        },
+        "test_accuracy": 0.6196581196581197,
+        "test_precision": 0.08695652173913043,
+        "test_recall": 0.1875,
+        "test_f1": 0.1188118811881188,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "primevul_test",
+      "condition": "tail_untruncated_control",
+      "rows": 16,
+      "positives": 8,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 8,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "primevul_test",
+      "condition": "tail_window",
+      "rows": 64,
+      "positives": 32,
+      "input_changed": 64,
+      "recovered_errors": 4,
+      "introduced_errors": 5,
+      "unchanged_errors": 28,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 16,
+          "fp": 16,
+          "fn": 16,
+          "tp": 16
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 15,
+          "fp": 17,
+          "fn": 16,
+          "tp": 16
+        },
+        "test_accuracy": 0.484375,
+        "test_precision": 0.48484848484848486,
+        "test_recall": 0.5,
+        "test_f1": 0.49230769230769234,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "llmvul_test",
+      "condition": "cleaner_unchanged_control",
+      "rows": 32,
+      "positives": 16,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 16,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 8,
+          "fp": 8,
+          "fn": 8,
+          "tp": 8
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 8,
+          "fp": 8,
+          "fn": 8,
+          "tp": 8
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "llmvul_test",
+      "condition": "cleaner_untruncated",
+      "rows": 525,
+      "positives": 39,
+      "input_changed": 525,
+      "recovered_errors": 16,
+      "introduced_errors": 60,
+      "unchanged_errors": 131,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 375,
+          "fp": 111,
+          "fn": 36,
+          "tp": 3
+        },
+        "test_accuracy": 0.72,
+        "test_precision": 0.02631578947368421,
+        "test_recall": 0.07692307692307693,
+        "test_f1": 0.0392156862745098,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 328,
+          "fp": 158,
+          "fn": 33,
+          "tp": 6
+        },
+        "test_accuracy": 0.6361904761904762,
+        "test_precision": 0.036585365853658534,
+        "test_recall": 0.15384615384615385,
+        "test_f1": 0.059113300492610835,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "llmvul_test",
+      "condition": "cleaner_with_truncation",
+      "rows": 15,
+      "positives": 9,
+      "input_changed": 15,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 10,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 1,
+          "fp": 5,
+          "fn": 5,
+          "tp": 4
+        },
+        "test_accuracy": 0.3333333333333333,
+        "test_precision": 0.4444444444444444,
+        "test_recall": 0.4444444444444444,
+        "test_f1": 0.4444444444444444,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 1,
+          "fp": 5,
+          "fn": 5,
+          "tp": 4
+        },
+        "test_accuracy": 0.3333333333333333,
+        "test_precision": 0.4444444444444444,
+        "test_recall": 0.4444444444444444,
+        "test_f1": 0.4444444444444444,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "llmvul_test",
+      "condition": "tail_untruncated_control",
+      "rows": 16,
+      "positives": 8,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 8,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "llmvul_test",
+      "condition": "tail_window",
+      "rows": 64,
+      "positives": 32,
+      "input_changed": 64,
+      "recovered_errors": 3,
+      "introduced_errors": 7,
+      "unchanged_errors": 29,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 16,
+          "fp": 16,
+          "fn": 16,
+          "tp": 16
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 16,
+          "fp": 16,
+          "fn": 20,
+          "tp": 12
+        },
+        "test_accuracy": 0.4375,
+        "test_precision": 0.42857142857142855,
+        "test_recall": 0.375,
+        "test_f1": 0.4,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "cweval_test",
+      "condition": "cleaner_unchanged_control",
+      "rows": 32,
+      "positives": 16,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 16,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 8,
+          "fp": 8,
+          "fn": 8,
+          "tp": 8
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 8,
+          "fp": 8,
+          "fn": 8,
+          "tp": 8
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      }
+    },
+    {
+      "model": "vulberta",
+      "dataset": "cweval_test",
+      "condition": "tail_untruncated_control",
+      "rows": 16,
+      "positives": 8,
+      "input_changed": 0,
+      "recovered_errors": 0,
+      "introduced_errors": 0,
+      "unchanged_errors": 8,
+      "baseline": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      },
+      "variant": {
+        "confusion_matrix": {
+          "tn": 4,
+          "fp": 4,
+          "fn": 4,
+          "tp": 4
+        },
+        "test_accuracy": 0.5,
+        "test_precision": 0.5,
+        "test_recall": 0.5,
+        "test_f1": 0.5,
+        "precision_defined": true
+      }
+    }
+  ]
+}

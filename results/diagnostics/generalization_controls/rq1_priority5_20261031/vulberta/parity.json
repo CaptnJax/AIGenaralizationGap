@@ -1,0 +1,450 @@
+[
+  {
+    "sample_id": "primevul:291779",
+    "expected": 0.9764435291290283,
+    "probability": 0.9764435291290283,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:259270",
+    "expected": 0.8124925494194031,
+    "probability": 0.8124925494194031,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:512814",
+    "expected": 0.7438367605209351,
+    "probability": 0.7438367605209351,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:317174",
+    "expected": 0.03802752494812012,
+    "probability": 0.03802752494812012,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:224538",
+    "expected": 0.06013169139623642,
+    "probability": 0.06013169139623642,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:387740",
+    "expected": 0.31055501103401184,
+    "probability": 0.31055501103401184,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:220004",
+    "expected": 0.1863379031419754,
+    "probability": 0.1863379031419754,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:248255",
+    "expected": 0.24292117357254028,
+    "probability": 0.24292117357254028,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:261386",
+    "expected": 0.8989911675453186,
+    "probability": 0.8989911675453186,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:369206",
+    "expected": 0.0371302030980587,
+    "probability": 0.0371302030980587,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:253557",
+    "expected": 0.031010299921035767,
+    "probability": 0.031010299921035767,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:455391",
+    "expected": 0.8436055183410645,
+    "probability": 0.8436055183410645,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:238508",
+    "expected": 0.04000001773238182,
+    "probability": 0.04000001773238182,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:226316",
+    "expected": 0.9851841926574707,
+    "probability": 0.9851841926574707,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:427226",
+    "expected": 0.10438106209039688,
+    "probability": 0.10438106209039688,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:432705",
+    "expected": 0.5654699206352234,
+    "probability": 0.5654699206352234,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:217567",
+    "expected": 0.3431141674518585,
+    "probability": 0.3431141674518585,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:270415",
+    "expected": 0.6089478135108948,
+    "probability": 0.6089478135108948,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:254886",
+    "expected": 0.3706716299057007,
+    "probability": 0.3706716299057007,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:225070",
+    "expected": 0.929467499256134,
+    "probability": 0.929467499256134,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:254896",
+    "expected": 0.29636114835739136,
+    "probability": 0.29636114835739136,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:417083",
+    "expected": 0.15490703284740448,
+    "probability": 0.15490703284740448,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:369180",
+    "expected": 0.0700937807559967,
+    "probability": 0.0700937807559967,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:244223",
+    "expected": 0.2171841710805893,
+    "probability": 0.2171841710805893,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:317251",
+    "expected": 0.47057607769966125,
+    "probability": 0.47057607769966125,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:481277",
+    "expected": 0.08990983664989471,
+    "probability": 0.08990983664989471,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:313136",
+    "expected": 0.06733091920614243,
+    "probability": 0.06733091920614243,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:446085",
+    "expected": 0.09458713978528976,
+    "probability": 0.09458713978528976,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:259177",
+    "expected": 0.9377759099006653,
+    "probability": 0.9377759099006653,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:226256",
+    "expected": 0.2763732373714447,
+    "probability": 0.2763732373714447,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:220105",
+    "expected": 0.3823675513267517,
+    "probability": 0.3823675513267517,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "primevul:343175",
+    "expected": 0.3126167058944702,
+    "probability": 0.3126167058944702,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_1F4FFBD65FA7CE6A",
+    "expected": 0.08824680745601654,
+    "probability": 0.08824680745601654,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_8DBD436CABE44A4F",
+    "expected": 0.966783881187439,
+    "probability": 0.966783881187439,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_972B1C9D671B1549",
+    "expected": 0.4833875596523285,
+    "probability": 0.4833875596523285,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_35EF93577EA2C239",
+    "expected": 0.7462508082389832,
+    "probability": 0.7462508082389832,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_03CDA944F6CDDC09",
+    "expected": 0.4703018367290497,
+    "probability": 0.4703018367290497,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_1BAA38C7B125E863",
+    "expected": 0.3707481920719147,
+    "probability": 0.3707481920719147,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_ABCA6DB271992944",
+    "expected": 0.033402375876903534,
+    "probability": 0.033402375876903534,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_6836784685F01D51",
+    "expected": 0.19702380895614624,
+    "probability": 0.19702380895614624,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_940A4DA1F3ADD5F0",
+    "expected": 0.03800579532980919,
+    "probability": 0.03800579532980919,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_9A08723742B3F9BB",
+    "expected": 0.15845055878162384,
+    "probability": 0.15845055878162384,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_E440EA455B4434E0",
+    "expected": 0.19896642863750458,
+    "probability": 0.19896642863750458,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_54FBA388181817A2",
+    "expected": 0.05686318874359131,
+    "probability": 0.05686318874359131,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_2C586F26E80BB615",
+    "expected": 0.09156078100204468,
+    "probability": 0.09156078100204468,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_4FFA89D88C24A845",
+    "expected": 0.502776563167572,
+    "probability": 0.502776563167572,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_4789FEDA49773E87",
+    "expected": 0.05202166363596916,
+    "probability": 0.05202166363596916,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_FCABE13DF56B3AC9",
+    "expected": 0.09422928839921951,
+    "probability": 0.09422928839921951,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_638692B707591F96",
+    "expected": 0.3745332658290863,
+    "probability": 0.3745332658290863,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_443F7AD26D39CF33",
+    "expected": 0.07469210028648376,
+    "probability": 0.07469210028648376,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_4E9266096C8B0AF7",
+    "expected": 0.9639502167701721,
+    "probability": 0.9639502167701721,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_864D9E04EE075B9D",
+    "expected": 0.982393741607666,
+    "probability": 0.982393741607666,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_6C2B3C66258997F1",
+    "expected": 0.11281363666057587,
+    "probability": 0.11281363666057587,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_D261FDC732912E34",
+    "expected": 0.9537414312362671,
+    "probability": 0.9537414312362671,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_6F751A1BEB23694A",
+    "expected": 0.15205501019954681,
+    "probability": 0.15205501019954681,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_867C948FCB2C331A",
+    "expected": 0.7453723549842834,
+    "probability": 0.7453723549842834,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_EBF7A24128BDA054",
+    "expected": 0.6656564474105835,
+    "probability": 0.6656564474105835,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_1E8E3845FD97D175",
+    "expected": 0.035624176263809204,
+    "probability": 0.035624176263809204,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_D78AD137F90C7A7D",
+    "expected": 0.8302270174026489,
+    "probability": 0.8302270174026489,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_BD8EDC8945419401",
+    "expected": 0.3627588450908661,
+    "probability": 0.3627588450908661,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_2735D911FF6ABE20",
+    "expected": 0.7456707954406738,
+    "probability": 0.7456707954406738,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_61E0296B8C29C4E8",
+    "expected": 0.9562528729438782,
+    "probability": 0.9562528729438782,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_48D3A1CB341A5E32",
+    "expected": 0.802253782749176,
+    "probability": 0.802253782749176,
+    "delta": 0.0,
+    "same_prediction": true
+  },
+  {
+    "sample_id": "llmvul:ID_A11126CCC2324E07",
+    "expected": 0.8388755917549133,
+    "probability": 0.8388755917549133,
+    "delta": 0.0,
+    "same_prediction": true
+  }
+]

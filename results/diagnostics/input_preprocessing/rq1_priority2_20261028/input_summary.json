@@ -1,0 +1,3359 @@
+{
+  "scope": "RQ1 priority 2",
+  "date": "2026-10-29",
+  "started": "2026-10-28",
+  "run_directory": "localScripts/results/rq1_priority2_20261028",
+  "profile_manifest": {
+    "status": "complete",
+    "script_sha256": "08c384e8f30130a59956225e187bc5bcbba4ad050e098a1d995b86a0bed9ba66",
+    "tokenizer_identity": {
+      "linevul_revision": "3b0952feddeffad0063f274080e3c23d75e7eb39",
+      "vulberta_revision": "fecabdee24a3ef6e804d7629d6eed03dc6b4f61e",
+      "preprocessing_sha256": "bb34ccb7f992e39b7e4d903b009658a45ff2be6834a290594efac70395b77780",
+      "preprocessing_hash_format": "utf8_lf",
+      "assets_sha256": {
+        "models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/vocab.json": "06b4d46c8e752d410213d9548eb27a54db70fda0319b6271fb8d59dead5e1cab",
+        "models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/merges.txt": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+        "models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/tokenizer_config.json": "994f46754c5bf4014f1aa92d34b1374319c3a6b3f702105cd5b742beaecd18ce",
+        "models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/special_tokens_map.json": "7638f5bbbe86ef6d604ef28ad3647dc690d6d117c81c0d63e885416be8da1150",
+        "models--microsoft--codebert-base/snapshots/3b0952feddeffad0063f274080e3c23d75e7eb39/config.json": "742474d6148a061fa975dadc09ce93725fa9673c55421ed316ef75532cc6b7aa",
+        "models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/tokenizer.json": "8c50c6e6b2ccaa8d406b4e02ac91da6bb4a228d3903b5e733d49f5b8e010efc7",
+        "models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/tokenizer_config.json": "c0c8b1a0ee86fc43045971d6ab48183118f2e4f4e57403f9e5fdfac182ca25cb",
+        "models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/special_tokens_map.json": "7271f9338f7c3c2207d3923fd47378b62cbf538fdbb36d7688d06943f516eb05",
+        "models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/tokenization_vulberta.py": "b2eb2d178c44c200577b39a32063f4688cb65295c16f2b37387d9b1dba6ab314",
+        "models--claudios--VulBERTa-MLP-Devign/snapshots/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/config.json": "453262e30b53494537fe95057d65af9bbc01b28faabc835ae60c16c346d22fe9"
+      }
+    },
+    "packages": {
+      "tree-sitter": "0.26.0",
+      "tree-sitter-c": "0.24.2",
+      "tree-sitter-cpp": "0.23.4",
+      "libclang": "18.1.1",
+      "tokenizers": "0.22.1"
+    },
+    "datasets": [
+      {
+        "dataset": "bigvul_test_sample_2000",
+        "rows": 2000,
+        "counts": {
+          "linevul_truncated": 400
+        },
+        "profile_sha256": "545ae61a6e762d03fa3ab18a158b7e498d8291e58b8fd3063d96460970edc19d",
+        "lexical_sha256": "c520ac643a6dec5b9251a3316da65eb13a65ca07b90cf4933f58ada3b8208f00"
+      },
+      {
+        "dataset": "primevul_test",
+        "rows": 24788,
+        "counts": {
+          "cleaner_lexical_change_confirmed": 2926,
+          "vulberta_truncated": 1313,
+          "linevul_truncated": 6576
+        },
+        "profile_sha256": "8ee60f8b10c0a54eb1cab7bf78428ac536aaf24c48c825975f718daf750f242e",
+        "lexical_sha256": "03ed5b4732da97bbfbb0e548b6751f85780c809285aa577319857d93459867c2"
+      },
+      {
+        "dataset": "llmvul_test",
+        "rows": 18751,
+        "counts": {
+          "cleaner_lexical_change_confirmed": 1637,
+          "vulberta_truncated": 190,
+          "linevul_truncated": 3568
+        },
+        "profile_sha256": "166e847e40d4d731f17647ee787a8cd0fb0fca797f2318830cef31e94f0ccb42",
+        "lexical_sha256": "979dee898645627bd275d2aed5497cea0ba88e63e61dbd0e4800780b6b00261a"
+      },
+      {
+        "dataset": "cweval_test",
+        "rows": 58,
+        "counts": {
+          "cleaner_lexical_change_confirmed": 0,
+          "vulberta_truncated": 0,
+          "linevul_truncated": 0
+        },
+        "profile_sha256": "a9d250c0cd07769983bbbfe88006d475916f0858df041c52137d61c237d1d9d9",
+        "lexical_sha256": "4bcdc7dee455b5a795ed325c842b90ccae0270df14b14daa9df4b55f41975c29"
+      }
+    ]
+  },
+  "linevul_export": {
+    "status": "pass",
+    "device": "cuda",
+    "batch_size": 16,
+    "threshold": 0.5,
+    "seed": 42,
+    "checkpoint_sha256": "1b18ff8e75af787520a00139bd86e70d02eb448c716290ee7b2cb20bda61a67b",
+    "tokenizer_revision": "3b0952feddeffad0063f274080e3c23d75e7eb39",
+    "exporter_sha256": "5674d1e41cc62d77d7e166273d71baf62e117ab5cac4ce5191012e7f4f2e5435",
+    "jobs": [
+      {
+        "job": "linevul/bigvul_test_sample_2000",
+        "rows": 2000,
+        "dataset_sha256": "4150fa7d05addf2cb3c48b00c4678a5bb0db441809864a5ef62460d96a072534",
+        "prediction_changes": 0,
+        "changed_rows": [],
+        "max_cohort_score_delta": 0.0,
+        "max_class_sum_error": 1.1920928955078125e-07,
+        "output_sha256": "33d067ac02fe6defe07111b3e30f53144c3bc0d7e34a05f4de57309110bac171"
+      },
+      {
+        "job": "linevul/primevul_test",
+        "rows": 24788,
+        "dataset_sha256": "dbfb9264b0c06d3dc7d33c5fea62baba48889857b79f41ed80deba84c0a6e039",
+        "prediction_changes": 0,
+        "changed_rows": [],
+        "max_cohort_score_delta": 0.0,
+        "max_class_sum_error": 1.1920928955078125e-07,
+        "output_sha256": "ed3870c4b21292a0831124a1fed5b779b2080962fda22e747e23553a5124a284"
+      },
+      {
+        "job": "linevul/llmvul_test",
+        "rows": 18751,
+        "dataset_sha256": "68a68cf9a22f34601f3a48d9586c4317032365f04ad788883fa9c4596bb484a8",
+        "prediction_changes": 0,
+        "changed_rows": [],
+        "max_cohort_score_delta": 0.0,
+        "max_class_sum_error": 1.1920928955078125e-07,
+        "output_sha256": "572facd5ec218fb596d537b7afda59e80c3a73e4ac4ffe48898622b9a61b714e"
+      },
+      {
+        "job": "linevul/cweval_test",
+        "rows": 58,
+        "dataset_sha256": "05b9789f629abb9b58787ffae667446d7fb6c501eb5d2161dd3b9b369a30f26d",
+        "prediction_changes": 0,
+        "changed_rows": [],
+        "max_cohort_score_delta": 0.0,
+        "max_class_sum_error": 5.960464477539063e-08,
+        "output_sha256": "521b1b727e76360f34026789e4bad0704c360fe7d1bc1c96061cb19dd6a15f8c"
+      }
+    ]
+  },
+  "ablation": {
+    "status": "pass",
+    "device": "cuda",
+    "threshold": 0.5,
+    "selection_seed": 42,
+    "script_sha256": "f9659d8d86fbc3f91db8ae278e053a84190742c090fce961438e773bb1bede18",
+    "historical_prediction_changes": 0,
+    "selection_policy": "All confirmed, lexical-preserving cleaner changes visible in retained input; seed-42 stratified tail and unchanged controls.",
+    "conditions": [
+      {
+        "model": "linevul",
+        "dataset": "bigvul_test_sample_2000",
+        "condition": "tail_untruncated_control",
+        "rows": 12,
+        "positives": 8,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 4,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 0,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.6666666666666666,
+          "test_precision": 1.0,
+          "test_recall": 0.5,
+          "test_f1": 0.6666666666666666,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 0,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.6666666666666666,
+          "test_precision": 1.0,
+          "test_recall": 0.5,
+          "test_f1": 0.6666666666666666,
+          "precision_defined": true
+        },
+        "transitions": {
+          "fn->fn": 4,
+          "tn->tn": 4,
+          "tp->tp": 4
+        }
+      },
+      {
+        "model": "linevul",
+        "dataset": "bigvul_test_sample_2000",
+        "condition": "tail_window",
+        "rows": 45,
+        "positives": 26,
+        "input_changed": 45,
+        "recovered_errors": 5,
+        "introduced_errors": 2,
+        "unchanged_errors": 8,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 16,
+            "fp": 3,
+            "fn": 10,
+            "tp": 16
+          },
+          "test_accuracy": 0.7111111111111111,
+          "test_precision": 0.8421052631578947,
+          "test_recall": 0.6153846153846154,
+          "test_f1": 0.7111111111111111,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 19,
+            "fp": 0,
+            "fn": 10,
+            "tp": 16
+          },
+          "test_accuracy": 0.7777777777777778,
+          "test_precision": 1.0,
+          "test_recall": 0.6153846153846154,
+          "test_f1": 0.7619047619047619,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tp->tp": 14,
+          "fn->fn": 8,
+          "tn->tn": 16,
+          "tp->fn": 2,
+          "fp->tn": 3,
+          "fn->tp": 2
+        }
+      },
+      {
+        "model": "linevul",
+        "dataset": "primevul_test",
+        "condition": "tail_untruncated_control",
+        "rows": 16,
+        "positives": 8,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 8,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tp->tp": 4,
+          "fn->fn": 4,
+          "tn->tn": 4,
+          "fp->fp": 4
+        }
+      },
+      {
+        "model": "linevul",
+        "dataset": "primevul_test",
+        "condition": "tail_window",
+        "rows": 64,
+        "positives": 32,
+        "input_changed": 64,
+        "recovered_errors": 11,
+        "introduced_errors": 9,
+        "unchanged_errors": 21,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 16,
+            "fp": 16,
+            "fn": 16,
+            "tp": 16
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 23,
+            "fp": 9,
+            "fn": 21,
+            "tp": 11
+          },
+          "test_accuracy": 0.53125,
+          "test_precision": 0.55,
+          "test_recall": 0.34375,
+          "test_f1": 0.4230769230769231,
+          "precision_defined": true
+        },
+        "transitions": {
+          "fn->fn": 13,
+          "tp->tp": 8,
+          "tp->fn": 8,
+          "fn->tp": 3,
+          "fp->tn": 8,
+          "tn->tn": 15,
+          "fp->fp": 8,
+          "tn->fp": 1
+        }
+      },
+      {
+        "model": "linevul",
+        "dataset": "llmvul_test",
+        "condition": "tail_untruncated_control",
+        "rows": 16,
+        "positives": 8,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 8,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tn->tn": 4,
+          "tp->tp": 4,
+          "fn->fn": 4,
+          "fp->fp": 4
+        }
+      },
+      {
+        "model": "linevul",
+        "dataset": "llmvul_test",
+        "condition": "tail_window",
+        "rows": 64,
+        "positives": 32,
+        "input_changed": 64,
+        "recovered_errors": 5,
+        "introduced_errors": 3,
+        "unchanged_errors": 27,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 16,
+            "fp": 16,
+            "fn": 16,
+            "tp": 16
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 21,
+            "fp": 11,
+            "fn": 19,
+            "tp": 13
+          },
+          "test_accuracy": 0.53125,
+          "test_precision": 0.5416666666666666,
+          "test_recall": 0.40625,
+          "test_f1": 0.4642857142857143,
+          "precision_defined": true
+        },
+        "transitions": {
+          "fp->tn": 5,
+          "tn->tn": 16,
+          "tp->fn": 3,
+          "tp->tp": 13,
+          "fn->fn": 16,
+          "fp->fp": 11
+        }
+      },
+      {
+        "model": "linevul",
+        "dataset": "cweval_test",
+        "condition": "tail_untruncated_control",
+        "rows": 8,
+        "positives": 4,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 4,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 0,
+            "fn": 4,
+            "tp": 0
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_f1": 0.0,
+          "precision_defined": false
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 0,
+            "fn": 4,
+            "tp": 0
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.0,
+          "test_recall": 0.0,
+          "test_f1": 0.0,
+          "precision_defined": false
+        },
+        "transitions": {
+          "tn->tn": 4,
+          "fn->fn": 4
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "primevul_test",
+        "condition": "cleaner_unchanged_control",
+        "rows": 32,
+        "positives": 16,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 16,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 8,
+            "fp": 8,
+            "fn": 8,
+            "tp": 8
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 8,
+            "fp": 8,
+            "fn": 8,
+            "tp": 8
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tp->tp": 8,
+          "fn->fn": 8,
+          "tn->tn": 8,
+          "fp->fp": 8
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "primevul_test",
+        "condition": "cleaner_untruncated",
+        "rows": 824,
+        "positives": 24,
+        "input_changed": 824,
+        "recovered_errors": 27,
+        "introduced_errors": 71,
+        "unchanged_errors": 166,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 628,
+            "fp": 172,
+            "fn": 21,
+            "tp": 3
+          },
+          "test_accuracy": 0.7657766990291263,
+          "test_precision": 0.017142857142857144,
+          "test_recall": 0.125,
+          "test_f1": 0.03015075376884422,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 584,
+            "fp": 216,
+            "fn": 21,
+            "tp": 3
+          },
+          "test_accuracy": 0.712378640776699,
+          "test_precision": 0.0136986301369863,
+          "test_recall": 0.125,
+          "test_f1": 0.024691358024691357,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tn->tn": 558,
+          "fp->tn": 26,
+          "tp->tp": 2,
+          "fn->fn": 20,
+          "tp->fn": 1,
+          "fn->tp": 1,
+          "fp->fp": 146,
+          "tn->fp": 70
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "primevul_test",
+        "condition": "cleaner_with_truncation",
+        "rows": 234,
+        "positives": 32,
+        "input_changed": 234,
+        "recovered_errors": 9,
+        "introduced_errors": 10,
+        "unchanged_errors": 79,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 138,
+            "fp": 64,
+            "fn": 24,
+            "tp": 8
+          },
+          "test_accuracy": 0.6239316239316239,
+          "test_precision": 0.1111111111111111,
+          "test_recall": 0.25,
+          "test_f1": 0.15384615384615385,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 139,
+            "fp": 63,
+            "fn": 26,
+            "tp": 6
+          },
+          "test_accuracy": 0.6196581196581197,
+          "test_precision": 0.08695652173913043,
+          "test_recall": 0.1875,
+          "test_f1": 0.1188118811881188,
+          "precision_defined": true
+        },
+        "transitions": {
+          "fn->fn": 23,
+          "tp->fn": 3,
+          "fn->tp": 1,
+          "tp->tp": 5,
+          "tn->tn": 131,
+          "fp->tn": 8,
+          "fp->fp": 56,
+          "tn->fp": 7
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "primevul_test",
+        "condition": "tail_untruncated_control",
+        "rows": 16,
+        "positives": 8,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 8,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "transitions": {
+          "fn->fn": 4,
+          "tp->tp": 4,
+          "tn->tn": 4,
+          "fp->fp": 4
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "primevul_test",
+        "condition": "tail_window",
+        "rows": 64,
+        "positives": 32,
+        "input_changed": 64,
+        "recovered_errors": 4,
+        "introduced_errors": 5,
+        "unchanged_errors": 28,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 16,
+            "fp": 16,
+            "fn": 16,
+            "tp": 16
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 15,
+            "fp": 17,
+            "fn": 16,
+            "tp": 16
+          },
+          "test_accuracy": 0.484375,
+          "test_precision": 0.48484848484848486,
+          "test_recall": 0.5,
+          "test_f1": 0.49230769230769234,
+          "precision_defined": true
+        },
+        "transitions": {
+          "fn->fn": 14,
+          "tp->tp": 14,
+          "fn->tp": 2,
+          "tp->fn": 2,
+          "fp->fp": 14,
+          "tn->tn": 13,
+          "tn->fp": 3,
+          "fp->tn": 2
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "llmvul_test",
+        "condition": "cleaner_unchanged_control",
+        "rows": 32,
+        "positives": 16,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 16,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 8,
+            "fp": 8,
+            "fn": 8,
+            "tp": 8
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 8,
+            "fp": 8,
+            "fn": 8,
+            "tp": 8
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tn->tn": 8,
+          "tp->tp": 8,
+          "fn->fn": 8,
+          "fp->fp": 8
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "llmvul_test",
+        "condition": "cleaner_untruncated",
+        "rows": 525,
+        "positives": 39,
+        "input_changed": 525,
+        "recovered_errors": 16,
+        "introduced_errors": 60,
+        "unchanged_errors": 131,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 375,
+            "fp": 111,
+            "fn": 36,
+            "tp": 3
+          },
+          "test_accuracy": 0.72,
+          "test_precision": 0.02631578947368421,
+          "test_recall": 0.07692307692307693,
+          "test_f1": 0.0392156862745098,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 328,
+            "fp": 158,
+            "fn": 33,
+            "tp": 6
+          },
+          "test_accuracy": 0.6361904761904762,
+          "test_precision": 0.036585365853658534,
+          "test_recall": 0.15384615384615385,
+          "test_f1": 0.059113300492610835,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tn->fp": 59,
+          "tn->tn": 316,
+          "fp->fp": 99,
+          "fn->tp": 4,
+          "fp->tn": 12,
+          "fn->fn": 32,
+          "tp->tp": 2,
+          "tp->fn": 1
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "llmvul_test",
+        "condition": "cleaner_with_truncation",
+        "rows": 15,
+        "positives": 9,
+        "input_changed": 15,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 10,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 1,
+            "fp": 5,
+            "fn": 5,
+            "tp": 4
+          },
+          "test_accuracy": 0.3333333333333333,
+          "test_precision": 0.4444444444444444,
+          "test_recall": 0.4444444444444444,
+          "test_f1": 0.4444444444444444,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 1,
+            "fp": 5,
+            "fn": 5,
+            "tp": 4
+          },
+          "test_accuracy": 0.3333333333333333,
+          "test_precision": 0.4444444444444444,
+          "test_recall": 0.4444444444444444,
+          "test_f1": 0.4444444444444444,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tp->tp": 4,
+          "fp->fp": 5,
+          "tn->tn": 1,
+          "fn->fn": 5
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "llmvul_test",
+        "condition": "tail_untruncated_control",
+        "rows": 16,
+        "positives": 8,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 8,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tn->tn": 4,
+          "tp->tp": 4,
+          "fn->fn": 4,
+          "fp->fp": 4
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "llmvul_test",
+        "condition": "tail_window",
+        "rows": 64,
+        "positives": 32,
+        "input_changed": 64,
+        "recovered_errors": 3,
+        "introduced_errors": 7,
+        "unchanged_errors": 29,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 16,
+            "fp": 16,
+            "fn": 16,
+            "tp": 16
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 16,
+            "fp": 16,
+            "fn": 20,
+            "tp": 12
+          },
+          "test_accuracy": 0.4375,
+          "test_precision": 0.42857142857142855,
+          "test_recall": 0.375,
+          "test_f1": 0.4,
+          "precision_defined": true
+        },
+        "transitions": {
+          "fp->tn": 3,
+          "tn->tn": 13,
+          "tp->tp": 12,
+          "fn->fn": 16,
+          "tp->fn": 4,
+          "tn->fp": 3,
+          "fp->fp": 13
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "cweval_test",
+        "condition": "cleaner_unchanged_control",
+        "rows": 32,
+        "positives": 16,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 16,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 8,
+            "fp": 8,
+            "fn": 8,
+            "tp": 8
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 8,
+            "fp": 8,
+            "fn": 8,
+            "tp": 8
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "transitions": {
+          "fp->fp": 8,
+          "tp->tp": 8,
+          "fn->fn": 8,
+          "tn->tn": 8
+        }
+      },
+      {
+        "model": "vulberta",
+        "dataset": "cweval_test",
+        "condition": "tail_untruncated_control",
+        "rows": 16,
+        "positives": 8,
+        "input_changed": 0,
+        "recovered_errors": 0,
+        "introduced_errors": 0,
+        "unchanged_errors": 8,
+        "baseline": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "variant": {
+          "confusion_matrix": {
+            "tn": 4,
+            "fp": 4,
+            "fn": 4,
+            "tp": 4
+          },
+          "test_accuracy": 0.5,
+          "test_precision": 0.5,
+          "test_recall": 0.5,
+          "test_f1": 0.5,
+          "precision_defined": true
+        },
+        "transitions": {
+          "tp->tp": 4,
+          "fp->fp": 4,
+          "tn->tn": 4,
+          "fn->fn": 4
+        }
+      }
+    ]
+  },
+  "unchanged_controls": {
+    "rows": 196,
+    "input_changes": 0,
+    "max_probability_delta": 0.0
+  },
+  "clang": {
+    "rows": 36,
+    "timeouts": 0,
+    "errors": 0,
+    "discrepancies": 0,
+    "results": [
+      {
+        "input": "0.json",
+        "status": "complete",
+        "sample_id": "fixture:body",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true,
+          "body_retained": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 14,
+          "('raw', 'c', False)": 14,
+          "('raw', 'cpp', True)": 14,
+          "('cleaned', 'c', True)": 14,
+          "('cleaned', 'c', False)": 14,
+          "('cleaned', 'cpp', True)": 14
+        }
+      },
+      {
+        "input": "1.json",
+        "status": "complete",
+        "sample_id": "fixture:cpp",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 24,
+          "('raw', 'c', False)": 24,
+          "('raw', 'cpp', True)": 24,
+          "('cleaned', 'c', True)": 24,
+          "('cleaned', 'c', False)": 24,
+          "('cleaned', 'cpp', True)": 24
+        }
+      },
+      {
+        "input": "2.json",
+        "status": "complete",
+        "sample_id": "fixture:literal",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 11,
+          "('raw', 'c', False)": 11,
+          "('raw', 'cpp', True)": 11,
+          "('cleaned', 'c', True)": 9,
+          "('cleaned', 'c', False)": 9,
+          "('cleaned', 'cpp', True)": 9
+        }
+      },
+      {
+        "input": "3.json",
+        "status": "complete",
+        "sample_id": "fixture:macro",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 13,
+          "('raw', 'c', False)": 13,
+          "('raw', 'cpp', True)": 13,
+          "('cleaned', 'c', True)": 12,
+          "('cleaned', 'c', False)": 12,
+          "('cleaned', 'cpp', True)": 12
+        }
+      },
+      {
+        "input": "4.json",
+        "status": "complete",
+        "sample_id": "bigvul-source:12798",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 23,
+          "('raw', 'c', False)": 23,
+          "('raw', 'cpp', True)": 23,
+          "('cleaned', 'c', True)": 23,
+          "('cleaned', 'c', False)": 23,
+          "('cleaned', 'cpp', True)": 23
+        }
+      },
+      {
+        "input": "5.json",
+        "status": "complete",
+        "sample_id": "bigvul-source:2461",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 14,
+          "('raw', 'c', False)": 14,
+          "('raw', 'cpp', True)": 14,
+          "('cleaned', 'c', True)": 14,
+          "('cleaned', 'c', False)": 14,
+          "('cleaned', 'cpp', True)": 14
+        }
+      },
+      {
+        "input": "6.json",
+        "status": "complete",
+        "sample_id": "bigvul-source:485",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 295,
+          "('raw', 'c', False)": 295,
+          "('raw', 'cpp', True)": 295,
+          "('cleaned', 'c', True)": 295,
+          "('cleaned', 'c', False)": 295,
+          "('cleaned', 'cpp', True)": 295
+        }
+      },
+      {
+        "input": "7.json",
+        "status": "complete",
+        "sample_id": "bigvul-source:14790",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 18,
+          "('raw', 'c', False)": 18,
+          "('raw', 'cpp', True)": 18,
+          "('cleaned', 'c', True)": 18,
+          "('cleaned', 'c', False)": 18,
+          "('cleaned', 'cpp', True)": 18
+        }
+      },
+      {
+        "input": "8.json",
+        "status": "complete",
+        "sample_id": "bigvul-source:5833",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 326,
+          "('raw', 'c', False)": 326,
+          "('raw', 'cpp', True)": 326,
+          "('cleaned', 'c', True)": 326,
+          "('cleaned', 'c', False)": 326,
+          "('cleaned', 'cpp', True)": 326
+        }
+      },
+      {
+        "input": "9.json",
+        "status": "complete",
+        "sample_id": "bigvul-source:5541",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 25,
+          "('raw', 'c', False)": 25,
+          "('raw', 'cpp', True)": 25,
+          "('cleaned', 'c', True)": 25,
+          "('cleaned', 'c', False)": 25,
+          "('cleaned', 'cpp', True)": 25
+        }
+      },
+      {
+        "input": "10.json",
+        "status": "complete",
+        "sample_id": "bigvul-source:3268",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 19,
+          "('raw', 'c', False)": 19,
+          "('raw', 'cpp', True)": 19,
+          "('cleaned', 'c', True)": 19,
+          "('cleaned', 'c', False)": 19,
+          "('cleaned', 'cpp', True)": 19
+        }
+      },
+      {
+        "input": "11.json",
+        "status": "complete",
+        "sample_id": "bigvul-source:17661",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 11,
+          "('raw', 'c', False)": 11,
+          "('raw', 'cpp', True)": 11,
+          "('cleaned', 'c', True)": 11,
+          "('cleaned', 'c', False)": 11,
+          "('cleaned', 'cpp', True)": 11
+        }
+      },
+      {
+        "input": "12.json",
+        "status": "complete",
+        "sample_id": "primevul:238378",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 199,
+          "('raw', 'c', False)": 199,
+          "('raw', 'cpp', True)": 199,
+          "('cleaned', 'c', True)": 199,
+          "('cleaned', 'c', False)": 199,
+          "('cleaned', 'cpp', True)": 199
+        }
+      },
+      {
+        "input": "13.json",
+        "status": "complete",
+        "sample_id": "primevul:482491",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 669,
+          "('raw', 'c', False)": 669,
+          "('raw', 'cpp', True)": 669,
+          "('cleaned', 'c', True)": 669,
+          "('cleaned', 'c', False)": 669,
+          "('cleaned', 'cpp', True)": 669
+        }
+      },
+      {
+        "input": "14.json",
+        "status": "complete",
+        "sample_id": "primevul:233837",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 133,
+          "('raw', 'c', False)": 133,
+          "('raw', 'cpp', True)": 133,
+          "('cleaned', 'c', True)": 133,
+          "('cleaned', 'c', False)": 133,
+          "('cleaned', 'cpp', True)": 133
+        }
+      },
+      {
+        "input": "15.json",
+        "status": "complete",
+        "sample_id": "primevul:512872",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 32,
+          "('raw', 'c', False)": 32,
+          "('raw', 'cpp', True)": 32,
+          "('cleaned', 'c', True)": 32,
+          "('cleaned', 'c', False)": 32,
+          "('cleaned', 'cpp', True)": 32
+        }
+      },
+      {
+        "input": "16.json",
+        "status": "complete",
+        "sample_id": "primevul:252380",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 752,
+          "('raw', 'c', False)": 752,
+          "('raw', 'cpp', True)": 752,
+          "('cleaned', 'c', True)": 752,
+          "('cleaned', 'c', False)": 752,
+          "('cleaned', 'cpp', True)": 752
+        }
+      },
+      {
+        "input": "17.json",
+        "status": "complete",
+        "sample_id": "primevul:90845",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 26,
+          "('raw', 'c', False)": 26,
+          "('raw', 'cpp', True)": 26,
+          "('cleaned', 'c', True)": 26,
+          "('cleaned', 'c', False)": 26,
+          "('cleaned', 'cpp', True)": 26
+        }
+      },
+      {
+        "input": "18.json",
+        "status": "complete",
+        "sample_id": "primevul:90821",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 12,
+          "('raw', 'c', False)": 12,
+          "('raw', 'cpp', True)": 12,
+          "('cleaned', 'c', True)": 12,
+          "('cleaned', 'c', False)": 12,
+          "('cleaned', 'cpp', True)": 12
+        }
+      },
+      {
+        "input": "19.json",
+        "status": "complete",
+        "sample_id": "primevul:197110",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 657,
+          "('raw', 'c', False)": 657,
+          "('raw', 'cpp', True)": 657,
+          "('cleaned', 'c', True)": 657,
+          "('cleaned', 'c', False)": 657,
+          "('cleaned', 'cpp', True)": 657
+        }
+      },
+      {
+        "input": "20.json",
+        "status": "complete",
+        "sample_id": "llmvul:ID_19932D3F2CDFD43E",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 20,
+          "('raw', 'c', False)": 20,
+          "('raw', 'cpp', True)": 20,
+          "('cleaned', 'c', True)": 20,
+          "('cleaned', 'c', False)": 20,
+          "('cleaned', 'cpp', True)": 20
+        }
+      },
+      {
+        "input": "21.json",
+        "status": "complete",
+        "sample_id": "llmvul:ID_0A6FD3C6A2E8AC78",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 58,
+          "('raw', 'c', False)": 58,
+          "('raw', 'cpp', True)": 58,
+          "('cleaned', 'c', True)": 58,
+          "('cleaned', 'c', False)": 58,
+          "('cleaned', 'cpp', True)": 58
+        }
+      },
+      {
+        "input": "22.json",
+        "status": "complete",
+        "sample_id": "llmvul:ID_E0C81AD05A882E47",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 55,
+          "('raw', 'c', False)": 55,
+          "('raw', 'cpp', True)": 55,
+          "('cleaned', 'c', True)": 54,
+          "('cleaned', 'c', False)": 54,
+          "('cleaned', 'cpp', True)": 54
+        }
+      },
+      {
+        "input": "23.json",
+        "status": "complete",
+        "sample_id": "llmvul:ID_12EE9E53034AE2F9",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 101,
+          "('raw', 'c', False)": 101,
+          "('raw', 'cpp', True)": 101,
+          "('cleaned', 'c', True)": 101,
+          "('cleaned', 'c', False)": 101,
+          "('cleaned', 'cpp', True)": 101
+        }
+      },
+      {
+        "input": "24.json",
+        "status": "complete",
+        "sample_id": "llmvul:ID_1996EEAF510FEA39",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 363,
+          "('raw', 'c', False)": 363,
+          "('raw', 'cpp', True)": 363,
+          "('cleaned', 'c', True)": 363,
+          "('cleaned', 'c', False)": 363,
+          "('cleaned', 'cpp', True)": 363
+        }
+      },
+      {
+        "input": "25.json",
+        "status": "complete",
+        "sample_id": "llmvul:ID_5EDBA527E1A6AABA",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 25,
+          "('raw', 'c', False)": 25,
+          "('raw', 'cpp', True)": 25,
+          "('cleaned', 'c', True)": 25,
+          "('cleaned', 'c', False)": 25,
+          "('cleaned', 'cpp', True)": 25
+        }
+      },
+      {
+        "input": "26.json",
+        "status": "complete",
+        "sample_id": "llmvul:ID_9B887A6FFB2992FC",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 125,
+          "('raw', 'c', False)": 125,
+          "('raw', 'cpp', True)": 125,
+          "('cleaned', 'c', True)": 125,
+          "('cleaned', 'c', False)": 125,
+          "('cleaned', 'cpp', True)": 125
+        }
+      },
+      {
+        "input": "27.json",
+        "status": "complete",
+        "sample_id": "llmvul:ID_92475FAC8A1C287E",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 36,
+          "('raw', 'c', False)": 36,
+          "('raw', 'cpp', True)": 36,
+          "('cleaned', 'c', True)": 36,
+          "('cleaned', 'c', False)": 36,
+          "('cleaned', 'cpp', True)": 36
+        }
+      },
+      {
+        "input": "28.json",
+        "status": "complete",
+        "sample_id": "cweval:cwe_918_1_c:completion",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 120,
+          "('raw', 'c', False)": 120,
+          "('raw', 'cpp', True)": 120,
+          "('cleaned', 'c', True)": 120,
+          "('cleaned', 'c', False)": 120,
+          "('cleaned', 'cpp', True)": 120
+        }
+      },
+      {
+        "input": "29.json",
+        "status": "complete",
+        "sample_id": "cweval:cwe_476_0_c:completion",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 58,
+          "('raw', 'c', False)": 58,
+          "('raw', 'cpp', True)": 58,
+          "('cleaned', 'c', True)": 58,
+          "('cleaned', 'c', False)": 58,
+          "('cleaned', 'cpp', True)": 58
+        }
+      },
+      {
+        "input": "30.json",
+        "status": "complete",
+        "sample_id": "cweval:cwe_190_0_c:completion",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 77,
+          "('raw', 'c', False)": 77,
+          "('raw', 'cpp', True)": 77,
+          "('cleaned', 'c', True)": 77,
+          "('cleaned', 'c', False)": 77,
+          "('cleaned', 'cpp', True)": 77
+        }
+      },
+      {
+        "input": "31.json",
+        "status": "complete",
+        "sample_id": "cweval:cwe_676_0_c:completion",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 34,
+          "('raw', 'c', False)": 34,
+          "('raw', 'cpp', True)": 34,
+          "('cleaned', 'c', True)": 34,
+          "('cleaned', 'c', False)": 34,
+          "('cleaned', 'cpp', True)": 34
+        }
+      },
+      {
+        "input": "32.json",
+        "status": "complete",
+        "sample_id": "cweval:cwe_943_0_cpp:completion",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 137,
+          "('raw', 'c', False)": 137,
+          "('raw', 'cpp', True)": 137,
+          "('cleaned', 'c', True)": 137,
+          "('cleaned', 'c', False)": 137,
+          "('cleaned', 'cpp', True)": 137
+        }
+      },
+      {
+        "input": "33.json",
+        "status": "complete",
+        "sample_id": "cweval:cwe_326_0_cpp:completion",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 131,
+          "('raw', 'c', False)": 131,
+          "('raw', 'cpp', True)": 131,
+          "('cleaned', 'c', True)": 131,
+          "('cleaned', 'c', False)": 131,
+          "('cleaned', 'cpp', True)": 131
+        }
+      },
+      {
+        "input": "34.json",
+        "status": "complete",
+        "sample_id": "cweval:cwe_022_0_cpp:completion",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 158,
+          "('raw', 'c', False)": 158,
+          "('raw', 'cpp', True)": 158,
+          "('cleaned', 'c', True)": 158,
+          "('cleaned', 'c', False)": 158,
+          "('cleaned', 'cpp', True)": 158
+        }
+      },
+      {
+        "input": "35.json",
+        "status": "complete",
+        "sample_id": "cweval:cwe_117_0_cpp:y_negative",
+        "checks": {
+          "raw_skip_matches_full": true,
+          "cleaned_skip_matches_full": true,
+          "raw_c_matches_cpp": true,
+          "cleaned_c_matches_cpp": true
+        },
+        "token_counts": {
+          "('raw', 'c', True)": 82,
+          "('raw', 'c', False)": 82,
+          "('raw', 'cpp', True)": 82,
+          "('cleaned', 'c', True)": 82,
+          "('cleaned', 'c', False)": 82,
+          "('cleaned', 'cpp', True)": 82
+        }
+      }
+    ],
+    "script_sha256": "e45bad267ff2d15853c927bc791a1b1974aa47d934fa1a8c19b682775bc0f575"
+  },
+  "jobs": [
+    {
+      "job": "linevul/bigvul_test_sample_2000",
+      "model": "linevul",
+      "dataset": "bigvul_test_sample_2000",
+      "rows": 2000,
+      "details": {
+        "tokens": {
+          "min": 10.0,
+          "p25": 79.0,
+          "median": 164.0,
+          "p75": 411.25,
+          "p90": 870.2000000000003,
+          "p95": 1587.2499999999998,
+          "p99": 4272.709999999998,
+          "max": 27538.0
+        },
+        "removed_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.41257746702685544,
+          "p95": 0.6782840307124576,
+          "p99": 0.8805800934455186,
+          "max": 0.9814787914003487
+        },
+        "unknown_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "weighted_unknown_fraction": 0.0,
+        "retained_weighted_unknown_fraction": 0.0,
+        "degenerate": 0,
+        "fn": 16,
+        "fp": 3,
+        "fn_truncated": 10,
+        "fp_truncated": 3,
+        "annotation_audit": {
+          "status_counts": {
+            "source_text_matched": 85,
+            "unavailable": 27
+          },
+          "fn_status_counts": {
+            "source_text_matched": 5,
+            "unavailable": 11
+          },
+          "positive_rows_losing_some_annotated_lines": 21,
+          "fn_losing_some_annotated_lines": 0
+        }
+      },
+      "slices": {
+        "all": {
+          "rows": 2000,
+          "positives": 112,
+          "positive_prevalence": 0.056,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 1885,
+              "fp": 3,
+              "fn": 16,
+              "tp": 96
+            },
+            "test_accuracy": 0.9905,
+            "test_precision": 0.9696969696969697,
+            "test_recall": 0.8571428571428571,
+            "test_f1": 0.909952606635071,
+            "precision_defined": true
+          }
+        },
+        "truncated": {
+          "rows": 400,
+          "positives": 47,
+          "positive_prevalence": 0.1175,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 350,
+              "fp": 3,
+              "fn": 10,
+              "tp": 37
+            },
+            "test_accuracy": 0.9675,
+            "test_precision": 0.925,
+            "test_recall": 0.7872340425531915,
+            "test_f1": 0.8505747126436781,
+            "precision_defined": true
+          }
+        },
+        "untruncated": {
+          "rows": 1600,
+          "positives": 65,
+          "positive_prevalence": 0.040625,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 1535,
+              "fp": 0,
+              "fn": 6,
+              "tp": 59
+            },
+            "test_accuracy": 0.99625,
+            "test_precision": 1.0,
+            "test_recall": 0.9076923076923077,
+            "test_f1": 0.9516129032258065,
+            "precision_defined": true
+          }
+        },
+        "source_parse_error": {
+          "rows": 230,
+          "positives": 20,
+          "positive_prevalence": 0.08695652173913043,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 210,
+              "fp": 0,
+              "fn": 2,
+              "tp": 18
+            },
+            "test_accuracy": 0.991304347826087,
+            "test_precision": 1.0,
+            "test_recall": 0.9,
+            "test_f1": 0.9473684210526315,
+            "precision_defined": true
+          }
+        },
+        "source_parse_clean": {
+          "rows": 1770,
+          "positives": 92,
+          "positive_prevalence": 0.0519774011299435,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 1675,
+              "fp": 3,
+              "fn": 14,
+              "tp": 78
+            },
+            "test_accuracy": 0.9903954802259887,
+            "test_precision": 0.9629629629629629,
+            "test_recall": 0.8478260869565217,
+            "test_f1": 0.9017341040462428,
+            "precision_defined": true
+          }
+        },
+        "unknown_fraction_ge_20pct": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        }
+      }
+    },
+    {
+      "job": "linevul/primevul_test",
+      "model": "linevul",
+      "dataset": "primevul_test",
+      "rows": 24788,
+      "details": {
+        "tokens": {
+          "min": 9.0,
+          "p25": 100.0,
+          "median": 227.0,
+          "p75": 551.0,
+          "p90": 1267.2999999999993,
+          "p95": 2145.0,
+          "p99": 6558.900000000031,
+          "max": 77549.0
+        },
+        "removed_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.07103825136612021,
+          "p90": 0.5969334806961015,
+          "p95": 0.7620158656089594,
+          "p99": 0.9222191579247069,
+          "max": 0.9934233432627955
+        },
+        "unknown_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "weighted_unknown_fraction": 0.0,
+        "retained_weighted_unknown_fraction": 0.0,
+        "degenerate": 0,
+        "fn": 430,
+        "fp": 1639,
+        "fn_truncated": 305,
+        "fp_truncated": 906,
+        "annotation_audit": {
+          "status_counts": {
+            "unavailable": 549
+          },
+          "fn_status_counts": {
+            "unavailable": 430
+          },
+          "positive_rows_losing_some_annotated_lines": 0,
+          "fn_losing_some_annotated_lines": 0
+        }
+      },
+      "slices": {
+        "all": {
+          "rows": 24788,
+          "positives": 549,
+          "positive_prevalence": 0.022147813458124898,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 22600,
+              "fp": 1639,
+              "fn": 430,
+              "tp": 119
+            },
+            "test_accuracy": 0.9165321929966113,
+            "test_precision": 0.0676905574516496,
+            "test_recall": 0.2167577413479053,
+            "test_f1": 0.10316428261811877,
+            "precision_defined": true
+          }
+        },
+        "truncated": {
+          "rows": 6576,
+          "positives": 416,
+          "positive_prevalence": 0.06326034063260341,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 5254,
+              "fp": 906,
+              "fn": 305,
+              "tp": 111
+            },
+            "test_accuracy": 0.815845498783455,
+            "test_precision": 0.10914454277286136,
+            "test_recall": 0.2668269230769231,
+            "test_f1": 0.15491974877878575,
+            "precision_defined": true
+          }
+        },
+        "untruncated": {
+          "rows": 18212,
+          "positives": 133,
+          "positive_prevalence": 0.007302877223808478,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 17346,
+              "fp": 733,
+              "fn": 125,
+              "tp": 8
+            },
+            "test_accuracy": 0.9528882055787393,
+            "test_precision": 0.010796221322537112,
+            "test_recall": 0.06015037593984962,
+            "test_f1": 0.018306636155606407,
+            "precision_defined": true
+          }
+        },
+        "source_parse_error": {
+          "rows": 4456,
+          "positives": 129,
+          "positive_prevalence": 0.028949730700179532,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 4107,
+              "fp": 220,
+              "fn": 107,
+              "tp": 22
+            },
+            "test_accuracy": 0.9266157989228008,
+            "test_precision": 0.09090909090909091,
+            "test_recall": 0.17054263565891473,
+            "test_f1": 0.11859838274932614,
+            "precision_defined": true
+          }
+        },
+        "source_parse_clean": {
+          "rows": 20332,
+          "positives": 420,
+          "positive_prevalence": 0.020657092268345466,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 18493,
+              "fp": 1419,
+              "fn": 323,
+              "tp": 97
+            },
+            "test_accuracy": 0.9143222506393862,
+            "test_precision": 0.06398416886543536,
+            "test_recall": 0.23095238095238096,
+            "test_f1": 0.10020661157024793,
+            "precision_defined": true
+          }
+        },
+        "unknown_fraction_ge_20pct": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        }
+      }
+    },
+    {
+      "job": "vulberta/primevul_test",
+      "model": "vulberta",
+      "dataset": "primevul_test",
+      "rows": 24788,
+      "details": {
+        "tokens": {
+          "min": 8.0,
+          "p25": 64.0,
+          "median": 135.0,
+          "p75": 306.0,
+          "p90": 669.0,
+          "p95": 1071.2999999999956,
+          "p99": 3197.780000000006,
+          "max": 25997.0
+        },
+        "removed_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "p95": 0.04423378487171019,
+          "p99": 0.6802031407438702,
+          "max": 0.9606847470667436
+        },
+        "unknown_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0016194363888538646,
+          "p90": 0.03663003663003663,
+          "p95": 0.06309995438847979,
+          "p99": 0.1446581325301211,
+          "max": 0.625
+        },
+        "weighted_unknown_fraction": 0.020084264239975776,
+        "retained_weighted_unknown_fraction": 0.01797089096976347,
+        "degenerate": 0,
+        "fn": 374,
+        "fp": 6966,
+        "fn_truncated": 97,
+        "fp_truncated": 461,
+        "fn_cleaner_lexical_change": 111,
+        "fp_cleaner_lexical_change": 625,
+        "fn_retained_input_change": 45,
+        "fp_retained_input_change": 236,
+        "fn_either_truncated_or_changed": 118,
+        "fp_either_truncated_or_changed": 633,
+        "tested_cleaner_replacement": {
+          "rows_replaced": 1058,
+          "note": "Diagnostic replacement of tested cleaner cases only; not a new official RQ1 result or all-row alternative-cleaner run.",
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 17230,
+              "fp": 7009,
+              "fn": 376,
+              "tp": 173
+            },
+            "test_accuracy": 0.7020735839922543,
+            "test_precision": 0.024087997772208297,
+            "test_recall": 0.3151183970856102,
+            "test_f1": 0.04475488293881775,
+            "precision_defined": true
+          }
+        }
+      },
+      "slices": {
+        "all": {
+          "rows": 24788,
+          "positives": 549,
+          "positive_prevalence": 0.022147813458124898,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 17273,
+              "fp": 6966,
+              "fn": 374,
+              "tp": 175
+            },
+            "test_accuracy": 0.7038889785380023,
+            "test_precision": 0.024506371656630725,
+            "test_recall": 0.31876138433515483,
+            "test_f1": 0.045513654096228866,
+            "precision_defined": true
+          }
+        },
+        "truncated": {
+          "rows": 1313,
+          "positives": 171,
+          "positive_prevalence": 0.13023610053313023,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 681,
+              "fp": 461,
+              "fn": 97,
+              "tp": 74
+            },
+            "test_accuracy": 0.575019040365575,
+            "test_precision": 0.1383177570093458,
+            "test_recall": 0.4327485380116959,
+            "test_f1": 0.2096317280453258,
+            "precision_defined": true
+          }
+        },
+        "untruncated": {
+          "rows": 23475,
+          "positives": 378,
+          "positive_prevalence": 0.01610223642172524,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 16592,
+              "fp": 6505,
+              "fn": 277,
+              "tp": 101
+            },
+            "test_accuracy": 0.7110969116080937,
+            "test_precision": 0.015289131092945807,
+            "test_recall": 0.2671957671957672,
+            "test_f1": 0.028923253150057275,
+            "precision_defined": true
+          }
+        },
+        "source_parse_error": {
+          "rows": 4456,
+          "positives": 129,
+          "positive_prevalence": 0.028949730700179532,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 3143,
+              "fp": 1184,
+              "fn": 88,
+              "tp": 41
+            },
+            "test_accuracy": 0.7145421903052065,
+            "test_precision": 0.03346938775510204,
+            "test_recall": 0.3178294573643411,
+            "test_f1": 0.060561299852289516,
+            "precision_defined": true
+          }
+        },
+        "source_parse_clean": {
+          "rows": 20332,
+          "positives": 420,
+          "positive_prevalence": 0.020657092268345466,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 14130,
+              "fp": 5782,
+              "fn": 286,
+              "tp": 134
+            },
+            "test_accuracy": 0.7015542002754279,
+            "test_precision": 0.022650439486139283,
+            "test_recall": 0.319047619047619,
+            "test_f1": 0.0422979797979798,
+            "precision_defined": true
+          }
+        },
+        "unknown_fraction_ge_20pct": {
+          "rows": 139,
+          "positives": 2,
+          "positive_prevalence": 0.014388489208633094,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 113,
+              "fp": 24,
+              "fn": 2,
+              "tp": 0
+            },
+            "test_accuracy": 0.8129496402877698,
+            "test_precision": 0.0,
+            "test_recall": 0.0,
+            "test_f1": 0.0,
+            "precision_defined": true
+          }
+        },
+        "cleaner_lexical_change": {
+          "rows": 2926,
+          "positives": 149,
+          "positive_prevalence": 0.05092276144907724,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 2152,
+              "fp": 625,
+              "fn": 111,
+              "tp": 38
+            },
+            "test_accuracy": 0.7484620642515379,
+            "test_precision": 0.05731523378582202,
+            "test_recall": 0.2550335570469799,
+            "test_f1": 0.09359605911330049,
+            "precision_defined": true
+          }
+        },
+        "cleaner_retained_input_change": {
+          "rows": 1058,
+          "positives": 56,
+          "positive_prevalence": 0.052930056710775046,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 766,
+              "fp": 236,
+              "fn": 45,
+              "tp": 11
+            },
+            "test_accuracy": 0.7344045368620038,
+            "test_precision": 0.044534412955465584,
+            "test_recall": 0.19642857142857142,
+            "test_f1": 0.07260726072607261,
+            "precision_defined": true
+          }
+        },
+        "confirmed_cleaner_retained_input_change": {
+          "rows": 1058,
+          "positives": 56,
+          "positive_prevalence": 0.052930056710775046,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 766,
+              "fp": 236,
+              "fn": 45,
+              "tp": 11
+            },
+            "test_accuracy": 0.7344045368620038,
+            "test_precision": 0.044534412955465584,
+            "test_recall": 0.19642857142857142,
+            "test_f1": 0.07260726072607261,
+            "precision_defined": true
+          }
+        },
+        "cleaner_introduced_parse_error": {
+          "rows": 1058,
+          "positives": 60,
+          "positive_prevalence": 0.05671077504725898,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 707,
+              "fp": 291,
+              "fn": 36,
+              "tp": 24
+            },
+            "test_accuracy": 0.6909262759924386,
+            "test_precision": 0.0761904761904762,
+            "test_recall": 0.4,
+            "test_f1": 0.128,
+            "precision_defined": true
+          }
+        },
+        "preprocessor_line_structure_changed": {
+          "rows": 2400,
+          "positives": 141,
+          "positive_prevalence": 0.05875,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 1617,
+              "fp": 642,
+              "fn": 95,
+              "tp": 46
+            },
+            "test_accuracy": 0.6929166666666666,
+            "test_precision": 0.06686046511627906,
+            "test_recall": 0.3262411347517731,
+            "test_f1": 0.11097708082026538,
+            "precision_defined": true
+          }
+        },
+        "untruncated_no_confirmed_cleaner_change": {
+          "rows": 21062,
+          "positives": 304,
+          "positive_prevalence": 0.014433577058209097,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 14742,
+              "fp": 6016,
+              "fn": 223,
+              "tp": 81
+            },
+            "test_accuracy": 0.7037793182033995,
+            "test_precision": 0.01328522224044612,
+            "test_recall": 0.26644736842105265,
+            "test_f1": 0.025308545539759413,
+            "precision_defined": true
+          }
+        },
+        "parse_clean_untruncated_lexically_unchanged": {
+          "rows": 17409,
+          "positives": 260,
+          "positive_prevalence": 0.014934803837095756,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 12152,
+              "fp": 4997,
+              "fn": 194,
+              "tp": 66
+            },
+            "test_accuracy": 0.7018208972370613,
+            "test_precision": 0.013035749555599448,
+            "test_recall": 0.25384615384615383,
+            "test_f1": 0.024798046214540674,
+            "precision_defined": true
+          }
+        },
+        "lexical_change_but_no_retained_input_change": {
+          "rows": 1868,
+          "positives": 93,
+          "positive_prevalence": 0.04978586723768737,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 1386,
+              "fp": 389,
+              "fn": 66,
+              "tp": 27
+            },
+            "test_accuracy": 0.7564239828693791,
+            "test_precision": 0.06490384615384616,
+            "test_recall": 0.2903225806451613,
+            "test_f1": 0.10609037328094302,
+            "precision_defined": true
+          }
+        },
+        "lexical_change_visibility_unresolved": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        }
+      }
+    },
+    {
+      "job": "linevul/llmvul_test",
+      "model": "linevul",
+      "dataset": "llmvul_test",
+      "rows": 18751,
+      "details": {
+        "tokens": {
+          "min": 15.0,
+          "p25": 112.0,
+          "median": 207.0,
+          "p75": 410.0,
+          "p90": 806.0,
+          "p95": 1171.5,
+          "p99": 2124.0,
+          "max": 4349.0
+        },
+        "removed_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.3656716417910448,
+          "p95": 0.5639161237963632,
+          "p99": 0.7596606974552309,
+          "max": 0.8826777087646653
+        },
+        "unknown_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "weighted_unknown_fraction": 0.0,
+        "retained_weighted_unknown_fraction": 0.0,
+        "degenerate": 0,
+        "fn": 1337,
+        "fp": 2126,
+        "fn_truncated": 648,
+        "fp_truncated": 733,
+        "annotation_audit": {
+          "status_counts": {
+            "unavailable": 1540
+          },
+          "fn_status_counts": {
+            "unavailable": 1337
+          },
+          "positive_rows_losing_some_annotated_lines": 0,
+          "fn_losing_some_annotated_lines": 0
+        }
+      },
+      "slices": {
+        "all": {
+          "rows": 18751,
+          "positives": 1540,
+          "positive_prevalence": 0.08212895312250014,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 15085,
+              "fp": 2126,
+              "fn": 1337,
+              "tp": 203
+            },
+            "test_accuracy": 0.8153165164524558,
+            "test_precision": 0.08716187204808931,
+            "test_recall": 0.1318181818181818,
+            "test_f1": 0.10493667614370639,
+            "precision_defined": true
+          }
+        },
+        "truncated": {
+          "rows": 3568,
+          "positives": 770,
+          "positive_prevalence": 0.2158071748878924,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 2065,
+              "fp": 733,
+              "fn": 648,
+              "tp": 122
+            },
+            "test_accuracy": 0.6129484304932735,
+            "test_precision": 0.14269005847953217,
+            "test_recall": 0.15844155844155844,
+            "test_f1": 0.15015384615384617,
+            "precision_defined": true
+          }
+        },
+        "untruncated": {
+          "rows": 15183,
+          "positives": 770,
+          "positive_prevalence": 0.05071461502996773,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 13020,
+              "fp": 1393,
+              "fn": 689,
+              "tp": 81
+            },
+            "test_accuracy": 0.8628729500098795,
+            "test_precision": 0.05495251017639077,
+            "test_recall": 0.10519480519480519,
+            "test_f1": 0.07219251336898395,
+            "precision_defined": true
+          }
+        },
+        "source_parse_error": {
+          "rows": 3575,
+          "positives": 324,
+          "positive_prevalence": 0.09062937062937063,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 2838,
+              "fp": 413,
+              "fn": 291,
+              "tp": 33
+            },
+            "test_accuracy": 0.803076923076923,
+            "test_precision": 0.07399103139013453,
+            "test_recall": 0.10185185185185185,
+            "test_f1": 0.08571428571428572,
+            "precision_defined": true
+          }
+        },
+        "source_parse_clean": {
+          "rows": 15176,
+          "positives": 1216,
+          "positive_prevalence": 0.08012651555086979,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 12247,
+              "fp": 1713,
+              "fn": 1046,
+              "tp": 170
+            },
+            "test_accuracy": 0.8181997891407485,
+            "test_precision": 0.09028146574614976,
+            "test_recall": 0.13980263157894737,
+            "test_f1": 0.10971281058405938,
+            "precision_defined": true
+          }
+        },
+        "unknown_fraction_ge_20pct": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        }
+      }
+    },
+    {
+      "job": "vulberta/llmvul_test",
+      "model": "vulberta",
+      "dataset": "llmvul_test",
+      "rows": 18751,
+      "details": {
+        "tokens": {
+          "min": 11.0,
+          "p25": 71.0,
+          "median": 125.0,
+          "p75": 237.0,
+          "p90": 424.0,
+          "p95": 607.5,
+          "p99": 1028.0,
+          "max": 2999.0
+        },
+        "removed_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "p95": 0.0,
+          "p99": 0.003897689220319662,
+          "max": 0.6589923256589924
+        },
+        "unknown_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.04838709677419355,
+          "p95": 0.0851063829787234,
+          "p99": 0.2606322159407596,
+          "max": 0.8078034682080925
+        },
+        "weighted_unknown_fraction": 0.026049579039397506,
+        "retained_weighted_unknown_fraction": 0.02563090987217212,
+        "degenerate": 0,
+        "fn": 970,
+        "fp": 5883,
+        "fn_truncated": 58,
+        "fp_truncated": 46,
+        "fn_cleaner_lexical_change": 96,
+        "fp_cleaner_lexical_change": 303,
+        "fn_retained_input_change": 41,
+        "fp_retained_input_change": 116,
+        "fn_either_truncated_or_changed": 94,
+        "fp_either_truncated_or_changed": 157,
+        "tested_cleaner_replacement": {
+          "rows_replaced": 540,
+          "note": "Diagnostic replacement of tested cleaner cases only; not a new official RQ1 result or all-row alternative-cleaner run.",
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 11281,
+              "fp": 5930,
+              "fn": 967,
+              "tp": 573
+            },
+            "test_accuracy": 0.6321796170870887,
+            "test_precision": 0.08811317853298478,
+            "test_recall": 0.37207792207792206,
+            "test_f1": 0.1424841477060798,
+            "precision_defined": true
+          }
+        }
+      },
+      "slices": {
+        "all": {
+          "rows": 18751,
+          "positives": 1540,
+          "positive_prevalence": 0.08212895312250014,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 11328,
+              "fp": 5883,
+              "fn": 970,
+              "tp": 570
+            },
+            "test_accuracy": 0.6345261586048744,
+            "test_precision": 0.08833100883310088,
+            "test_recall": 0.37012987012987014,
+            "test_f1": 0.14262479669710998,
+            "precision_defined": true
+          }
+        },
+        "truncated": {
+          "rows": 190,
+          "positives": 89,
+          "positive_prevalence": 0.46842105263157896,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 55,
+              "fp": 46,
+              "fn": 58,
+              "tp": 31
+            },
+            "test_accuracy": 0.45263157894736844,
+            "test_precision": 0.4025974025974026,
+            "test_recall": 0.34831460674157305,
+            "test_f1": 0.37349397590361444,
+            "precision_defined": true
+          }
+        },
+        "untruncated": {
+          "rows": 18561,
+          "positives": 1451,
+          "positive_prevalence": 0.07817466731318355,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 11273,
+              "fp": 5837,
+              "fn": 912,
+              "tp": 539
+            },
+            "test_accuracy": 0.6363881256397823,
+            "test_precision": 0.08453575909661229,
+            "test_recall": 0.3714679531357684,
+            "test_f1": 0.1377283761338955,
+            "precision_defined": true
+          }
+        },
+        "source_parse_error": {
+          "rows": 3575,
+          "positives": 324,
+          "positive_prevalence": 0.09062937062937063,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 2337,
+              "fp": 914,
+              "fn": 206,
+              "tp": 118
+            },
+            "test_accuracy": 0.6867132867132867,
+            "test_precision": 0.11434108527131782,
+            "test_recall": 0.36419753086419754,
+            "test_f1": 0.17404129793510326,
+            "precision_defined": true
+          }
+        },
+        "source_parse_clean": {
+          "rows": 15176,
+          "positives": 1216,
+          "positive_prevalence": 0.08012651555086979,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 8991,
+              "fp": 4969,
+              "fn": 764,
+              "tp": 452
+            },
+            "test_accuracy": 0.6222324723247232,
+            "test_precision": 0.08337945028592511,
+            "test_recall": 0.3717105263157895,
+            "test_f1": 0.13620611722163628,
+            "precision_defined": true
+          }
+        },
+        "unknown_fraction_ge_20pct": {
+          "rows": 284,
+          "positives": 15,
+          "positive_prevalence": 0.0528169014084507,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 177,
+              "fp": 92,
+              "fn": 7,
+              "tp": 8
+            },
+            "test_accuracy": 0.6514084507042254,
+            "test_precision": 0.08,
+            "test_recall": 0.5333333333333333,
+            "test_f1": 0.1391304347826087,
+            "precision_defined": true
+          }
+        },
+        "cleaner_lexical_change": {
+          "rows": 1637,
+          "positives": 124,
+          "positive_prevalence": 0.07574832009773977,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 1210,
+              "fp": 303,
+              "fn": 96,
+              "tp": 28
+            },
+            "test_accuracy": 0.7562614538790471,
+            "test_precision": 0.08459214501510574,
+            "test_recall": 0.22580645161290322,
+            "test_f1": 0.12307692307692308,
+            "precision_defined": true
+          }
+        },
+        "cleaner_retained_input_change": {
+          "rows": 541,
+          "positives": 48,
+          "positive_prevalence": 0.08872458410351201,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 377,
+              "fp": 116,
+              "fn": 41,
+              "tp": 7
+            },
+            "test_accuracy": 0.7097966728280961,
+            "test_precision": 0.056910569105691054,
+            "test_recall": 0.14583333333333334,
+            "test_f1": 0.08187134502923976,
+            "precision_defined": true
+          }
+        },
+        "confirmed_cleaner_retained_input_change": {
+          "rows": 540,
+          "positives": 48,
+          "positive_prevalence": 0.08888888888888889,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 376,
+              "fp": 116,
+              "fn": 41,
+              "tp": 7
+            },
+            "test_accuracy": 0.7092592592592593,
+            "test_precision": 0.056910569105691054,
+            "test_recall": 0.14583333333333334,
+            "test_f1": 0.08187134502923976,
+            "precision_defined": true
+          }
+        },
+        "cleaner_introduced_parse_error": {
+          "rows": 938,
+          "positives": 111,
+          "positive_prevalence": 0.11833688699360341,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 641,
+              "fp": 186,
+              "fn": 82,
+              "tp": 29
+            },
+            "test_accuracy": 0.7142857142857143,
+            "test_precision": 0.13488372093023257,
+            "test_recall": 0.26126126126126126,
+            "test_f1": 0.17791411042944785,
+            "precision_defined": true
+          }
+        },
+        "preprocessor_line_structure_changed": {
+          "rows": 851,
+          "positives": 126,
+          "positive_prevalence": 0.14806110458284372,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 549,
+              "fp": 176,
+              "fn": 93,
+              "tp": 33
+            },
+            "test_accuracy": 0.6839012925969448,
+            "test_precision": 0.15789473684210525,
+            "test_recall": 0.2619047619047619,
+            "test_f1": 0.19701492537313434,
+            "precision_defined": true
+          }
+        },
+        "untruncated_no_confirmed_cleaner_change": {
+          "rows": 16946,
+          "positives": 1339,
+          "positive_prevalence": 0.07901569691962705,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 10067,
+              "fp": 5540,
+              "fn": 823,
+              "tp": 516
+            },
+            "test_accuracy": 0.6245131594476573,
+            "test_precision": 0.08520475561426684,
+            "test_recall": 0.38536221060492903,
+            "test_f1": 0.13955375253549696,
+            "precision_defined": true
+          }
+        },
+        "parse_clean_untruncated_lexically_unchanged": {
+          "rows": 13770,
+          "positives": 1036,
+          "positive_prevalence": 0.07523602033405954,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 8082,
+              "fp": 4652,
+              "fn": 632,
+              "tp": 404
+            },
+            "test_accuracy": 0.6162672476397967,
+            "test_precision": 0.07990506329113924,
+            "test_recall": 0.38996138996138996,
+            "test_f1": 0.13263296126066973,
+            "precision_defined": true
+          }
+        },
+        "lexical_change_but_no_retained_input_change": {
+          "rows": 1096,
+          "positives": 75,
+          "positive_prevalence": 0.06843065693430657,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 834,
+              "fp": 187,
+              "fn": 55,
+              "tp": 20
+            },
+            "test_accuracy": 0.7791970802919708,
+            "test_precision": 0.0966183574879227,
+            "test_recall": 0.26666666666666666,
+            "test_f1": 0.14184397163120568,
+            "precision_defined": true
+          }
+        },
+        "lexical_change_visibility_unresolved": {
+          "rows": 1,
+          "positives": 1,
+          "positive_prevalence": 1.0,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 0,
+              "fp": 0,
+              "fn": 0,
+              "tp": 1
+            },
+            "test_accuracy": 1.0,
+            "test_precision": 1.0,
+            "test_recall": 1.0,
+            "test_f1": 1.0,
+            "precision_defined": true
+          }
+        }
+      }
+    },
+    {
+      "job": "linevul/cweval_test",
+      "model": "linevul",
+      "dataset": "cweval_test",
+      "rows": 58,
+      "details": {
+        "tokens": {
+          "min": 23.0,
+          "p25": 82.25,
+          "median": 184.5,
+          "p75": 292.25,
+          "p90": 380.8,
+          "p95": 404.15,
+          "p99": 458.46,
+          "max": 471.0
+        },
+        "removed_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "unknown_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "weighted_unknown_fraction": 0.0,
+        "retained_weighted_unknown_fraction": 0.0,
+        "degenerate": 0,
+        "fn": 29,
+        "fp": 0,
+        "fn_truncated": 0,
+        "fp_truncated": 0,
+        "annotation_audit": {
+          "status_counts": {
+            "unavailable": 29
+          },
+          "fn_status_counts": {
+            "unavailable": 29
+          },
+          "positive_rows_losing_some_annotated_lines": 0,
+          "fn_losing_some_annotated_lines": 0
+        }
+      },
+      "slices": {
+        "all": {
+          "rows": 58,
+          "positives": 29,
+          "positive_prevalence": 0.5,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 29,
+              "fp": 0,
+              "fn": 29,
+              "tp": 0
+            },
+            "test_accuracy": 0.5,
+            "test_precision": 0.0,
+            "test_recall": 0.0,
+            "test_f1": 0.0,
+            "precision_defined": false
+          }
+        },
+        "truncated": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "untruncated": {
+          "rows": 58,
+          "positives": 29,
+          "positive_prevalence": 0.5,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 29,
+              "fp": 0,
+              "fn": 29,
+              "tp": 0
+            },
+            "test_accuracy": 0.5,
+            "test_precision": 0.0,
+            "test_recall": 0.0,
+            "test_f1": 0.0,
+            "precision_defined": false
+          }
+        },
+        "source_parse_error": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "source_parse_clean": {
+          "rows": 58,
+          "positives": 29,
+          "positive_prevalence": 0.5,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 29,
+              "fp": 0,
+              "fn": 29,
+              "tp": 0
+            },
+            "test_accuracy": 0.5,
+            "test_precision": 0.0,
+            "test_recall": 0.0,
+            "test_f1": 0.0,
+            "precision_defined": false
+          }
+        },
+        "unknown_fraction_ge_20pct": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        }
+      }
+    },
+    {
+      "job": "vulberta/cweval_test",
+      "model": "vulberta",
+      "dataset": "cweval_test",
+      "rows": 58,
+      "details": {
+        "tokens": {
+          "min": 18.0,
+          "p25": 55.25,
+          "median": 118.0,
+          "p75": 175.0,
+          "p90": 204.8,
+          "p95": 211.0,
+          "p99": 231.04999999999998,
+          "max": 251.0
+        },
+        "removed_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.0,
+          "p90": 0.0,
+          "p95": 0.0,
+          "p99": 0.0,
+          "max": 0.0
+        },
+        "unknown_fraction": {
+          "min": 0.0,
+          "p25": 0.0,
+          "median": 0.0,
+          "p75": 0.035973891114078026,
+          "p90": 0.05921242774566476,
+          "p95": 0.07477361382000557,
+          "p99": 0.08280431432973805,
+          "max": 0.0847457627118644
+        },
+        "weighted_unknown_fraction": 0.028042959427207637,
+        "retained_weighted_unknown_fraction": 0.028042959427207637,
+        "degenerate": 0,
+        "fn": 11,
+        "fp": 16,
+        "fn_truncated": 0,
+        "fp_truncated": 0,
+        "fn_cleaner_lexical_change": 0,
+        "fp_cleaner_lexical_change": 0,
+        "fn_retained_input_change": 0,
+        "fp_retained_input_change": 0,
+        "fn_either_truncated_or_changed": 0,
+        "fp_either_truncated_or_changed": 0,
+        "tested_cleaner_replacement": {
+          "rows_replaced": 0,
+          "note": "Diagnostic replacement of tested cleaner cases only; not a new official RQ1 result or all-row alternative-cleaner run.",
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 13,
+              "fp": 16,
+              "fn": 11,
+              "tp": 18
+            },
+            "test_accuracy": 0.5344827586206896,
+            "test_precision": 0.5294117647058824,
+            "test_recall": 0.6206896551724138,
+            "test_f1": 0.5714285714285714,
+            "precision_defined": true
+          }
+        }
+      },
+      "slices": {
+        "all": {
+          "rows": 58,
+          "positives": 29,
+          "positive_prevalence": 0.5,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 13,
+              "fp": 16,
+              "fn": 11,
+              "tp": 18
+            },
+            "test_accuracy": 0.5344827586206896,
+            "test_precision": 0.5294117647058824,
+            "test_recall": 0.6206896551724138,
+            "test_f1": 0.5714285714285714,
+            "precision_defined": true
+          }
+        },
+        "truncated": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "untruncated": {
+          "rows": 58,
+          "positives": 29,
+          "positive_prevalence": 0.5,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 13,
+              "fp": 16,
+              "fn": 11,
+              "tp": 18
+            },
+            "test_accuracy": 0.5344827586206896,
+            "test_precision": 0.5294117647058824,
+            "test_recall": 0.6206896551724138,
+            "test_f1": 0.5714285714285714,
+            "precision_defined": true
+          }
+        },
+        "source_parse_error": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "source_parse_clean": {
+          "rows": 58,
+          "positives": 29,
+          "positive_prevalence": 0.5,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 13,
+              "fp": 16,
+              "fn": 11,
+              "tp": 18
+            },
+            "test_accuracy": 0.5344827586206896,
+            "test_precision": 0.5294117647058824,
+            "test_recall": 0.6206896551724138,
+            "test_f1": 0.5714285714285714,
+            "precision_defined": true
+          }
+        },
+        "unknown_fraction_ge_20pct": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "cleaner_lexical_change": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "cleaner_retained_input_change": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "confirmed_cleaner_retained_input_change": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "cleaner_introduced_parse_error": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "preprocessor_line_structure_changed": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "untruncated_no_confirmed_cleaner_change": {
+          "rows": 58,
+          "positives": 29,
+          "positive_prevalence": 0.5,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 13,
+              "fp": 16,
+              "fn": 11,
+              "tp": 18
+            },
+            "test_accuracy": 0.5344827586206896,
+            "test_precision": 0.5294117647058824,
+            "test_recall": 0.6206896551724138,
+            "test_f1": 0.5714285714285714,
+            "precision_defined": true
+          }
+        },
+        "parse_clean_untruncated_lexically_unchanged": {
+          "rows": 58,
+          "positives": 29,
+          "positive_prevalence": 0.5,
+          "metrics": {
+            "confusion_matrix": {
+              "tn": 13,
+              "fp": 16,
+              "fn": 11,
+              "tp": 18
+            },
+            "test_accuracy": 0.5344827586206896,
+            "test_precision": 0.5294117647058824,
+            "test_recall": 0.6206896551724138,
+            "test_f1": 0.5714285714285714,
+            "precision_defined": true
+          }
+        },
+        "lexical_change_but_no_retained_input_change": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        },
+        "lexical_change_visibility_unresolved": {
+          "rows": 0,
+          "positives": 0,
+          "metrics": null
+        }
+      }
+    }
+  ],
+  "source_cohorts": [
+    {
+      "dataset": "bigvul_test_sample_2000",
+      "rows": 2000,
+      "declared_languages": {
+        "C": 1972,
+        "CPP": 28
+      },
+      "parser_languages": {
+        "cpp": 1132,
+        "c": 868
+      },
+      "source_parse_errors": 230,
+      "non_single_function_parses": 25,
+      "rows_with_calls": 1786,
+      "rows_with_preprocessor": 114,
+      "source_chars": {
+        "min": 30.0,
+        "p25": 194.0,
+        "median": 382.0,
+        "p75": 914.75,
+        "p90": 1912.1000000000001,
+        "p95": 3295.5499999999965,
+        "p99": 8960.849999999997,
+        "max": 41233.0
+      },
+      "source_lines": {
+        "min": 1.0,
+        "p25": 6.0,
+        "median": 13.0,
+        "p75": 31.0,
+        "p90": 67.0,
+        "p95": 116.0,
+        "p99": 270.03999999999996,
+        "max": 1158.0
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "rows": 24788,
+      "declared_languages": {
+        "None": 24788
+      },
+      "parser_languages": {
+        "cpp": 24087,
+        "c": 701
+      },
+      "source_parse_errors": 4456,
+      "non_single_function_parses": 1008,
+      "rows_with_calls": 22430,
+      "rows_with_preprocessor": 2400,
+      "source_chars": {
+        "min": 18.0,
+        "p25": 221.0,
+        "median": 490.0,
+        "p75": 1178.0,
+        "p90": 2693.0,
+        "p95": 4472.649999999998,
+        "p99": 13242.390000000003,
+        "max": 137677.0
+      },
+      "source_lines": {
+        "min": 1.0,
+        "p25": 8.0,
+        "median": 18.0,
+        "p75": 41.0,
+        "p90": 88.0,
+        "p95": 144.0,
+        "p99": 421.0,
+        "max": 3978.0
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "rows": 18751,
+      "declared_languages": {
+        "c": 7392,
+        "cpp": 11359
+      },
+      "parser_languages": {
+        "c": 7240,
+        "cpp": 11511
+      },
+      "source_parse_errors": 3575,
+      "non_single_function_parses": 469,
+      "rows_with_calls": 17207,
+      "rows_with_preprocessor": 851,
+      "source_chars": {
+        "min": 25.0,
+        "p25": 261.0,
+        "median": 472.0,
+        "p75": 925.0,
+        "p90": 1735.0,
+        "p95": 2517.5,
+        "p99": 4383.5,
+        "max": 8018.0
+      },
+      "source_lines": {
+        "min": 5.0,
+        "p25": 8.0,
+        "median": 14.0,
+        "p75": 26.0,
+        "p90": 46.0,
+        "p95": 65.0,
+        "p99": 109.0,
+        "max": 150.0
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "rows": 58,
+      "declared_languages": {
+        "c": 38,
+        "cpp": 20
+      },
+      "parser_languages": {
+        "c": 38,
+        "cpp": 20
+      },
+      "source_parse_errors": 0,
+      "non_single_function_parses": 0,
+      "rows_with_calls": 58,
+      "rows_with_preprocessor": 0,
+      "source_chars": {
+        "min": 64.0,
+        "p25": 188.75,
+        "median": 385.0,
+        "p75": 649.25,
+        "p90": 781.0000000000002,
+        "p95": 830.4999999999999,
+        "p99": 977.99,
+        "max": 1031.0
+      },
+      "source_lines": {
+        "min": 3.0,
+        "p25": 6.0,
+        "median": 12.0,
+        "p75": 18.75,
+        "p90": 26.60000000000001,
+        "p95": 28.749999999999993,
+        "p99": 33.0,
+        "max": 33.0
+      }
+    }
+  ],
+  "limitations": [
+    "Source labels remain unverified. Input slices differ in label prevalence and code difficulty.",
+    "Parse errors in standalone functions do not prove malformed or invalid source code.",
+    "Clang comparisons cover 36 cases, not all functions.",
+    "PrimeVul/LLMVul verified vulnerability spans and full calling context are unavailable locally.",
+    "BigVul line annotations are patch-derived and are not independently adjudicated vulnerability locations.",
+    "Cleaner and truncation flags overlap; counts must not be added as independent causes.",
+    "Tail windows are a context-sensitivity experiment and discard the function prefix.",
+    "CWEval benchmark_checked denotes the prior static dependency audit, not execution of its security tests.",
+    "Diagnostic cleaner variants may differ from the model training preprocessing."
+  ],
+  "script_sha256": "2c8f16d96c9e28955cd8bd1a076984fc8365f174bfb10120314f0deb6ed107a2",
+  "context_review": {
+    "date": "2026-10-29",
+    "review_type": "Illustrative static input-context review by the diagnostic assistant; not independent label adjudication or security-test execution",
+    "selection_file": "context_review_selection.json",
+    "limitations": "Nine error-enriched examples cannot estimate dataset label-error or missing-context rates. External call/type references identify information absent from the supplied text, not proof that the model error was caused by that absence.",
+    "cases": [
+      {
+        "sample_id": "primevul:197305",
+        "finding": "The complete retained RPSI parser contains length/padding arithmetic and buffer reads. PJ_ASSERT_RETURN, pj_strset, protocol structures, and caller guarantees are not defined in the supplied function. The source CVE description refers to direct use of this parser. The relevant arithmetic is visible; exact protocol and memory-safety reasoning needs those contracts.",
+        "label_judgment": "not adjudicated"
+      },
+      {
+        "sample_id": "primevul:195399",
+        "finding": "graph.GetNode returns input_node, immediately dereferenced in IsSwitch(*input_node), with no local null check. The retained source CVE description specifically says missing GraphDef nodes can make this pointer null. The suspicious operation survives preprocessing; GetNode's return contract and graph construction are absent. This example is not explained by truncation or confirmed cleaning damage.",
+        "label_judgment": "source description corroborates a visible risk; patch/test not independently checked"
+      },
+      {
+        "sample_id": "primevul:204138",
+        "finding": "The retained QEMU write_response function accesses ESPState, FIFO helpers, callbacks, and interrupt helpers. State initialization, callback implementations, and the exploit-triggering sequence are absent. The CVE description identifies a SCSI null dereference but does not localize it to a supplied line, so no exact vulnerability span is asserted.",
+        "label_judgment": "insufficient local evidence for exact flaw localization"
+      },
+      {
+        "sample_id": "llmvul:ID_46D8AE673E2768F6",
+        "finding": "coff_fail_const calls bounded vsnprintf. The definition of coff_object_t is absent, so whether error is an array or pointer and its capacity cannot be established. Caller control of format and mutability of the object are also unknown. An API occurrence alone does not validate the automated CWE-676 label.",
+        "label_judgment": "not adjudicated"
+      },
+      {
+        "sample_id": "llmvul:ID_89BF7580AD6ED9B7",
+        "finding": "mbedtls_x25519_make_public visibly checks blen against a macro-derived required size before writing buf and invoking the scalar-multiplication helper. The macro value, helper's write contract, and caller-provided buffer/olen validity are absent. The automated CWE-787 label cannot be validated solely from this supplied function.",
+        "label_judgment": "not adjudicated"
+      },
+      {
+        "sample_id": "llmvul:ID_176FE7F8EEAE498A",
+        "finding": "mf_plus_str_to_bytes checks len through furi_check and copies len bytes to out. furi_check semantics, MF_PLUS_SIGNATURE_SIZE, the caller's output capacity, and guarantees about len being nonzero are absent. The copy and length checks are fully retained; missing contracts remain a plausible obstacle to interpreting the CWE-120 label.",
+        "label_judgment": "not adjudicated"
+      },
+      {
+        "sample_id": "cweval:cwe_327_0_c:y_negative",
+        "finding": "The retained hash_certificate function explicitly calls MD5. Its use of that hash is visible, while the application's cryptographic security requirements reside in the benchmark task context. No project-local helper dependency was flagged by the prior static dependency audit.",
+        "label_judgment": "benchmark label retained; tests not executed"
+      },
+      {
+        "sample_id": "cweval:cwe_078_0_cpp:y_negative",
+        "finding": "The full function concatenates dir_path into a shell command passed to popen without local escaping or validation. This is a visible input-to-shell path that both models miss at the fixed threshold; neither truncation nor confirmed cleaning damage removes it. Whether dir_path is attacker-controlled is a caller/task assumption.",
+        "label_judgment": "visible risk consistent with specified CWE; tests not executed"
+      },
+      {
+        "sample_id": "cweval:cwe_918_1_c:y_negative",
+        "finding": "The full function constructs an API URL without restricting api_url. It does not itself make a network request, so the SSRF interpretation depends on how the caller uses the returned URL and the benchmark task contract. The complete construction survives both input pipelines.",
+        "label_judgment": "benchmark label retained; surrounding task/caller behavior needed"
+      }
+    ],
+    "selection_policy": "Up to three per dataset: both-model FN, parse-clean, LineVul untruncated, unchanged lexical tree, 200-1800 characters. Illustrative only.",
+    "seed": 42,
+    "notes_sha256": "5d592e376d3b344847b87eac308771ecf7ec428f3cbc94e02ad98246f5261ea8",
+    "selection_sha256": "b91ee964f12efa8aa6681ed77b169bb54578196d416d797010f2a81ade887748"
+  }
+}

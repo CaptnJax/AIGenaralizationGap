@@ -1,0 +1,10 @@
+{
+  "platform": "win32",
+  "python": "3.12.7 (tags/v3.12.7:0b05ead, Oct  1 2024, 03:06:41) [MSC v.1941 64 bit (AMD64)]",
+  "docker": null,
+  "gcc": null,
+  "clang": null,
+  "wsl": "C:\\WINDOWS\\system32\\wsl.EXE",
+  "wsl_status": "wsl --list --quiet returned: Windows Subsystem for Linux is not installed",
+  "security_tests_executed": false
+}

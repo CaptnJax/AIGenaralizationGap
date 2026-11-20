@@ -1,0 +1,11 @@
+{
+  "rows": 2732,
+  "labels": {
+    "0": 1477,
+    "1": 1255
+  },
+  "source_sha256": "ee2d7312ee9d73d7759981186658cf275f1c4b4caaddc367de9ec15846f605f3",
+  "profile_sha256": "cebf84b974fd03df1dec3c60f6999a7fea7bca5deaa6d1bc010993a83528c4ec",
+  "implementation_sha256": "7fffd27099007ab174e71e1c4311451ba1efccd40b591b1dac4399cbf12b9fd0",
+  "tokenizer_profile_implementation_sha256": "f4b25e8266ec8e5be7c93b0c9f7184a5e32f6a59dc56eae3b2fec4e37715c277"
+}

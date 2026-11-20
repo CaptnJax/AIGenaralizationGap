@@ -1,0 +1,6 @@
+{
+  "sample_id": "bigvul-source:2461",
+  "dataset": "bigvul_test_sample_2000",
+  "source_language": "C",
+  "code": "LayoutTestContentBrowserClient::GetLayoutTestNotificationManager() {\n  return layout_test_notification_manager_.get();\n}\n"
+}

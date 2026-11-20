@@ -1,0 +1,511 @@
+{
+  "status": "pass",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "jobs": [
+    {
+      "job": "linevul/bigvul_test_sample_2000",
+      "selected_rows": 15,
+      "original_batch_rows": 224,
+      "batch_prediction_changes": 0,
+      "historical_prediction_changes": 0,
+      "max_batch_probability_delta": 9.98377799987793e-07,
+      "max_historical_probability_delta": null,
+      "original_batch_historical_prediction_changes": 0,
+      "original_batch_max_historical_probability_delta": null,
+      "max_class_sum_error": 1.1920928955078125e-07,
+      "min_probability": 4.5761764340568334e-05,
+      "max_probability": 0.9999545812606812
+    },
+    {
+      "job": "linevul/primevul_test",
+      "selected_rows": 16,
+      "original_batch_rows": 256,
+      "batch_prediction_changes": 0,
+      "historical_prediction_changes": 0,
+      "max_batch_probability_delta": 5.960464477539063e-08,
+      "max_historical_probability_delta": null,
+      "original_batch_historical_prediction_changes": 0,
+      "original_batch_max_historical_probability_delta": null,
+      "max_class_sum_error": 1.1920928955078125e-07,
+      "min_probability": 4.584563066600822e-05,
+      "max_probability": 0.9995191097259521
+    },
+    {
+      "job": "linevul/llmvul_test",
+      "selected_rows": 16,
+      "original_batch_rows": 240,
+      "batch_prediction_changes": 0,
+      "historical_prediction_changes": 0,
+      "max_batch_probability_delta": 9.74978320300579e-10,
+      "max_historical_probability_delta": null,
+      "original_batch_historical_prediction_changes": 0,
+      "original_batch_max_historical_probability_delta": null,
+      "max_class_sum_error": 1.1920928955078125e-07,
+      "min_probability": 4.526463453657925e-05,
+      "max_probability": 0.9994537234306335
+    },
+    {
+      "job": "linevul/cweval_test",
+      "selected_rows": 58,
+      "original_batch_rows": 58,
+      "batch_prediction_changes": 0,
+      "historical_prediction_changes": 0,
+      "max_batch_probability_delta": 2.1827872842550278e-09,
+      "max_historical_probability_delta": null,
+      "original_batch_historical_prediction_changes": 0,
+      "original_batch_max_historical_probability_delta": null,
+      "max_class_sum_error": 5.960464477539063e-08,
+      "min_probability": 4.908521441393532e-05,
+      "max_probability": 0.0004128024447709322
+    },
+    {
+      "job": "vulberta/primevul_test",
+      "selected_rows": 16,
+      "original_batch_rows": 256,
+      "batch_prediction_changes": 0,
+      "historical_prediction_changes": 0,
+      "max_batch_probability_delta": 3.2782554626464844e-07,
+      "max_historical_probability_delta": 0.0,
+      "original_batch_historical_prediction_changes": 0,
+      "original_batch_max_historical_probability_delta": 0.0,
+      "max_class_sum_error": 1.1920928955078125e-07,
+      "min_probability": 0.026556942611932755,
+      "max_probability": 0.9855981469154358
+    },
+    {
+      "job": "vulberta/llmvul_test",
+      "selected_rows": 16,
+      "original_batch_rows": 256,
+      "batch_prediction_changes": 0,
+      "historical_prediction_changes": 0,
+      "max_batch_probability_delta": 5.960464477539062e-07,
+      "max_historical_probability_delta": 0.0,
+      "original_batch_historical_prediction_changes": 0,
+      "original_batch_max_historical_probability_delta": 0.0,
+      "max_class_sum_error": 1.1920928955078125e-07,
+      "min_probability": 0.02644112892448902,
+      "max_probability": 0.9793104529380798
+    },
+    {
+      "job": "vulberta/cweval_test",
+      "selected_rows": 58,
+      "original_batch_rows": 58,
+      "batch_prediction_changes": 0,
+      "historical_prediction_changes": 0,
+      "max_batch_probability_delta": 5.364418029785156e-07,
+      "max_historical_probability_delta": 0.0,
+      "original_batch_historical_prediction_changes": 0,
+      "original_batch_max_historical_probability_delta": 0.0,
+      "max_class_sum_error": 1.1920928955078125e-07,
+      "min_probability": 0.028831494972109795,
+      "max_probability": 0.9744958281517029
+    }
+  ],
+  "checks": [
+    {
+      "check": "linevul:strict_loading",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul:trained_head_exact",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul:padding_compatibility",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul:all_modules_eval",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:input_shape_mask_ids",
+      "status": "pass",
+      "detail": {
+        "tokenizer_bos": 0,
+        "tokenizer_eos": 2,
+        "model_bos": 0,
+        "model_eos": 2
+      }
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:repeat_deterministic",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:probabilities_valid",
+      "status": "pass",
+      "detail": {
+        "max_class_sum_error": 1.1920928955078125e-07
+      }
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:exactly_one_softmax",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:batch_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:historical_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/bigvul_test_sample_2000:original_batch_all_predictions",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/primevul_test:input_shape_mask_ids",
+      "status": "pass",
+      "detail": {
+        "tokenizer_bos": 0,
+        "tokenizer_eos": 2,
+        "model_bos": 0,
+        "model_eos": 2
+      }
+    },
+    {
+      "check": "linevul/primevul_test:repeat_deterministic",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/primevul_test:probabilities_valid",
+      "status": "pass",
+      "detail": {
+        "max_class_sum_error": 1.1920928955078125e-07
+      }
+    },
+    {
+      "check": "linevul/primevul_test:exactly_one_softmax",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/primevul_test:batch_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/primevul_test:historical_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/primevul_test:original_batch_all_predictions",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/llmvul_test:input_shape_mask_ids",
+      "status": "pass",
+      "detail": {
+        "tokenizer_bos": 0,
+        "tokenizer_eos": 2,
+        "model_bos": 0,
+        "model_eos": 2
+      }
+    },
+    {
+      "check": "linevul/llmvul_test:repeat_deterministic",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/llmvul_test:probabilities_valid",
+      "status": "pass",
+      "detail": {
+        "max_class_sum_error": 1.1920928955078125e-07
+      }
+    },
+    {
+      "check": "linevul/llmvul_test:exactly_one_softmax",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/llmvul_test:batch_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/llmvul_test:historical_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/llmvul_test:original_batch_all_predictions",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/cweval_test:input_shape_mask_ids",
+      "status": "pass",
+      "detail": {
+        "tokenizer_bos": 0,
+        "tokenizer_eos": 2,
+        "model_bos": 0,
+        "model_eos": 2
+      }
+    },
+    {
+      "check": "linevul/cweval_test:repeat_deterministic",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/cweval_test:probabilities_valid",
+      "status": "pass",
+      "detail": {
+        "max_class_sum_error": 5.960464477539063e-08
+      }
+    },
+    {
+      "check": "linevul/cweval_test:exactly_one_softmax",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "linevul/cweval_test:batch_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/cweval_test:historical_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "linevul/cweval_test:original_batch_all_predictions",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta:strict_loading",
+      "status": "pass",
+      "detail": {
+        "missing_keys": [],
+        "unexpected_keys": [],
+        "mismatched_keys": [],
+        "error_msgs": []
+      }
+    },
+    {
+      "check": "vulberta:two_class_head",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta:padding_compatibility",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta:all_modules_eval",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta/primevul_test:input_shape_mask_ids",
+      "status": "pass",
+      "detail": {
+        "tokenizer_bos": null,
+        "tokenizer_eos": null,
+        "model_bos": 0,
+        "model_eos": 2
+      }
+    },
+    {
+      "check": "vulberta/primevul_test:single_batch_tokenization_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/primevul_test:repeat_deterministic",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta/primevul_test:probabilities_valid",
+      "status": "pass",
+      "detail": {
+        "max_class_sum_error": 1.1920928955078125e-07
+      }
+    },
+    {
+      "check": "vulberta/primevul_test:exactly_one_softmax",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta/primevul_test:batch_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/primevul_test:historical_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/primevul_test:historical_probability_parity",
+      "status": "pass",
+      "detail": {
+        "max_absolute_delta": 0.0,
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "check": "vulberta/primevul_test:original_batch_all_predictions",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/primevul_test:original_batch_all_probabilities",
+      "status": "pass",
+      "detail": {
+        "max_absolute_delta": 0.0,
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "check": "vulberta/llmvul_test:input_shape_mask_ids",
+      "status": "pass",
+      "detail": {
+        "tokenizer_bos": null,
+        "tokenizer_eos": null,
+        "model_bos": 0,
+        "model_eos": 2
+      }
+    },
+    {
+      "check": "vulberta/llmvul_test:single_batch_tokenization_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/llmvul_test:repeat_deterministic",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta/llmvul_test:probabilities_valid",
+      "status": "pass",
+      "detail": {
+        "max_class_sum_error": 1.1920928955078125e-07
+      }
+    },
+    {
+      "check": "vulberta/llmvul_test:exactly_one_softmax",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta/llmvul_test:batch_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/llmvul_test:historical_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/llmvul_test:historical_probability_parity",
+      "status": "pass",
+      "detail": {
+        "max_absolute_delta": 0.0,
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "check": "vulberta/llmvul_test:original_batch_all_predictions",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/llmvul_test:original_batch_all_probabilities",
+      "status": "pass",
+      "detail": {
+        "max_absolute_delta": 0.0,
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "check": "vulberta/cweval_test:input_shape_mask_ids",
+      "status": "pass",
+      "detail": {
+        "tokenizer_bos": null,
+        "tokenizer_eos": null,
+        "model_bos": 0,
+        "model_eos": 2
+      }
+    },
+    {
+      "check": "vulberta/cweval_test:single_batch_tokenization_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/cweval_test:repeat_deterministic",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta/cweval_test:probabilities_valid",
+      "status": "pass",
+      "detail": {
+        "max_class_sum_error": 1.1920928955078125e-07
+      }
+    },
+    {
+      "check": "vulberta/cweval_test:exactly_one_softmax",
+      "status": "pass",
+      "detail": null
+    },
+    {
+      "check": "vulberta/cweval_test:batch_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/cweval_test:historical_prediction_parity",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/cweval_test:historical_probability_parity",
+      "status": "pass",
+      "detail": {
+        "max_absolute_delta": 0.0,
+        "tolerance": 1e-05
+      }
+    },
+    {
+      "check": "vulberta/cweval_test:original_batch_all_predictions",
+      "status": "pass",
+      "detail": []
+    },
+    {
+      "check": "vulberta/cweval_test:original_batch_all_probabilities",
+      "status": "pass",
+      "detail": {
+        "max_absolute_delta": 0.0,
+        "tolerance": 1e-05
+      }
+    }
+  ],
+  "audit_script_sha256": "2457c48ffe9391eae6a00acce08cc71fda6f59ee060a3d7039572cbfae64bd2e",
+  "note": "Parity uses existing evaluator functions and strictly loaded frozen weights; no training or threshold selection."
+}

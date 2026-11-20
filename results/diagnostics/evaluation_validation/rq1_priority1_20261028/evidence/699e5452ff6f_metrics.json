@@ -1,0 +1,33 @@
+{
+  "test_accuracy": 0.6345261586048744,
+  "test_f1": 0.14262479669710998,
+  "test_precision": 0.08833100883310088,
+  "test_recall": 0.37012987012987014,
+  "test_threshold": 0.5,
+  "rows": 18751,
+  "confusion_matrix": {
+    "tn": 11328,
+    "fp": 5883,
+    "fn": 970,
+    "tp": 570
+  },
+  "model": "claudios/VulBERTa-MLP-Devign",
+  "revision": "fecabdee24a3ef6e804d7629d6eed03dc6b4f61e",
+  "tokenizer_fix": "clang_skip_function_bodies_v1",
+  "preprocessing": "original_vulberta_cleaner_v1",
+  "dataset": "D:\\GitRepo\\PIVD\\Repo\\prepared_datasets\\vulberta\\llmvul_test.csv",
+  "dataset_sha256": "a9c2f766508bef728f27774883b77d2fbd703befd9d9de74cefd89cb7bf3c94e",
+  "block_size": 1024,
+  "batch_size": 16,
+  "seed": 42,
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "versions": {
+    "torch": "2.7.1+cu128",
+    "transformers": "4.57.1",
+    "tokenizers": "0.22.1",
+    "libclang": "18.1.1",
+    "pandas": "3.0.6",
+    "scikit-learn": "1.9.1"
+  }
+}

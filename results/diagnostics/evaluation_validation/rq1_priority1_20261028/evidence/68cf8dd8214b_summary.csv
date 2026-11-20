@@ -1,0 +1,2 @@
+job,rows,test_accuracy,test_f1,test_precision,test_recall,test_threshold
+linevul-bigvul-sample,2000,0.9905,0.909952606635071,0.9696969696969697,0.8571428571428571,0.5

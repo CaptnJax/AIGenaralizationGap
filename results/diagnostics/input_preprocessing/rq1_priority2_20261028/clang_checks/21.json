@@ -1,0 +1,6 @@
+{
+  "sample_id": "llmvul:ID_0A6FD3C6A2E8AC78",
+  "dataset": "llmvul_test",
+  "source_language": "c",
+  "code": "static BuildMode parsemode(const char *mode)\n{\n  int i;\n  for (i = 0; modenames[i]; i++)\n    if (!strcmp(mode, modenames[i]))\n      return (BuildMode)i;\n  usage();\n  return (BuildMode)-1;\n}"
+}

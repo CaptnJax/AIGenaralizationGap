@@ -1,0 +1,259 @@
+{
+  "comparisons": [
+    {
+      "dataset": "bigvul_test",
+      "source": "bigvul_train",
+      "eval_rows": 18864,
+      "source_rows": 150908,
+      "counts": {
+        "structural_sha256": 3871,
+        "structural_sha256_positive": 166,
+        "token_sha256": 479,
+        "token_sha256_positive": 108,
+        "structural_sha256_conflict": 635,
+        "token_sha256_conflict": 204,
+        "code_sha256": 3,
+        "code_sha256_positive": 3,
+        "code_sha256_conflict": 3
+      }
+    },
+    {
+      "dataset": "devign_test",
+      "source": "bigvul_train",
+      "eval_rows": 2732,
+      "source_rows": 150908,
+      "counts": {
+        "token_sha256": 45,
+        "token_sha256_positive": 26,
+        "token_sha256_conflict": 23,
+        "structural_sha256": 66,
+        "structural_sha256_positive": 31,
+        "structural_sha256_conflict": 28
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "source": "bigvul_train",
+      "eval_rows": 24788,
+      "source_rows": 150908,
+      "counts": {
+        "code_sha256": 402,
+        "code_sha256_positive": 0,
+        "token_sha256": 808,
+        "token_sha256_positive": 0,
+        "structural_sha256": 2158,
+        "structural_sha256_positive": 1,
+        "structural_sha256_conflict": 147,
+        "token_sha256_conflict": 17
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "source": "bigvul_train",
+      "eval_rows": 18751,
+      "source_rows": 150908,
+      "counts": {
+        "structural_sha256": 78,
+        "structural_sha256_positive": 1,
+        "structural_sha256_conflict": 10,
+        "token_sha256": 3,
+        "token_sha256_positive": 0
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "source": "bigvul_train",
+      "eval_rows": 58,
+      "source_rows": 150908,
+      "counts": {}
+    },
+    {
+      "dataset": "bigvul_test",
+      "source": "bigvul_valid",
+      "eval_rows": 18864,
+      "source_rows": 18864,
+      "counts": {
+        "structural_sha256": 1725,
+        "structural_sha256_positive": 51,
+        "structural_sha256_conflict": 186,
+        "token_sha256": 68,
+        "token_sha256_positive": 23,
+        "token_sha256_conflict": 31
+      }
+    },
+    {
+      "dataset": "devign_test",
+      "source": "bigvul_valid",
+      "eval_rows": 2732,
+      "source_rows": 18864,
+      "counts": {
+        "token_sha256": 5,
+        "token_sha256_positive": 2,
+        "token_sha256_conflict": 2,
+        "structural_sha256": 14,
+        "structural_sha256_positive": 6,
+        "structural_sha256_conflict": 5
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "source": "bigvul_valid",
+      "eval_rows": 24788,
+      "source_rows": 18864,
+      "counts": {
+        "code_sha256": 52,
+        "code_sha256_positive": 0,
+        "token_sha256": 114,
+        "token_sha256_positive": 0,
+        "structural_sha256": 936,
+        "structural_sha256_positive": 0,
+        "structural_sha256_conflict": 54,
+        "token_sha256_conflict": 3
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "source": "bigvul_valid",
+      "eval_rows": 18751,
+      "source_rows": 18864,
+      "counts": {
+        "structural_sha256": 37,
+        "structural_sha256_positive": 0
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "source": "bigvul_valid",
+      "eval_rows": 58,
+      "source_rows": 18864,
+      "counts": {}
+    },
+    {
+      "dataset": "bigvul_test",
+      "source": "devign_train",
+      "eval_rows": 18864,
+      "source_rows": 21854,
+      "counts": {
+        "structural_sha256": 93,
+        "structural_sha256_positive": 4,
+        "structural_sha256_conflict": 59,
+        "token_sha256": 28,
+        "token_sha256_positive": 2,
+        "token_sha256_conflict": 19
+      }
+    },
+    {
+      "dataset": "devign_test",
+      "source": "devign_train",
+      "eval_rows": 2732,
+      "source_rows": 21854,
+      "counts": {
+        "structural_sha256": 159,
+        "structural_sha256_positive": 59,
+        "structural_sha256_conflict": 47,
+        "token_sha256": 14,
+        "token_sha256_positive": 7,
+        "token_sha256_conflict": 11,
+        "code_sha256": 4,
+        "code_sha256_positive": 1,
+        "code_sha256_conflict": 4
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "source": "devign_train",
+      "eval_rows": 24788,
+      "source_rows": 21854,
+      "counts": {
+        "structural_sha256": 98,
+        "structural_sha256_positive": 0,
+        "structural_sha256_conflict": 71,
+        "token_sha256": 13,
+        "token_sha256_positive": 0,
+        "token_sha256_conflict": 6
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "source": "devign_train",
+      "eval_rows": 18751,
+      "source_rows": 21854,
+      "counts": {
+        "structural_sha256": 20,
+        "structural_sha256_positive": 0,
+        "structural_sha256_conflict": 12
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "source": "devign_train",
+      "eval_rows": 58,
+      "source_rows": 21854,
+      "counts": {}
+    },
+    {
+      "dataset": "bigvul_test",
+      "source": "devign_valid",
+      "eval_rows": 18864,
+      "source_rows": 2732,
+      "counts": {
+        "structural_sha256": 14,
+        "structural_sha256_positive": 1,
+        "structural_sha256_conflict": 6,
+        "token_sha256": 7,
+        "token_sha256_positive": 1,
+        "token_sha256_conflict": 3
+      }
+    },
+    {
+      "dataset": "devign_test",
+      "source": "devign_valid",
+      "eval_rows": 2732,
+      "source_rows": 2732,
+      "counts": {
+        "structural_sha256": 22,
+        "structural_sha256_positive": 3,
+        "structural_sha256_conflict": 7,
+        "code_sha256": 1,
+        "code_sha256_positive": 1,
+        "code_sha256_conflict": 1,
+        "token_sha256": 1,
+        "token_sha256_positive": 1,
+        "token_sha256_conflict": 1
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "source": "devign_valid",
+      "eval_rows": 24788,
+      "source_rows": 2732,
+      "counts": {
+        "structural_sha256": 45,
+        "structural_sha256_positive": 0,
+        "token_sha256": 4,
+        "token_sha256_positive": 0,
+        "token_sha256_conflict": 3,
+        "structural_sha256_conflict": 8
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "source": "devign_valid",
+      "eval_rows": 18751,
+      "source_rows": 2732,
+      "counts": {
+        "structural_sha256": 4,
+        "structural_sha256_positive": 0
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "source": "devign_valid",
+      "eval_rows": 58,
+      "source_rows": 2732,
+      "counts": {}
+    }
+  ],
+  "artifact_sha256": "b5e653574fe9c51c569e39fc2b73d04dad3b4259d19ed4313637f553e5415184",
+  "scope": "Documented fine-tuning train/validation data; no exhaustive pretraining or semantic-clone audit. Structural matches are candidates, not validated duplicates."
+}

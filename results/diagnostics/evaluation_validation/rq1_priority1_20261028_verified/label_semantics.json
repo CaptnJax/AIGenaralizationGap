@@ -1,0 +1,39 @@
+{
+  "reviewed_date": "2026-10-28",
+  "mapping": {
+    "0": "non-vulnerable/reference for the specified task",
+    "1": "vulnerable/unsafe"
+  },
+  "evidence": [
+    {
+      "file": "reference_sources/vulberta_finetuning.ipynb",
+      "url": "https://github.com/ICL-ml4csec/VulBERTa/blob/main/Finetuning_VulBERTa-MLP.ipynb",
+      "sha256": "c8c057b360ba1c8602ba3782643f21ba92a1bbf7d4c7aa20418d892412dd47ce"
+    },
+    {
+      "file": "reference_sources/vulberta_evaluation.ipynb",
+      "url": "https://github.com/ICL-ml4csec/VulBERTa/blob/main/Evaluation_VulBERTa-MLP.ipynb",
+      "sha256": "d88d3e855d542eb59dfcffd72dff35462f93278acee3422915d8346986372408"
+    },
+    {
+      "file": "reference_sources/codexglue_defect_readme.md",
+      "url": "https://github.com/microsoft/CodeXGLUE/blob/main/Code-Code/Defect-detection/README.md",
+      "sha256": "ec68d1b21693f01b950960fbb1e192778bf9ff5d75e23541142a52756563b6b4"
+    }
+  ],
+  "model_card_url": "https://huggingface.co/claudios/VulBERTa-MLP-Devign",
+  "method": "Read source-label conversion, upstream training/evaluation code, CodeXGLUE label definition, and two source-matched CWEval pairs.",
+  "findings": [
+    "LineVul passes integer target directly to cross entropy and explicitly treats class 1 as vulnerable.",
+    "VulBERTa Devign training uses target unchanged with class-indexed cross entropy; upstream evaluation uses probability column 1.",
+    "CodeXGLUE documents label 1 as insecure and label 0 as secure; the conversion model card identifies the Devign checkpoint.",
+    "CWEval y_negative is the unsafe variant name and correctly maps to positive label 1.",
+    "CWE-120 reference uses destination buffer_size as snprintf bound; unsafe variant uses source-name length instead.",
+    "CWE-476 reference checks malloc failure before access; unsafe variant omits the null check. The reference is only scoped to this CWE."
+  ],
+  "limitations": [
+    "Upstream documentation was retrieved at main/current, not independently linked byte-for-byte to the original training execution.",
+    "Original-author weights were not compared byte-for-byte with the unofficial converted checkpoint.",
+    "CWEval source inspection corroborates label meaning; security tests and human label adjudication were not performed."
+  ]
+}

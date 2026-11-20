@@ -1,0 +1,30 @@
+static void dns_select_test_srv(abts_case *tc, void *data)
+{
+    mme_dns_candidate_t cand;
+    mme_dns_srv_record_t srv[3];
+
+    memset(&cand, 0, sizeof(cand));
+    strcpy(cand.fqdn, "_gtp._udp.sgw1.example.org");
+    cand.needs_srv = true;
+
+    memset(srv, 0, sizeof(srv));
+    srv[0].priority = 20; srv[0].weight = 100; srv[0].port = 2100;
+    strcpy(srv[0].target, "host-b.example.org");
+    srv[1].priority = 10; srv[1].weight = 0; srv[1].port = 2123;
+    strcpy(srv[1].target, "host-a.example.org");
+    srv[2].priority = 10; srv[2].weight = 200; /* weight ignored */
+    strcpy(srv[2].target, "host-c.example.org");
+
+    mme_dns_candidate_apply_srv(&cand, srv, 3);
+    ABTS_STR_EQUAL(tc, "host-a.example.org", cand.fqdn);
+    ABTS_INT_EQUAL(tc, 2123, cand.port);
+    ABTS_TRUE(tc, !cand.needs_srv);
+
+    /* Empty SRV set leaves the candidate untouched */
+    memset(&cand, 0, sizeof(cand));
+    strcpy(cand.fqdn, "unchanged");
+    cand.needs_srv = true;
+    mme_dns_candidate_apply_srv(&cand, NULL, 0);
+    ABTS_STR_EQUAL(tc, "unchanged", cand.fqdn);
+    ABTS_TRUE(tc, cand.needs_srv);
+}

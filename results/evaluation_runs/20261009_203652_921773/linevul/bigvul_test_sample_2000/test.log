@@ -1,0 +1,64 @@
+
+RUN 2026-10-10T01:37:36.813273+00:00
+10/09/2026 20:37:42 - WARNING - __main__ -   device: cuda, n_gpu: 1
+D:\GitRepo\PIVD\Repo\localScripts\.venv\Lib\site-packages\huggingface_hub\file_download.py:143: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in D:\GitRepo\PIVD\Repo\localScripts\.cache\huggingface\hub\models--microsoft--codebert-base. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+10/09/2026 20:37:44 - WARNING - huggingface_hub.file_download -   Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at microsoft/codebert-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+10/09/2026 20:37:53 - WARNING - huggingface_hub.file_download -   Xet Storage is enabled for this repo, but the 'hf_xet' package is not installed. Falling back to regular HTTP download. For better performance, install the package with: `pip install huggingface_hub[hf_xet]` or `pip install hf_xet`
+10/09/2026 20:37:53 - INFO - __main__ -   Training/evaluation parameters Namespace(train_data_file=None, output_dir='D:\\GitRepo\\PIVD\\Repo\\localScripts\\.cache\\LineVul\\linevul\\saved_models', model_type='roberta', block_size=512, eval_data_file=None, test_data_file='D:\\GitRepo\\PIVD\\Repo\\localScripts\\.cache\\data\\bigvul_test_sample_2000.csv', model_name='12heads_linevul_model.bin', model_name_or_path='microsoft/codebert-base', config_name='', use_non_pretrained_model=False, tokenizer_name='microsoft/codebert-base', code_length=256, do_train=False, do_eval=False, do_test=True, evaluate_during_training=False, do_local_explanation=False, reasoning_method=None, train_batch_size=4, eval_batch_size=16, gradient_accumulation_steps=1, learning_rate=5e-05, weight_decay=0.0, adam_epsilon=1e-08, max_grad_norm=1.0, max_steps=-1, warmup_steps=0, seed=42, epochs=1, effort_at_top_k=0.2, top_k_recall_by_lines=0.01, top_k_recall_by_pred_prob=0.2, do_sorting_by_line_scores=False, do_sorting_by_pred_prob=False, top_k_constant=10, num_attention_heads=12, write_raw_preds=True, use_word_level_tokenizer=False, use_non_pretrained_tokenizer=False, n_gpu=1, device=device(type='cuda'))
+Ignoring obsolete generated embedding buffers: ['roberta.embeddings.position_ids', 'encoder.roberta.embeddings.position_ids']
+LineVul trained checkpoint loaded successfully.
+
+  0%|          | 0/2000 [00:00<?, ?it/s]
+  3%|▎         | 60/2000 [00:00<00:03, 599.73it/s]
+  6%|▌         | 124/2000 [00:00<00:03, 621.73it/s]
+  9%|▉         | 187/2000 [00:00<00:03, 595.61it/s]
+ 12%|█▏        | 247/2000 [00:00<00:03, 538.60it/s]
+ 16%|█▌        | 321/2000 [00:00<00:02, 604.04it/s]
+ 19%|█▉        | 389/2000 [00:00<00:02, 618.52it/s]
+ 23%|██▎       | 452/2000 [00:00<00:02, 603.28it/s]
+ 26%|██▌       | 513/2000 [00:00<00:02, 578.39it/s]
+ 29%|██▉       | 575/2000 [00:00<00:02, 588.00it/s]
+ 32%|███▏      | 635/2000 [00:01<00:02, 584.60it/s]
+ 36%|███▌      | 715/2000 [00:01<00:01, 647.06it/s]
+ 39%|███▉      | 781/2000 [00:01<00:01, 646.58it/s]
+ 43%|████▎     | 852/2000 [00:01<00:01, 653.87it/s]
+ 47%|████▋     | 949/2000 [00:01<00:01, 745.12it/s]
+ 51%|█████     | 1024/2000 [00:01<00:01, 695.32it/s]
+ 55%|█████▍    | 1095/2000 [00:01<00:01, 684.97it/s]
+ 58%|█████▊    | 1165/2000 [00:01<00:01, 689.03it/s]
+ 62%|██████▏   | 1238/2000 [00:01<00:01, 669.24it/s]
+ 65%|██████▌   | 1306/2000 [00:02<00:01, 655.58it/s]
+ 69%|██████▊   | 1374/2000 [00:02<00:00, 659.76it/s]
+ 72%|███████▏  | 1441/2000 [00:02<00:00, 596.12it/s]
+ 76%|███████▋  | 1526/2000 [00:02<00:00, 663.62it/s]
+ 80%|███████▉  | 1594/2000 [00:02<00:00, 668.14it/s]
+ 84%|████████▍ | 1680/2000 [00:02<00:00, 721.65it/s]
+ 89%|████████▉ | 1778/2000 [00:02<00:00, 796.06it/s]
+ 93%|█████████▎| 1861/2000 [00:02<00:00, 804.16it/s]
+ 97%|█████████▋| 1943/2000 [00:02<00:00, 713.11it/s]
+100%|██████████| 2000/2000 [00:03<00:00, 663.71it/s]
+10/09/2026 20:37:58 - INFO - __main__ -   ***** Running Test *****
+10/09/2026 20:37:58 - INFO - __main__ -     Num examples = 2000
+10/09/2026 20:37:58 - INFO - __main__ -     Batch size = 16
+
+LineVul inference:   0%|          | 0/125 [00:00<?, ?batch/s]
+LineVul inference:   9%|▉         | 11/125 [00:02<00:21,  5.35batch/s]
+LineVul inference:  23%|██▎       | 29/125 [00:04<00:13,  7.29batch/s]
+LineVul inference:  38%|███▊      | 47/125 [00:06<00:09,  7.92batch/s]
+LineVul inference:  52%|█████▏    | 65/125 [00:08<00:07,  8.20batch/s]
+LineVul inference:  66%|██████▋   | 83/125 [00:10<00:05,  8.35batch/s]
+LineVul inference:  81%|████████  | 101/125 [00:12<00:02,  8.43batch/s]
+LineVul inference:  95%|█████████▌| 119/125 [00:14<00:00,  8.48batch/s]
+LineVul inference: 100%|██████████| 125/125 [00:15<00:00,  8.18batch/s]
+10/09/2026 20:38:14 - INFO - __main__ -   ***** Test results *****
+10/09/2026 20:38:14 - INFO - __main__ -     test_accuracy = 0.9905
+10/09/2026 20:38:14 - INFO - __main__ -     test_f1 = 0.91
+10/09/2026 20:38:14 - INFO - __main__ -     test_precision = 0.9697
+10/09/2026 20:38:14 - INFO - __main__ -     test_recall = 0.8571
+10/09/2026 20:38:14 - INFO - __main__ -     test_threshold = 0.5

@@ -1,0 +1,425 @@
+{
+  "comparisons": [
+    {
+      "dataset": "bigvul_test",
+      "source": "bigvul_train",
+      "eval_rows": 18864,
+      "source_distinct": {
+        "project": 307,
+        "commit": 3997,
+        "cve": 3511
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 18864,
+        "project_shared_positive": 1055,
+        "commit_missing": 65,
+        "commit_shared_rows": 18779,
+        "commit_shared_positive": 1035,
+        "cve_missing": 1239,
+        "cve_shared_rows": 17611,
+        "cve_shared_positive": 973
+      }
+    },
+    {
+      "dataset": "devign_test",
+      "source": "bigvul_train",
+      "eval_rows": 2732,
+      "source_distinct": {
+        "project": 307,
+        "commit": 3997,
+        "cve": 3511
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 2732,
+        "project_shared_positive": 1255,
+        "commit_missing": 0,
+        "commit_shared_rows": 9,
+        "commit_shared_positive": 6,
+        "cve_missing": 2732,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "source": "bigvul_train",
+      "eval_rows": 24788,
+      "source_distinct": {
+        "project": 307,
+        "commit": 3997,
+        "cve": 3511
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 12106,
+        "project_shared_positive": 231,
+        "commit_missing": 240,
+        "commit_shared_rows": 620,
+        "commit_shared_positive": 7,
+        "cve_missing": 3789,
+        "cve_shared_rows": 510,
+        "cve_shared_positive": 15
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "source": "bigvul_train",
+      "eval_rows": 18751,
+      "source_distinct": {
+        "project": 307,
+        "commit": 3997,
+        "cve": 3511
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 0,
+        "project_shared_positive": 0,
+        "commit_missing": 0,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 18751,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "source": "bigvul_train",
+      "eval_rows": 58,
+      "source_distinct": {
+        "project": 307,
+        "commit": 3997,
+        "cve": 3511
+      },
+      "counts": {
+        "project_missing": 58,
+        "project_shared_rows": 0,
+        "project_shared_positive": 0,
+        "commit_missing": 58,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 58,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "bigvul_test",
+      "source": "bigvul_valid",
+      "eval_rows": 18864,
+      "source_distinct": {
+        "project": 270,
+        "commit": 2929,
+        "cve": 2635
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 18822,
+        "project_shared_positive": 1052,
+        "commit_missing": 65,
+        "commit_shared_rows": 18103,
+        "commit_shared_positive": 898,
+        "cve_missing": 1239,
+        "cve_shared_rows": 17024,
+        "cve_shared_positive": 859
+      }
+    },
+    {
+      "dataset": "devign_test",
+      "source": "bigvul_valid",
+      "eval_rows": 2732,
+      "source_distinct": {
+        "project": 270,
+        "commit": 2929,
+        "cve": 2635
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 2732,
+        "project_shared_positive": 1255,
+        "commit_missing": 0,
+        "commit_shared_rows": 7,
+        "commit_shared_positive": 5,
+        "cve_missing": 2732,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "source": "bigvul_valid",
+      "eval_rows": 24788,
+      "source_distinct": {
+        "project": 270,
+        "commit": 2929,
+        "cve": 2635
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 12033,
+        "project_shared_positive": 230,
+        "commit_missing": 240,
+        "commit_shared_rows": 580,
+        "commit_shared_positive": 3,
+        "cve_missing": 3789,
+        "cve_shared_rows": 287,
+        "cve_shared_positive": 5
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "source": "bigvul_valid",
+      "eval_rows": 18751,
+      "source_distinct": {
+        "project": 270,
+        "commit": 2929,
+        "cve": 2635
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 0,
+        "project_shared_positive": 0,
+        "commit_missing": 0,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 18751,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "source": "bigvul_valid",
+      "eval_rows": 58,
+      "source_distinct": {
+        "project": 270,
+        "commit": 2929,
+        "cve": 2635
+      },
+      "counts": {
+        "project_missing": 58,
+        "project_shared_rows": 0,
+        "project_shared_positive": 0,
+        "commit_missing": 58,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 58,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "bigvul_test",
+      "source": "devign_train",
+      "eval_rows": 18864,
+      "source_distinct": {
+        "project": 2,
+        "commit": 10533,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 488,
+        "project_shared_positive": 29,
+        "commit_missing": 65,
+        "commit_shared_rows": 160,
+        "commit_shared_positive": 9,
+        "cve_missing": 1239,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "devign_test",
+      "source": "devign_train",
+      "eval_rows": 2732,
+      "source_distinct": {
+        "project": 2,
+        "commit": 10533,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 2732,
+        "project_shared_positive": 1255,
+        "commit_missing": 0,
+        "commit_shared_rows": 1777,
+        "commit_shared_positive": 730,
+        "cve_missing": 2732,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "source": "devign_train",
+      "eval_rows": 24788,
+      "source_distinct": {
+        "project": 2,
+        "commit": 10533,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 471,
+        "project_shared_positive": 10,
+        "commit_missing": 240,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 3789,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "source": "devign_train",
+      "eval_rows": 18751,
+      "source_distinct": {
+        "project": 2,
+        "commit": 10533,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 0,
+        "project_shared_positive": 0,
+        "commit_missing": 0,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 18751,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "source": "devign_train",
+      "eval_rows": 58,
+      "source_distinct": {
+        "project": 2,
+        "commit": 10533,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 58,
+        "project_shared_rows": 0,
+        "project_shared_positive": 0,
+        "commit_missing": 58,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 58,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "bigvul_test",
+      "source": "devign_valid",
+      "eval_rows": 18864,
+      "source_distinct": {
+        "project": 2,
+        "commit": 2025,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 488,
+        "project_shared_positive": 29,
+        "commit_missing": 65,
+        "commit_shared_rows": 32,
+        "commit_shared_positive": 2,
+        "cve_missing": 1239,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "devign_test",
+      "source": "devign_valid",
+      "eval_rows": 2732,
+      "source_distinct": {
+        "project": 2,
+        "commit": 2025,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 2732,
+        "project_shared_positive": 1255,
+        "commit_missing": 0,
+        "commit_shared_rows": 943,
+        "commit_shared_positive": 354,
+        "cve_missing": 2732,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "primevul_test",
+      "source": "devign_valid",
+      "eval_rows": 24788,
+      "source_distinct": {
+        "project": 2,
+        "commit": 2025,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 471,
+        "project_shared_positive": 10,
+        "commit_missing": 240,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 3789,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "llmvul_test",
+      "source": "devign_valid",
+      "eval_rows": 18751,
+      "source_distinct": {
+        "project": 2,
+        "commit": 2025,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 0,
+        "project_shared_rows": 0,
+        "project_shared_positive": 0,
+        "commit_missing": 0,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 18751,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    },
+    {
+      "dataset": "cweval_test",
+      "source": "devign_valid",
+      "eval_rows": 58,
+      "source_distinct": {
+        "project": 2,
+        "commit": 2025,
+        "cve": 0
+      },
+      "counts": {
+        "project_missing": 58,
+        "project_shared_rows": 0,
+        "project_shared_positive": 0,
+        "commit_missing": 58,
+        "commit_shared_rows": 0,
+        "commit_shared_positive": 0,
+        "cve_missing": 58,
+        "cve_shared_rows": 0,
+        "cve_shared_positive": 0
+      }
+    }
+  ],
+  "scope": "Exact normalized project names, full commit IDs and supplied CVEs. Shared provenance is not evidence of direct code duplication or independently verified shortcut learning. Project aliases are not resolved."
+}

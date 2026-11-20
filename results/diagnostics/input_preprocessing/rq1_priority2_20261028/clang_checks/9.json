@@ -1,0 +1,6 @@
+{
+  "sample_id": "bigvul-source:5541",
+  "dataset": "bigvul_test_sample_2000",
+  "source_language": "CPP",
+  "code": "RGBGrayEncoder::RGBGrayEncoder(Stream *strA):\n    FilterStream(strA) {\n  bufPtr = bufEnd = buf;\n  eof = gFalse;\n}\n"
+}

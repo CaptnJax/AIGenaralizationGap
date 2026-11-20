@@ -1,0 +1,3 @@
+job,rows,test_accuracy,test_f1,test_precision,test_recall,test_threshold
+linevul-cweval,58,0.5,0.0,0.0,0.0,0.5
+vulberta-cweval,58,0.5344827586206896,0.5714285714285714,0.5294117647058824,0.6206896551724138,0.5

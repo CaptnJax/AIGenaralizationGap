@@ -1,0 +1,38 @@
+[
+  {
+    "file": "codexglue_train.txt",
+    "url": "https://raw.githubusercontent.com/microsoft/CodeXGLUE/ac74a62802a0dd159b3258c78a2df8ad36cdf2b9/Code-Code/Defect-detection/dataset/train.txt",
+    "bytes": 122185,
+    "sha256": "f0a25410594302a9f0e542a393ad82ad479308a8aa471f4d6cf61b91d6d572bf"
+  },
+  {
+    "file": "codexglue_valid.txt",
+    "url": "https://raw.githubusercontent.com/microsoft/CodeXGLUE/ac74a62802a0dd159b3258c78a2df8ad36cdf2b9/Code-Code/Defect-detection/dataset/valid.txt",
+    "bytes": 15295,
+    "sha256": "9f2fa1e108955f197d4a7fa2aa2c7f5e542457b51e0eb1f6e890172d6f700a6e"
+  },
+  {
+    "file": "codexglue_test.txt",
+    "url": "https://raw.githubusercontent.com/microsoft/CodeXGLUE/ac74a62802a0dd159b3258c78a2df8ad36cdf2b9/Code-Code/Defect-detection/dataset/test.txt",
+    "bytes": 15318,
+    "sha256": "b5336b337170ea1edf0570b69edb5a90e3c99bf41cd92909795f5fe32d376d52"
+  },
+  {
+    "file": "codexglue_preprocess.py.txt",
+    "url": "https://raw.githubusercontent.com/microsoft/CodeXGLUE/ac74a62802a0dd159b3258c78a2df8ad36cdf2b9/Code-Code/Defect-detection/dataset/preprocess.py",
+    "bytes": 1088,
+    "sha256": "1e93bef860150eb2966a266dfb6a8386e200208cbce063d1bd889f035ccb0669"
+  },
+  {
+    "file": "vulberta_data_README.md",
+    "url": "https://raw.githubusercontent.com/ICL-ml4csec/VulBERTa/75ab355bf8be124751084c0ff3563df24f48fe38/data/README.md",
+    "bytes": 403,
+    "sha256": "d05ab055ffcfd516ee0790057b16e9b26964ece728c994b17132a5f082551653"
+  },
+  {
+    "file": "vulberta_checkpoint_README.md",
+    "url": "https://huggingface.co/claudios/VulBERTa-MLP-Devign/raw/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/README.md",
+    "bytes": 5457,
+    "sha256": "ee6f81c21be61ea1f7756cdf209887dbacd9612f0f32a3cf1249e1899e419f78"
+  }
+]

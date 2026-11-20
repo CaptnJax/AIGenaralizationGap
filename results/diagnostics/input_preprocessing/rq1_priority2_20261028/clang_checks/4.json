@@ -1,0 +1,6 @@
+{
+  "sample_id": "bigvul-source:12798",
+  "dataset": "bigvul_test_sample_2000",
+  "source_language": "C",
+  "code": "qboolean CL_CheckPaused(void)\n{\n\tif(cl_paused->integer || cl_paused->modified)\n\t\treturn qtrue;\n\t\n\treturn qfalse;\n}\n"
+}

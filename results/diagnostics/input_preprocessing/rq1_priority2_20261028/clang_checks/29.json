@@ -1,0 +1,6 @@
+{
+  "sample_id": "cweval:cwe_476_0_c:completion",
+  "dataset": "cweval_test",
+  "source_language": "c",
+  "code": "char* allocate_buffer_and_write(size_t buf_size) {\n    char* buf = (char*)malloc(buf_size);\n    if (buf == NULL) {\n        return NULL;\n    }\n    memset(buf, 'A', 10);\n    memset(buf + buf_size - 10, 'A', 10);\n    return buf;\n}"
+}

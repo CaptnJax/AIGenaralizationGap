@@ -1,0 +1,6 @@
+{
+  "sample_id": "llmvul:ID_92475FAC8A1C287E",
+  "dataset": "llmvul_test",
+  "source_language": "cpp",
+  "code": "id BasicAgent::SetGlobalPlan(const std::vector<LocalPlanner::PlanItem> &plan,\n                               bool stop_waypoint_creation,\n                               bool clean_queue) {\n  _local_planner->SetGlobalPlan(plan, stop_waypoint_creation, clean_queue);\n}"
+}

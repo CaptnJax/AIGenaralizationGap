@@ -1,0 +1,4 @@
+{
+  "sample_id": "fixture:cpp",
+  "code": "int f(){ auto g=[](){ return 3; }; return g(); }"
+}

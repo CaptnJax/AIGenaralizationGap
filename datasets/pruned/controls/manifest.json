@@ -1,0 +1,48 @@
+{
+  "datasets": [
+    {
+      "file": "bigvul_test.jsonl",
+      "rows": 18864,
+      "labels": {
+        "0": 17809,
+        "1": 1055
+      },
+      "sha256": "cc80448b4878debf66674d0d269351aa182475460b953be354592938de5a49a6"
+    },
+    {
+      "file": "devign_train.jsonl",
+      "rows": 21854,
+      "labels": {
+        "0": 11836,
+        "1": 10018
+      },
+      "sha256": "c7206991b90f6b0b7a88049bd8a01dc20f963004f17c67309fea1c2bc2442958"
+    },
+    {
+      "file": "devign_valid.jsonl",
+      "rows": 2732,
+      "labels": {
+        "1": 1187,
+        "0": 1545
+      },
+      "sha256": "68707a4504fffcf5eccaf183e2d570c38e13db56e1549161dba83771b1eb5845"
+    },
+    {
+      "file": "devign_test.jsonl",
+      "rows": 2732,
+      "labels": {
+        "0": 1477,
+        "1": 1255
+      },
+      "sha256": "ee2d7312ee9d73d7759981186658cf275f1c4b4caaddc367de9ec15846f605f3"
+    }
+  ],
+  "sources": [
+    {
+      "path": "localScripts/.cache/data/bigvul_test.csv",
+      "sha256": "e1ac10e2a05b57d01ee3b180dffa84284deb435448e79332d12a50bad85b9832"
+    }
+  ],
+  "split_indices_disjoint": true,
+  "devign_source_sha256": "0a3b2d561dc6280e53795886ede727d0045c016d083905ba3e9ce384a7eab246"
+}

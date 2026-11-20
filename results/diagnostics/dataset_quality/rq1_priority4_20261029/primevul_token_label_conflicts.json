@@ -1,0 +1,77 @@
+[
+  {
+    "sample_ids": [
+      "primevul:210834",
+      "primevul:440872"
+    ],
+    "labels": [
+      1,
+      0
+    ],
+    "commits": [
+      "https://gitlab.freedesktop.org/xorg/xserver/commit/da15c7413916f754708c62c2089265528cd661e2",
+      "https://gitlab.freedesktop.org/xorg/xserver/commit/da15c7413916f754708c62c2089265528cd661e2"
+    ],
+    "cves": [
+      "CVE-2018-14665",
+      "CVE-2018-14665"
+    ],
+    "token_sha256": "5ac34bea73342668d8ffd0daf91348439beca864a7dd7ee12f46dd2dc5d289c8",
+    "diff": [
+      "--- ",
+      "+++ ",
+      "@@ -2,6 +2,8 @@",
+      " {",
+      "     char *logFileName = NULL;",
+      " ",
+      "+    /* the format string below is controlled by the user,",
+      "+       this code should never be called with elevated privileges */",
+      "     if (asprintf(&logFileName, fname, idstring) == -1)",
+      "         FatalError(\"Cannot allocate space for the log file name\\n\");",
+      " "
+    ],
+    "judgment": "context_or_label_incompatibility_candidate; not independently adjudicated"
+  },
+  {
+    "sample_ids": [
+      "primevul:210944",
+      "primevul:379328"
+    ],
+    "labels": [
+      1,
+      0
+    ],
+    "commits": [
+      "https://github.com/vim/vim/commit/35d21c6830fc2d68aca838424a0e786821c5891c",
+      "https://github.com/vim/vim/commit/c6fdb15d423df22e1776844811d082322475e48a"
+    ],
+    "cves": [
+      "CVE-2022-3099",
+      "CVE-2022-2288"
+    ],
+    "token_sha256": "1a72b80b64af7f893b83e84c2be0599f4244e9a785390687be7338b3f5ed6dc7",
+    "diff": [
+      "--- ",
+      "+++ ",
+      "@@ -261,7 +261,7 @@",
+      " \t\t    , in_vim9script() ? GETLINE_CONCAT_CONTBAR",
+      " \t\t\t\t\t       : GETLINE_CONCAT_CONT)) == NULL)",
+      " \t    {",
+      "-\t\t// Don't call wait_return() for aborted command line.  The NULL",
+      "+\t\t// Don't call wait_return for aborted command line.  The NULL",
+      " \t\t// returned for the end of a sourced file or executed function",
+      " \t\t// doesn't do this.",
+      " \t\tif (KeyTyped && !(flags & DOCMD_REPEAT))",
+      "@@ -737,7 +737,7 @@",
+      " \telse if (need_wait_return)",
+      " \t{",
+      " \t    /*",
+      "-\t     * The msg_start() above clears msg_didout. The wait_return() we do",
+      "+\t     * The msg_start() above clears msg_didout. The wait_return we do",
+      " \t     * here should not overwrite the command that may be shown before",
+      " \t     * doing that.",
+      " \t     */"
+    ],
+    "judgment": "context_or_label_incompatibility_candidate; not independently adjudicated"
+  }
+]

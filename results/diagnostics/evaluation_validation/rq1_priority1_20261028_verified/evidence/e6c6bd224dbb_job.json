@@ -1,0 +1,24 @@
+{
+  "status": "complete",
+  "signature": {
+    "job": "linevul-bigvul-sample",
+    "dataset_sha256": "4150fa7d05addf2cb3c48b00c4678a5bb0db441809864a5ef62460d96a072534",
+    "device": "cuda",
+    "batch_size": 16,
+    "seed": 42,
+    "threshold": 0.5,
+    "packages": {
+      "torch": "2.7.1+cu128",
+      "transformers": "4.57.1",
+      "tokenizers": "0.22.1",
+      "libclang": "18.1.1",
+      "pandas": "3.0.6",
+      "scikit-learn": "1.9.1"
+    },
+    "runner_sha256": "4b0925f635a674afc256106f53d9fa7ad95226acbaaefbc426b7e1e181d56006",
+    "implementation_sha256": "346887a40012dce725a5a772cbba5382c7ff228cd46846d03f95db1e90dfc514",
+    "linevul_commit": "9401ec6e60b762a9308645961268203244bee048",
+    "checkpoint_sha256": "1b18ff8e75af787520a00139bd86e70d02eb448c716290ee7b2cb20bda61a67b",
+    "block_size": 512
+  }
+}

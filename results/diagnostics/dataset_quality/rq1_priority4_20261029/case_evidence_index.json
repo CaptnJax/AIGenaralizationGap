@@ -1,0 +1,608 @@
+[
+  {
+    "sample_id": "primevul:195399",
+    "original_label": 1,
+    "code_sha256": "c1e18c075c4d45b513eb377aab4e36d1bd7d6b74d73cd1b1bce706867c897545",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_195399.txt",
+    "relevant_lines": [
+      {
+        "line": 10,
+        "text": "    NodeDef* input_node = graph.GetNode(tensor_id.node());"
+      },
+      {
+        "line": 11,
+        "text": "    return IsSwitch(*input_node);"
+      }
+    ],
+    "judgment": "vulnerability_label_supported_by_patch",
+    "confidence": "high for patch-to-function link; no runtime reproduction",
+    "tags": [
+      "model_miss",
+      "visible_risk_operation"
+    ],
+    "explanation": "TensorFlow commit 045deec1cbdebb27d817008ad5df94d96a08b1bf adds input_node == nullptr guard immediately before IsSwitch(*input_node) in IsIdentityConsumingSwitch. The dataset function lacks it. Both models predict 0. The local CVE description agrees.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "5.372720988816582e-05",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.3909400701522827",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul:197305",
+    "original_label": 1,
+    "code_sha256": "2523b9599908cdd19424fbb272017868d74afa6c19c677ccc05629ad29ecc9a8",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_197305.txt",
+    "relevant_lines": [
+      {
+        "line": 8,
+        "text": "    pj_uint8_t padlen;"
+      },
+      {
+        "line": 9,
+        "text": "    pj_size_t rpsi_len;"
+      },
+      {
+        "line": 18,
+        "text": "    rpsi_len = (pj_ntohs((pj_uint16_t)hdr->length)-2) * 4;"
+      },
+      {
+        "line": 19,
+        "text": "    if (length < rpsi_len + 12)"
+      },
+      {
+        "line": 23,
+        "text": "    padlen = *p++;"
+      },
+      {
+        "line": 25,
+        "text": "    rpsi->rpsi_bit_len = rpsi_len*8 - 16 - padlen;"
+      }
+    ],
+    "judgment": "vulnerability_label_supported_by_patch_with_external_context",
+    "confidence": "moderate",
+    "tags": [
+      "model_miss",
+      "missing_context"
+    ],
+    "explanation": "PJSIP patch adds RTCP header-length, padding-length and bit-length guards to pjmedia_rtcp_fb_parse_rpsi. Relevant arithmetic is present in the evaluated function, but header layout and helper contracts are outside it. Both models predict 0. Supplied CWE-200 is not independently adjudicated.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "4.9867856432683766e-05",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.04025431349873543",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul:204138",
+    "original_label": 1,
+    "code_sha256": "2df56c3ffc81eda15740cef602cd0423322002ebe5852f6b781889336c5d1083",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_204138.txt",
+    "relevant_lines": [
+      {
+        "line": 7,
+        "text": "    fifo8_reset(&s->fifo);"
+      },
+      {
+        "line": 8,
+        "text": "    esp_fifo_push(s, s->status);"
+      },
+      {
+        "line": 9,
+        "text": "    esp_fifo_push(s, 0);"
+      },
+      {
+        "line": 14,
+        "text": "                                (uint8_t *)fifo8_pop_buf(&s->fifo, 2, &n), 2);"
+      }
+    ],
+    "judgment": "insufficient_context_for_independent_verdict",
+    "confidence": "high for patch link; limited for exploitability",
+    "tags": [
+      "missing_context"
+    ],
+    "explanation": "QEMU patch moves DMA status/message data from FIFO storage to a local two-byte buffer. This supports the change attribution, but does not independently establish null-dereference reachability from the isolated function. Both models predict 0.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "4.963907485944219e-05",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.26484063267707825",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "llmvul:ID_289E72EB6D827C0D",
+    "original_label": 1,
+    "code_sha256": "9ad2f55082b8b032c16824025f774b0adddf52c07b5dd57d5986e008f7b6a61b",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_289E72EB6D827C0D.txt",
+    "relevant_lines": [
+      {
+        "line": 1,
+        "text": "int main(void){"
+      }
+    ],
+    "judgment": "published_reviewers_agree_zero; scoped disagreement supported",
+    "confidence": "moderate",
+    "tags": [
+      "label_disagreement",
+      "test_scaffolding",
+      "missing_context"
+    ],
+    "explanation": "Both published raters assign 0; dataset still assigns 1 under tmp.oob-write-index. Exact body and full-file hash match upstream. This is a metrics test main with bounded index loops, but Q38Timers definitions and included qwen38.c contracts remain external. Both model negatives agree with published raters. Do not assert universal safety.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.006515319459140301",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.15449750423431396",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "llmvul:ID_9D80D1E3ECA38FE1",
+    "original_label": 1,
+    "code_sha256": "a0448916f21f159851aded550a8f22ab31a3823e7b6615438740ad7d21721ecd",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_9D80D1E3ECA38FE1.txt",
+    "relevant_lines": [
+      {
+        "line": 40,
+        "text": "    memcpy(key_buffer, data, data_length);"
+      }
+    ],
+    "judgment": "published_reviewers_agree_zero; scoped disagreement supported",
+    "confidence": "high for visible destination-size guard",
+    "tags": [
+      "label_disagreement",
+      "bounded_copy",
+      "missing_context"
+    ],
+    "explanation": "Both published raters assign 0. Exact body and file hash match upstream. p256_transparent_import_key rejects key_buffer_size < data_length before memcpy and validates accepted key sizes. The automated dangerous-memcpy/CWE-120 label is not justified by the copy alone; pointer contracts remain assumed. Both models predict 0.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.0011738240718841553",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.09319683164358139",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "llmvul:ID_1FD8CA7AD4F7A7A6",
+    "original_label": 1,
+    "code_sha256": "69f568108f8084511488be2cbd8eec39832dcaec9cd0c9a57c747f18404e4be3",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_1FD8CA7AD4F7A7A6.txt",
+    "relevant_lines": [
+      {
+        "line": 1,
+        "text": "atic int cmd_plan(int argc, char **argv)"
+      }
+    ],
+    "judgment": "confirmed_source_extraction_defect; vulnerability_unresolved",
+    "confidence": "high",
+    "tags": [
+      "source_extraction_damage",
+      "label_uncertain"
+    ],
+    "explanation": "At the exact recorded commit/file hash, upstream cmd_plan starts with static; dataset starts with atic and appends st from the next function. The published review repairs the initial static but retains the trailing fragment, so its code is not byte-identical. Rater values are -1/1; -1 is undocumented. Published template slices Unicode Python strings using tree-sitter byte offsets, a plausible mechanism, not a verified reconstruction of the mining run.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.0008776338072493672",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "1",
+        "prob_vulnerable": "0.680834949016571",
+        "error": "tp"
+      }
+    ]
+  },
+  {
+    "sample_id": "llmvul:ID_F486991D843C2E5D",
+    "original_label": 0,
+    "code_sha256": "9c4ef8e204fbf06edcbc17107231681f55df56b816b461293dfe2268da6ccb88",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_F486991D843C2E5D.txt",
+    "relevant_lines": [
+      {
+        "line": 1,
+        "text": "int ACLCheckAllPerm(client *c, pendingCommand *pcmd, int *idxptr) {"
+      }
+    ],
+    "judgment": "confirmed_source_extraction_defect; vulnerability_unresolved",
+    "confidence": "high",
+    "tags": [
+      "source_extraction_damage",
+      "missing_context"
+    ],
+    "explanation": "The complete upstream ACLCheckAllPerm body at the recorded file hash includes a closing brace absent from the dataset. Dataset coordinates 7-12 differ from source start line 1963. VulBERTa's highest-score FP remains a label-relative FP; no corrected-input inference was run in Priority 4.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "0",
+        "prediction": "0",
+        "prob_vulnerable": "4.991633977624588e-05",
+        "error": "tn"
+      },
+      {
+        "model": "vulberta",
+        "label": "0",
+        "prediction": "1",
+        "prob_vulnerable": "0.9858291745185852",
+        "error": "fp"
+      }
+    ]
+  },
+  {
+    "sample_id": "llmvul:ID_9D4C3136460C9399",
+    "original_label": 1,
+    "code_sha256": "0e463b3ac636e446543bfc0e27771c5c67c74029ac5638dfb8c1404c4e062215",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_9D4C3136460C9399.txt",
+    "relevant_lines": [
+      {
+        "line": 6,
+        "text": "    memcpy(destination, source, min(source_size, sizeof(*destination)));"
+      }
+    ],
+    "judgment": "automated_vulnerability_label_not_established_from_visible_copy",
+    "confidence": "moderate",
+    "tags": [
+      "label_disagreement_candidate",
+      "missing_context"
+    ],
+    "explanation": "Exact upstream function uses memcpy(destination, source, min(source_size, sizeof(*destination))). This bounds writes to the destination object under its declared contract. No independent source-read or pointer-contract proof is available. Both models predict 0. Recorded line 1 is actually source line 106; coordinates are not reliable source locations.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.00036035958328284323",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.02713071182370186",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "llmvul:ID_64E05D7C322FB0BB",
+    "original_label": 1,
+    "code_sha256": "5fa5872e62cdaea784640ca6b3c021a84b527c32b314dd9a81227c88026e3404",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\llmvul_ID_64E05D7C322FB0BB.txt",
+    "relevant_lines": [
+      {
+        "line": 7,
+        "text": "    strcpy(cand.fqdn, \"_gtp._udp.sgw1.example.org\");"
+      },
+      {
+        "line": 12,
+        "text": "    strcpy(srv[0].target, \"host-b.example.org\");"
+      },
+      {
+        "line": 14,
+        "text": "    strcpy(srv[1].target, \"host-a.example.org\");"
+      },
+      {
+        "line": 16,
+        "text": "    strcpy(srv[2].target, \"host-c.example.org\");"
+      },
+      {
+        "line": 25,
+        "text": "    strcpy(cand.fqdn, \"unchanged\");"
+      }
+    ],
+    "judgment": "insufficient_context_to_establish_strcpy_overflow",
+    "confidence": "moderate",
+    "tags": [
+      "test_scaffolding",
+      "missing_context"
+    ],
+    "explanation": "Exact upstream unit-test function copies short fixed literals into struct fields. Field capacities live in external declarations. A dangerous-strcpy flag alone does not establish overflow; no safe label is substituted. Both models predict 0.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "4.5930795749882236e-05",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.4421299695968628",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul:210834",
+    "original_label": 1,
+    "code_sha256": "6b0f351d376c283a91c309d619d344b96e57c9ef12cf3d021eefe9c4427d6229",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_210834.txt",
+    "relevant_lines": [
+      {
+        "line": 5,
+        "text": "    if (asprintf(&logFileName, fname, idstring) == -1)"
+      },
+      {
+        "line": 15,
+        "text": "            if ((asprintf(&suffix, backup, idstring) == -1) ||"
+      },
+      {
+        "line": 16,
+        "text": "                (asprintf(&oldLog, \"%s%s\", logFileName, suffix) == -1)) {"
+      }
+    ],
+    "judgment": "identical_executable_tokens_opposite_labels; external_context_or_label_conflict_unresolved",
+    "confidence": "high for token equality",
+    "tags": [
+      "label_ambiguity",
+      "missing_context"
+    ],
+    "explanation": "Both LogFilePrep rows link the same Xorg CVE and commit; their only difference is a comment warning that a user-controlled format string must not run with elevated privileges. No executable-token change supplies the privilege context. VulBERTa probabilities are identical. This is not sufficient to choose which label to overturn.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "5.8430960052646697e-05",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.10958141833543777",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul:440872",
+    "original_label": 0,
+    "code_sha256": "180d4bafeea432a1c44835557dcd5ff1daf4d1804a53093f8707ab5321d1a8f1",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_440872.txt",
+    "relevant_lines": [
+      {
+        "line": 7,
+        "text": "    if (asprintf(&logFileName, fname, idstring) == -1)"
+      },
+      {
+        "line": 17,
+        "text": "            if ((asprintf(&suffix, backup, idstring) == -1) ||"
+      },
+      {
+        "line": 18,
+        "text": "                (asprintf(&oldLog, \"%s%s\", logFileName, suffix) == -1)) {"
+      }
+    ],
+    "judgment": "identical_executable_tokens_opposite_labels; external_context_or_label_conflict_unresolved",
+    "confidence": "high for token equality",
+    "tags": [
+      "label_ambiguity",
+      "missing_context"
+    ],
+    "explanation": "Both LogFilePrep rows link the same Xorg CVE and commit; their only difference is a comment warning that a user-controlled format string must not run with elevated privileges. No executable-token change supplies the privilege context. VulBERTa probabilities are identical. This is not sufficient to choose which label to overturn.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "0",
+        "prediction": "0",
+        "prob_vulnerable": "6.202860822668299e-05",
+        "error": "tn"
+      },
+      {
+        "model": "vulberta",
+        "label": "0",
+        "prediction": "0",
+        "prob_vulnerable": "0.10958141833543777",
+        "error": "tn"
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul:210944",
+    "original_label": 1,
+    "code_sha256": "18a317467286b9f93d10b9988d0acdc52bed08cb73e09d6f6f7fb30f01e6baf1",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_210944.txt",
+    "relevant_lines": [
+      {
+        "line": 1,
+        "text": "do_cmdline("
+      }
+    ],
+    "judgment": "identical_executable_tokens_opposite_labels_at_different_commits",
+    "confidence": "high for token equality",
+    "tags": [
+      "label_ambiguity",
+      "missing_context"
+    ],
+    "explanation": "Vim do_cmdline differs only in two comments, but has opposite labels and different commit references. Each model assigns exactly the same score to both rows. Version-level context may differ; the function alone cannot supply it.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "1",
+        "prob_vulnerable": "0.9912539124488831",
+        "error": "tp"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.23959563672542572",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "primevul:379328",
+    "original_label": 0,
+    "code_sha256": "459160522535e698834abba6d74bda57266586c4b7094c07def86c363da75e27",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\primevul_379328.txt",
+    "relevant_lines": [
+      {
+        "line": 1,
+        "text": "do_cmdline("
+      }
+    ],
+    "judgment": "identical_executable_tokens_opposite_labels_at_different_commits",
+    "confidence": "high for token equality",
+    "tags": [
+      "label_ambiguity",
+      "missing_context"
+    ],
+    "explanation": "Vim do_cmdline differs only in two comments, but has opposite labels and different commit references. Each model assigns exactly the same score to both rows. Version-level context may differ; the function alone cannot supply it.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "0",
+        "prediction": "1",
+        "prob_vulnerable": "0.9912539124488831",
+        "error": "fp"
+      },
+      {
+        "model": "vulberta",
+        "label": "0",
+        "prediction": "0",
+        "prob_vulnerable": "0.23959563672542572",
+        "error": "tn"
+      }
+    ]
+  },
+  {
+    "sample_id": "cweval:cwe_078_0_cpp:y_negative",
+    "original_label": 1,
+    "code_sha256": "27d62180e01449e93628881066b7996a423e4fc4a754de6ac219553e61e9f0dc",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\cweval_cwe_078_0_cpp_y_negative.txt",
+    "relevant_lines": [
+      {
+        "line": 3,
+        "text": "    FILE *pipe = popen(command.c_str(), \"r\");"
+      }
+    ],
+    "judgment": "unsafe_command_construction_visible; executable_test_validation_pending",
+    "confidence": "high for visible command concatenation",
+    "tags": [
+      "model_miss",
+      "benchmark_test_mapping_issue"
+    ],
+    "explanation": "Unsafe function concatenates supplied directory into a popen command. Both models predict 0. The pinned Python test redefines get_ls_result_unsafe, replacing its compiled-C++ wrapper with a Python shell implementation. That unsafe test therefore cannot be claimed to validate the extracted C++ body even if it passes. Reference wrapper is separate.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "5.5262593377847224e-05",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.19844244420528412",
+        "error": "fn"
+      }
+    ]
+  },
+  {
+    "sample_id": "cweval:cwe_918_1_c:y_negative",
+    "original_label": 1,
+    "code_sha256": "a1a09ebcaacf259a57b0fbf6c9a8203c46903d2a1d6980c158f11a1be5c47658",
+    "code_file": "localScripts\\results\\rq1_priority4_20261029\\case_code\\cweval_cwe_918_1_c_y_negative.txt",
+    "relevant_lines": [
+      {
+        "line": 1,
+        "text": "char* get_url_for_query(const char* api_url, const char* user_id) {"
+      },
+      {
+        "line": 2,
+        "text": "    if (!user_id || strlen(user_id) == 0) return NULL;"
+      },
+      {
+        "line": 3,
+        "text": "    size_t url_length = strlen(api_url) + strlen(user_id) + 2;"
+      },
+      {
+        "line": 6,
+        "text": "    snprintf(full_url, url_length, \"%s/%s\", api_url, user_id);"
+      }
+    ],
+    "judgment": "task_scoped_URL_validation_failure; exploit_requires_caller_context",
+    "confidence": "high for test intent",
+    "tags": [
+      "missing_context",
+      "task_scoped_label"
+    ],
+    "explanation": "Pinned security cases reject user_id values containing parent path traversal. Tests compare returned URL strings; they do not perform a network request. The isolated function supports a URL-construction assessment, not independently demonstrated SSRF exploitation.",
+    "historical_predictions": [
+      {
+        "model": "linevul",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "5.893629713682458e-05",
+        "error": "fn"
+      },
+      {
+        "model": "vulberta",
+        "label": "1",
+        "prediction": "0",
+        "prob_vulnerable": "0.03684656322002411",
+        "error": "fn"
+      }
+    ]
+  }
+]

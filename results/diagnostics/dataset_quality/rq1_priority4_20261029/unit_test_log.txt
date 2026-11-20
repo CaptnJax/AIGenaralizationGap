@@ -1,0 +1,13 @@
+test_all_analyzer_combinations (test_rq1_priority4.Priority4Tests.test_all_analyzer_combinations) ... ok
+test_duplicate_expansion_invariance (test_rq1_priority4.Priority4Tests.test_duplicate_expansion_invariance) ... ok
+test_literals_and_token_boundaries (test_rq1_priority4.Priority4Tests.test_literals_and_token_boundaries) ... ok
+test_missing_metadata_strings (test_rq1_priority4.Priority4Tests.test_missing_metadata_strings) ... ok
+test_one_vote_weighting_does_not_choose_a_label (test_rq1_priority4.Priority4Tests.test_one_vote_weighting_does_not_choose_a_label) ... ok
+test_review_sample_short_stratum_and_repeatability (test_rq1_priority4.Priority4Tests.test_review_sample_short_stratum_and_repeatability) ... ok
+test_strict_boundary_and_one_class (test_rq1_priority4.Priority4Tests.test_strict_boundary_and_one_class) ... ok
+test_structural_candidates_preserve_risk_changes (test_rq1_priority4.Priority4Tests.test_structural_candidates_preserve_risk_changes) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.038s
+
+OK

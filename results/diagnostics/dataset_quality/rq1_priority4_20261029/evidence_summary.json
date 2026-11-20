@@ -1,0 +1,1214 @@
+{
+  "status": "source_evidence_reconciled_no_security_execution",
+  "retrieved_cweval_files": 57,
+  "cweval": {
+    "candidate_pairs": 52,
+    "eligible_pairs": 29,
+    "eligible_security_marker_pairs": 29,
+    "duplicate_definitions": [
+      {
+        "pair_id": "CWEval_core_c_cwe_078_0_c",
+        "eligible": false,
+        "sample_ids": [
+          "cweval:cwe_078_0_c:completion",
+          "cweval:cwe_078_0_c:y_negative"
+        ],
+        "target_function": "get_ls_result",
+        "source_test": "benchmark/core/c/cwe_078_0_c_test.py",
+        "security_marker_present": true,
+        "compiled_reference_mentioned": true,
+        "compiled_unsafe_mentioned": true,
+        "duplicate_top_level_function_names": [
+          "get_ls_result_unsafe"
+        ],
+        "source_task_tokens_match": true,
+        "execution": "not_run"
+      },
+      {
+        "pair_id": "CWEval_core_c_cwe_113_0_c",
+        "eligible": false,
+        "sample_ids": [
+          "cweval:cwe_113_0_c:completion",
+          "cweval:cwe_113_0_c:y_negative"
+        ],
+        "target_function": "store_info_in_header",
+        "source_test": "benchmark/core/c/cwe_113_0_c_test.py",
+        "security_marker_present": true,
+        "compiled_reference_mentioned": true,
+        "compiled_unsafe_mentioned": true,
+        "duplicate_top_level_function_names": [
+          "store_info_in_header_unsafe"
+        ],
+        "source_task_tokens_match": true,
+        "execution": "not_run"
+      },
+      {
+        "pair_id": "CWEval_core_c_cwe_117_0_c",
+        "eligible": false,
+        "sample_ids": [
+          "cweval:cwe_117_0_c:completion",
+          "cweval:cwe_117_0_c:y_negative"
+        ],
+        "target_function": "generate_receive_log",
+        "source_test": "benchmark/core/c/cwe_117_0_c_test.py",
+        "security_marker_present": true,
+        "compiled_reference_mentioned": true,
+        "compiled_unsafe_mentioned": true,
+        "duplicate_top_level_function_names": [
+          "generate_receive_log_unsafe"
+        ],
+        "source_task_tokens_match": true,
+        "execution": "not_run"
+      },
+      {
+        "pair_id": "CWEval_core_cpp_cwe_078_0_cpp",
+        "eligible": true,
+        "sample_ids": [
+          "cweval:cwe_078_0_cpp:completion",
+          "cweval:cwe_078_0_cpp:y_negative"
+        ],
+        "target_function": "get_ls_result",
+        "source_test": "benchmark/core/cpp/cwe_078_0_cpp_test.py",
+        "security_marker_present": true,
+        "compiled_reference_mentioned": true,
+        "compiled_unsafe_mentioned": true,
+        "duplicate_top_level_function_names": [
+          "get_ls_result_unsafe"
+        ],
+        "source_task_tokens_match": true,
+        "execution": "not_run"
+      },
+      {
+        "pair_id": "CWEval_core_cpp_cwe_113_0_cpp",
+        "eligible": false,
+        "sample_ids": [
+          "cweval:cwe_113_0_cpp:completion",
+          "cweval:cwe_113_0_cpp:y_negative"
+        ],
+        "target_function": "store_info_in_header",
+        "source_test": "benchmark/core/cpp/cwe_113_0_cpp_test.py",
+        "security_marker_present": true,
+        "compiled_reference_mentioned": true,
+        "compiled_unsafe_mentioned": true,
+        "duplicate_top_level_function_names": [
+          "store_info_in_header_unsafe"
+        ],
+        "source_task_tokens_match": true,
+        "execution": "not_run"
+      },
+      {
+        "pair_id": "CWEval_core_cpp_cwe_117_0_cpp",
+        "eligible": true,
+        "sample_ids": [
+          "cweval:cwe_117_0_cpp:completion",
+          "cweval:cwe_117_0_cpp:y_negative"
+        ],
+        "target_function": "generate_receive_log",
+        "source_test": "benchmark/core/cpp/cwe_117_0_cpp_test.py",
+        "security_marker_present": true,
+        "compiled_reference_mentioned": true,
+        "compiled_unsafe_mentioned": true,
+        "duplicate_top_level_function_names": [
+          "generate_receive_log_unsafe"
+        ],
+        "source_task_tokens_match": true,
+        "execution": "not_run"
+      }
+    ],
+    "execution": "not_run",
+    "limitation": "Presence of tests and markers is not a passed test. Duplicate top-level Python definitions can shadow compiled-unsafe wrappers; inspect before execution."
+  },
+  "llmvul_construction": {
+    "included": {
+      "rows": 18751,
+      "vendor_path_hint": 393,
+      "test_path_hint": 5071,
+      "generated_text_hint": 5,
+      "nonascii": 288,
+      "line_count_mismatch": 0,
+      "declared_span_mismatch": 1130
+    },
+    "excluded_uncertain": {
+      "rows": 2679,
+      "vendor_path_hint": 108,
+      "test_path_hint": 586,
+      "generated_text_hint": 1,
+      "nonascii": 100,
+      "line_count_mismatch": 0,
+      "declared_span_mismatch": 225
+    }
+  },
+  "construction_metrics": [
+    {
+      "model": "linevul",
+      "flag": "test_path_hint",
+      "value": false,
+      "roc_auc": 0.6167476967553099,
+      "average_precision": 0.11637789593114428,
+      "ap_lift": 1.3665661942815912,
+      "precision": 0.11505588428665352,
+      "recall": 0.15021459227467812,
+      "f1": 0.1303052866716307,
+      "fpr": 0.10755093887335197,
+      "balanced_accuracy": 0.521331826700663,
+      "mcc": 0.03788112740846764,
+      "predicted_positive_rate": 0.11118421052631579,
+      "prevalence": 0.0851608187134503,
+      "brier": 0.1688800284139824,
+      "log_loss": 1.2930940060033123,
+      "ece_10": 0.1691357452901575,
+      "precision_defined": true,
+      "tp": 175.0,
+      "fp": 1346.0,
+      "fn": 990.0,
+      "tn": 11169.0,
+      "recall_fpr_01": 0.012875536480686695,
+      "recall_fpr_05": 0.061802575107296136,
+      "recall_fpr_10": 0.14334763948497853,
+      "rows": 13680,
+      "original_positives": 1165,
+      "effective_weight": 13680.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "linevul",
+      "flag": "test_path_hint",
+      "value": true,
+      "roc_auc": 0.5414670641680863,
+      "average_precision": 0.0753006710902128,
+      "ap_lift": 1.018265874929251,
+      "precision": 0.034653465346534656,
+      "recall": 0.07466666666666667,
+      "f1": 0.047337278106508875,
+      "fpr": 0.16609880749574105,
+      "balanced_accuracy": 0.4542839295854628,
+      "mcc": -0.06537552957660035,
+      "predicted_positive_rate": 0.15933740879510944,
+      "prevalence": 0.07394991126010649,
+      "brier": 0.21985903903946744,
+      "log_loss": 1.6196787092938663,
+      "ece_10": 0.22042767515591213,
+      "precision_defined": true,
+      "tp": 28.0,
+      "fp": 780.0,
+      "fn": 347.0,
+      "tn": 3916.0,
+      "recall_fpr_01": 0.0,
+      "recall_fpr_05": 0.024,
+      "recall_fpr_10": 0.042666666666666665,
+      "rows": 5071,
+      "original_positives": 375,
+      "effective_weight": 5071.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "linevul",
+      "flag": "vendor_path_hint",
+      "value": false,
+      "roc_auc": 0.5978389446519474,
+      "average_precision": 0.10276727945774024,
+      "ap_lift": 1.2535559576645816,
+      "precision": 0.08765808983863933,
+      "recall": 0.1335548172757475,
+      "f1": 0.10584518167456557,
+      "fpr": 0.124132201981843,
+      "balanced_accuracy": 0.5047113076469523,
+      "mcc": 0.007818724815826633,
+      "predicted_positive_rate": 0.1249046737117333,
+      "prevalence": 0.08198060790935832,
+      "brier": 0.18294217856184747,
+      "log_loss": 1.3821581243354886,
+      "ece_10": 0.18327548424936888,
+      "precision_defined": true,
+      "tp": 201.0,
+      "fp": 2092.0,
+      "fn": 1304.0,
+      "tn": 14761.0,
+      "recall_fpr_01": 0.009966777408637873,
+      "recall_fpr_05": 0.0504983388704319,
+      "recall_fpr_10": 0.11162790697674418,
+      "rows": 18358,
+      "original_positives": 1505,
+      "effective_weight": 18358.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "linevul",
+      "flag": "vendor_path_hint",
+      "value": true,
+      "roc_auc": 0.5898643256185157,
+      "average_precision": 0.11176345748854576,
+      "ap_lift": 1.2549439655142423,
+      "precision": 0.05555555555555555,
+      "recall": 0.05714285714285714,
+      "f1": 0.056338028169014086,
+      "fpr": 0.09497206703910614,
+      "balanced_accuracy": 0.48108539505187553,
+      "mcc": -0.03735230848941167,
+      "predicted_positive_rate": 0.0916030534351145,
+      "prevalence": 0.089058524173028,
+      "brier": 0.1698001568295734,
+      "log_loss": 1.3467121893221656,
+      "ece_10": 0.1704692021248636,
+      "precision_defined": true,
+      "tp": 2.0,
+      "fp": 34.0,
+      "fn": 33.0,
+      "tn": 324.0,
+      "recall_fpr_01": 0.0,
+      "recall_fpr_05": 0.02857142857142857,
+      "recall_fpr_10": 0.08571428571428572,
+      "rows": 393,
+      "original_positives": 35,
+      "effective_weight": 393.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "linevul",
+      "flag": "generated_text_hint",
+      "value": false,
+      "roc_auc": 0.5975696314775418,
+      "average_precision": 0.10271989788730942,
+      "ap_lift": 1.2520072859528624,
+      "precision": 0.08723678556080791,
+      "recall": 0.13198959687906373,
+      "f1": 0.10504527813712808,
+      "fpr": 0.12343096234309624,
+      "balanced_accuracy": 0.5042793172679837,
+      "mcc": 0.007123219139306519,
+      "predicted_positive_rate": 0.12413314840499307,
+      "prevalence": 0.0820441694228102,
+      "brier": 0.18250223189575684,
+      "log_loss": 1.3799682496679402,
+      "ece_10": 0.18284259133850173,
+      "precision_defined": true,
+      "tp": 203.0,
+      "fp": 2124.0,
+      "fn": 1335.0,
+      "tn": 15084.0,
+      "recall_fpr_01": 0.00975292587776333,
+      "recall_fpr_05": 0.05071521456436931,
+      "recall_fpr_10": 0.11053315994798439,
+      "rows": 18746,
+      "original_positives": 1538,
+      "effective_weight": 18746.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "linevul",
+      "flag": "generated_text_hint",
+      "value": true,
+      "roc_auc": 0.33333333333333337,
+      "average_precision": 0.41666666666666663,
+      "ap_lift": 1.0416666666666665,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.6666666666666666,
+      "balanced_accuracy": 0.16666666666666666,
+      "mcc": -0.6666666666666666,
+      "predicted_positive_rate": 0.4,
+      "prevalence": 0.4,
+      "brier": 0.7994273109120504,
+      "log_loss": 6.806385735860497,
+      "ece_10": 0.7997038106863329,
+      "precision_defined": true,
+      "tp": 0.0,
+      "fp": 2.0,
+      "fn": 2.0,
+      "tn": 1.0,
+      "recall_fpr_01": 0.0,
+      "recall_fpr_05": 0.0,
+      "recall_fpr_10": 0.0,
+      "rows": 5,
+      "original_positives": 2,
+      "effective_weight": 5.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "linevul",
+      "flag": "nonascii",
+      "value": false,
+      "roc_auc": 0.5954646565544486,
+      "average_precision": 0.09985197469448293,
+      "ap_lift": 1.2507238865564712,
+      "precision": 0.08599729851418281,
+      "recall": 0.12957937584803256,
+      "f1": 0.103382949932341,
+      "fpr": 0.11948908117016893,
+      "balanced_accuracy": 0.5050451473389318,
+      "mcc": 0.008407027483578751,
+      "predicted_positive_rate": 0.12029464334073553,
+      "prevalence": 0.0798353463684125,
+      "brier": 0.17747952133127193,
+      "log_loss": 1.343307376089007,
+      "ece_10": 0.17784452868212694,
+      "precision_defined": true,
+      "tp": 191.0,
+      "fp": 2030.0,
+      "fn": 1283.0,
+      "tn": 14959.0,
+      "recall_fpr_01": 0.0101763907734057,
+      "recall_fpr_05": 0.05088195386702849,
+      "recall_fpr_10": 0.11194029850746269,
+      "rows": 18463,
+      "original_positives": 1474,
+      "effective_weight": 18463.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "linevul",
+      "flag": "nonascii",
+      "value": true,
+      "roc_auc": 0.4037674037674037,
+      "average_precision": 0.18474442792413234,
+      "ap_lift": 0.8061575036689411,
+      "precision": 0.1111111111111111,
+      "recall": 0.18181818181818182,
+      "f1": 0.13793103448275862,
+      "fpr": 0.43243243243243246,
+      "balanced_accuracy": 0.3746928746928747,
+      "mcc": -0.21757354466535525,
+      "predicted_positive_rate": 0.375,
+      "prevalence": 0.22916666666666666,
+      "brier": 0.5152068518511957,
+      "log_loss": 3.824418931330461,
+      "ece_10": 0.518275264098659,
+      "precision_defined": true,
+      "tp": 12.0,
+      "fp": 96.0,
+      "fn": 54.0,
+      "tn": 126.0,
+      "recall_fpr_01": 0.0,
+      "recall_fpr_05": 0.015151515151515152,
+      "recall_fpr_10": 0.030303030303030304,
+      "rows": 288,
+      "original_positives": 66,
+      "effective_weight": 288.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "vulberta",
+      "flag": "test_path_hint",
+      "value": false,
+      "roc_auc": 0.5612022654359833,
+      "average_precision": 0.09072726242685919,
+      "ap_lift": 1.065363905578913,
+      "precision": 0.09623163721524378,
+      "recall": 0.38798283261802574,
+      "f1": 0.15421357898328217,
+      "fpr": 0.33919296843787455,
+      "balanced_accuracy": 0.5243949320900756,
+      "mcc": 0.02868051984786921,
+      "predicted_positive_rate": 0.3433479532163743,
+      "prevalence": 0.0851608187134503,
+      "brier": 0.27452040063085903,
+      "log_loss": 0.8794889941891596,
+      "ece_10": 0.2921345399710355,
+      "precision_defined": true,
+      "tp": 452.0,
+      "fp": 4245.0,
+      "fn": 713.0,
+      "tn": 8270.0,
+      "recall_fpr_01": 0.005150214592274678,
+      "recall_fpr_05": 0.02832618025751073,
+      "recall_fpr_10": 0.06695278969957082,
+      "rows": 13680,
+      "original_positives": 1165,
+      "effective_weight": 13680.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "vulberta",
+      "flag": "test_path_hint",
+      "value": true,
+      "roc_auc": 0.5298921067575242,
+      "average_precision": 0.0722055348043138,
+      "ap_lift": 0.9764113786471341,
+      "precision": 0.06719817767653759,
+      "recall": 0.31466666666666665,
+      "f1": 0.11074612857813233,
+      "fpr": 0.34880749574105624,
+      "balanced_accuracy": 0.48292958546280523,
+      "mcc": -0.01877801662064827,
+      "predicted_positive_rate": 0.34628278446065863,
+      "prevalence": 0.07394991126010649,
+      "brier": 0.2775870860584803,
+      "log_loss": 0.8698164875122194,
+      "ece_10": 0.29600959685338163,
+      "precision_defined": true,
+      "tp": 118.0,
+      "fp": 1638.0,
+      "fn": 257.0,
+      "tn": 3058.0,
+      "recall_fpr_01": 0.0,
+      "recall_fpr_05": 0.010666666666666666,
+      "recall_fpr_10": 0.04533333333333334,
+      "rows": 5071,
+      "original_positives": 375,
+      "effective_weight": 5071.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "vulberta",
+      "flag": "vendor_path_hint",
+      "value": false,
+      "roc_auc": 0.5499142181769938,
+      "average_precision": 0.0845012452807988,
+      "ap_lift": 1.030746751405252,
+      "precision": 0.08688083557524925,
+      "recall": 0.3647840531561462,
+      "f1": 0.14033742331288343,
+      "fpr": 0.3423722779327123,
+      "balanced_accuracy": 0.5112058876117169,
+      "mcc": 0.012940877720980399,
+      "predicted_positive_rate": 0.3442096088898573,
+      "prevalence": 0.08198060790935832,
+      "brier": 0.27563500562521415,
+      "log_loss": 0.8770428184107953,
+      "ece_10": 0.2931150998426081,
+      "precision_defined": true,
+      "tp": 549.0,
+      "fp": 5770.0,
+      "fn": 956.0,
+      "tn": 11083.0,
+      "recall_fpr_01": 0.004651162790697674,
+      "recall_fpr_05": 0.021926910299003323,
+      "recall_fpr_10": 0.05847176079734219,
+      "rows": 18358,
+      "original_positives": 1505,
+      "effective_weight": 18358.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "vulberta",
+      "flag": "vendor_path_hint",
+      "value": true,
+      "roc_auc": 0.690343176376696,
+      "average_precision": 0.15157715012899417,
+      "ap_lift": 1.701994857162706,
+      "precision": 0.15671641791044777,
+      "recall": 0.6,
+      "f1": 0.2485207100591716,
+      "fpr": 0.31564245810055863,
+      "balanced_accuracy": 0.6421787709497206,
+      "mcc": 0.17085905721321934,
+      "predicted_positive_rate": 0.34096692111959287,
+      "prevalence": 0.089058524173028,
+      "brier": 0.26202483655222236,
+      "log_loss": 0.8689485707297371,
+      "ece_10": 0.2879026994137591,
+      "precision_defined": true,
+      "tp": 21.0,
+      "fp": 113.0,
+      "fn": 14.0,
+      "tn": 245.0,
+      "recall_fpr_01": 0.0,
+      "recall_fpr_05": 0.11428571428571428,
+      "recall_fpr_10": 0.2,
+      "rows": 393,
+      "original_positives": 35,
+      "effective_weight": 393.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "vulberta",
+      "flag": "generated_text_hint",
+      "value": false,
+      "roc_auc": 0.5533889565986486,
+      "average_precision": 0.08542578101415023,
+      "ap_lift": 1.0412169641685696,
+      "precision": 0.08835839404743451,
+      "recall": 0.3706111833550065,
+      "f1": 0.1426962072850169,
+      "fpr": 0.34175964667596465,
+      "balanced_accuracy": 0.5144257683395209,
+      "mcc": 0.01666612091108691,
+      "predicted_positive_rate": 0.3441267470393684,
+      "prevalence": 0.0820441694228102,
+      "brier": 0.275306260752963,
+      "log_loss": 0.8768118856905102,
+      "ece_10": 0.29308323056212415,
+      "precision_defined": true,
+      "tp": 570.0,
+      "fp": 5881.0,
+      "fn": 968.0,
+      "tn": 11327.0,
+      "recall_fpr_01": 0.004551365409622887,
+      "recall_fpr_05": 0.0247074122236671,
+      "recall_fpr_10": 0.06306892067620286,
+      "rows": 18746,
+      "original_positives": 1538,
+      "effective_weight": 18746.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "vulberta",
+      "flag": "generated_text_hint",
+      "value": true,
+      "roc_auc": 0.33333333333333337,
+      "average_precision": 0.41666666666666663,
+      "ap_lift": 1.0416666666666665,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "fpr": 0.6666666666666666,
+      "balanced_accuracy": 0.16666666666666666,
+      "mcc": -0.6666666666666666,
+      "predicted_positive_rate": 0.4,
+      "prevalence": 0.4,
+      "brier": 0.438405991531971,
+      "log_loss": 1.1066479055728051,
+      "ece_10": 0.6067527547478676,
+      "precision_defined": true,
+      "tp": 0.0,
+      "fp": 2.0,
+      "fn": 2.0,
+      "tn": 1.0,
+      "recall_fpr_01": 0.0,
+      "recall_fpr_05": 0.0,
+      "recall_fpr_10": 0.0,
+      "rows": 5,
+      "original_positives": 2,
+      "effective_weight": 5.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "vulberta",
+      "flag": "nonascii",
+      "value": false,
+      "roc_auc": 0.5516186824693734,
+      "average_precision": 0.08302523017240122,
+      "ap_lift": 1.039955783360274,
+      "precision": 0.08533710513908534,
+      "recall": 0.3683853459972863,
+      "f1": 0.13857343371187955,
+      "fpr": 0.3425746070987109,
+      "balanced_accuracy": 0.5129053694492877,
+      "mcc": 0.01472005527017371,
+      "predicted_positive_rate": 0.34463521637870337,
+      "prevalence": 0.0798353463684125,
+      "brier": 0.2758505495111594,
+      "log_loss": 0.8791117644368848,
+      "ece_10": 0.29568229351883374,
+      "precision_defined": true,
+      "tp": 543.0,
+      "fp": 5820.0,
+      "fn": 931.0,
+      "tn": 11169.0,
+      "recall_fpr_01": 0.0047489823609226595,
+      "recall_fpr_05": 0.025780189959294438,
+      "recall_fpr_10": 0.06377204884667571,
+      "rows": 18463,
+      "original_positives": 1474,
+      "effective_weight": 18463.0,
+      "weighting": "rows"
+    },
+    {
+      "model": "vulberta",
+      "flag": "nonascii",
+      "value": true,
+      "roc_auc": 0.6214168714168714,
+      "average_precision": 0.2762299785069222,
+      "ap_lift": 1.205367178939297,
+      "precision": 0.3,
+      "recall": 0.4090909090909091,
+      "f1": 0.34615384615384615,
+      "fpr": 0.28378378378378377,
+      "balanced_accuracy": 0.5626535626535627,
+      "mcc": 0.11362407795995211,
+      "predicted_positive_rate": 0.3125,
+      "prevalence": 0.22916666666666666,
+      "brier": 0.24324478613947573,
+      "log_loss": 0.7333622982082161,
+      "ece_10": 0.18881440579813594,
+      "precision_defined": true,
+      "tp": 27.0,
+      "fp": 63.0,
+      "fn": 39.0,
+      "tn": 159.0,
+      "recall_fpr_01": 0.0,
+      "recall_fpr_05": 0.0,
+      "recall_fpr_10": 0.09090909090909091,
+      "rows": 288,
+      "original_positives": 66,
+      "effective_weight": 288.0,
+      "weighting": "rows"
+    }
+  ],
+  "llmvul_full_exact_conflicting_groups": 0,
+  "source_case_matches": [
+    {
+      "sample_id": "llmvul:ID_289E72EB6D827C0D",
+      "source_request": {
+        "repository_full_name": "JustVugg/colibri",
+        "ref": "ca6571c480d0fd579e2e4cc426db5c3fcd09b2b7",
+        "path": "c/tests/test_qwen38_metrics.c"
+      },
+      "function": "main",
+      "source_url": "https://github.com/JustVugg/colibri/blob/ca6571c480d0fd579e2e4cc426db5c3fcd09b2b7/c/tests/test_qwen38_metrics.c",
+      "source_sha256": "2d93eb0fceacaa6f79e09b7b527ece1959576df7f8e56816a1a36ea1b33f1668",
+      "source_file_hash_matches": true,
+      "target_candidates": 1,
+      "exact_target_function_match": true,
+      "exact_substring": true,
+      "source_start_line": 14,
+      "stored_start_line": 14,
+      "stored_end_line": 54,
+      "target_diff": [],
+      "source_parser_errors": 0
+    },
+    {
+      "sample_id": "llmvul:ID_9D80D1E3ECA38FE1",
+      "source_request": {
+        "repository_full_name": "Serial-Studio/Serial-Studio",
+        "ref": "791c6b12fc03ee3f270ab87fd79dc104967199dd",
+        "path": "lib/mbedtls/3rdparty/p256-m/p256-m_driver_entrypoints.c"
+      },
+      "function": "p256_transparent_import_key",
+      "source_url": "https://github.com/Serial-Studio/Serial-Studio/blob/791c6b12fc03ee3f270ab87fd79dc104967199dd/lib/mbedtls/3rdparty/p256-m/p256-m_driver_entrypoints.c",
+      "source_sha256": "36db3e42a3ca76ce803bb346761aaad85d829fc6077f75934f87b1ec435ff329",
+      "source_file_hash_matches": true,
+      "target_candidates": 1,
+      "exact_target_function_match": true,
+      "exact_substring": true,
+      "source_start_line": 61,
+      "stored_start_line": 61,
+      "stored_end_line": 104,
+      "target_diff": [],
+      "source_parser_errors": 0
+    },
+    {
+      "sample_id": "llmvul:ID_1FD8CA7AD4F7A7A6",
+      "source_request": {
+        "repository_full_name": "sqliteai/warp",
+        "ref": "25c61ab540e8c2e2dbb0b43a595f1243b576c7ef",
+        "path": "cli/main.c"
+      },
+      "function": "cmd_plan",
+      "source_url": "https://github.com/sqliteai/warp/blob/25c61ab540e8c2e2dbb0b43a595f1243b576c7ef/cli/main.c",
+      "source_sha256": "3d7fb2bcb962cb728e1b4ac8c86baa7452ffd45ee23b15c3664823235a09d708",
+      "source_file_hash_matches": true,
+      "target_candidates": 1,
+      "exact_target_function_match": false,
+      "exact_substring": true,
+      "source_start_line": 113,
+      "stored_start_line": 113,
+      "stored_end_line": 149,
+      "target_diff": [
+        "--- upstream_function",
+        "+++ dataset_fragment",
+        "@@ -1,4 +1,4 @@",
+        "-static int cmd_plan(int argc, char **argv)",
+        "+atic int cmd_plan(int argc, char **argv)",
+        " {",
+        "     if (argc < 3) { fprintf(stderr, \"usage: waste plan MODEL [--budget N] [--ctx N]\\n\"); return 2; }",
+        "     opts o; opts_init(&o);",
+        "@@ -35,3 +35,5 @@",
+        "     }",
+        "     return 0;",
+        " }",
+        "+",
+        "+st"
+      ],
+      "source_parser_errors": 0
+    },
+    {
+      "sample_id": "llmvul:ID_9D4C3136460C9399",
+      "source_request": {
+        "repository_full_name": "microsoft/ebpf-for-windows",
+        "ref": "ecd2da1b5e01bec0bb244326f20ed10db87916ea",
+        "path": "libs/execution_context/ebpf_native.c"
+      },
+      "function": "_ebpf_copy_program_entry",
+      "source_url": "https://github.com/microsoft/ebpf-for-windows/blob/ecd2da1b5e01bec0bb244326f20ed10db87916ea/libs/execution_context/ebpf_native.c",
+      "source_sha256": "e0bc3db29af0369e7778da292e535cf66d562bb0462429ef957494aa836292c8",
+      "source_file_hash_matches": true,
+      "target_candidates": 1,
+      "exact_target_function_match": true,
+      "exact_substring": true,
+      "source_start_line": 106,
+      "stored_start_line": 1,
+      "stored_end_line": 8,
+      "target_diff": [],
+      "source_parser_errors": 105
+    },
+    {
+      "sample_id": "llmvul:ID_64E05D7C322FB0BB",
+      "source_request": {
+        "repository_full_name": "open5gs/open5gs",
+        "ref": "c0f0d9ecf7405f397da2d84b6af7687356ca1a86",
+        "path": "tests/unit/mme-dns-select-test.c"
+      },
+      "function": "dns_select_test_srv",
+      "source_url": "https://github.com/open5gs/open5gs/blob/c0f0d9ecf7405f397da2d84b6af7687356ca1a86/tests/unit/mme-dns-select-test.c",
+      "source_sha256": "6db06333d516c45e80ce0c99ec20de8fa25eba472934f7158be2f62f6c61ed38",
+      "source_file_hash_matches": true,
+      "target_candidates": 1,
+      "exact_target_function_match": true,
+      "exact_substring": true,
+      "source_start_line": 223,
+      "stored_start_line": 223,
+      "stored_end_line": 252,
+      "target_diff": [],
+      "source_parser_errors": 1
+    },
+    {
+      "sample_id": "llmvul:ID_F486991D843C2E5D",
+      "source_request": {
+        "repository_full_name": "redis/redis",
+        "ref": "d0d857885a5e2be4c955fce7a9f3d7b700a9fbfa",
+        "path": "src/acl.c"
+      },
+      "function": "ACLCheckAllPerm",
+      "source_url": "https://github.com/redis/redis/blob/d0d857885a5e2be4c955fce7a9f3d7b700a9fbfa/src/acl.c",
+      "source_sha256": "ac147d78a1826444c6127abd5b1ce8a2d4f30da7bf612a648bd668ed1fc8f0e5",
+      "source_file_hash_matches": true,
+      "target_candidates": 1,
+      "exact_target_function_match": false,
+      "exact_substring": true,
+      "source_start_line": 1963,
+      "stored_start_line": 7,
+      "stored_end_line": 12,
+      "target_diff": [
+        "--- upstream_function",
+        "+++ dataset_fragment",
+        "@@ -4,4 +4,3 @@",
+        "     serverAssert(!pcmd || (pcmd->cmd == c->cmd));",
+        "     return ACLCheckAllUserCommandPerm(c->user, c->cmd, c->argv, c->argc,",
+        "                 getClientCachedKeyResult(pcmd), idxptr);",
+        "-}"
+      ],
+      "source_parser_errors": 2
+    }
+  ],
+  "prime_patch_evidence": [
+    {
+      "repository": "tensorflow/tensorflow",
+      "sha": "045deec1cbdebb27d817008ad5df94d96a08b1bf",
+      "url": "https://github.com/tensorflow/tensorflow/commit/045deec1cbdebb27d817008ad5df94d96a08b1bf",
+      "patch_path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\045deec1cbdebb27d817008ad5df94d96a08b1bf.patch",
+      "patch_sha256": "763391c7a9e8be4a6df797a625cfb5f9a8d89ee2c87a85d44f2b600c4da114d6",
+      "filenames": [
+        "tensorflow/core/grappler/mutable_graph_view.cc"
+      ]
+    },
+    {
+      "repository": "pjsip/pjproject",
+      "sha": "11559e49e65bdf00922ad5ae28913ec6a198d508",
+      "url": "https://github.com/pjsip/pjproject/commit/11559e49e65bdf00922ad5ae28913ec6a198d508",
+      "patch_path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\11559e49e65bdf00922ad5ae28913ec6a198d508.patch",
+      "patch_sha256": "d8cdb59dbc02cc7c29ad7a0bc7f502022e20a1eedc9ba2ef43e279948cd960ea",
+      "filenames": [
+        "pjmedia/include/pjmedia/rtcp.h",
+        "pjmedia/src/pjmedia/rtcp.c",
+        "pjmedia/src/pjmedia/rtcp_fb.c"
+      ]
+    },
+    {
+      "repository": "bonzini/qemu",
+      "sha": "e392255766071c8cac480da3a9ae4f94e56d7cbc",
+      "url": "https://github.com/bonzini/qemu/commit/e392255766071c8cac480da3a9ae4f94e56d7cbc",
+      "patch_path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\e392255766071c8cac480da3a9ae4f94e56d7cbc.patch",
+      "patch_sha256": "9cb85fcb42e8a3b2bfa3b9a37b161ab21fa3930d758b7041f53b70ae6483f351",
+      "filenames": [
+        "hw/scsi/esp.c"
+      ]
+    }
+  ],
+  "prime_token_conflicts": [
+    {
+      "sample_ids": [
+        "primevul:210834",
+        "primevul:440872"
+      ],
+      "labels": [
+        1,
+        0
+      ],
+      "commits": [
+        "https://gitlab.freedesktop.org/xorg/xserver/commit/da15c7413916f754708c62c2089265528cd661e2",
+        "https://gitlab.freedesktop.org/xorg/xserver/commit/da15c7413916f754708c62c2089265528cd661e2"
+      ],
+      "cves": [
+        "CVE-2018-14665",
+        "CVE-2018-14665"
+      ],
+      "token_sha256": "5ac34bea73342668d8ffd0daf91348439beca864a7dd7ee12f46dd2dc5d289c8",
+      "diff": [
+        "--- ",
+        "+++ ",
+        "@@ -2,6 +2,8 @@",
+        " {",
+        "     char *logFileName = NULL;",
+        " ",
+        "+    /* the format string below is controlled by the user,",
+        "+       this code should never be called with elevated privileges */",
+        "     if (asprintf(&logFileName, fname, idstring) == -1)",
+        "         FatalError(\"Cannot allocate space for the log file name\\n\");",
+        " "
+      ],
+      "judgment": "context_or_label_incompatibility_candidate; not independently adjudicated"
+    },
+    {
+      "sample_ids": [
+        "primevul:210944",
+        "primevul:379328"
+      ],
+      "labels": [
+        1,
+        0
+      ],
+      "commits": [
+        "https://github.com/vim/vim/commit/35d21c6830fc2d68aca838424a0e786821c5891c",
+        "https://github.com/vim/vim/commit/c6fdb15d423df22e1776844811d082322475e48a"
+      ],
+      "cves": [
+        "CVE-2022-3099",
+        "CVE-2022-2288"
+      ],
+      "token_sha256": "1a72b80b64af7f893b83e84c2be0599f4244e9a785390687be7338b3f5ed6dc7",
+      "diff": [
+        "--- ",
+        "+++ ",
+        "@@ -261,7 +261,7 @@",
+        " \t\t    , in_vim9script() ? GETLINE_CONCAT_CONTBAR",
+        " \t\t\t\t\t       : GETLINE_CONCAT_CONT)) == NULL)",
+        " \t    {",
+        "-\t\t// Don't call wait_return() for aborted command line.  The NULL",
+        "+\t\t// Don't call wait_return for aborted command line.  The NULL",
+        " \t\t// returned for the end of a sourced file or executed function",
+        " \t\t// doesn't do this.",
+        " \t\tif (KeyTyped && !(flags & DOCMD_REPEAT))",
+        "@@ -737,7 +737,7 @@",
+        " \telse if (need_wait_return)",
+        " \t{",
+        " \t    /*",
+        "-\t     * The msg_start() above clears msg_didout. The wait_return() we do",
+        "+\t     * The msg_start() above clears msg_didout. The wait_return we do",
+        " \t     * here should not overwrite the command that may be shown before",
+        " \t     * doing that.",
+        " \t     */"
+      ],
+      "judgment": "context_or_label_incompatibility_candidate; not independently adjudicated"
+    }
+  ],
+  "downloaded_file_identities": [
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\Dockerfile",
+      "git_blob_sha1": "ba798d049bda7124d644d666b4bcd97ba7574237",
+      "sha256": "491d08bed2214efaf073783c807b72d85a15344682f98a9465e893a03c8dd4d4"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\README.md",
+      "git_blob_sha1": "3565c5d8c04a55049a26b1b19d1393f643b431dd",
+      "sha256": "d8544a01588646151efa8531d8be580034b28f3afa9af4f74c0c7b10e9a83578"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_020_0_c_test.py",
+      "git_blob_sha1": "649d251ffac5328f06f111de8a1ee188df1e499f",
+      "sha256": "8779409922165789fa37a1fa5b34628c2f35389799ca9fe199b8585fe21816ac"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_022_0_c_test.py",
+      "git_blob_sha1": "c5986b39dc302f8d056b015e49b02f4017b1e3bc",
+      "sha256": "9fe435d55e11badf5552eb7a3448d7f739f5df1a0ca85aa6664d2ef22fe0c12e"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_022_2_c_test.py",
+      "git_blob_sha1": "67387b31f4a3f365869fd928e85e674a81360b77",
+      "sha256": "46fb92a386417cecd917d1f04068e67f6e1491aef80e46e8dd90fa00200ea928"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_078_0_c_test.py",
+      "git_blob_sha1": "852d887f77ab3580831ad66b77c25bdc2e75c21d",
+      "sha256": "e80c1135af217537d34870585f8dca0edc677a48495bb15f563fe0228993a680"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_079_0_c_test.py",
+      "git_blob_sha1": "98ec4fe471e73b39bf3fa46eb9759dea64a2dfba",
+      "sha256": "ab75b15c49b57818f95d37da7ed1f9f5228dbb5b0d13e2a25a028bb006bc4ac9"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_113_0_c_test.py",
+      "git_blob_sha1": "974f6989b036e60d644944b09491333e1b062116",
+      "sha256": "89291ec28fb14cee7abcc1a41f5f21edb170ab4c056acc6939af33fb3775d3d8"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_117_0_c_test.py",
+      "git_blob_sha1": "a3d980b5961eb9a27a6b120c953ef1c298b6e1fa",
+      "sha256": "b111d8c4dad235191740723ef243a181188806bbdde7947343f2616a33e4d6b0"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_326_0_c_test.py",
+      "git_blob_sha1": "d0391d047eee8d409a7556bed56607aa7fc28781",
+      "sha256": "a19a29e8c69b50fa773da203a90005aab986967ad3e8e2da9e12911d58b976cd"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_326_1_c_test.py",
+      "git_blob_sha1": "cd34654d11ec68c4613a57f63654043bc9bacc48",
+      "sha256": "975932f367af6535c77d88ad449bfcb0819ad69b07a7396b4553b68906804967"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_327_0_c_test.py",
+      "git_blob_sha1": "e20d2a46f9e38c6907bc63a601acd7d5166a62e7",
+      "sha256": "2da7689ddae87703b1a2723f7ea46407f4c8e694394b81e0a3a9d29b8a3f12cd"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_327_2_c_test.py",
+      "git_blob_sha1": "e3625d692a82165e6bba7aa81cd6a30bcbb48577",
+      "sha256": "597d900d3c362befcf5b39fbb9e69f08649c6f6330effc7fa65c853c0bb41a83"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_329_0_c_test.py",
+      "git_blob_sha1": "d09d2e9ee58879db392dddc5d933c063f989361d",
+      "sha256": "dbab456bdf4c0f4564d732799ab021c5a52efce4435debfd47ed146e81416036"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_347_0_c_test.py",
+      "git_blob_sha1": "555bda56f0d1d952efaaa002d5e58903a935cf9c",
+      "sha256": "66d75c34dc8320a38bfe069c51862848f0af3a0472691178593f838c32a53ebe"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_377_0_c_test.py",
+      "git_blob_sha1": "c07e67f119e184dc292e51bd349231b74e25af0c",
+      "sha256": "c47433a790b99c5834104ec27f7091f0a7cb3c721f20f2d62737f15aae94ed05"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_643_0_c_test.py",
+      "git_blob_sha1": "c5c972d7146b194b0fd520071cb7e2b0ab9c85eb",
+      "sha256": "eeb3d5573931d6665547d01f7165d3c7f681fb76a1be91292f77e16a897b075b"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_732_2_c_test.py",
+      "git_blob_sha1": "ca690c20832b69731bf6844ae5800be52e1667de",
+      "sha256": "4c9c5ba7949fdee877d251719bd87e742d1e19e4714c38b0506e9a901545fc68"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_760_0_c_test.py",
+      "git_blob_sha1": "ff53cb8e0d2229a46a2119db4c9043fbe83769e5",
+      "sha256": "71d35f26e669dd8ede089a6bf942aa44ca950d8fce0414a6aac6bc83cc115757"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_918_0_c_test.py",
+      "git_blob_sha1": "870ebb378c6153988f10dd471e339da181c71cd4",
+      "sha256": "8152cbdd8b26ac75473960488f71c33b39ee7c60ad56d31a6f8de26476cbf8b7"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_918_1_c_test.py",
+      "git_blob_sha1": "227708a33bbcb86d396b951f07bf2aa105a3cad8",
+      "sha256": "f13d133d4990ab3c770d25843ce495005ed66f1e26243f4fba2199122d3a0da9"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\c\\cwe_943_0_c_test.py",
+      "git_blob_sha1": "081a1850353c76b11cd609a40746192c669d184c",
+      "sha256": "83d765e883aca6e30ed33528a76b24f6b7430136c2413bd695a3d02b99b39425"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_020_0_cpp_test.py",
+      "git_blob_sha1": "649d251ffac5328f06f111de8a1ee188df1e499f",
+      "sha256": "8779409922165789fa37a1fa5b34628c2f35389799ca9fe199b8585fe21816ac"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_022_0_cpp_test.py",
+      "git_blob_sha1": "c5986b39dc302f8d056b015e49b02f4017b1e3bc",
+      "sha256": "9fe435d55e11badf5552eb7a3448d7f739f5df1a0ca85aa6664d2ef22fe0c12e"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_022_2_cpp_test.py",
+      "git_blob_sha1": "67387b31f4a3f365869fd928e85e674a81360b77",
+      "sha256": "46fb92a386417cecd917d1f04068e67f6e1491aef80e46e8dd90fa00200ea928"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_078_0_cpp_test.py",
+      "git_blob_sha1": "852d887f77ab3580831ad66b77c25bdc2e75c21d",
+      "sha256": "e80c1135af217537d34870585f8dca0edc677a48495bb15f563fe0228993a680"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_079_0_cpp_test.py",
+      "git_blob_sha1": "98ec4fe471e73b39bf3fa46eb9759dea64a2dfba",
+      "sha256": "ab75b15c49b57818f95d37da7ed1f9f5228dbb5b0d13e2a25a028bb006bc4ac9"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_113_0_cpp_test.py",
+      "git_blob_sha1": "974f6989b036e60d644944b09491333e1b062116",
+      "sha256": "89291ec28fb14cee7abcc1a41f5f21edb170ab4c056acc6939af33fb3775d3d8"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_117_0_cpp_test.py",
+      "git_blob_sha1": "a3d980b5961eb9a27a6b120c953ef1c298b6e1fa",
+      "sha256": "b111d8c4dad235191740723ef243a181188806bbdde7947343f2616a33e4d6b0"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_1333_0_cpp_test.py",
+      "git_blob_sha1": "3a56aeeeb4e43e8dcac567b80154203c47c82145",
+      "sha256": "b7d5c429a5c58a288b6e412cad8421d066d714f58047fd10872770c6503fe0b7"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_326_0_cpp_test.py",
+      "git_blob_sha1": "d0391d047eee8d409a7556bed56607aa7fc28781",
+      "sha256": "a19a29e8c69b50fa773da203a90005aab986967ad3e8e2da9e12911d58b976cd"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_326_1_cpp_test.py",
+      "git_blob_sha1": "cd34654d11ec68c4613a57f63654043bc9bacc48",
+      "sha256": "975932f367af6535c77d88ad449bfcb0819ad69b07a7396b4553b68906804967"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_327_0_cpp_test.py",
+      "git_blob_sha1": "e20d2a46f9e38c6907bc63a601acd7d5166a62e7",
+      "sha256": "2da7689ddae87703b1a2723f7ea46407f4c8e694394b81e0a3a9d29b8a3f12cd"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_327_2_cpp_test.py",
+      "git_blob_sha1": "e3625d692a82165e6bba7aa81cd6a30bcbb48577",
+      "sha256": "597d900d3c362befcf5b39fbb9e69f08649c6f6330effc7fa65c853c0bb41a83"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_329_0_cpp_test.py",
+      "git_blob_sha1": "d09d2e9ee58879db392dddc5d933c063f989361d",
+      "sha256": "dbab456bdf4c0f4564d732799ab021c5a52efce4435debfd47ed146e81416036"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_347_0_cpp_test.py",
+      "git_blob_sha1": "555bda56f0d1d952efaaa002d5e58903a935cf9c",
+      "sha256": "66d75c34dc8320a38bfe069c51862848f0af3a0472691178593f838c32a53ebe"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_400_0_cpp_test.py",
+      "git_blob_sha1": "c09ae58fff8a4b3a2c8cf5863f27887c4e69fde7",
+      "sha256": "6f412b3dc6b9cf1fad6635e1d43fe5e71c082c27bff1263c00befcece901a609"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_643_0_cpp_test.py",
+      "git_blob_sha1": "c5c972d7146b194b0fd520071cb7e2b0ab9c85eb",
+      "sha256": "eeb3d5573931d6665547d01f7165d3c7f681fb76a1be91292f77e16a897b075b"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_732_2_cpp_test.py",
+      "git_blob_sha1": "ca690c20832b69731bf6844ae5800be52e1667de",
+      "sha256": "4c9c5ba7949fdee877d251719bd87e742d1e19e4714c38b0506e9a901545fc68"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_760_0_cpp_test.py",
+      "git_blob_sha1": "ff53cb8e0d2229a46a2119db4c9043fbe83769e5",
+      "sha256": "71d35f26e669dd8ede089a6bf942aa44ca950d8fce0414a6aac6bc83cc115757"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_918_0_cpp_test.py",
+      "git_blob_sha1": "870ebb378c6153988f10dd471e339da181c71cd4",
+      "sha256": "8152cbdd8b26ac75473960488f71c33b39ee7c60ad56d31a6f8de26476cbf8b7"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_918_1_cpp_test.py",
+      "git_blob_sha1": "227708a33bbcb86d396b951f07bf2aa105a3cad8",
+      "sha256": "f13d133d4990ab3c770d25843ce495005ed66f1e26243f4fba2199122d3a0da9"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\core\\cpp\\cwe_943_0_cpp_test.py",
+      "git_blob_sha1": "081a1850353c76b11cd609a40746192c669d184c",
+      "sha256": "83d765e883aca6e30ed33528a76b24f6b7430136c2413bd695a3d02b99b39425"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_119_0_c_test.py",
+      "git_blob_sha1": "b0f166a35f1d54e2b889f9cdd117608b6cfddfe5",
+      "sha256": "ea0bc458ff669cef18100d2524f22fe7201a1066d032574453eccca18da99c86"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_120_0_c_test.py",
+      "git_blob_sha1": "50a21645d467b8990fca3cd005850734ff18ce1c",
+      "sha256": "d2a5fc9ac53bd8251c0aca4f0c7016c2c2c4a7b971df0bd3a10bfe4004ad60c2"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_125_0_c_test.py",
+      "git_blob_sha1": "cf0cb22f23c1a2abf788870f7b9f0beec57ab9ac",
+      "sha256": "519b48e39e4b311feb39a17ce1dc98bd1f3b205366f975ddd843ed623eebbc92"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_131_0_c_test.py",
+      "git_blob_sha1": "a0ca9ec2961eaae943d7881b11261ce55165d0d3",
+      "sha256": "a0ea02c9816e23a3e45941c61cc52ec6e0718ce7903110151dd321fdf83d3811"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_134_0_c_test.py",
+      "git_blob_sha1": "e896888f51d977e73d35ed58365ae98f75a0d946",
+      "sha256": "5ed44fb11062f748f833efbfae02d20cb933bd4a0075019cf423b00c287baf5e"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_170_0_c_test.py",
+      "git_blob_sha1": "549a9f342ddb942aea8c4805633b4f845d5b1b4c",
+      "sha256": "99f42a2f80423a6506c487beb5d5f0da8ef1670f4722d04e75b79e42e5841260"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_190_0_c_test.py",
+      "git_blob_sha1": "ff3f1154c54b44d3bde87b83bb8f211f6b30483f",
+      "sha256": "402969efa90df4215577d9f043e0ae9fa403578c767cb1b585a53ca470f82eef"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_468_0_c_test.py",
+      "git_blob_sha1": "6bc1b445c4ba943c473010b8b9e1cd54f9e119ea",
+      "sha256": "4ca0a86f54104172205041f4dc95fdf8a5819ce82af442f2a44f2e4d8284c25d"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_476_0_c_test.py",
+      "git_blob_sha1": "6340cd8dcf10ba68a7df195e1efa737b3688ae4b",
+      "sha256": "ff1d91d787250317fa0a14eb7aa1f17857d3cf95791ed1f0bbadf734d52a513e"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_676_0_c_test.py",
+      "git_blob_sha1": "28ca1b0c9cb634959b41c0648d72d15ab10d5d12",
+      "sha256": "b418cfaf30130435861809e10a2e6f5fab69c5d17f0813bd9f72b97e0df39358"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\benchmark\\lang\\c\\cwe_787_2_c_test.py",
+      "git_blob_sha1": "1f05898b1885f65ba80d8c7cc7cc496ba3b4e6a8",
+      "sha256": "9960e03e12aafe2dd092ec8d30598e8a908d22f310044c89b28df2340f1f1540"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\commons.py",
+      "git_blob_sha1": "89a5b457ae6f5fe9fd5577e71a8688fb9637bebc",
+      "sha256": "7dde102128db9a0642b31b05f2aaa1155ef0a65bdc80d46fcd0aab966a927adf"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\run_tests.py",
+      "git_blob_sha1": "02ae0cf608154cdf65fee45acbb96604d51f2b51",
+      "sha256": "bb6f40c2fd38f7e39041a43de17c0fae5864aacadb5921096a22bfd018d5919b"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\cweval\\cweval\\sandbox.py",
+      "git_blob_sha1": "d28ad69ec11239fad77613159d7c661966a3f1df",
+      "sha256": "bdf003195095927fd29e26cbd339015c19a4345c5c8637b73407a5cdcfda8f06"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_289E72EB6D827C0D.c",
+      "git_blob_sha1": "41eec75ac8652dfde2f6fac6cb7e731ec2a2db94",
+      "sha256": "2d93eb0fceacaa6f79e09b7b527ece1959576df7f8e56816a1a36ea1b33f1668"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_9D80D1E3ECA38FE1.c",
+      "git_blob_sha1": "d272dcbb1e04898a0cc9fa64b26ebbba3208f3b8",
+      "sha256": "36db3e42a3ca76ce803bb346761aaad85d829fc6077f75934f87b1ec435ff329"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_1FD8CA7AD4F7A7A6.c",
+      "git_blob_sha1": "3d4d19fd757065ff93159373fe61facf2de728c1",
+      "sha256": "3d7fb2bcb962cb728e1b4ac8c86baa7452ffd45ee23b15c3664823235a09d708"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_9D4C3136460C9399.c",
+      "git_blob_sha1": "3df6a05ae12c24fcad840c78fed202bb84f3e960",
+      "sha256": "e0bc3db29af0369e7778da292e535cf66d562bb0462429ef957494aa836292c8"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_64E05D7C322FB0BB.c",
+      "git_blob_sha1": "dca7f4a63bf54254995173f8cfc35217629cb3fc",
+      "sha256": "6db06333d516c45e80ce0c99ec20de8fa25eba472934f7158be2f62f6c61ed38"
+    },
+    {
+      "path": "D:\\GitRepo\\PIVD\\Repo\\localScripts\\results\\rq1_priority4_20261029\\sources\\case_files\\ID_F486991D843C2E5D.c",
+      "git_blob_sha1": "d52e0a0bf36e5b30cf5cf3b38dd9ff0ec81c52d6",
+      "sha256": "ac147d78a1826444c6127abd5b1ce8a2d4f30da7bf612a648bd668ed1fc8f0e5"
+    }
+  ],
+  "source_attribution": "LLMVul upstream https://github.com/Wahed08/LLMVul-Dataset/tree/29313663fe2a575123adf552fd339c93c345e43d; CWEval upstream pinned e9a2a124c8c53679b6d8d27adfd2f6c40e7576d7"
+}

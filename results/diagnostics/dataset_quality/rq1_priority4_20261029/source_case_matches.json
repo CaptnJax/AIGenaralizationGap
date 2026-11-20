@@ -1,0 +1,145 @@
+[
+  {
+    "sample_id": "llmvul:ID_289E72EB6D827C0D",
+    "source_request": {
+      "repository_full_name": "JustVugg/colibri",
+      "ref": "ca6571c480d0fd579e2e4cc426db5c3fcd09b2b7",
+      "path": "c/tests/test_qwen38_metrics.c"
+    },
+    "function": "main",
+    "source_url": "https://github.com/JustVugg/colibri/blob/ca6571c480d0fd579e2e4cc426db5c3fcd09b2b7/c/tests/test_qwen38_metrics.c",
+    "source_sha256": "2d93eb0fceacaa6f79e09b7b527ece1959576df7f8e56816a1a36ea1b33f1668",
+    "source_file_hash_matches": true,
+    "target_candidates": 1,
+    "exact_target_function_match": true,
+    "exact_substring": true,
+    "source_start_line": 14,
+    "stored_start_line": 14,
+    "stored_end_line": 54,
+    "target_diff": [],
+    "source_parser_errors": 0
+  },
+  {
+    "sample_id": "llmvul:ID_9D80D1E3ECA38FE1",
+    "source_request": {
+      "repository_full_name": "Serial-Studio/Serial-Studio",
+      "ref": "791c6b12fc03ee3f270ab87fd79dc104967199dd",
+      "path": "lib/mbedtls/3rdparty/p256-m/p256-m_driver_entrypoints.c"
+    },
+    "function": "p256_transparent_import_key",
+    "source_url": "https://github.com/Serial-Studio/Serial-Studio/blob/791c6b12fc03ee3f270ab87fd79dc104967199dd/lib/mbedtls/3rdparty/p256-m/p256-m_driver_entrypoints.c",
+    "source_sha256": "36db3e42a3ca76ce803bb346761aaad85d829fc6077f75934f87b1ec435ff329",
+    "source_file_hash_matches": true,
+    "target_candidates": 1,
+    "exact_target_function_match": true,
+    "exact_substring": true,
+    "source_start_line": 61,
+    "stored_start_line": 61,
+    "stored_end_line": 104,
+    "target_diff": [],
+    "source_parser_errors": 0
+  },
+  {
+    "sample_id": "llmvul:ID_1FD8CA7AD4F7A7A6",
+    "source_request": {
+      "repository_full_name": "sqliteai/warp",
+      "ref": "25c61ab540e8c2e2dbb0b43a595f1243b576c7ef",
+      "path": "cli/main.c"
+    },
+    "function": "cmd_plan",
+    "source_url": "https://github.com/sqliteai/warp/blob/25c61ab540e8c2e2dbb0b43a595f1243b576c7ef/cli/main.c",
+    "source_sha256": "3d7fb2bcb962cb728e1b4ac8c86baa7452ffd45ee23b15c3664823235a09d708",
+    "source_file_hash_matches": true,
+    "target_candidates": 1,
+    "exact_target_function_match": false,
+    "exact_substring": true,
+    "source_start_line": 113,
+    "stored_start_line": 113,
+    "stored_end_line": 149,
+    "target_diff": [
+      "--- upstream_function",
+      "+++ dataset_fragment",
+      "@@ -1,4 +1,4 @@",
+      "-static int cmd_plan(int argc, char **argv)",
+      "+atic int cmd_plan(int argc, char **argv)",
+      " {",
+      "     if (argc < 3) { fprintf(stderr, \"usage: waste plan MODEL [--budget N] [--ctx N]\\n\"); return 2; }",
+      "     opts o; opts_init(&o);",
+      "@@ -35,3 +35,5 @@",
+      "     }",
+      "     return 0;",
+      " }",
+      "+",
+      "+st"
+    ],
+    "source_parser_errors": 0
+  },
+  {
+    "sample_id": "llmvul:ID_9D4C3136460C9399",
+    "source_request": {
+      "repository_full_name": "microsoft/ebpf-for-windows",
+      "ref": "ecd2da1b5e01bec0bb244326f20ed10db87916ea",
+      "path": "libs/execution_context/ebpf_native.c"
+    },
+    "function": "_ebpf_copy_program_entry",
+    "source_url": "https://github.com/microsoft/ebpf-for-windows/blob/ecd2da1b5e01bec0bb244326f20ed10db87916ea/libs/execution_context/ebpf_native.c",
+    "source_sha256": "e0bc3db29af0369e7778da292e535cf66d562bb0462429ef957494aa836292c8",
+    "source_file_hash_matches": true,
+    "target_candidates": 1,
+    "exact_target_function_match": true,
+    "exact_substring": true,
+    "source_start_line": 106,
+    "stored_start_line": 1,
+    "stored_end_line": 8,
+    "target_diff": [],
+    "source_parser_errors": 105
+  },
+  {
+    "sample_id": "llmvul:ID_64E05D7C322FB0BB",
+    "source_request": {
+      "repository_full_name": "open5gs/open5gs",
+      "ref": "c0f0d9ecf7405f397da2d84b6af7687356ca1a86",
+      "path": "tests/unit/mme-dns-select-test.c"
+    },
+    "function": "dns_select_test_srv",
+    "source_url": "https://github.com/open5gs/open5gs/blob/c0f0d9ecf7405f397da2d84b6af7687356ca1a86/tests/unit/mme-dns-select-test.c",
+    "source_sha256": "6db06333d516c45e80ce0c99ec20de8fa25eba472934f7158be2f62f6c61ed38",
+    "source_file_hash_matches": true,
+    "target_candidates": 1,
+    "exact_target_function_match": true,
+    "exact_substring": true,
+    "source_start_line": 223,
+    "stored_start_line": 223,
+    "stored_end_line": 252,
+    "target_diff": [],
+    "source_parser_errors": 1
+  },
+  {
+    "sample_id": "llmvul:ID_F486991D843C2E5D",
+    "source_request": {
+      "repository_full_name": "redis/redis",
+      "ref": "d0d857885a5e2be4c955fce7a9f3d7b700a9fbfa",
+      "path": "src/acl.c"
+    },
+    "function": "ACLCheckAllPerm",
+    "source_url": "https://github.com/redis/redis/blob/d0d857885a5e2be4c955fce7a9f3d7b700a9fbfa/src/acl.c",
+    "source_sha256": "ac147d78a1826444c6127abd5b1ce8a2d4f30da7bf612a648bd668ed1fc8f0e5",
+    "source_file_hash_matches": true,
+    "target_candidates": 1,
+    "exact_target_function_match": false,
+    "exact_substring": true,
+    "source_start_line": 1963,
+    "stored_start_line": 7,
+    "stored_end_line": 12,
+    "target_diff": [
+      "--- upstream_function",
+      "+++ dataset_fragment",
+      "@@ -4,4 +4,3 @@",
+      "     serverAssert(!pcmd || (pcmd->cmd == c->cmd));",
+      "     return ACLCheckAllUserCommandPerm(c->user, c->cmd, c->argv, c->argc,",
+      "                 getClientCachedKeyResult(pcmd), idxptr);",
+      "-}"
+    ],
+    "source_parser_errors": 2
+  }
+]

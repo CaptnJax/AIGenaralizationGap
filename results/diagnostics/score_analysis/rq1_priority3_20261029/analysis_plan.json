@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-29",
+  "threshold_rule": "score > threshold",
+  "baseline_threshold": 0.5,
+  "common_prevalence": 0.05,
+  "fpr_budgets": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "bootstrap_repetitions": 2000,
+  "seed": 20261029,
+  "intervals": "95% percentile cluster bootstrap; no label stratification; row-weighted estimand",
+  "grouping": "Connected components of exact code hash, nonempty source commit URL, valid CVE, and supplied CWEval family. Project sensitivity additionally links project names.",
+  "threshold_policy": "Fixed grid and all distinct score boundaries; test-set exploratory upper bound only; no threshold adopted.",
+  "calibration": "10 equal-width probability bins; 10 quantile bins as sensitivity; no calibrator fitted.",
+  "average_precision": "Non-interpolated sum of recall increments times precision (sklearn average_precision_score)."
+}
