@@ -12,7 +12,7 @@ import rq1_priority3_scores as p3
 import rq1_priority4_audit as p4
 import rq1_priority5_analysis as a
 from rq1_priority5_controls import RUN, P2, jsonl
-from rq1_priority5_sources import digest
+from rq1_priority5_sources import digest, source_path
 
 c=a.c
 
@@ -25,11 +25,11 @@ def run():
     for r in c.read_json(RUN/'preserved_inputs.json'):
         check('preserved:'+r['path'],digest(c.ROOT/r['path'])==r['sha256'])
     for name in ['devign','bigvul_train','bigvul_valid']:
-        source=c.read_json(RUN/'sources'/(name+'.manifest.json'));path=RUN/'sources'/source['file']
+        source=c.read_json(source_path(name+'.manifest.json'));path=source_path(source['file'])
         check('download:'+name,digest(path)==source['sha256'] and path.stat().st_size==source['bytes'])
     expected_blobs={'train':'1f36cc3fbd4aef790ae5e6476b05331a99e2ec36','valid':'8e68a7eaad156b0ca0f1f258b6509ae27b59d160','test':'d7fbbf6685a7eee855283dd9a9f443dc2b9723ac'}
     for split,sha in expected_blobs.items():
-        check('pinned_github_split:'+split,p4.blob_sha((RUN/'sources'/('codexglue_'+split+'.txt')).read_bytes())==sha)
+        check('pinned_github_split:'+split,p4.blob_sha(source_path('codexglue_'+split+'.txt').read_bytes())==sha)
     split_audit={};source_metadata={}
     for family in ['bigvul','devign']:
         ids={}
@@ -48,10 +48,10 @@ def run():
             check('profile_implementation_snapshot:'+family+split,manifest['implementation_sha256'] in {digest(p) for p in snapshots})
         split_audit[family]={a+'_'+b:len(ids[a]&ids[b]) for a,b in itertools.combinations(ids,2)}
         check('row_index_split_disjoint:'+family,not any(split_audit[family].values()))
-    devign=c.read_json(RUN/'sources/Devign.json')
+    devign=c.read_json(source_path('Devign.json'))
     for split in ['train','valid','test']:
         inputs=list(jsonl(RUN/'inputs'/('devign_'+split+'.jsonl')))
-        official=set(map(int,(RUN/'sources'/('codexglue_'+split+'.txt')).read_text().split()))
+        official=set(map(int,source_path('codexglue_'+split+'.txt').read_text().split()))
         check('official_devign_membership:'+split,{r['original_index'] for r in inputs}==official)
         check('official_devign_code_labels:'+split,all(r['code']==devign[r['original_index']]['func'] and r['label']==devign[r['original_index']]['target'] for r in inputs))
     joined=list(jsonl(RUN/'joined_evaluation.jsonl'));byid={r['sample_id']:r for r in joined}

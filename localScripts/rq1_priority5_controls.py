@@ -13,10 +13,10 @@ import sys
 from types import SimpleNamespace
 
 import rq1_priority1_audit as c
-from rq1_priority5_sources import RUN, digest
+from rq1_priority5_sources import RUN, digest, source_path
 
-P2 = c.HERE / 'results/rq1_priority2_20261028'
-P4 = c.HERE / 'results/rq1_priority4_20261029'
+P2 = c.input_path(c.HERE / 'results/rq1_priority2_20261028')
+P4 = c.input_path(c.HERE / 'results/rq1_priority4_20261029')
 PLAN = dict(date='2026-10-31', seed=20261031, bootstrap_repetitions=2000,
     threshold='class-1 probability > 0.5; frozen weights and preprocessing',
     controls=['LineVul full official BigVul test', 'VulBERTa CodeXGLUE Devign test indices'],
@@ -28,7 +28,7 @@ PLAN = dict(date='2026-10-31', seed=20261031, bootstrap_repetitions=2000,
 
 
 def jsonl(path):
-    with Path(path).open(encoding='utf-8') as f:
+    with c.input_path(path).open(encoding='utf-8') as f:
         for line in f:
             yield json.loads(line)
 
@@ -59,7 +59,7 @@ def prepare():
         return
     manifest = dict(datasets=[], sources=[])
     csv.field_size_limit(100000000)
-    big = c.CACHE/'data/bigvul_test.csv'
+    big = c.input_path(c.CACHE/'data/bigvul_test.csv')
     expected = c.read_json(c.CACHE/'data/bigvul_test_sample_2000.selection.json')['source_sha256']
     assert digest(big) == expected
     manifest['sources'].append(dict(path=big.relative_to(c.ROOT).as_posix(), sha256=expected))
@@ -74,10 +74,10 @@ def prepare():
                 label_evidence='vulnerability-commit changed-line association', context_scope='unreviewed')
             out.write(json.dumps(row, ensure_ascii=False)+'\n'); counts[row['label']] += 1
     manifest['datasets'].append(dict(file=path.name, rows=sum(counts.values()), labels=dict(counts), sha256=digest(path)))
-    data_path = RUN/'sources/Devign.json'
-    assert digest(data_path) == c.read_json(RUN/'sources/devign.manifest.json')['sha256']
+    data_path = source_path('Devign.json')
+    assert digest(data_path) == c.read_json(source_path('devign.manifest.json'))['sha256']
     source = c.read_json(data_path)
-    splitsets = {s:set(map(int, (RUN/'sources'/('codexglue_'+s+'.txt')).read_text().split())) for s in ['train','valid','test']}
+    splitsets = {s:set(map(int, source_path('codexglue_'+s+'.txt').read_text().split())) for s in ['train','valid','test']}
     assert [len(splitsets[s]) for s in ['train','valid','test']] == [21854,2732,2732]
     assert not any(splitsets[a] & splitsets[b] for a,b in [('train','valid'),('train','test'),('valid','test')])
     assert set.union(*splitsets.values()) == set(range(len(source)))

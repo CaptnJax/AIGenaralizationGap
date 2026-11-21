@@ -10,7 +10,7 @@ import re
 import rq1_priority2_audit as p2
 import rq1_priority4_audit as p4
 from rq1_priority5_controls import RUN, P2, P4, jsonl, prepare
-from rq1_priority5_sources import digest
+from rq1_priority5_sources import digest, source_path
 
 c=p2.common
 
@@ -43,7 +43,8 @@ def profile(stem):
     directory=RUN/'profiles'; directory.mkdir(exist_ok=True)
     input_path = RUN/('sources/'+stem+'.csv' if stem.startswith('bigvul_') and stem!='bigvul_test' else 'inputs/'+stem+'.jsonl')
     if stem.startswith('bigvul_') and stem!='bigvul_test':
-        assert digest(input_path)==c.read_json(RUN/'sources'/(stem+'.manifest.json'))['sha256']
+        input_path = source_path(stem+'.csv')
+        assert digest(input_path)==c.read_json(source_path(stem+'.manifest.json'))['sha256']
     source_hash=digest(input_path)
     manifest=directory/(stem+'.manifest.json'); output=directory/(stem+'.jsonl')
     if manifest.exists():

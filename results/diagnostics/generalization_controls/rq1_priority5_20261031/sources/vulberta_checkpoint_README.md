@@ -41,6 +41,10 @@ tags:
 ---
 
 # VulBERTa MLP Devign
+
+This is an RQ1-focused excerpt of the [upstream checkpoint card](https://huggingface.co/claudios/VulBERTa-MLP-Devign/blob/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/README.md).
+The benchmark metadata above is retained for checkpoint provenance.
+
 ## VulBERTa: Simplified Source Code Pre-Training for Vulnerability Detection
 
 ![VulBERTa architecture](https://raw.githubusercontent.com/ICL-ml4csec/VulBERTa/main/VB.png)
@@ -48,55 +52,19 @@ tags:
 ## Overview
 This model is the unofficial HuggingFace version of "[VulBERTa](https://github.com/ICL-ml4csec/VulBERTa/tree/main)" with an MLP classification head, trained on CodeXGlue Devign (C code), by Hazim Hanif & Sergio Maffeis (Imperial College London). I simplified the tokenization process by adding the cleaning (comment removal) step to the tokenizer and added the simplified tokenizer to this model repo as an AutoClass.
 
-> This paper presents presents VulBERTa, a deep learning approach to detect security vulnerabilities in source code. Our approach pre-trains a RoBERTa model with a custom tokenisation pipeline on real-world code from open-source C/C++ projects. The model learns a deep knowledge representation of the code syntax and semantics, which we leverage to train vulnerability detection classifiers. We evaluate our approach on binary and multi-class vulnerability detection tasks across several datasets (Vuldeepecker, Draper, REVEAL and muVuldeepecker) and benchmarks (CodeXGLUE and D2A). The evaluation results show that VulBERTa achieves state-of-the-art performance and outperforms existing approaches across different datasets, despite its conceptual simplicity, and limited cost in terms of size of training data and number of model parameters.
+## RQ1 evaluation
 
-## Usage
-**You must install libclang for tokenization.**
+RQ1 uses the frozen `claudios/VulBERTa-MLP-Devign` checkpoint at revision
+`fecabdee24a3ef6e804d7629d6eed03dc6b4f61e`. The local runner loads its custom
+tokenizer, applies the authors' explicit cleaning step and the Clang tokenizer
+fix, and uses a 1,024-token input limit, seed 42, and `p(vulnerable) > 0.5`.
 
-```bash
-pip install libclang
-```
-
-Note that due to the custom tokenizer, you must pass `trust_remote_code=True` when instantiating the model.
-Example:
-```
-from transformers import pipeline
-pipe = pipeline("text-classification", model="claudios/VulBERTa-MLP-Devign", trust_remote_code=True, return_all_scores=True)
-pipe("static void filter_mirror_setup(NetFilterState *nf, Error **errp)\n{\n    MirrorState *s = FILTER_MIRROR(nf);\n    Chardev *chr;\n    chr = qemu_chr_find(s->outdev);\n    if (chr == NULL) {\n        error_set(errp, ERROR_CLASS_DEVICE_NOT_FOUND,\n                  \"Device '%s' not found\", s->outdev);\n    qemu_chr_fe_init(&s->chr_out, chr, errp);")
->> [[{'label': 'LABEL_0', 'score': 0.014685827307403088},
-  {'label': 'LABEL_1', 'score': 0.985314130783081}]]
-```
-
-***
-
-## Data
-We provide all data required by VulBERTa.  
-This includes:
- - Tokenizer training data
- - Pre-training data
- - Fine-tuning data
-
-Please refer to the [data](https://github.com/ICL-ml4csec/VulBERTa/tree/main/data "data") directory for further instructions and details.
-
-## Models
-We provide all models pre-trained and fine-tuned by VulBERTa.  
-This includes:
- - Trained tokenisers
- - Pre-trained VulBERTa model (core representation knowledge)
- - Fine-tuned VulBERTa-MLP and VulBERTa-CNN models
-
-Please refer to the [models](https://github.com/ICL-ml4csec/VulBERTa/tree/main/models "models") directory for further instructions and details.
-
-## How to use
-
-In our project, we uses Jupyterlab notebook to run experiments.  
-Therefore, we separate each task into different notebook:
-
- - [Pretraining_VulBERTa.ipynb](https://github.com/ICL-ml4csec/VulBERTa/blob/main/Pretraining_VulBERTa.ipynb "Pretraining_VulBERTa.ipynb") - Pre-trains the core VulBERTa knowledge representation model using DrapGH dataset.
- - [Finetuning_VulBERTa-MLP.ipynb](https://github.com/ICL-ml4csec/VulBERTa/blob/main/Finetuning_VulBERTa-MLP.ipynb "Finetuning_VulBERTa-MLP.ipynb") - Fine-tunes the VulBERTa-MLP model on a specific vulnerability detection dataset.
- - [Evaluation_VulBERTa-MLP.ipynb](https://github.com/ICL-ml4csec/VulBERTa/blob/main/Evaluation_VulBERTa-MLP.ipynb "Evaluation_VulBERTa-MLP.ipynb") - Evaluates the fine-tuned VulBERTa-MLP models on testing set of a specific vulnerability detection dataset.
- - [Finetuning+evaluation_VulBERTa-CNN](https://github.com/ICL-ml4csec/VulBERTa/blob/main/Finetuning%2Bevaluation_VulBERTa-CNN.ipynb "Finetuning+evaluation_VulBERTa-CNN.ipynb") - Fine-tunes VulBERTa-CNN models and evaluates it on a testing set of a specific vulnerability detection dataset.
-
+Follow the [RQ1 runner instructions](../../../../../localScripts/README.md) for
+the installed dependencies and evaluation commands. The
+[authors' evaluation notebook](https://github.com/ICL-ml4csec/VulBERTa/blob/main/Evaluation_VulBERTa-MLP.ipynb)
+provides the preprocessing reference. Completed results, including the official
+Devign test control, are summarized in the
+[RQ1 findings](../../../../findings/rq1_answer.md).
 
 ## Citation
 

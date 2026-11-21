@@ -1,9 +1,14 @@
 # LLMVul: A Vulnerability-Labeled Dataset of LLM-Generated C/C++ Functions from Production Repositories
 
+This is an RQ1-focused excerpt of the [upstream dataset documentation](https://github.com/Wahed08/LLMVul-Dataset/tree/29313663fe2a575123adf552fd339c93c345e43d).
+Upstream dataset and labeling claims are retained for provenance; see the
+[RQ1 dataset-quality audit](../../rq1_priority4_diagnostics.md)
+for the validation limits found in this study.
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22668216.svg)](https://doi.org/10.5281/zenodo.22668216)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Functions](https://img.shields.io/badge/Functions-21%2C430-green.svg)]()
-[![Vulnerable](https://img.shields.io/badge/Vulnerable-1%2C540-red.svg)]()
+![Functions](https://img.shields.io/badge/Functions-21%2C430-green.svg)
+![Vulnerable](https://img.shields.io/badge/Vulnerable-1%2C540-red.svg)
 
 ---
 
@@ -106,8 +111,9 @@ manually labeled 100 randomly sampled
 ensemble-vulnerable functions.
 Inter-rater agreement: **Cohen's κ = 0.79** 
 (substantial agreement, Landis & Koch 1977).
-The manual validation CSV is available at 
-`manual_validation_set/LLMVul_manual_review_100_Updated.csv`
+The upstream review CSV is included as
+[llmvul_manual_review.csv](llmvul_manual_review.csv).
+It is source evidence; this study did not independently adjudicate the evaluation labels.
 
 ---
 
@@ -137,11 +143,15 @@ Co-authored-by: anthropic
 
 ## Quick Start
 
+Run this example from the public repository root after the
+[local environment setup](../../../../../localScripts/README.md). The source CSV
+has a title row before its header; `skiprows=1` is required.
+
 ```python
 import pandas as pd
 
-# Load full dataset
-df = pd.read_csv('data/LLMVul_v3-Updated.csv')
+# Load the supplied source snapshot; skip its title line.
+df = pd.read_csv('datasets/raw/LLMVul/LLMVul_v3-Updated.csv', skiprows=1)
 
 # Vulnerable functions only
 vuln = df[df['vuln_label'] == 1]
@@ -155,8 +165,9 @@ cwe120 = df[df['cwe_id'] == 'CWE-120']
 # Strong signal only (high confidence)
 strong = df[df['signal_strength'] == 'strong']
 
-# For ML training — binary labeled only
+# For frozen-model evaluation — binary labeled only
 labeled = df[df['vuln_label'].isin([0, 1])]
+assert len(df) == 21430 and len(labeled) == 18751
 
 print(f"Total:      {len(df):,}")
 print(f"Vulnerable: {(df['vuln_label']==1).sum():,}")
@@ -165,18 +176,13 @@ print(f"Safe:       {(df['vuln_label']==0).sum():,}")
 
 ---
 
-## Potential Research Questions
+## Use in RQ1
 
-| RQ | Question |
-|----|----------|
-| RQ1 | Do existing vulnerability detectors or detection model degrade on LLM-generated code vs human-written code? |
-| RQ2 | Do LLM-generated C/C++ functions exhibit a distinct CWE distribution compared to hand-written code dataset benchmarks? |
-| RQ3 | Can a predictor fine-tuned on LLMVul outperform general-purpose detectors on LLM-generated code? |
-| RQ4 | Can AI tool attribution metadata train a provenance classifier distinguishing LLM from human code? |
-| RQ5 | Which static analysis tools are most effective on LLM-generated C/C++ code? |
-| RQ6 | Has the proportion of vulnerable functions in LLM-generated code changed across AI tool generations (2022–2026)? |
-
----
+RQ1 compares the frozen LineVul and VulBERTa checkpoints on PrimeVul and the
+18,751 binary-labeled LLMVul records. The 2,679 uncertain records are excluded.
+See the [prepared dataset protocol](../../../../../datasets/pruned/README.md) and
+[RQ1 findings](../../../../findings/rq1_answer.md) for the evaluated
+cohorts and interpretation.
 
 ## Note on Reproducibility
 
@@ -199,7 +205,7 @@ Files available on Zenodo:
 
 ## Manual Validation File
 
-`manual_validation_set/LLMVul_manual_review_100-Updated.csv` 
+[llmvul_manual_review.csv](llmvul_manual_review.csv)
 contains 100 randomly sampled ensemble-vulnerable functions with:
 
 | Column | Description |
@@ -211,8 +217,8 @@ contains 100 randomly sampled ensemble-vulnerable functions with:
 | `ai_tool` | AI tool that generated the code |
 | `project_name` | Source repository |
 | `function_body` | Function source code |
-| `rater1_label` | First rater label (0/1) |
-| `rater2_label` | Second rater label (0/1) |
+| `rater1_label` | First rater value: 0, 1, or undocumented `-1` |
+| `rater2_label` | Second rater value: 0, 1, or undocumented `-1` |
 
 ---
 
@@ -220,7 +226,7 @@ contains 100 randomly sampled ensemble-vulnerable functions with:
 
 Dataset: [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
 
-Scripts: [MIT License](LICENSE)
+Scripts: [MIT License](https://github.com/Wahed08/LLMVul-Dataset/blob/29313663fe2a575123adf552fd339c93c345e43d/LICENSE)
 
 ---
 

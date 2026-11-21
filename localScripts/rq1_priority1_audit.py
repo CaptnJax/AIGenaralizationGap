@@ -22,6 +22,7 @@ import shutil
 import subprocess
 import sys
 from types import SimpleNamespace
+from rq1_paths import input_path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
@@ -46,7 +47,7 @@ csv.field_size_limit(50_000_000)
 
 @lru_cache(None)
 def sha(path):
-    with Path(path).open('rb') as handle:
+    with input_path(path).open('rb') as handle:
         return hashlib.file_digest(handle, 'sha256').hexdigest()
 
 
@@ -55,7 +56,7 @@ def code_sha(code):
 
 
 def read_json(path):
-    return json.loads(Path(path).read_text(encoding='utf-8'))
+    return json.loads(input_path(path).read_text(encoding='utf-8'))
 
 
 def write_json(path, data):
@@ -63,7 +64,7 @@ def write_json(path, data):
 
 
 def read_csv(path):
-    with Path(path).open(encoding='utf-8-sig', newline='') as handle:
+    with input_path(path).open(encoding='utf-8-sig', newline='') as handle:
         return list(csv.DictReader(handle))
 
 
@@ -111,7 +112,7 @@ class Checks:
 
 
 def freeze(path, output):
-    path = Path(path)
+    path = input_path(path)
     digest = sha(path)
     target = output / 'evidence' / (digest[:12] + '_' + path.name)
     if not target.exists():
@@ -122,9 +123,15 @@ def freeze(path, output):
 
 def historical_source(path, wanted, output):
     """Find exact historical bytes, allowing Git LF/Windows CRLF storage."""
-    path = Path(path)
+    path = input_path(path)
     if sha(path) == wanted:
         return dict(status='exact_current_match', **freeze(path, output))
+    # The public repository includes captured implementations, but not the
+    # development repository's Git history. Require the complete recorded hash.
+    for captured in (ROOT/'results/diagnostics/evaluation_validation').glob(
+            'rq1_priority*/evidence/' + wanted[:12] + '_' + path.name):
+        if sha(captured) == wanted:
+            return dict(status='recovered_from_evidence', **freeze(captured, output))
     relative = path.relative_to(ROOT).as_posix()
     commits = subprocess.check_output(
         ['git', 'log', '--format=%H', '--', relative], cwd=ROOT, text=True).splitlines()
@@ -146,11 +153,11 @@ def source_rows(checks):
     manifest = read_json(ROOT / 'prepared_datasets/manifest.json')
     for name, expected in manifest['source_sha256'].items():
         checks.check('source_hash:' + name, sha(ROOT / name) == expected)
-    with (ROOT / 'primevul_test.jsonl').open(encoding='utf-8') as handle:
+    with input_path(ROOT / 'primevul_test.jsonl').open(encoding='utf-8') as handle:
         result['primevul_test'] = [dict(sample_id='primevul:' + str(r['idx']),
                                        code=r['func'], label=r['target'])
                                   for r in map(json.loads, handle)]
-    with (ROOT / 'LLMVul_v3-Updated.csv').open(encoding='utf-8-sig', newline='') as handle:
+    with input_path(ROOT / 'LLMVul_v3-Updated.csv').open(encoding='utf-8-sig', newline='') as handle:
         checks.check('llmvul_title', next(csv.reader(handle)) == ['LLMVul_v3-Updated'])
         labeled, uncertain, mapping_errors = [], 0, 0
         for r in csv.DictReader(handle):
@@ -164,7 +171,7 @@ def source_rows(checks):
         checks.check('llmvul_label_mapping', mapping_errors == 0, dict(errors=mapping_errors, uncertain=uncertain))
         checks.check('llmvul_excluded_count', uncertain == 2679)
         result['llmvul_test'] = labeled
-    with (ROOT / 'prepared_datasets/cweval/catalog.jsonl').open(encoding='utf-8') as handle:
+    with input_path(ROOT / 'prepared_datasets/cweval/catalog.jsonl').open(encoding='utf-8') as handle:
         selected = [r for r in map(json.loads, handle) if r['eligible']]
     checks.check('cweval_reference_unsafe_mapping', all(
         r['label'] == {'upstream_reference': 0, 'upstream_unsafe': 1}[r['label_basis']] for r in selected))
@@ -206,7 +213,7 @@ def artifacts(output):
     for run, model, stem in SELECTED:
         job_id = model + '/' + stem
         print('Audit', run, job_id, flush=True)
-        run_path = HERE / 'results' / run
+        run_path = input_path(HERE / 'results' / run)
         job_path = run_path / model / stem
         job = read_json(job_path / 'job.json')
         sig = job['signature']
@@ -224,7 +231,7 @@ def artifacts(output):
         checks.check(job_id + ':unique_ids_valid_labels_code', len(ids) == len(set(ids)) and all(
             r['label'] in (0, 1) and r['code'].strip() for r in canonical))
         if not stem.startswith('bigvul') and stem != 'cweval_test':
-            with (ROOT / 'prepared_datasets/audit' / (stem + '_provenance.jsonl')).open(encoding='utf-8') as handle:
+            with input_path(ROOT / 'prepared_datasets/audit' / (stem + '_provenance.jsonl')).open(encoding='utf-8') as handle:
                 provenance = list(map(json.loads, handle))
             checks.check(job_id + ':provenance_hash_label_id', len(provenance) == len(canonical) and all(
                 (a['sample_id'], a['target'], a['code_sha256']) == (b['sample_id'], b['label'], code_sha(b['code']))
@@ -308,7 +315,7 @@ def artifacts(output):
                          dataset_sha256=sha(dataset), test_log_sha256=sha(job_path/'test.log')))
     tokens = []
     for model, snapshot in [('linevul', CB), ('vulberta', VB)]:
-        for path in sorted(snapshot.iterdir()):
+        for path in sorted(input_path(snapshot).iterdir()):
             if path.is_file():
                 item = dict(model=model, path=path.relative_to(ROOT).as_posix(), sha256=sha(path), bytes=path.stat().st_size)
                 if path.suffix in ('.json', '.py', '.txt'):
@@ -317,7 +324,7 @@ def artifacts(output):
     cwe_audit = read_json(ROOT/'prepared_datasets/cweval/manifest.json')['tokenizer_audit']
     for relative, expected in cwe_audit['assets_sha256'].items():
         checks.check('cweval_tokenizer_asset:' + relative, sha(HUB / relative) == expected)
-    snapshots = [freeze(p, output) for p in (Path(__file__), HERE/'vulberta_eval.py', LV/'linevul_model.py',
+    snapshots = [freeze(p, output) for p in (Path(__file__), HERE/'rq1_paths.py', HERE/'vulberta_eval.py', LV/'linevul_model.py',
                  LV/'linevul_main_local.py', ROOT/'prepare_evaluation_datasets.py', ROOT/'prepare_cweval_datasets.py',
                  ROOT/'prepared_datasets/manifest.json', ROOT/'prepared_datasets/cweval/manifest.json',
                  CACHE/'data/bigvul_test_sample_2000.selection.json', HERE/'reports/rq1_results.md')]
@@ -337,7 +344,7 @@ def artifacts(output):
 
 
 def load_module(path, name):
-    spec = importlib.util.spec_from_file_location(name, path)
+    spec = importlib.util.spec_from_file_location(name, input_path(path))
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module

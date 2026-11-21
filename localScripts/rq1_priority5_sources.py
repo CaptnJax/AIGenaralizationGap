@@ -3,12 +3,15 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import urllib.request
 
 import rq1_priority1_audit as c
 
-RUN = c.HERE / 'results/rq1_priority5_20261031'
+RUN = (c.ROOT / os.environ.get('RQ1_CONTROL_RUN', 'reproductions/rq1_controls')).resolve()
+if not RUN.is_relative_to(c.ROOT/'reproductions'):
+    raise ValueError('RQ1_CONTROL_RUN must be a directory under this checkout\'s reproductions/.')
 CG = 'ac74a62802a0dd159b3258c78a2df8ad36cdf2b9'
 VB = '75ab355bf8be124751084c0ff3563df24f48fe38'
 SOURCES = {
@@ -19,8 +22,16 @@ SOURCES = {
 
 
 def digest(path):
-    with Path(path).open('rb') as f:
+    with c.input_path(path).open('rb') as f:
         return hashlib.file_digest(f, 'sha256').hexdigest()
+
+
+def source_path(filename):
+    """Read a run-local source when present, otherwise the shipped source."""
+    from rq1_paths import raw_source
+    local = RUN / 'sources' / filename
+    bundled = raw_source(filename)
+    return local if local.exists() or bundled is None else bundled
 
 
 def protocol_evidence():
@@ -42,10 +53,13 @@ def protocol_evidence():
 def download(name):
     directory = RUN / 'sources'
     directory.mkdir(parents=True, exist_ok=True)
-    manifest_path = directory / (name + '.manifest.json')
+    manifest_path = source_path(name + '.manifest.json')
     if manifest_path.exists():
         old = c.read_json(manifest_path)
-        assert digest(directory / old['file']) == old['sha256']
+        data_path = source_path(old['file'])
+        if not data_path.exists() and data_path.with_suffix(data_path.suffix + '.gz').exists():
+            raise FileNotFoundError('Restore the lossless training CSV first; see datasets/raw/BigVul/README.md.')
+        assert digest(data_path) == old['sha256']
         print('Already verified:', name, flush=True)
         return
     if name in SOURCES:
@@ -80,7 +94,7 @@ def download(name):
         return
     entry = dict(file=filename, url=url, bytes=dest.stat().st_size, sha256=digest(dest),
                  provenance='Official documentation download link; content hash records this retrieval, not historical training attestation.')
-    c.write_json(manifest_path, entry)
+    c.write_json(directory / (name + '.manifest.json'), entry)
     print(json.dumps(entry), flush=True)
 
 

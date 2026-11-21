@@ -1,3 +1,0 @@
-void loop() {
-  myDevice.handleInterrupt();
-}

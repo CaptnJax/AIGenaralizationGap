@@ -1,13 +1,16 @@
-# Development history
+# RQ1 development history
 
-These records explain the work's planning, progress, and implementation checks. Use the [findings](../findings/README.md) for the final RQ1 interpretation.
+This folder preserves implementation evidence from the completed RQ1 analyses.
+Use the [findings](../findings/README.md) for the final interpretation.
 
 | Record | What it documents |
 | --- | --- |
-| [rq1_diagnostic_plan.md](rq1_diagnostic_plan.md) | The October 22 diagnostic plan, with an October 31 execution update and links to the completed analyses. |
-| [rq1_rq3_progress.md](rq1_rq3_progress.md) | The October 15 progress snapshot covering both RQ1 frozen evaluations and separate RQ3 fine-tuning work. Its status statements are historical. |
 | [tokenizer_diagnostics/vulberta_tokenizer_fix_check.json](tokenizer_diagnostics/vulberta_tokenizer_fix_check.json) | The preserved VulBERTa tokenizer-fix diagnostic output. |
 
-The RQ3 training protocol and fine-tuning report mentioned in the progress snapshot belong to the development repository and are outside this RQ1 results bundle. Their references are identified in the report. Historical commands retain their original development paths.
+Completed diagnostic findings and their evidence are organized in
+[diagnostics](../diagnostics/README.md).
 
-Completed diagnostic findings and their evidence are organized separately in [diagnostics](../diagnostics/README.md).
+Use the [current reproduction guide](../../README.md) for executable setup steps.
+Historical commands retain development paths; the
+[diagnostic requirements](../diagnostics/README.md#reproduction-requirements)
+describe the current paths and dependencies.

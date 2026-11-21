@@ -1,7 +1,7 @@
 """Convert CWEval pairs to audited function-level inputs for the frozen detectors.
 
 Never executes benchmark code or changes model preprocessing. See
-prepared_datasets/cweval/README.md for the selection protocol and limitations.
+datasets/pruned/cweval/README.md for the selection protocol and limitations.
 """
 from __future__ import annotations
 
@@ -17,8 +17,9 @@ from pathlib import Path
 import re
 from types import SimpleNamespace
 from urllib.request import urlopen
+from rq1_paths import input_path
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parent.parent
 UPSTREAM_LOCK = ROOT / 'localScripts/cweval_upstream_lock.json'
 CODEBERT_REVISION = '3b0952feddeffad0063f274080e3c23d75e7eb39'
 VULBERTA_REVISION = 'fecabdee24a3ef6e804d7629d6eed03dc6b4f61e'
@@ -145,7 +146,7 @@ def checked_upstream(relative, lock, cache, fetch):
     expected = lock['files'].get(relative)
     if expected is None:
         raise ValueError(f'No pinned upstream evidence for {relative}. Update/review the lock first.')
-    path = cache / relative
+    path = input_path(cache / relative)
     if not path.is_file():
         if not fetch:
             raise FileNotFoundError(f'Missing {path}. Run with --fetch-upstream to download the pinned sources.')
@@ -187,10 +188,10 @@ class TokenAudit:
         assets += [vb / name for name in ('tokenizer.json', 'tokenizer_config.json',
                                          'special_tokens_map.json', 'tokenization_vulberta.py', 'config.json')]
         for path in assets:
-            if not path.is_file():
+            if not input_path(path).is_file():
                 raise FileNotFoundError(f'Missing cached tokenizer asset: {path}. No model downloads are performed.')
-        self.lv = RobertaTokenizer.from_pretrained(str(lv), local_files_only=True)
-        self.vb = Tokenizer.from_file(str(vb / 'tokenizer.json'))
+        self.lv = RobertaTokenizer.from_pretrained(str(input_path(lv)), local_files_only=True)
+        self.vb = Tokenizer.from_file(str(input_path(vb / 'tokenizer.json')))
         preprocessing = load_preprocessing()
         self.clean = preprocessing['clean_for_vulberta']
         preprocessing['fix_clang_parser'](SimpleNamespace(_tokenizer=self.vb))
@@ -199,7 +200,7 @@ class TokenAudit:
         self.identity = {'linevul_revision': CODEBERT_REVISION, 'vulberta_revision': VULBERTA_REVISION,
                          'preprocessing_sha256': sha((ROOT / 'localScripts/vulberta_eval.py').read_text(encoding='utf-8').encode('utf-8')),
                          'preprocessing_hash_format': 'utf8_lf',
-                         'assets_sha256': {str(p.relative_to(hub)).replace('\\', '/'): sha(p.read_bytes()) for p in assets}}
+                         'assets_sha256': {str(p.relative_to(hub)).replace('\\', '/'): sha(input_path(p).read_bytes()) for p in assets}}
 
     def inspect(self, code, parser):
         cleaned = self.clean(code)
@@ -378,27 +379,28 @@ Run these commands from the repository root using the existing local environment
 
 ```powershell
 .\\localScripts\\.venv\\Scripts\\python.exe -m pip install -r .\\localScripts\\requirements-cweval.txt
-# First conversion, when no CWEval outputs exist:
-.\\localScripts\\.venv\\Scripts\\python.exe .\\prepare_cweval_datasets.py --fetch-upstream
-# Rebuild for comparison without overwriting the delivered files:
-.\\localScripts\\.venv\\Scripts\\python.exe .\\prepare_cweval_datasets.py --output-root .\\localScripts\\.cache\\cweval-rebuild
+# Rebuild using the supplied sources and tokenizer snapshots:
+.\\localScripts\\.venv\\Scripts\\python.exe .\\localScripts\\prepare_cweval_datasets.py --output-root .\\reproductions\\cweval_rebuild\\prepared_datasets
+# Stage tokenizer references for the inference runner:
+New-Item -ItemType Directory -Force .\\localScripts\\.cache\\huggingface\\hub | Out-Null
+Copy-Item -Path .\\localScripts\\upstream\\huggingface\\models--* -Destination .\\localScripts\\.cache\\huggingface\\hub -Recurse -Force
 # Run the prepared common cohort on both frozen models:
-.\\localScripts\\.venv\\Scripts\\python.exe .\\localScripts\\pivd_local.py --jobs cweval --device cuda
+.\\localScripts\\.venv\\Scripts\\python.exe .\\localScripts\\pivd_local.py --jobs cweval --device cuda --data-root .\\reproductions\\cweval_rebuild --run-dir .\\localScripts\\results\\rq1_cweval_rebuild
 # Conversion and runner regression checks:
-.\\localScripts\\.venv\\Scripts\\python.exe -m unittest discover -s localScripts -p 'test_*.py' -v
+.\\localScripts\\.venv\\Scripts\\python.exe -m unittest discover -s localScripts -p 'test_cweval.py' -v
 ```
 
 Use a fresh `--output-root` for every rebuild. Existing outputs are never silently
 overwritten. `--source-dir` and `--cache-dir` can override input/cache paths.
 `--fetch-upstream` downloads only missing source/license files at the locked
 revision, verifies Git blob hashes, and caches them. Without it conversion is
-offline and requires those files already cached. New tasks need reviewed entries
+offline using the supplied upstream snapshot or cache. New tasks need reviewed entries
 in `localScripts/cweval_upstream_lock.json`; unverified labels fail conversion.
 
 The converter requires the existing runtime dependencies plus the separate
 conversion requirements. It loads tokenizer assets only, not model weights.
-The pinned CodeBERT and VulBERTa tokenizer snapshots must already exist under
-`localScripts/.cache/huggingface/hub`; their revisions and hashes are in the
+The pinned CodeBERT and VulBERTa tokenizer snapshots are read from the runtime cache
+or `localScripts/upstream/huggingface/`; their revisions and hashes are in the
 manifest. Missing assets produce an explicit error. The evaluation runner checks
 the CSV, tokenizer assets and preprocessing against the audit before inference,
 and uses the audited local CodeBERT tokenizer snapshot. CWEval is not in the
@@ -417,8 +419,8 @@ Parquet files are unchanged. The catalog preserves original code for inspection.
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source-dir', type=Path, default=ROOT / 'CWEval')
-    parser.add_argument('--output-root', type=Path, default=ROOT / 'prepared_datasets')
+    parser.add_argument('--source-dir', type=Path, default=ROOT / 'datasets/raw/CWEval')
+    parser.add_argument('--output-root', type=Path, default=ROOT / 'reproductions/cweval/prepared_datasets')
     parser.add_argument('--cache-dir', type=Path, default=ROOT / 'localScripts/.cache')
     parser.add_argument('--fetch-upstream', action='store_true', help='Download only missing, hash-pinned upstream source files.')
     args = parser.parse_args()

@@ -1,18 +1,12 @@
-# Data
+# VulBERTa data provenance for RQ1
 
-Due to the size of data, we store the data files separately from GitHub.
+This is an RQ1-focused excerpt of the
+[upstream data README](https://github.com/ICL-ml4csec/VulBERTa/blob/main/data/README.md).
+It records the authors' [data archive](https://1drv.ms/u/s!AueKnGqzBuIVkq4B9ESELGQ-VtjIYA?e=f0moEm),
+documented as containing `finetune`, `pretrain`, and `tokenizer` directories.
 
-## How to download all the data
-
-1. Download the compressed file from (https://1drv.ms/u/s!AueKnGqzBuIVkq4B9ESELGQ-VtjIYA?e=f0moEm)  
-
-2. Unzip the compressed file in this directory (e.g. `data`)  
-`unzip data.zip`
-
-3. This will extract 3 different folders: 
-
-* `finetune`
-* `pretrain`
-* `tokenizer`
-
-4. Ready for usage.
+For RQ1, the frozen VulBERTa checkpoint is evaluated on the official CodeXGLUE
+Devign test split. Its training and validation splits support the overlap
+analysis. The [prepared control data](../../pruned/controls)
+and [control report](../../../results/diagnostics/generalization_controls/rq1_priority5_diagnostics.md)
+document the actual evaluated inputs and the remaining source-attestation limits.

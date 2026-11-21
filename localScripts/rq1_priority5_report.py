@@ -29,7 +29,7 @@ def run():
     expected={r['path']:r['sha256'] for r in v['artifacts']}
     assert expected[(RUN/'summary.json').relative_to(c.ROOT).as_posix()]==digest(RUN/'summary.json')
     lookup={(r['model'],r['dataset']):r for r in s['full']}
-    report=c.HERE/'reports/rq1_priority5_diagnostics.md'
+    report=RUN/'rq1_priority5_diagnostics.md'
     figure_dir=report.parent/'rq1_priority5_figures';figure_dir.mkdir(exist_ok=True)
     fig,axes=plt.subplots(1,2,figsize=(11,5.2),layout='constrained')
     for axis,model in zip(axes,a.MODELS):
@@ -112,7 +112,7 @@ def run():
         'The strongest current explanation is **limited transfer across source and labeling distributions, amplified by low positive prevalence**. Successful original-domain controls make a universal broken binary-classification path less plausible. Those controls use familiar projects and commits, which limits how far their scores generalize. The remaining gaps on balanced, intact, overlap-screened examples are not explained by the measured input defects, direct duplicates or prevalence alone.','',
         'Syntax/style differences may contribute, but this analysis does not isolate them. Project/API conventions, vulnerability families, missing runtime context, label definitions, source selection and unmeasured pretraining exposure remain competing explanations. The pending independent review prevents assigning a population fraction of errors to incorrect labels.','',
         '## Artifacts and reproduction','',
-        'Run directory: `localScripts/results/rq1_priority5_20261031/`. Key files: `analysis_plan.json`, `preserved_inputs.json`, `inputs/manifest.json`, model `manifest.json`/`parity.json`/`predictions.jsonl`, `checkpoint_selection.json`, `overlap_summary.json`, `domain_exposure.json`, `joined_evaluation.jsonl`, `matched_membership.csv`, `matched_cells.json`, `slice_metrics.csv`, `metadata_coverage.csv`, `bootstrap/`, `summary.json`, and `verification.json`. Download manifests record source URLs, bytes and SHA-256. Large inputs/results remain in the ignored local results directory.','',
+        f'Run directory: `{RUN.relative_to(c.ROOT).as_posix()}/`. Key files: `analysis_plan.json`, `preserved_inputs.json`, `inputs/manifest.json`, model `manifest.json`/`parity.json`/`predictions.jsonl`, `checkpoint_selection.json`, `overlap_summary.json`, `domain_exposure.json`, `joined_evaluation.jsonl`, `matched_membership.csv`, `matched_cells.json`, `slice_metrics.csv`, `metadata_coverage.csv`, `bootstrap/`, `summary.json`, and `verification.json`. Download manifests record source URLs, bytes and SHA-256. Generated inputs/results remain in the ignored reproduction directory.','',
         'The tracked implementation is split into `rq1_priority5_sources.py`, `rq1_priority5_controls.py`, `rq1_priority5_profiles.py`, `rq1_priority5_analysis.py`, `rq1_priority5_verify.py`, and this report generator. See the localScripts README for execution order. Re-running inference verifies hashes and reuses a completed run; it does not select or alter a checkpoint.','']
     report.write_text('\n'.join(lines).replace('Linevul','LineVul').replace('Vulberta','VulBERTa'),encoding='utf-8')
     s['status']='pass';s['verification']=dict(checks=v['checks'],unit_tests=v['unit_tests'],manifest_sha256=digest(RUN/'verification.json'))

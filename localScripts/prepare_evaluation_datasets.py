@@ -1,8 +1,9 @@
 """Prepare lossless, function-level detector inputs; never alter source datasets.
 
-Run: python prepare_evaluation_datasets.py
+Run from the repository root: python localScripts/prepare_evaluation_datasets.py
 Requires pandas for optional compatibility with the original VulBERTa notebooks.
 """
+import argparse
 import csv
 import hashlib
 import json
@@ -12,10 +13,10 @@ from collections import Counter
 from pathlib import Path
 
 import pandas as pd
+from rq1_paths import input_path
 
 
-ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "prepared_datasets"
+ROOT = Path(__file__).resolve().parent.parent
 SOURCES = ["primevul_test.jsonl", "primevul_valid.jsonl", "LLMVul_v3-Updated.csv"]
 csv.field_size_limit(10_000_000)
 
@@ -33,7 +34,7 @@ def write_csv(path, fields, rows):
 
 
 def load_source(name):
-    path = ROOT / name
+    path = input_path(ROOT / name)
     if path.suffix == ".jsonl":
         with path.open(encoding="utf-8") as handle:
             rows = [json.loads(line) for line in handle if line.strip()]
@@ -46,12 +47,13 @@ def load_source(name):
     return rows
 
 
-def main():
+def main(output_root=ROOT / "reproductions/primary/prepared_datasets"):
+    OUT = Path(output_root)
     # Refuse to mix this run with an existing bundle.
-    OUT.mkdir(exist_ok=False)
+    OUT.mkdir(parents=True, exist_ok=False)
     for folder in ("linevul", "vulberta", "audit"):
         (OUT / folder).mkdir()
-    original_hashes = {name: digest(ROOT / name) for name in SOURCES}
+    original_hashes = {name: digest(input_path(ROOT / name)) for name in SOURCES}
     report = {
         "task": "Frozen-model function-level binary vulnerability evaluation",
         "labels": {"0": "non-vulnerable", "1": "vulnerable"},
@@ -149,16 +151,16 @@ def main():
         }
         print(stem, json.dumps(report["datasets"][stem]), flush=True)
 
-    assert original_hashes == {name: digest(ROOT / name) for name in SOURCES}
+    assert original_hashes == {name: digest(input_path(ROOT / name)) for name in SOURCES}
     report["original_files_unchanged"] = True
     report["output_sha256"] = {str(p.relative_to(OUT)).replace("\\", "/"): digest(p) for p in exported_files}
     (OUT / "manifest.json").write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
     (OUT / "README.md").write_text(README, encoding="utf-8")
-    archive = ROOT / "prepared_datasets.zip"
+    archive = OUT.parent / "prepared_datasets.zip"
     with zipfile.ZipFile(archive, "x", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as handle:
         for path in sorted(OUT.rglob("*")):
             if path.is_file():
-                handle.write(path, path.relative_to(ROOT))
+                handle.write(path, Path("prepared_datasets") / path.relative_to(OUT))
     with zipfile.ZipFile(archive) as handle:
         assert handle.testzip() is None
     print(f"Verified bundle: {archive} ({archive.stat().st_size / 1024**2:.1f} MiB)")
@@ -259,8 +261,9 @@ versions and hashes. audit/*_provenance.jsonl links exported IDs back to origina
 records. source_record counts data records starting at 1, excluding headers/title;
 it is not a physical CSV line number because code and messages contain newlines.
 
-No detector was run and no F1 scores have been calculated. Dataset compatibility
-was verified with pandas; checkpoint-specific inference remains to be run.
+This preparation command checks dataset compatibility without running detectors.
+Completed RQ1 evaluations and F1 scores are documented in the public repository's
+results/findings/ and results/evaluation_runs/ directories.
 
 Loader references:
 - https://github.com/awsm-research/LineVul/blob/main/linevul/linevul_main.py
@@ -269,4 +272,6 @@ Loader references:
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-root", type=Path, default=ROOT / "reproductions/primary/prepared_datasets")
+    main(parser.parse_args().output_root)

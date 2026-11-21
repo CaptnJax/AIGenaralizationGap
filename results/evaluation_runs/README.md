@@ -11,7 +11,7 @@ Each dated folder contains one completed invocation of the frozen-model evaluati
 | [20261009_211327_299195](20261009_211327_299195) | VulBERTa on the same PrimeVul and LLMVul datasets after applying the original authors' explicit cleaning step. | Use these two **corrected VulBERTa** rows for the reported comparison. [Summary](20261009_211327_299195/summary.csv) |
 | [20261015_230324_309261](20261015_230324_309261) | Both models on filtered CWEval: 58 functions comprising 29 reference/unsafe pairs. | The supplementary paired diagnostic. [Summary](20261015_230324_309261/summary.csv) |
 
-These selections are the seven jobs in the [October 15 baseline report](../findings/rq1_results.md). The later full BigVul/LineVul and Devign/VulBERTa controls are in [diagnostics/generalization_controls](../diagnostics/generalization_controls/rq1_priority5_20261031), with their [report](../diagnostics/generalization_controls/rq1_priority5_diagnostics.md).
+These selections are the seven baseline jobs documented in the [consolidated RQ1 report](../findings/rq1_answer.md#detailed-classification-results). The later full BigVul/LineVul and Devign/VulBERTa controls are in [diagnostics/generalization_controls](../diagnostics/generalization_controls/rq1_priority5_20261031), with their [report](../diagnostics/generalization_controls/rq1_priority5_diagnostics.md).
 
 ## How to read a run
 
@@ -33,4 +33,79 @@ These selections are the seven jobs in the [October 15 baseline report](../findi
 
 Preserved JSON records and logs may reference the original development paths. Dataset files are in [datasets/raw](../../datasets/raw) and [datasets/pruned](../../datasets/pruned). The evidence files in these run folders have not been regenerated or edited.
 
+## Recalculate the published metrics
+
+With Python 3.12 and the repository's LFS files available, run the following
+PowerShell block from the repository root. It reads the seven selected baseline
+jobs and both full controls, recalculates accuracy, precision, recall, and F1,
+and asserts agreement with the saved metrics to an absolute tolerance of `1e-12`.
+It uses only Python's standard library and does not run model inference.
+LineVul CSV predictions may be `True`/`False`; the code handles that encoding.
+
+```powershell
+@'
+import csv, json, math
+from collections import Counter
+from pathlib import Path
+
+csv.field_size_limit(50_000_000)
+root = Path('results')
+jobs = [
+    ('20261009_203652_921773', 'linevul', 'bigvul_test_sample_2000'),
+    ('20261009_203942_809681', 'linevul', 'primevul_test'),
+    ('20261009_203942_809681', 'linevul', 'llmvul_test'),
+    ('20261009_211327_299195', 'vulberta', 'primevul_test'),
+    ('20261009_211327_299195', 'vulberta', 'llmvul_test'),
+    ('20261015_230324_309261', 'linevul', 'cweval_test'),
+    ('20261015_230324_309261', 'vulberta', 'cweval_test'),
+]
+
+def binary(value):
+    return int(value == 'True') if value in ('True', 'False') else int(value)
+
+def check(name, pairs, expected):
+    counts = Counter((binary(y), binary(p)) for y, p in pairs)
+    assert set(counts) <= {(0, 0), (0, 1), (1, 0), (1, 1)}
+    tn, fp, fn, tp = (counts[k] for k in ((0, 0), (0, 1), (1, 0), (1, 1)))
+    n = tn + fp + fn + tp
+    assert n == expected['rows'], (name, n, expected['rows'])
+    divide = lambda a, b: a / b if b else 0.0
+    measured = dict(test_accuracy=divide(tp + tn, n),
+                    test_precision=divide(tp, tp + fp),
+                    test_recall=divide(tp, tp + fn),
+                    test_f1=divide(2 * tp, 2 * tp + fp + fn))
+    for key, value in measured.items():
+        assert math.isclose(value, expected[key], rel_tol=0, abs_tol=1e-12), (name, key)
+    print(f"{name}: rows={n}, F1={measured['test_f1']:.8f} (matches saved metrics)")
+
+for run, model, dataset in jobs:
+    folder = root / 'evaluation_runs' / run / model / dataset
+    metrics = json.loads((folder / 'metrics.json').read_text(encoding='utf-8'))
+    filename = 'results/raw_preds.csv' if model == 'linevul' else 'predictions.csv'
+    label, prediction = ('target', 'raw_preds') if model == 'linevul' else ('label', 'prediction')
+    with (folder / filename).open(encoding='utf-8', newline='') as stream:
+        check(f'{model}/{dataset}', ((r[label], r[prediction]) for r in csv.DictReader(stream)), metrics)
+
+controls = root / 'diagnostics/generalization_controls/rq1_priority5_20261031'
+for model in ('linevul', 'vulberta'):
+    folder = controls / model
+    manifest = json.loads((folder / 'manifest.json').read_text(encoding='utf-8'))
+    with (folder / 'predictions.jsonl').open(encoding='utf-8') as stream:
+        rows = (json.loads(line) for line in stream)
+        check(f"{model}/{manifest['dataset']}", ((r['label'], r['prediction']) for r in rows),
+              dict(manifest['measured'], rows=manifest['rows']))
+'@ | py -3.12 -
+```
+
+If Python was installed without the Windows `py` launcher, replace
+`py -3.12 -` on the last line with
+`.\localScripts\.venv\Scripts\python.exe -` after the local environment setup.
+
+Expected output is nine matching jobs. The four primary F1 values are
+0.10316428 / 0.10493668 for LineVul and 0.04551365 / 0.14262480 for VulBERTa
+on PrimeVul / LLMVul. The full BigVul and Devign control F1 values are
+0.91419970 and 0.56989728. This check verifies metrics from saved predictions;
+it does not rerun inference, ROC-AUC, matched cohorts, or bootstrap intervals.
+
+For fresh predictions use the [runner guide](../../localScripts/README.md).
 Return to the [results index](../README.md) or the [final findings](../findings/rq1_answer.md).

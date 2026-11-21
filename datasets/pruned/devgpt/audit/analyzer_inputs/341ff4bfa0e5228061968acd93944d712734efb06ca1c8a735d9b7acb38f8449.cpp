@@ -1,2 +1,0 @@
-void fHMM::run() {
-}

@@ -203,10 +203,10 @@ def run(source,output,repetitions):
     assert not output.exists(), 'Use a new output directory.'
     verification=common.read_json(source/'verification.json')
     assert verification['status']=='pass'
-    expected={x['path']:x['sha256'] for x in verification['artifacts']}
+    expected={common.input_path(common.ROOT/x['path']):x['sha256'] for x in verification['artifacts']}
     for filename in ['joined_inputs.csv','input_summary.json']:
         path=source/filename
-        assert common.sha(path)==expected[path.relative_to(common.ROOT).as_posix()]
+        assert common.sha(path)==expected[common.input_path(path)]
     output.mkdir(parents=True)
     shutil.copyfile(__file__,output/'score_audit.py')
     cfg=dict(CONFIG,bootstrap_repetitions=repetitions)
@@ -329,7 +329,7 @@ def run(source,output,repetitions):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--source',type=Path,default=common.HERE/'results/rq1_priority2_20261028')
+    parser.add_argument('--source',type=Path,default=common.input_path(common.HERE/'results/rq1_priority2_20261028'))
     parser.add_argument('--output',type=Path,required=True)
     parser.add_argument('--repetitions',type=int,default=CONFIG['bootstrap_repetitions'])
     args=parser.parse_args()

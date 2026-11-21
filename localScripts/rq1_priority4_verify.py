@@ -20,7 +20,7 @@ def run(out):
     def check(name,ok):
         checks.append(dict(check=name,status='pass' if bool(ok) else 'fail'))
         if not ok:raise AssertionError(name)
-    def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+    def sha(p):return hashlib.sha256(a.c.input_path(p).read_bytes()).hexdigest()
     s=a.c.read_json(out/'summary.json');e=a.c.read_json(out/'evidence_summary.json')
     for p,h in s['source_hashes'].items():check('unchanged:'+p,sha(a.c.ROOT/p)==h)
     check('audit_script_identity',sha(a.c.HERE/'rq1_priority4_audit.py')==s['script_sha256']==sha(out/'audit.py'))
@@ -106,14 +106,14 @@ def run(out):
     catalog=a.p2.jsonl(a.c.ROOT/'prepared_datasets/cweval/catalog.jsonl')
     lock=a.c.read_json(a.c.HERE/'cweval_upstream_lock.json');parsers=a.p2.parsers()
     for r in catalog:
-        path=a.c.CACHE/'CWEval'/lock['revision']/r['upstream_path'];data=path.read_bytes()
+        path=a.c.input_path(a.c.CACHE/'CWEval'/lock['revision']/r['upstream_path']);data=path.read_bytes()
         check('cwe_blob:'+r['sample_id'],a.blob_sha(data)==lock['files'][r['upstream_path']])
         tree=parsers[r['language']].parse(data);target=a.p2.cwe.functions(tree)[r['target_function']]
         reference=a.p2.cwe.lexical_tokens(target)
         extracted=a.p2.cwe.lexical_tokens(parsers[r['language']].parse(r['code'].encode()).root_node)
         check('cwe_target:'+r['sample_id'],reference==extracted)
     for identity in e['downloaded_file_identities']:
-        check('downloaded:'+identity['path'],sha(identity['path'])==identity['sha256'] and a.blob_sha(Path(identity['path']).read_bytes())==identity['git_blob_sha1'])
+        check('downloaded:'+identity['path'],sha(identity['path'])==identity['sha256'] and a.blob_sha(a.c.input_path(identity['path']).read_bytes())==identity['git_blob_sha1'])
     check('new_adjudication_not_claimed',s['review']['adjudicated_cases']==0 and s['review']['independent_review_status'].startswith('pending'))
     check('security_execution_not_claimed',e['cweval']['execution']=='not_run')
     result=subprocess.run([sys.executable,'-m','unittest','discover','-s',str(a.c.HERE),'-p','test_rq1_priority4.py','-v'],capture_output=True,text=True,cwd=a.c.ROOT)

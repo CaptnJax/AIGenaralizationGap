@@ -1,5 +1,9 @@
 # BigVul source datasets
 
+Start with the [repository Git LFS setup](../../../README.md#start-here).
+`bigvul_test.csv` supplies the full LineVul control; `bigvul_train.csv` and
+`bigvul_valid.csv` support RQ1 overlap checks. Run examples from the repository root.
+
 The test and validation datasets are stored as CSV files. The training dataset is stored as the lossless [bigvul_train.csv.gz](bigvul_train.csv.gz) archive so its Git LFS object fits within the 2 GiB per-file upload limit. Compression preserves every byte of the original CSV.
 
 The existing [training manifest](bigvul_train.manifest.json) records the size and SHA-256 of the **uncompressed** training CSV. The reconstructed CSV is ignored by Git; the archive is tracked by Git LFS.
@@ -32,20 +36,13 @@ assert checksum == manifest["sha256"], "CSV checksum mismatch"
 print("Verified the original BigVul training CSV.")
 ~~~
 
-## Original upstream download instructions
+## Reproduce the control comparison
 
-To download the testing dataset used for evaluation in our experiments, run the following commands:
-```
-gdown https://drive.google.com/uc?id=1h0iFJbc5DGXCXXvvR6dru_Dms_b2zW4V
-```
+The supplied test and validation CSVs already contain the official split.
+Use the [saved-metric verification](../../../results/evaluation_runs/README.md#recalculate-the-published-metrics)
+to recalculate the published control F1. Full control inference and overlap
+analysis have the [diagnostic prerequisites](../../../results/diagnostics/README.md#reproduction-requirements).
 
-To download the training and evaluation dataset used for evaluation in our experiments, run the following commands:
-```
-gdown https://drive.google.com/uc?id=1ldXyFvHG41VMrm260cK_JEPYqeb6e6Yw
-gdown https://drive.google.com/uc?id=1yggncqivMcP0tzbh8-8Eu02Edwcs44WZ
-```
-
-To download the whole (i.e., train+val+test) unsplit dataset dataset, run the following commands:
-```
-gdown https://drive.google.com/uc?id=10-kjbsA806Zdk54Ax8J3WvLKGTzN8CMX
-```  
+Original download sources are recorded in
+[the source reference](linevul_data_README.md). Downloading those files is unnecessary
+when the repository's LFS objects are available.

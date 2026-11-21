@@ -1,32 +1,23 @@
-# Priority 4 independent review package
+# RQ1 dataset-quality review artifacts
 
-Status: prepared; independent reviews and adjudication have not been performed.
-Give each qualified reviewer only stage1_blinded_code.jsonl and their own blank
-reviewer form. Do not give the coordinator key, selections, this audit report,
-or model predictions. Code comments/identifiers may themselves reveal provenance;
-blinding is therefore best effort, not guaranteed. Then release stage2 evidence,
-retaining both initial and evidence-informed judgments separately. Source metadata
-can reveal intended labels; record when that happens. Never run untrusted source
-on the host. Test evidence needs an isolated environment.
+The completed dataset-quality audit generated the selection records, code and
+source-evidence packets, and blank forms in this folder. No completed independent
+reviewer judgments or adjudicated labels are included.
 
-Allowed judgments: vulnerable; non_vulnerable_scoped; uncertain;
-insufficient_context. A scoped negative must name the assessed vulnerability
-and assumptions; it does not certify universal safety. Provide line references,
-patch/test/source evidence, CWE only if justified, confidence, and rationale.
-Tags can include label_disagreement, confirmed_label_error, missing_context,
-preprocessing_damage, lost_span, unsupported_language, model_miss,
-spurious_model_positive. Do not use model-miss tags until predictions are revealed.
+| File | Recorded content |
+| --- | --- |
+| [selection.csv](selection.csv), [strata.csv](strata.csv) | Model/stratum selections, counts, inclusion probabilities, and sampling weights. |
+| [coordinator_key.csv](coordinator_key.csv) | The mapping for the 328 unique review cases, including merged-sample inclusion probabilities. |
+| [stage1_blinded_code.jsonl](stage1_blinded_code.jsonl) | Code packets with review IDs and declared language. Comments and identifiers can still reveal provenance. |
+| [stage2_source_evidence.jsonl](stage2_source_evidence.jsonl) | The associated source-evidence packets. |
+| [purposive_cases.jsonl](purposive_cases.jsonl), [purposive_selection.csv](purposive_selection.csv) | Targeted cases kept separate from the probability sample. |
+| [reviewer_1.csv](reviewer_1.csv), [reviewer_2.csv](reviewer_2.csv), [adjudication.csv](adjudication.csv) | Blank forms; empty fields are not negative judgments or completed study outcomes. |
 
-Two reviewers work independently before the adjudicator resolves disagreements
-with evidence. Blank forms are not negative judgments. Preserve uncertain and
-insufficient-context decisions; do not silently coerce them to binary labels.
+Original source labels and benchmark predictions are unchanged. The published
+metrics use the supplied dataset labels; no whole-dataset label-error estimate
+was derived from these blank forms. The external authors' 100-case LLMVul review
+is separate source evidence, analyzed in the
+[completed dataset-quality report](../../rq1_priority4_diagnostics.md).
 
-selection.csv preserves each model/stratum sample probability n/N and weight N/n.
-coordinator_key.csv also gives merged-sample union probabilities. For per-job
-estimates use that job's selections and weights, not the union or the raw review
-fraction. Report unresolved weighted mass separately; use design-aware uncertainty
-before estimating population label-error rates. Purposive cases and the external
-authors' 100-case sample are separate, with no probability weights invented.
-
-Original source labels and benchmark predictions remain unchanged. No corrected
-whole-dataset metrics should be presented before defensible adjudication.
+For completed RQ1 results and replication steps, use the
+[repository guide](../../../../../README.md).

@@ -1,2 +1,4 @@
 # Local CSV restored from the tracked lossless training archive.
 /datasets/raw/BigVul/bigvul_train.csv
+# Fresh reproductions; delivered evidence stays under results/.
+/reproductions/

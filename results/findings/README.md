@@ -1,12 +1,19 @@
 # Findings
 
-Read [rq1_answer.md](rq1_answer.md) first for the overall conclusion on the evaluated frozen models' generalization.
+[rq1_answer.md](rq1_answer.md) is the consolidated report of RQ1 work completed
+through October 31, 2026. It contains the final interpretation, original-domain
+controls, detailed baseline metrics and confusion matrices, execution protocol,
+run identities, and CWEval pair results.
 
-| Document | Date | Role |
-| --- | --- | --- |
-| [rq1_answer.md](rq1_answer.md) | October 31, 2026 | Final synthesis of the baseline evaluations and completed diagnostic analyses, including the full original-dataset controls. It retains the unresolved label-adjudication and causal-attribution limits. |
-| [rq1_results.md](rq1_results.md) | October 15, 2026 | Historical baseline results, evaluation protocol, confusion matrices, and selected run identities. It predates the full BigVul and Devign controls and later diagnostic work. |
+- [Evaluation protocol and provenance](rq1_answer.md#evaluation-protocol-and-provenance).
+- [Detailed classification results](rq1_answer.md#detailed-classification-results).
+- [CWEval pair analysis](rq1_answer.md#cweval-pair-analysis).
+- [Supporting diagnostic evidence](../diagnostics/README.md).
 
-The reports' dates matter: statements about work still pending in the October 15 report describe that earlier stage. Use the October 31 synthesis and its linked evidence for the overall finding.
+To reproduce the reported scores, use the
+[saved-metric verification](../evaluation_runs/README.md#recalculate-the-published-metrics).
+For new model evaluations, follow the [RQ1 runner guide](../../localScripts/README.md).
 
-For supporting data, follow the [diagnostic index](../diagnostics/README.md) or the [baseline run guide](../evaluation_runs/README.md). Development plans and progress notes are kept in [development](../development/README.md).
+Saved predictions and machine-readable evidence retain their original contents.
+The captured baseline report remains within the audit evidence for hash
+verification; this folder uses the consolidated report as its findings document.

@@ -1,5 +1,0 @@
-uint8_t Adafruit_HUSB238::getPDResponse() {
-  Adafruit_I2CRegister pdRegister = Adafruit_I2CRegister(i2c_dev, HUSB238_PD_STATUS0);
-  Adafruit_I2CRegisterBits pdBits = Adafruit_I2CRegisterBits(&pdRegister, 3, 3);
-  return pdBits.read();
-}

@@ -20,7 +20,7 @@ import sys
 from types import SimpleNamespace
 
 import rq1_priority1_audit as common
-sys.path.insert(0, str(common.ROOT))
+sys.path.insert(0, str(common.HERE))
 import prepare_cweval_datasets as cwe
 
 os.environ.update(HF_HOME=str(common.CACHE/'huggingface'), HF_HUB_OFFLINE='1',
@@ -29,7 +29,7 @@ STEMS = ['bigvul_test_sample_2000', 'primevul_test', 'llmvul_test', 'cweval_test
 
 
 def jsonl(path):
-    with Path(path).open(encoding='utf-8') as handle:
+    with common.input_path(path).open(encoding='utf-8') as handle:
         return [json.loads(line) for line in handle]
 
 
@@ -43,7 +43,7 @@ def error_cell(label, prediction):
 
 def metadata():
     prime = jsonl(common.ROOT/'primevul_test.jsonl')
-    with (common.ROOT/'LLMVul_v3-Updated.csv').open(encoding='utf-8-sig', newline='') as handle:
+    with common.input_path(common.ROOT/'LLMVul_v3-Updated.csv').open(encoding='utf-8-sig', newline='') as handle:
         next(csv.reader(handle))
         llm = [r for r in csv.DictReader(handle) if r['ensemble_label'] != 'uncertain']
     big = common.read_csv(common.CACHE/'data/bigvul_test_sample_2000.csv')

@@ -1,6 +1,6 @@
 # RQ1 low-F1 diagnostic plan
 
-Prepared: October 22, 2026. Scope: diagnose the frozen-model results in [rq1_results.md](../findings/rq1_results.md). This is a plan, not a completed root-cause analysis. No model inference, threshold tuning, relabeling, or fine-tuning was performed while preparing it.
+Prepared: October 22, 2026. Scope: diagnose the frozen-model results in [RQ1 findings](../findings/rq1_answer.md). This is a plan, not a completed root-cause analysis. No model inference, threshold tuning, relabeling, or fine-tuning was performed while preparing it.
 
 Execution update, October 31, 2026: **Priorities 1–3 and 5 completed; Priority 6 written from the available evidence; Priority 4 automated audit and targeted source checks completed, with independent adjudication pending.** The [priority-one report](../diagnostics/evaluation_validation/rq1_diagnostics.md) found no binary-evaluation defect. The [priority-two report](../diagnostics/input_preprocessing/rq1_priority2_diagnostics.md) audits 45,597 dataset rows and completes 2,095 paired input comparisons. The [priority-three report](../diagnostics/score_analysis/rq1_priority3_diagnostics.md) identifies limited external discrimination and a strong prevalence contribution. The [priority-four report](../diagnostics/dataset_quality/rq1_priority4_diagnostics.md) reconciles LLMVul voting labels and published human reviews, confirms source-extraction defects and PrimeVul token/label conflicts, and finds little effect from duplicate weighting. The [priority-five report](../diagnostics/generalization_controls/rq1_priority5_diagnostics.md) completes full BigVul and Devign controls, fine-tuning overlap screens, matched comparisons and grouped uncertainty estimates. It supports limited transfer and documents extensive shared training/test provenance, including weak VulBERTa ranking on unfamiliar Devign commits. The [RQ1 answer](../findings/rq1_answer.md) synthesizes these findings, preserves the historical results, and distinguishes the leading transfer explanation from unresolved label, context and authorship effects. Complete pretraining exposure and original converted-checkpoint training attestation remain unresolved. A blinded 328-case review package is ready; two qualified independent reviewers are still required. CWEval security execution remains unavailable in the current environment, with pinned test-wrapper issues documented.
 
@@ -122,7 +122,7 @@ The first useful milestone is completion of the binary path audit, existing VulB
 
 ## Local implementation references
 
-- [RQ1 report](../findings/rq1_results.md) and [format audit](../../datasets/pruned/dataset_format_audit.json): selected evidence and checks already completed.
+- [RQ1 report](../findings/rq1_answer.md) and [format audit](../../datasets/pruned/dataset_format_audit.json): selected evidence and checks already completed.
 - [Dataset converter](../../localScripts/prepare_evaluation_datasets.py): source-label mapping, uncertainty exclusion, provenance, and exact-text export.
 - [Evaluation runner](../../localScripts/pivd_local.py): job signatures, checkpoint safeguards, sampling, and LineVul metric reconciliation.
 - [VulBERTa evaluator](../../localScripts/vulberta_eval.py): cleaning, Clang fix, class-1 softmax, strict threshold, and probability export.

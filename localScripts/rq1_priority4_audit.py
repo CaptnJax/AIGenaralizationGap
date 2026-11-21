@@ -20,8 +20,8 @@ import rq1_priority2_audit as p2
 from rq1_priority3_scores import ScoreCurve, jsonable
 
 c = p2.common
-P2 = c.HERE / 'results/rq1_priority2_20261028'
-P3 = c.HERE / 'results/rq1_priority3_20261029'
+P2 = c.input_path(c.HERE / 'results/rq1_priority2_20261028')
+P3 = c.input_path(c.HERE / 'results/rq1_priority3_20261029')
 SEED = 20261029
 QUOTAS = {'fn': 20, 'fp': 20, 'tp': 10, 'tn': 10}
 MISSING = {'', 'none', 'null', 'nan', 'n/a'}
@@ -33,7 +33,7 @@ def write(path, data):
 
 def rows_csv(path, title=False):
     csv.field_size_limit(10**8)
-    with Path(path).open(encoding='utf-8-sig', newline='') as f:
+    with c.input_path(path).open(encoding='utf-8-sig', newline='') as f:
         if title:
             next(csv.reader(f))
         return list(csv.DictReader(f))
@@ -287,6 +287,7 @@ def run(output):
     source_paths=[c.ROOT/'LLMVul_v3-Updated.csv', c.ROOT/'primevul_test.jsonl', c.ROOT/'primevul_valid.jsonl',
                   c.ROOT/'prepared_datasets/cweval/catalog.jsonl', joined_path]
     source_paths += [c.ROOT/j['prediction_file']['path'] for j in jobs.values()]
+    source_paths = [c.input_path(p) for p in source_paths]
     before={str(p.relative_to(c.ROOT)):c.sha(p) for p in source_paths}
     sources=c.read_json(output/'sources/github_sources.json')
     raw_llm=rows_csv(source_paths[0],title=True)
