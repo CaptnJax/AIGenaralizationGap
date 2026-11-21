@@ -1,4 +1,4 @@
-# BigVul download provenance for RQ1
+# BigVul download provenance for RQ
 
 The public repository includes the official test and validation CSVs and a
 lossless training archive. Follow the [BigVul guide](README.md) to obtain the
@@ -12,5 +12,5 @@ The upstream LineVul release used these source downloads:
 | Train | [Google Drive source](https://drive.google.com/uc?id=1ldXyFvHG41VMrm260cK_JEPYqeb6e6Yw) | `bigvul_train.csv.gz` restores `bigvul_train.csv` |
 | Validation | [Google Drive source](https://drive.google.com/uc?id=1yggncqivMcP0tzbh8-8Eu02Edwcs44WZ) | `bigvul_valid.csv` |
 
-These links document provenance. For the recorded RQ1 comparison, use the supplied
+These links document provenance. For the recorded RQ comparison, use the supplied
 versions and their manifests rather than substituting a different split or resampling.

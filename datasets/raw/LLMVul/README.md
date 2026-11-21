@@ -1,8 +1,8 @@
 # LLMVul: A Vulnerability-Labeled Dataset of LLM-Generated C/C++ Functions from Production Repositories
 
-This is an RQ1-focused excerpt of the [upstream dataset documentation](https://github.com/Wahed08/LLMVul-Dataset/tree/29313663fe2a575123adf552fd339c93c345e43d).
+This is an RQ-focused excerpt of the [upstream dataset documentation](https://github.com/Wahed08/LLMVul-Dataset/tree/29313663fe2a575123adf552fd339c93c345e43d).
 Upstream dataset and labeling claims are retained for provenance; see the
-[RQ1 dataset-quality audit](../../../results/diagnostics/dataset_quality/rq1_priority4_diagnostics.md)
+[RQ dataset-quality audit](../../../results/diagnostics/dataset_quality/rq1_priority4_diagnostics.md)
 for the validation limits found in this study.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22668216.svg)](https://doi.org/10.5281/zenodo.22668216)
@@ -176,12 +176,12 @@ print(f"Safe:       {(df['vuln_label']==0).sum():,}")
 
 ---
 
-## Use in RQ1
+## Use in RQ
 
-RQ1 compares the frozen LineVul and VulBERTa checkpoints on PrimeVul and the
+RQ compares the frozen LineVul and VulBERTa checkpoints on PrimeVul and the
 18,751 binary-labeled LLMVul records. The 2,679 uncertain records are excluded.
 See the [prepared dataset protocol](../../pruned/README.md) and
-[RQ1 findings](../../../results/findings/rq1_answer.md) for the evaluated
+[RQ findings](../../../results/findings/rq1_answer.md) for the evaluated
 cohorts and interpretation.
 
 ## Note on Reproducibility

@@ -1,10 +1,10 @@
-# CWEval source reference for RQ1
+# CWEval source reference for RQ
 
-This README is an RQ1-focused excerpt adapted from
+This README is an RQ-focused excerpt adapted from
 [CWEval](https://github.com/Co1lin/CWEval/tree/e9a2a124c8c53679b6d8d27adfd2f6c40e7576d7),
 revision `e9a2a124c8c53679b6d8d27adfd2f6c40e7576d7`.
 
-## Role in RQ1
+## Role in RQ
 
 The supplied C/C++ reference and intentionally unsafe implementations form a
 supplementary diagnostic for the frozen LineVul and VulBERTa checkpoints.
@@ -21,7 +21,7 @@ exclusions, provenance, and tokenizer checks are retained in the
 
 Both models evaluate the same ordered functions. The paired analysis is a small,
 filtered diagnostic; it does not establish a causal effect of LLM authorship.
-See the [consolidated RQ1 findings and CWEval pair analysis](../../../results/findings/rq1_answer.md#cweval-pair-analysis).
+See the [consolidated RQ findings and CWEval pair analysis](../../../results/findings/rq1_answer.md#cweval-pair-analysis).
 
 ## License and citation
 

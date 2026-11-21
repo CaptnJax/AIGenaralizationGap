@@ -21,7 +21,7 @@ The large source datasets and prepared control inputs were organized into the da
 | Prepared BigVul test and Devign train/validation/test JSONL inputs, with their manifest | [datasets/pruned/controls](../../datasets/pruned/controls) |
 | Original 2,000-row BigVul sample and selection record | [datasets/pruned/BigVul](../../datasets/pruned/BigVul) |
 
-Recorded provenance paths retain the development layout. Source READMEs marked as RQ1 excerpts have been pruned for scope; historical documentation hashes refer to the original downloaded versions. Archived scripts and machine-readable evidence remain unchanged.
+Recorded provenance paths retain the development layout. Source READMEs marked as RQ excerpts have been pruned for scope; historical documentation hashes refer to the original downloaded versions. Archived scripts and machine-readable evidence remain unchanged.
 
 ## Reproduction requirements
 

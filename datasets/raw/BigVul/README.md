@@ -1,8 +1,8 @@
 # BigVul source datasets
 
-Start with the [repository Git LFS setup](../../../README.md#start-here).
+Start with the [repository Git LFS setup](../../../README.md#walkthrough).
 `bigvul_test.csv` supplies the full LineVul control; `bigvul_train.csv` and
-`bigvul_valid.csv` support RQ1 overlap checks. Run examples from the repository root.
+`bigvul_valid.csv` support RQ overlap checks. Run examples from the repository root.
 
 The test and validation datasets are stored as CSV files. The training dataset is stored as the lossless [bigvul_train.csv.gz](bigvul_train.csv.gz) archive so its Git LFS object fits within the 2 GiB per-file upload limit. Compression preserves every byte of the original CSV.
 

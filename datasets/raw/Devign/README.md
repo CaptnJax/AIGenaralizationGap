@@ -1,6 +1,6 @@
-# CodeXGLUE Devign data for RQ1
+# CodeXGLUE Devign data for RQ
 
-This is an RQ1-focused guide adapted from the
+This is an RQ-focused guide adapted from the
 [upstream dataset documentation](https://github.com/microsoft/CodeXGLUE/tree/ac74a62802a0dd159b3258c78a2df8ad36cdf2b9/Code-Code/Defect-detection).
 The official Devign test split is the original-dataset control for the frozen
 VulBERTa checkpoint; training and validation splits support overlap checks.

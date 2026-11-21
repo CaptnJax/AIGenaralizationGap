@@ -1,6 +1,6 @@
 # Findings
 
-[rq1_answer.md](rq1_answer.md) is the consolidated report of RQ1 work completed
+[RQ answer](rq1_answer.md) is the consolidated report of RQ work completed
 through October 31, 2026. It contains the final interpretation, original-domain
 controls, detailed baseline metrics and confusion matrices, execution protocol,
 run identities, and CWEval pair results.
@@ -12,7 +12,7 @@ run identities, and CWEval pair results.
 
 To reproduce the reported scores, use the
 [saved-metric verification](../evaluation_runs/README.md#recalculate-the-published-metrics).
-For new model evaluations, follow the [RQ1 runner guide](../../localScripts/README.md).
+For new model evaluations, follow the [RQ runner guide](../../localScripts/README.md).
 
 Saved predictions and machine-readable evidence retain their original contents.
 The captured baseline report remains within the audit evidence for hash

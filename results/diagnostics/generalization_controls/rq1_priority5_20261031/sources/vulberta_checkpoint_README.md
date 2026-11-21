@@ -42,7 +42,7 @@ tags:
 
 # VulBERTa MLP Devign
 
-This is an RQ1-focused excerpt of the [upstream checkpoint card](https://huggingface.co/claudios/VulBERTa-MLP-Devign/blob/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/README.md).
+This is an RQ-focused excerpt of the [upstream checkpoint card](https://huggingface.co/claudios/VulBERTa-MLP-Devign/blob/fecabdee24a3ef6e804d7629d6eed03dc6b4f61e/README.md).
 The benchmark metadata above is retained for checkpoint provenance.
 
 ## VulBERTa: Simplified Source Code Pre-Training for Vulnerability Detection
@@ -52,19 +52,19 @@ The benchmark metadata above is retained for checkpoint provenance.
 ## Overview
 This model is the unofficial HuggingFace version of "[VulBERTa](https://github.com/ICL-ml4csec/VulBERTa/tree/main)" with an MLP classification head, trained on CodeXGlue Devign (C code), by Hazim Hanif & Sergio Maffeis (Imperial College London). I simplified the tokenization process by adding the cleaning (comment removal) step to the tokenizer and added the simplified tokenizer to this model repo as an AutoClass.
 
-## RQ1 evaluation
+## RQ evaluation
 
-RQ1 uses the frozen `claudios/VulBERTa-MLP-Devign` checkpoint at revision
+RQ uses the frozen `claudios/VulBERTa-MLP-Devign` checkpoint at revision
 `fecabdee24a3ef6e804d7629d6eed03dc6b4f61e`. The local runner loads its custom
 tokenizer, applies the authors' explicit cleaning step and the Clang tokenizer
 fix, and uses a 1,024-token input limit, seed 42, and `p(vulnerable) > 0.5`.
 
-Follow the [RQ1 runner instructions](../../../../../localScripts/README.md) for
+Follow the [RQ runner instructions](../../../../../localScripts/README.md) for
 the installed dependencies and evaluation commands. The
 [authors' evaluation notebook](https://github.com/ICL-ml4csec/VulBERTa/blob/main/Evaluation_VulBERTa-MLP.ipynb)
 provides the preprocessing reference. Completed results, including the official
 Devign test control, are summarized in the
-[RQ1 findings](../../../../findings/rq1_answer.md).
+[RQ findings](../../../../findings/rq1_answer.md).
 
 ## Citation
 

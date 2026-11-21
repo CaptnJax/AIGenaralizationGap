@@ -9,7 +9,7 @@ The primary bundle was prepared from `datasets/raw/PrimeVul/primevul_test.jsonl`
 `datasets/raw/PrimeVul/primevul_valid.jsonl`, and
 `datasets/raw/LLMVul/LLMVul_v3-Updated.csv`. Original files are unchanged.
 Use the same frozen checkpoint and decision rule on both test datasets.
-Start with the [RQ1 runner guide](../../localScripts/README.md) for inference.
+Start with the [RQ runner guide](../../localScripts/README.md) for inference.
 
 | Dataset stem | Rows | Vulnerable (1) | Non-vulnerable (0) |
 | --- | ---: | ---: | ---: |
@@ -120,7 +120,7 @@ print('All six primary CSV hashes match.')
 
 Pickle serialization and generated environment metadata may vary with package
 versions; use the CSVs for portable input comparisons. The generated README
-describes the preparation step; this file describes the current RQ1 status.
+describes the preparation step; this file describes the current RQ status.
 
 ## Verification and provenance
 
@@ -132,14 +132,14 @@ records. source_record counts data records starting at 1, excluding headers/titl
 it is not a physical CSV line number because code and messages contain newlines.
 
 Both models have been evaluated on PrimeVul and LLMVul. The
-[October 31, 2026 RQ1 findings](../../results/findings/rq1_answer.md) summarize the
+[October 31, 2026 RQ findings](../../results/findings/rq1_answer.md) summarize the
 completed evaluations and diagnostic analyses: the frozen checkpoints showed
 limited generalization to these external datasets, but the results do not
 establish a performance penalty caused specifically by LLM authorship. F1 scores
 and predictions are available in the
 [saved evaluation runs](../../results/evaluation_runs/README.md), including the
 corrected VulBERTa runs used for the baseline comparison. See the
-[RQ1 reproduction instructions](../../localScripts/README.md) to rerun the primary
+[RQ reproduction instructions](../../localScripts/README.md) to rerun the primary
 evaluations.
 
 Loader references:

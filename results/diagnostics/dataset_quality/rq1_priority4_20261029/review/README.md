@@ -1,4 +1,4 @@
-# RQ1 dataset-quality review artifacts
+# RQ dataset-quality review artifacts
 
 The completed dataset-quality audit generated the selection records, code and
 source-evidence packets, and blank forms in this folder. No completed independent
@@ -19,5 +19,5 @@ was derived from these blank forms. The external authors' 100-case LLMVul review
 is separate source evidence, analyzed in the
 [completed dataset-quality report](../../rq1_priority4_diagnostics.md).
 
-For completed RQ1 results and replication steps, use the
+For completed RQ results and replication steps, use the
 [repository guide](../../../../../README.md).

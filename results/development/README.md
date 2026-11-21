@@ -1,6 +1,6 @@
-# RQ1 development history
+# RQ development history
 
-This folder preserves implementation evidence from the completed RQ1 analyses.
+This folder preserves implementation evidence from the completed RQ analyses.
 Use the [findings](../findings/README.md) for the final interpretation.
 
 | Record | What it documents |

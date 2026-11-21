@@ -1,4 +1,4 @@
-# Reproduce RQ1
+# Reproduce RQ
 
 Run the frozen LineVul and VulBERTa checkpoints on PrimeVul and LLMVul with
 `pivd_local.py`. Begin with the [repository setup](../README.md) to clone the
@@ -27,7 +27,7 @@ and network access. Full CPU evaluations can take hours.
 ## 2. Pin the LineVul implementation
 
 For a fresh checkout, populate the cache with the commit recorded in the saved
-RQ1 runs before evaluating:
+RQ runs before evaluating:
 
 ```powershell
 git clone --no-checkout https://github.com/awsm-research/LineVul.git .\localScripts\.cache\LineVul
@@ -44,7 +44,7 @@ default branch. Its required checkpoint is `12heads_linevul_model.bin`
 VulBERTa is pinned by the runner to revision
 `fecabdee24a3ef6e804d7629d6eed03dc6b4f61e`.
 
-## 3. Extract the prepared RQ1 datasets
+## 3. Extract the prepared RQ datasets
 
 The public archive is in `datasets/pruned/`; the runner expects its
 `prepared_datasets/` directory at the repository root. Extract it once:
@@ -104,14 +104,14 @@ Completed jobs are reused. VulBERTa resumes completed batches; an interrupted
 LineVul job restarts that dataset. Use a new directory after changing data, code,
 packages, device, or batch size. Only one process should use a run directory.
 
-## Supplementary RQ1 work
+## Supplementary RQ work
 
 The four-job alias covers the primary comparison. For the other evidence:
 
 - [CWEval preparation and inference](../datasets/pruned/cweval/README.md#reproduce-and-run).
 - [Recalculate all nine published job metrics](../results/evaluation_runs/README.md#recalculate-the-published-metrics).
 - [Full control and diagnostic requirements](../results/diagnostics/README.md#reproduction-requirements).
-- [Final RQ1 findings](../results/findings/rq1_answer.md).
+- [Final RQ findings](../results/findings/rq1_answer.md).
 
 The diagnostic scripts resolve recorded provenance paths to this public layout.
 Use the diagnostic guide for prerequisites and fresh output directories.

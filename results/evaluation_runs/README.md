@@ -11,7 +11,7 @@ Each dated folder contains one completed invocation of the frozen-model evaluati
 | [20261009_211327_299195](20261009_211327_299195) | VulBERTa on the same PrimeVul and LLMVul datasets after applying the original authors' explicit cleaning step. | Use these two **corrected VulBERTa** rows for the reported comparison. [Summary](20261009_211327_299195/summary.csv) |
 | [20261015_230324_309261](20261015_230324_309261) | Both models on filtered CWEval: 58 functions comprising 29 reference/unsafe pairs. | The supplementary paired diagnostic. [Summary](20261015_230324_309261/summary.csv) |
 
-These selections are the seven baseline jobs documented in the [consolidated RQ1 report](../findings/rq1_answer.md#detailed-classification-results). The later full BigVul/LineVul and Devign/VulBERTa controls are in [diagnostics/generalization_controls](../diagnostics/generalization_controls/rq1_priority5_20261031), with their [report](../diagnostics/generalization_controls/rq1_priority5_diagnostics.md).
+These selections are the seven baseline jobs documented in the [consolidated RQ report](../findings/rq1_answer.md#detailed-classification-results). The later full BigVul/LineVul and Devign/VulBERTa controls are in [diagnostics/generalization_controls](../diagnostics/generalization_controls/rq1_priority5_20261031), with their [report](../diagnostics/generalization_controls/rq1_priority5_diagnostics.md).
 
 ## How to read a run
 

@@ -84,7 +84,7 @@ Pretraining exposure was not exhaustively established.
 Complete the [local environment and pinned-model setup](../../../localScripts/README.md)
 first. Run these PowerShell commands from the repository root. Git LFS files
 must be present, and text files must retain the audited bytes (see the
-[clone instructions](../../../README.md#start-here)).
+[clone instructions](../../../README.md#walkthrough)).
 
 ### Evaluate the delivered cohort
 
