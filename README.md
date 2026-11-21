@@ -1,37 +1,49 @@
-# Reproduce RQ1: vulnerability-detector generalization
+# **Artifact: Cross-Dataset Generalization of Vulnerability Detectors**
 
-This repository documents our completed RQ1 investigation of cross-dataset
-generalization in two transformer-based vulnerability detectors, LineVul and
-VulBERTa. We evaluated their published checkpoints with frozen weights on LLMVul
-(18,751 functions), drawn from AI-attributed open-source commits, and on
-human-written code from PrimeVul (24,788 functions). The full BigVul test set and
-the CodeXGLUE Devign test split served as original-domain controls for LineVul
-and VulBERTa, respectively.
+## Overview
 
-Relative to these controls, LineVul's vulnerable-class F1 fell from 91.42% on
-BigVul to 10.49% on LLMVul, while VulBERTa's fell from 56.99% on Devign to 14.26%
-on LLMVul. Their ROC-AUC scores on LLMVul were 0.597 and 0.553, respectively.
-Both models also performed poorly on PrimeVul, with F1 scores of 10.32% and
-4.55%, respectively, contextualizing the LLMVul results against independently
-collected human-written code.
+This repository documents our investigation of cross-dataset generalization in two transformer-based vulnerability detectors: **LineVul** and **VulBERTa**.
 
-We examined vulnerability prevalence, dataset labeling and construction,
-preprocessing, and overlap with documented training and validation data.
-Matched-cohort comparisons balanced language, function length, and label
-prevalence, with additional comparisons restricted to inputs passing quality
-checks and excluding detected training/validation token matches. Substantial
-performance gaps remained. A supplementary evaluation covered 58 CWEval
-functions in 29 reference/unsafe pairs.
+We evaluated their published checkpoints with frozen weights across four datasets:
 
-These findings show limited cross-dataset generalization for the evaluated
-checkpoints and support evaluating vulnerability detectors on independently
-collected code, including AI-attributed code. Differences in source composition,
-labeling, and commit-level authorship evidence prevent attributing the gap
-specifically to LLM authorship. The [final findings](results/findings/rq1_answer.md)
-and [completed diagnostic analyses](results/diagnostics/README.md) provide the
-supporting results and limitations.
+- **LLMVul (18,751 functions):** Code collected from AI-attributed open-source commits.
+- **PrimeVul (24,788 functions):** Independently collected human-written code.
+- **BigVul:** Original-domain test set for LineVul.
+- **Devign:** Original-domain test split for VulBERTa.
 
-## Start here
+## Key Results
+
+Both detectors experienced substantial performance degradation when evaluated on LLMVul compared with their respective original-domain benchmarks.
+
+| Detector | Original-domain F1 | LLMVul F1 | PrimeVul F1 |
+| -------- | ------------------ | --------- | ----------- |
+| LineVul  | 91.42% (BigVul)     | 10.49%    | 10.32%      |
+| VulBERTa | 56.99% (Devign)     | 14.26%    | 4.55%       |
+
+Their ROC-AUC scores on LLMVul were **0.597 for LineVul** and **0.553 for VulBERTa**, indicating limited ranking performance.
+
+The results on PrimeVul provide a human-written external comparison and help contextualize the generalization gaps observed on LLMVul.
+
+## Diagnostic Analyses
+
+Beyond the primary evaluation, we conducted additional analyses to investigate potential factors affecting detector performance:
+
+- **Matched-cohort evaluation:** Balanced language, function length, and vulnerability-label prevalence across datasets.
+- **Input quality and preprocessing:** Examined input quality and the effects of input truncation.
+- **Training/validation overlap:** Investigated overlap with documented training and validation data, including token-match filtering.
+- **Prevalence analysis:** Examined how differences in vulnerability prevalence affect evaluation metrics.
+- **Calibration analysis:** Assessed the reliability of predicted vulnerability scores.
+- **CWEval paired evaluation:** Examined 58 functions across 29 corresponding reference/unsafe pairs.
+
+Substantial performance gaps remained after the additional comparisons and diagnostic analyses.
+
+## Main Takeaway
+
+The results demonstrate limited cross-dataset generalization for the evaluated pretrained checkpoints. They highlight the importance of evaluating vulnerability detectors on independently collected code, including AI-attributed open-source code, rather than relying solely on established benchmarks.
+
+The [final findings](results/findings/rq1_answer.md) and [completed diagnostic analyses](results/diagnostics/README.md) provide the supporting results and limitations.
+
+## Walkthrough
 
 Install Git with Git LFS. In PowerShell, clone with text conversion disabled so
 the audited dataset and tokenizer bytes retain their recorded hashes:
